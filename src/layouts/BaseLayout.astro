@@ -1,0 +1,76 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = "SmartMoneyLab — finanza personale e analisi quantitativa, senza hype.",
+  ogImage = "/og-default.png",
+  canonical,
+} = Astro.props;
+
+const siteName = "SmartMoneyLab";
+const fullTitle = title === siteName ? title : `${title} — ${siteName}`;
+const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="it" class="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site).toString()} />
+    <meta property="og:locale" content="it_IT" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, Astro.site).toString()} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+
+    <!-- Theme: dark default + no-flash con preferenza salvata -->
+    <script is:inline>
+      (function () {
+        try {
+          const saved = localStorage.getItem("sml-theme");
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = saved ?? (prefersDark ? "dark" : "dark"); // default: dark
+          if (theme === "dark") document.documentElement.classList.add("dark");
+        } catch (_) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-blue-900 focus:px-3 focus:py-2 focus:text-white">Salta al contenuto</a>
+    <Header />
+    <main id="main" class="mx-auto w-full max-w-5xl px-4 py-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------- */
+/* Variabili tema "finance-clean"                                    */
+/* ---------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --bg: 255 255 255;
+  --bg-muted: 248 250 252; /* slate-50 */
+  --fg: 15 23 42; /* slate-900 */
+  --fg-muted: 71 85 105; /* slate-600 */
+  --border: 226 232 240; /* slate-200 */
+  --accent: 30 58 138; /* blue-900 */
+  --accent-hover: 30 64 175; /* blue-800 */
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: 2 6 23; /* slate-950 */
+  --bg-muted: 15 23 42; /* slate-900 */
+  --fg: 241 245 249; /* slate-100 */
+  --fg-muted: 148 163 184; /* slate-400 */
+  --border: 30 41 59; /* slate-800 */
+  --accent: 96 165 250; /* blue-400 */
+  --accent-hover: 147 197 253; /* blue-300 */
+}
+
+html {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-family: theme("fontFamily.sans");
+}
+
+/* Selezione testo */
+::selection {
+  background-color: rgb(var(--accent) / 0.18);
+  color: rgb(var(--fg));
+}
+
+/* Migliora la leggibilità delle tabelle generate da MDX/Markdown */
+.prose table {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.prose table th,
+.prose table td {
+  padding: 0.5rem 0.75rem;
+}
+
+/* Codice inline pulito */
+.prose :where(code):not(pre code) {
+  background-color: rgb(var(--bg-muted));
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+.prose :where(code):not(pre code)::before,
+.prose :where(code):not(pre code)::after {
+  content: "";
+}
+
+/* Riduce la differenza tra titoli e corpo per uno stile editoriale */
+.prose h2 {
+  margin-top: 2.25rem;
+  border-top: 1px solid rgb(var(--border));
+  padding-top: 1.5rem;
+}
+.prose h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}

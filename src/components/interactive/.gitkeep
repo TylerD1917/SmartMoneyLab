@@ -1,0 +1,2 @@
+# Cartella riservata ai componenti interattivi (React/Astro) usati nei post.
+# Convenzione: PascalCase, file .astro (statico) o .jsx (con state, hook, ecc.)

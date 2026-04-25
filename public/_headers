@@ -1,0 +1,15 @@
+# Cloudflare Pages — header rules
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Asset immutabili (con hash nel nome) → cache aggressivo
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/charts/*
+  Cache-Control: public, max-age=86400
+
+# Default: HTML pages → niente cache lunga (revalidate)
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()

@@ -1,0 +1,18 @@
+# Cloudflare Pages configuration for SmartMoneyLab
+# Docs: https://developers.cloudflare.com/pages/functions/wrangler-configuration/
+#
+# Astro è uno static site generator: la build produce in `dist/` HTML/JS/CSS statici
+# che Cloudflare Pages serve direttamente dalla CDN. Niente adapter, niente runtime.
+#
+# Questo file è opzionale per siti puramente statici, ma lo manteniamo per:
+#  - rendere il progetto deployabile via `wrangler pages deploy dist` da CLI
+#  - documentare esplicitamente nome progetto e cartella di output
+#
+# In Cloudflare Dashboard, assicurati che la configurazione del progetto Pages usi:
+#   - Build command:    npm run build
+#   - Build output dir: dist
+#   - Node version:     20 (vedi .nvmrc)
+
+name = "smartmoneylab"
+compatibility_date = "2026-04-01"
+pages_build_output_dir = "dist"

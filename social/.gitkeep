@@ -1,0 +1,4 @@
+# Repurposing social per ogni articolo. Convenzione: social/[slug]/
+#   - x_thread.md             — thread X di 5-7 post (hook, dati, CTA)
+#   - instagram_carousel.md   — testo per 6-8 slide + descrizione visiva
+#   - instagram_caption.md    — caption + hashtag

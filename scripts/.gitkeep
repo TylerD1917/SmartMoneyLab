@@ -1,0 +1,8 @@
+# Simulazioni Python (uno script per articolo: scripts/[slug].py).
+# Output:
+#   - grafici PNG/SVG ad alta risoluzione → public/charts/[slug]/
+#   - eventuali tabelle CSV → public/data/[slug]/  (se rilevante per il post)
+#
+# Stack tipico: pandas, numpy, matplotlib, yfinance.
+# Convenzione: ogni script deve essere riproducibile (seed fissato dove ha senso)
+# e contenere un commento iniziale con: titolo articolo, fonti dati, dipendenze.
