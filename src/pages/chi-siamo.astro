@@ -1,55 +1,135 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Disclaimer from "../components/Disclaimer.astro";
 ---
 <BaseLayout
-  title="Chi siamo"
-  description="Chi c'è dietro SmartMoneyLab, di cosa ci occupiamo e perché."
+  title="Chi sono"
+  description="SmartMoneyLab è un blog di finanza personale e analisi quantitativa scritto da un investitore retail italiano. Niente consulenza, niente promesse: dati, codice e fonti primarie."
 >
   <article class="prose prose-slate mx-auto max-w-3xl dark:prose-invert">
-    <h1>Chi siamo</h1>
+    <h1>Chi sono</h1>
 
     <p class="lead">
-      <em>
-        Pagina in costruzione — il testo definitivo arriverà a breve. Nel frattempo,
-        qui sotto trovi un placeholder che spiega l'intento del progetto.
-      </em>
+      Mi chiamo Tyler. SmartMoneyLab è un blog di finanza personale e analisi
+      quantitativa che scrivo io, da solo. Non sono un consulente finanziario.
+      Non sono un trader professionista. Sono un investitore retail come te,
+      con un'unica differenza: ho deciso di studiare il mercato come se fosse
+      il mio mestiere — pur non essendolo.
     </p>
 
-    <h2>Cosa è SmartMoneyLab</h2>
+    <h2>Cosa scrivo qui</h2>
+
     <p>
-      SmartMoneyLab è un progetto editoriale dedicato alla finanza personale e
-      all'analisi quantitativa accessibile. L'obiettivo è offrire articoli
-      divulgativi rigorosi, simulazioni riproducibili e strumenti interattivi
-      che il lettore possa manipolare per capire come funzionano davvero le
-      strategie di investimento più discusse.
+      L'Italia è arretrata come cultura finanziaria. Lo è in modo tangibile:
+      le poche grandi banche che dominano il risparmio gestito hanno costruito
+      una rete commerciale che vende prodotti, non risposte. Il consulente medio
+      che incontri allo sportello, anche quando è in buona fede, non ha
+      tempo né incentivo a porsi le domande che il risparmiatore dovrebbe
+      potersi porre prima di firmare qualsiasi PIC o PAC.
     </p>
 
-    <h2>Per chi scriviamo</h2>
     <p>
-      L'audience di riferimento è l'investitore retail italiano con conoscenza
-      intermedia: chi capisce cosa sia un ETF, una valutazione P/E o uno Sharpe
-      ratio, ma vuole approfondire con dati, codice aperto e fonti primarie —
-      non con slogan.
+      Domande tipo:
     </p>
 
-    <h2>Cosa promettiamo</h2>
     <ul>
-      <li>Codice e dati riproducibili: ogni grafico ha uno script che lo genera.</li>
-      <li>Fonti primarie linkate: paper, dati ufficiali, prospetti degli ETF.</li>
-      <li>Tono analitico: niente clickbait, niente promesse di rendimento.</li>
+      <li>Quando ha davvero senso detenere obbligazioni in portafoglio?</li>
+      <li>Quanto e come aiuta la diversificazione tra settori? E tra paesi geografici?</li>
+      <li>NASDAQ-100 o S&amp;P 500: quando uno batte l'altro, perché, in quali fasi del ciclo?</li>
+      <li>Ha senso provare a "fare market timing"? Cosa dicono i dati?</li>
+      <li>Quanto pesa davvero la fiscalità italiana sui rendimenti netti di un ETF?</li>
     </ul>
 
-    <h2>Cosa non promettiamo</h2>
+    <p>
+      Sono domande banali finché qualcuno non prova a darci una risposta seria,
+      basata su dati storici e simulazioni riproducibili. Quando ho iniziato a
+      cercare quelle risposte per conto mio — perché stavo per investire i miei
+      risparmi e non mi accontentavo dell'aneddotica — ho dovuto costruirmele
+      da zero. Questo blog è il posto dove le metto in ordine, le pubblico,
+      e le rendo disponibili con il codice che le genera.
+    </p>
+
+    <h2>Cosa troverai</h2>
+
+    <p>Ogni articolo qui è strutturato secondo lo stesso schema:</p>
+
     <ul>
-      <li>Non offriamo consulenza finanziaria personalizzata.</li>
-      <li>Non vendiamo corsi o segnali.</li>
-      <li>Non pubblichiamo "top 10 azioni del 2026".</li>
+      <li>
+        <strong>Una domanda concreta</strong> in apertura, con un TL;DR di poche
+        righe per chi ha fretta.
+      </li>
+      <li>
+        <strong>Una simulazione numerica</strong> in Python (pandas, numpy,
+        yfinance) che produce i grafici e le tabelle che vedi nel post. Lo
+        script è sempre incluso e riproducibile.
+      </li>
+      <li>
+        <strong>Quando ha senso, uno strumento interattivo</strong>
+        (calcolatore, simulatore, backtest) che puoi manipolare per vedere
+        come cambia il risultato al variare dei parametri.
+      </li>
+      <li>
+        <strong>Fonti primarie linkate</strong>: paper accademici, dati
+        ufficiali, prospetti e KIID degli ETF, documenti delle banche centrali.
+        Niente fonti generiche.
+      </li>
     </ul>
 
-    <hr />
-    <p class="text-sm text-slate-500 dark:text-slate-400">
-      <strong>Placeholder:</strong> aggiornerò questa pagina con la versione
-      definitiva (autori, contatti, eventuale informativa privacy/cookie).
+    <h2>Da dove vengo</h2>
+
+    <p>
+      Ho una formazione giuridica, lavoro in un ruolo che con la finanza ha
+      una qualche affinità, e investo capitali miei dal 2022 — anche se i mercati
+      li seguo da molto prima. La finanza quantitativa l'ho avvicinata da
+      autodidatta: pacchetti Python, paper, libri seri (Bogle, Bernstein,
+      Damodaran, Bodie/Kane/Marcus per la teoria), backtest fatti in casa per
+      vedere se quello che leggevo reggeva sui dati storici reali.
     </p>
+
+    <p>
+      Non ho un titolo che certifichi nulla di tutto questo. Non sono iscritto
+      a un albo, non offro consulenza, non vendo segnali, non ho un libro da
+      promuovere. Quello che pubblico qui è il risultato di studio personale
+      verificabile riga per riga: ti chiedo di leggermi con scetticismo
+      costruttivo e, quando posso, ti metto in mano gli strumenti per
+      contestare le mie conclusioni.
+    </p>
+
+    <h2>Perché scrivo sotto pseudonimo</h2>
+
+    <p>
+      Per ragioni professionali preferisco mantenere riservata la mia identità
+      reale, e per questo non troverai sul sito né il mio nome completo né una
+      foto. Non c'è nulla di losco: SmartMoneyLab è un progetto personale
+      portato avanti nel tempo libero, e il mio lavoro principale impone una
+      certa riservatezza su questioni che potrebbero essere fraintese come
+      "consulenza in pubblico". Ho scelto di rispettare quella linea con
+      chiarezza, anziché aggirarla.
+    </p>
+
+    <p>
+      I contenuti, però, sono firmati: ogni grafico ha lo script che lo ha
+      generato, ogni claim ha una fonte primaria linkata, e l'archivio del blog
+      è la mia firma vera.
+    </p>
+
+    <h2>Come contattarmi</h2>
+
+    <p>
+      Se vuoi scrivermi — segnalazione di un errore, suggerimento per un
+      articolo, richiesta di chiarimento — l'indirizzo è
+      <a href="mailto:smartmoneylab@proton.me">smartmoneylab@proton.me</a>.
+      Mi trovi anche su <a href="https://x.com/smartmoneylabIT" rel="me">X</a>
+      e <a href="https://instagram.com/smartmoneylab_it" rel="me">Instagram</a>
+      come <em>@smartmoneylabIT</em> e <em>@smartmoneylab_it</em>
+      rispettivamente.
+    </p>
+
+    <p>
+      Non rispondo a richieste di consulenza personalizzata e non gestisco
+      portafogli per terzi. Per il resto, leggo tutto.
+    </p>
+
+    <Disclaimer />
   </article>
 </BaseLayout>
