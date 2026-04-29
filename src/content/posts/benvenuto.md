@@ -7,7 +7,7 @@ author: "SmartMoneyLab"
 draft: false
 ---
 
-## TL;DR
+## In breve
 
 SmartMoneyLab è un progetto editoriale dedicato a chi vuole capire la finanza personale e l'analisi quantitativa **con rigore**. Niente clickbait, niente hype: solo dati, codice riproducibile e fonti primarie.
 
@@ -21,7 +21,7 @@ SmartMoneyLab è un progetto editoriale dedicato a chi vuole capire la finanza p
 
 Ogni post sul blog segue una struttura ricorrente:
 
-1. **TL;DR** in apertura — l'idea principale in poche righe.
+1. **In breve** in apertura — l'idea principale in poche righe.
 2. Corpo dell'articolo con grafici e tabelle.
 3. Eventuale **componente interattivo** in cui modificare i parametri.
 4. **Codice della simulazione** linkato in fondo (riproducibile localmente).
