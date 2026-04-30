@@ -1,0 +1,61 @@
+---
+// Sistema commenti basato su Giscus (GitHub Discussions).
+// Setup richiesto (lo facciamo una sola volta, vedi README del componente
+// nei commenti dello script qui sotto). Una volta installato non richiede
+// piu' alcun intervento per i nuovi articoli.
+//
+// Tema: rispetta automaticamente la preferenza del browser (light/dark).
+// Per agganciarlo dinamicamente al toggle interno del sito si puo'
+// estendere lo script, ma per ora "preferred_color_scheme" e' sufficiente
+// e coerente nella maggior parte dei casi.
+---
+
+<section
+  id="comments"
+  class="not-prose mt-16 border-t border-slate-200 pt-10 dark:border-slate-800"
+>
+  <h2 class="mb-3 text-xl font-semibold text-slate-900 dark:text-slate-50">
+    Commenti
+  </h2>
+  <p class="mb-6 text-sm text-slate-500 dark:text-slate-400">
+    Hai correzioni, dubbi, segnalazioni? Lasciale qui sotto. Le discussioni sono
+    pubbliche e archiviate sul repo del blog — serve un account GitHub gratuito
+    per commentare. Se preferisci scrivere in privato:
+    <a
+      href="mailto:smartmoneylab@proton.me"
+      class="underline underline-offset-2 hover:text-slate-700 dark:hover:text-slate-200"
+    >smartmoneylab@proton.me</a>.
+  </p>
+
+  <!--
+    SETUP GISCUS — da fare una sola volta:
+    1. Sul repo GitHub `TylerD1917/SmartMoneyLab`:
+       Settings → Features → Discussions: spunta per abilitare.
+    2. Crea una category "Comments" in Discussions (tipo: Announcement),
+       per separarla da eventuali altre discussioni del repo.
+    3. Installa la GitHub App "giscus" sul repo:
+       https://github.com/apps/giscus
+       (concedi l'accesso solo al repo SmartMoneyLab).
+    4. Vai su https://giscus.app, inserisci il repo, scegli la category
+       "Comments", e copia i valori `data-repo-id` e `data-category-id`
+       generati nello snippet.
+    5. Sostituisci i due placeholder qui sotto e fai commit.
+  -->
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="TylerD1917/SmartMoneyLab"
+    data-repo-id="R_kgDOSMY5Pw"
+    data-category="Comments"
+    data-category-id="DIC_kwDOSMY5P84C8CuV"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="it"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
