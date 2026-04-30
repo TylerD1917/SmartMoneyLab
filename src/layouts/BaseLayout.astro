@@ -64,6 +64,14 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
         }
       })();
     </script>
+
+    <!-- Cloudflare Web Analytics (privacy-first, no cookie, no GDPR popup) -->
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "e1598d3ec21f4fb79dbebb87b96983ab"}'
+    ></script>
   </head>
   <body class="min-h-screen bg-white text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-200">
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-blue-900 focus:px-3 focus:py-2 focus:text-white">Salta al contenuto</a>
