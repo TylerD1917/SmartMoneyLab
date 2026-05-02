@@ -77,6 +77,17 @@ DRAWDOWN_TRIGGER = 0.25        # 25% drawdown trigger
 CD_ANNUAL_RATE = 0.02          # 2% lordo annuo fisso
 CD_MONTHLY_RATE = (1 + CD_ANNUAL_RATE) ** (1 / 12) - 1
 
+# Modalita' di calcolo del drawdown al check trimestrale:
+# - "current"     : drawdown end-of-month nel mese del check (default).
+#                   Conservativa: cattura solo crash che persistono fino al
+#                   trimestre del check.
+# - "max_quarter" : drawdown massimo osservato nei 3 mesi precedenti
+#                   al check. Cattura anche crash veloci con rimbalzo
+#                   parziale (es. ottobre-novembre 1987).
+#                   NB: il deploy avviene comunque al prezzo corrente, non
+#                   al prezzo del minimo intra-quarter.
+DD_LOOKBACK_MODE = "current"
+
 # Parametri rolling
 WINDOWS_MONTHS = {"10y": 120, "20y": 240}
 STEP_MONTHS = 3
@@ -196,36 +207,47 @@ def simulate_strategy_B(
     savings_pct: float,
     drawdown_trigger: float,
     cd_monthly_rate: float,
+    dd_lookback_mode: str = "current",
 ) -> SimResult:
     """
     Active Timing: 90/10 normalmente, deploy del cassetto + 100% flusso quando
-    drawdown >= trigger. Il drawdown e' calcolato dal massimo storico
-    end-of-month dell'S&P 500 TR cumulato dall'inizio del periodo.
+    drawdown >= trigger.
 
-    Nota implementativa: il drawdown e' tracciato sul NAV dell'S&P 500 TR
-    (non sul valore del portafoglio dell'investitore), perche' il "minimo di
-    mercato" e' una proprieta' dell'asset, non del singolo conto.
+    `dd_lookback_mode` controlla COSA viene confrontato con la soglia al check:
+      - "current":     drawdown end-of-month nel mese del check (default).
+      - "max_quarter": max(drawdown end-of-month negli ultimi 3 mesi).
+                       Cattura anche crash veloci seguiti da rimbalzo
+                       parziale (es. 1987). Il deploy avviene comunque al
+                       prezzo corrente.
+
+    Il drawdown e' tracciato sul NAV dell'S&P 500 TR (non sul valore del
+    portafoglio dell'investitore), perche' il "minimo di mercato" e' una
+    proprieta' dell'asset.
     """
     sp500_nav = cumulative_nav(returns)
     sp500_dd = drawdown_from_peak(sp500_nav)
 
-    portfolio_eq = 0.0   # quota S&P 500 in USD
-    cassetto = 0.0       # quota CD in USD
+    # Per il lookback "max_quarter" pre-calcolo il drawdown peggiore nei
+    # 3 mesi precedenti (rolling window). All'indice i, il valore e' il
+    # drawdown massimo (piu' negativo) osservato nei mesi i-2, i-1, i.
+    if dd_lookback_mode == "max_quarter":
+        worst_dd_q = sp500_dd.rolling(window=3, min_periods=1).min()
+    else:
+        worst_dd_q = sp500_dd  # equivalente al check "current"
+
+    portfolio_eq = 0.0
+    cassetto = 0.0
     invested = 0.0
     deploys = []
     values = []
 
     for date, r in returns.items():
-        # 1) Capitalizza il portafoglio S&P
         portfolio_eq *= (1 + r)
-        # 2) Capitalizza il cassetto al CD (mensile)
         cassetto *= (1 + cd_monthly_rate)
 
-        # 3) Se siamo a inizio trimestre, decisione di allocazione
         if date.month in (1, 4, 7, 10):
-            current_dd = sp500_dd.loc[date]
-            if current_dd <= -drawdown_trigger:
-                # Drawdown attivato: deploy cassetto + 100% flusso su S&P
+            check_dd = worst_dd_q.loc[date]
+            if check_dd <= -drawdown_trigger:
                 deploy_amount = cassetto
                 cassetto = 0.0
                 portfolio_eq += deploy_amount + quarterly_flow
@@ -233,7 +255,6 @@ def simulate_strategy_B(
                 if deploy_amount > 0:
                     deploys.append((date, deploy_amount))
             else:
-                # Stato normale: 90/10
                 portfolio_eq += quarterly_flow * (1 - savings_pct)
                 cassetto += quarterly_flow * savings_pct
                 invested += quarterly_flow
@@ -268,6 +289,7 @@ def rolling_window_compare(
     savings_pct: float,
     drawdown_trigger: float,
     cd_monthly_rate: float,
+    dd_lookback_mode: str = "current",
 ) -> list[WindowResult]:
     """
     Per ogni finestra rolling: simula entrambe le strategie da zero
@@ -285,7 +307,8 @@ def rolling_window_compare(
         chunk = returns.iloc[i : i + window_months]
         sim_A = simulate_strategy_A(chunk, quarterly_flow)
         sim_B = simulate_strategy_B(
-            chunk, quarterly_flow, savings_pct, drawdown_trigger, cd_monthly_rate
+            chunk, quarterly_flow, savings_pct, drawdown_trigger, cd_monthly_rate,
+            dd_lookback_mode=dd_lookback_mode,
         )
         final_A = float(sim_A.portfolio_value.iloc[-1])
         final_B = float(sim_B.portfolio_value.iloc[-1])
@@ -531,7 +554,9 @@ def main():
         SAVINGS_PCT,
         DRAWDOWN_TRIGGER,
         CD_MONTHLY_RATE,
+        dd_lookback_mode=DD_LOOKBACK_MODE,
     )
+    print(f"  Drawdown lookback mode: {DD_LOOKBACK_MODE}")
     print(f"  Strategy A (Passive)  -> ${sim_A_full.portfolio_value.iloc[-1]:>12,.0f}  "
           f"(invested ${sim_A_full.total_invested:,.0f})")
     print(f"  Strategy B (Timing)   -> ${sim_B_full.portfolio_value.iloc[-1]:>12,.0f}  "
@@ -549,6 +574,7 @@ def main():
         results = rolling_window_compare(
             sp500_tr, win_months, STEP_MONTHS,
             QUARTERLY_FLOW, SAVINGS_PCT, DRAWDOWN_TRIGGER, CD_MONTHLY_RATE,
+            dd_lookback_mode=DD_LOOKBACK_MODE,
         )
         rolling[win_label] = results
         excess_arr = pd.Series([w.excess for w in results])
@@ -595,6 +621,7 @@ def main():
             "cd_annual_rate": CD_ANNUAL_RATE,
             "rolling_step_months": STEP_MONTHS,
             "windows_months": WINDOWS_MONTHS,
+            "dd_lookback_mode": DD_LOOKBACK_MODE,
         },
         "full_sample": {
             "A_passive_final_usd": float(sim_A_full.portfolio_value.iloc[-1]),

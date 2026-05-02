@@ -14,7 +14,8 @@
     "windows_months": {
       "10y": 120,
       "20y": 240
-    }
+    },
+    "dd_lookback_mode": "current"
   },
   "full_sample": {
     "A_passive_final_usd": 9059924.720900403,
