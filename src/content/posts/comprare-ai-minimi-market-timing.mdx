@@ -1,0 +1,220 @@
+---
+title: "È davvero possibile comprare ai minimi? Test di una strategia di timing semplice"
+description: "Una strategia attiva di market timing — 10% accantonato, deploy a -25% di drawdown — confrontata con un PIC passivo trimestrale su 50 anni di S&P 500. Cosa dicono i numeri sull'idea di 'non comprare ai massimi'."
+pubDate: 2026-04-30
+tags: ["market-timing", "PIC", "PAC", "rolling-windows", "backtest", "drawdown"]
+author: "SmartMoneyLab"
+simulationSlug: "comprare-ai-minimi-market-timing"
+draft: false
+---
+
+import MarketTimingSimulator from "../../components/interactive/MarketTimingSimulator.jsx";
+
+## In breve
+
+Confronto tra due strategie di accumulo a flusso trimestrale, su 50 anni di S&P 500 Total Return (gennaio 1976 – dicembre 2025):
+
+- **Strategy A (PIC passivo)**: ogni trimestre 100% del flusso entra subito sull'indice.
+- **Strategy B (timing attivo)**: ogni trimestre 90% sull'indice, 10% accantonato in conto deposito (2% lordo annuo). Quando il drawdown dell'S&P dal massimo storico supera il 25%, il cassetto si svuota e il flusso del trimestre va al 100% sull'indice. Quando il drawdown rientra, ricomincia il pattern 90/10.
+
+Tre risultati centrali:
+
+1. **A 10 anni, la strategia attiva batte la passiva nel 24.8% delle finestre.** Cioè perde 3 volte su 4. A 20 anni va peggio: vince nel **14.9%** delle finestre. Perde 6 volte su 7.
+2. **L'excess medio è strutturalmente negativo**: mediana a 10 anni −4.19%, a 20 anni −2.77%. Cioè mediamente l'investitore "furbo" porta a casa 2-4 punti percentuali di capitale finale in meno rispetto a chi non fa nulla.
+3. **Asimmetria devastante**: nelle finestre 20Y migliori per il timing (95° percentile), il vantaggio è appena +0.38%. Nelle finestre peggiori (5° percentile), la perdita arriva al −8.4%. La strategia ha tutto da perdere e quasi nulla da guadagnare.
+
+C'è anche un dato che disinnesca il framing intuitivo: **in 50 anni il cassetto si è scaricato solo 4 volte** (ottobre 2001, luglio 2002, ottobre 2008, luglio 2010). In 96 trimestri su 100, il "trader furbo" ha semplicemente tenuto soldi parcheggiati al 2% mentre il mercato saliva.
+
+## La domanda
+
+È davvero possibile *comprare ai minimi e non comprare ai massimi*? Esiste una strategia attiva, automatizzabile su parametri semplici, che permette a un retail di battere il classico buy & hold "pigro"?
+
+Lo penso da anni e ho la mia risposta: **no, e l'ho testato troppe volte per illudermi del contrario**. Ma una sensazione, anche fondata, non vale come un dato. Quindi facciamo girare i numeri.
+
+L'angolo che voglio testare è proprio questo: *time the market è quasi impossibile, anche con una strategia meccanica e ragionevole*. Vediamo se 50 anni di dati S&P 500 lo confermano.
+
+## La strategia "del trader pensante"
+
+Mi metto nei panni di un investitore retail con un flusso periodico (lo stipendio, un bonus, qualunque cosa accumuli regolarmente). Ho deciso di investire 1.000 USD ogni trimestre — una cifra arbitraria, irrilevante in termini relativi: i risultati che otterremo sono **scale-invariant**, valgono uguali per chi mette 100 USD o 10.000 USD per trimestre.
+
+**Strategy A — il pigro.** Ogni trimestre prende i suoi 1.000 USD e li mette tutti sull'S&P 500 TR. Senza pensarci. Senza guardare grafici. Buy & hold puro su un PIC trimestrale.
+
+**Strategy B — il pensante.** Ogni trimestre, prima di investire, guarda il mercato. Si chiede: *"Sono ai massimi? Se sì, tengo qualcosa da parte per il prossimo crollo."* Concretamente:
+
+- **Stato normale** (drawdown dell'S&P dal massimo storico < 25%): investe 900 USD sull'indice e mette 100 USD da parte in un conto deposito al 2% lordo annuo. Accumula "munizioni".
+- **Drawdown attivato** (drawdown dell'S&P ≥ 25% dal massimo): svuota tutto il cassetto e investe **tutto** (cassetto + 1.000 USD del trimestre) sull'indice. È il momento del *"compriamo a sconto"*.
+- **Drawdown ancora attivo nel trimestre successivo**: cassetto già vuoto, investe il 100% del flusso del trimestre sull'indice. Continua a comprare a prezzi bassi.
+- **Quando il drawdown rientra sotto il 25%**: torna allo stato normale, riprende l'accantonamento del 10%.
+
+L'idea, dal punto di vista del trader pensante, è elegante: *"in tempi normali metto da parte qualcosa, e quando il mercato crolla compro a sconto col gruzzolo accumulato"*. Sembra ragionevole, sembra prudente, sembra furbo. È il tipo di strategia che hai mentalmente accarezzato, magari hai anche provato qualche volta, e che il tuo amico ingegnere "che capisce un po' di mercati" ti ha proposto.
+
+Vediamo cosa producono 50 anni di dati S&P 500.
+
+## Il metodo
+
+Il setup è coerente con quello stabilito nei [primi due articoli](/posts/ha-senso-obbligazioni-portafoglio) del blog:
+
+- **Periodo**: gennaio 1976 – dicembre 2025 (600 mesi, 50 anni pieni).
+- **Asset**: S&P 500 *Total Return* (con dividendi reinvestiti), serie mensile ricostruita dal dataset Shiller.
+- **Cassetto della Strategy B**: 2% lordo annuo, fisso, capitalizzazione mensile (vedi sotto la nota di onestà sul valore di questa scelta).
+- **Frequenza dei flussi**: trimestrale (4 contributi all'anno = 200 contributi su 50 anni = 200.000 USD totali investiti).
+- **Drawdown di riferimento**: calcolato end-of-month dal massimo storico assoluto dell'S&P 500 TR fino al momento del check.
+- **Confronto in finestre rolling**: 10 anni (120 mesi) e 20 anni (240 mesi), step 3 mesi. Skipo l'orizzonte 5 anni in questo articolo perché qui ci interessa la convergenza di lungo termine, non il rumore di breve.
+- **Metrica chiave**: il **valore finale del portafoglio** dopo N anni di contributi. I flussi esterni sono identici nelle due strategie, quindi è il termine di paragone più pulito (non c'è bisogno di IRR money-weighted o simili artefatti).
+
+Lo script Python che produce tutto è in [`scripts/comprare-ai-minimi-market-timing.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/comprare-ai-minimi-market-timing.py) — riga per riga, riproducibile.
+
+> **Limite onesto sul cambio**: la simulazione è in dollari. L'investitore italiano che compra un ETF S&P 500 (es. CSPX) lo compra in EUR ed è esposto al rischio di cambio EUR/USD. Su orizzonti brevi (1-3 anni) il cambio può effettivamente cambiare il risultato di qualche punto percentuale, in entrambe le direzioni. Su 20 anni di accumulo trimestrale (80 contributi distribuiti nel tempo), invece, il rischio di cambio si **avvicina molto a zero**: ogni contributo è un punto di campionamento del cambio, e su 80 punti distribuiti la media dei tassi di acquisto è statisticamente vicina al cambio "centrale" del periodo. Il cambio EUR/USD ha oscillato tra 0.85 e 1.50 dal 1999, ma non ha trend strutturali permanenti — quindi su orizzonti lunghi si comporta come rumore intorno alla media. La conclusione qualitativa di questo articolo (timing attivo *vs* PIC passivo) è quindi robusta anche per l'investitore EUR. Per orizzonti brevi e per chi vuole essere "perfetto" esiste la versione hedged degli ETF (es. IUSE), ma costa qualche bps di TER in più senza vantaggi su lungo termine.
+
+## Risultati su finestre 10 anni
+
+Iniziamo dall'orizzonte più corto (e più rumoroso). Il grafico dei valori finali assoluti per finestra:
+
+<figure>
+  <img src="/charts/comprare-ai-minimi-market-timing/04_final_values_box.png" alt="Boxplot dei valori finali del portafoglio per Strategy A (passive PIC) e Strategy B (timing attivo), su finestre rolling 10 anni e 20 anni. Ogni finestra simula 10 (o 20) anni di contributi trimestrali da 1.000 USD." />
+  <figcaption>Distribuzione del valore finale del portafoglio per le due strategie, sui due orizzonti. Le distribuzioni si sovrappongono molto — visivamente si direbbero quasi indistinguibili.</figcaption>
+</figure>
+
+Il fatto che le distribuzioni si sovrappongano *quasi* significa che la differenza è piccola. Ma in che direzione? Per capirlo serve la metrica giusta: **l'excess percentuale**, cioè di quanto la Strategy B sovra/sotto-performa la Strategy A in ciascuna delle 161 finestre 10Y disponibili.
+
+<figure>
+  <img src="/charts/comprare-ai-minimi-market-timing/03_excess_distribution.png" alt="Boxplot della distribuzione dell'extra-rendimento percentuale (B - A) / A per le finestre rolling 10 anni e 20 anni. La mediana è chiaramente sotto lo zero in entrambi gli orizzonti." />
+  <figcaption>Distribuzione di <code>(valore finale B − valore finale A) / A</code>. Linea tratteggiata orizzontale = parità (0%). Mediana sopra la linea = la strategia attiva vince mediamente. Mediana sotto = perde.</figcaption>
+</figure>
+
+I numeri esatti per l'orizzonte 10Y (161 finestre):
+
+| Metrica                                | Valore       |
+|----------------------------------------|--------------|
+| **Win rate Strategy B vs A**           | **24.8%**    |
+| Excess % p5 (peggior caso)             | −6.22%       |
+| Excess % p25                           | −5.14%       |
+| **Excess % mediano**                   | **−4.19%**   |
+| Excess % p75                           | −0.05%       |
+| Excess % p95 (miglior caso)            | +1.74%       |
+| Deploy del cassetto medi per finestra  | 0.88         |
+| **% finestre con zero deploy**         | **58.4%**    |
+
+Lettura del dato:
+
+- La strategia attiva **batte la passiva solo nel 24.8% delle finestre**: 40 finestre vincenti su 161. In 121 casi su 161, il "pigro" porta a casa più capitale del "pensante".
+- L'**excess mediano** è −4.19%. Cioè un investitore tipico, in una finestra tipica, finisce con il 4.19% in meno di capitale finale rispetto al PIC passivo.
+- L'**asimmetria** del trade-off è devastante: nei migliori scenari la strategia attiva guadagna al massimo +1.74% (p95). Nei peggiori scenari perde fino a −6.22% (p5). Hai upside risicato e downside reale.
+- **Nel 58% delle finestre 10Y, il cassetto non si è mai aperto.** Cioè in 94 finestre su 161 il drawdown massimo dell'S&P non ha mai toccato il −25%. L'investitore "pensante" ha semplicemente lasciato soldi in conto deposito al 2% per 10 anni, mentre il mercato cresceva del 10% annualizzato. È matematicamente garantito perdere in quei casi.
+
+## Risultati su finestre 20 anni: peggiora
+
+Allungando l'orizzonte a 20 anni, ci si aspetterebbe che la strategia attiva abbia *più* opportunità di "fare l'affare" perché ci sono più probabilità che capiti almeno un crash del 25%. Vediamo:
+
+<figure>
+  <img src="/charts/comprare-ai-minimi-market-timing/02_winrate_bar.png" alt="Bar chart del win rate (% di finestre in cui Strategy B batte Strategy A) per gli orizzonti 10 anni e 20 anni. Il valore scende da 24.8% a 14.9% allungando l'orizzonte." />
+  <figcaption>% di finestre in cui la strategia attiva supera la passiva. Linea tratteggiata = 50% (parità). Più ci si allontana dal 50% verso il basso, più la strategia passiva domina.</figcaption>
+</figure>
+
+Numeri esatti per l'orizzonte 20Y (121 finestre):
+
+| Metrica                                | Valore       |
+|----------------------------------------|--------------|
+| **Win rate Strategy B vs A**           | **14.9%**    |
+| Excess % p5 (peggior caso)             | −8.43%       |
+| Excess % p25                           | −6.76%       |
+| **Excess % mediano**                   | **−2.77%**   |
+| Excess % p75                           | −0.88%       |
+| Excess % p95 (miglior caso)            | +0.38%       |
+| Deploy del cassetto medi per finestra  | 2.35         |
+| % finestre con zero deploy             | 19.8%        |
+
+Risultati ancora peggiori per la strategia attiva:
+
+- **Win rate scende dal 24.8% (10Y) al 14.9% (20Y)**. Allungando l'orizzonte, il timing perde *più spesso*, non meno. È controintuitivo solo se ti aspetti che "più tempo = più crash da cogliere"; in realtà più tempo = più trimestri normali in cui il cassetto sta fermo a basso rendimento mentre il mercato sale.
+- **Excess p95 = +0.38%**. Anche nel miglior 5% delle finestre 20Y, il vantaggio della strategia attiva sulla passiva è praticamente irrisorio. Hai lavorato 20 anni a guardare il mercato per portare a casa, nei migliori scenari, lo 0.38% in più. È meno della cifra che hai pagato in TER all'ETF.
+- **Excess p5 = −8.43%**. Nei peggiori scenari 20Y, perdi il 8.43% di capitale finale.
+- Il numero medio di deploy per finestra 20Y è 2.35 — quindi mediamente nei 20 anni il cassetto si scarica 2-3 volte. Comunque insufficiente a recuperare il rendimento perso negli altri 77 trimestri di accantonamento "morto".
+
+## Perché perde: i 4 deploy in 50 anni
+
+Il dato più rivelatore è nascosto nel summary completo della simulazione: **in 50 anni di dati (200 trimestri), il cassetto si è scaricato 4 volte**. Le date dei deploy sono:
+
+- **Ottobre 2001** (drawdown post dot-com)
+- **Luglio 2002** (secondo deploy nello stesso ribasso, dopo che il drawdown era rientrato e poi ripeggiorato — il cassetto si era nel frattempo riaccumulato)
+- **Ottobre 2008** (Crisi Finanziaria)
+- **Luglio 2010** (deploy isolato di una piccola correzione)
+
+Quattro deploy in 50 anni significa che, statisticamente, **il "trader pensante" ha guadagnato il diritto di comprare a sconto solo nel 2% dei trimestri**. Per il restante 98% dei trimestri ha tenuto soldi parcheggiati al 2% lordo (1.48% netto al 26%) mentre il mercato cresceva mediamente del 10-12% annualizzato. Il costo opportunità è esattamente quello che misuriamo nelle rolling: tre, quattro, fino a sei punti percentuali di capitale finale in meno.
+
+E c'è un dettaglio ulteriore. Dei quattro deploy, due sono caduti nel 2001-2002 e uno nel 2008: tutti **dopo** che il mercato aveva già perso oltre il 25% — ma in nessun caso esattamente al minimo. Nel 2008 il deploy è scattato a ottobre, mentre il minimo vero dell'S&P è stato a marzo 2009. La strategia ha "comprato a sconto", ma non al minimo: ha comprato a metà della discesa, e poi ha visto il mercato scendere di altri 20-25% prima di risalire.
+
+L'idea che con una regola meccanica si possa identificare il bottom è — semplicemente — falsa. Anche se il drawdown del 25% è una soglia "sensata", non c'è modo a priori di sapere se sarà l'ultimo punto basso o solo il primo di una serie. La storia degli ultimi 50 anni mostra che spesso non è l'ultimo.
+
+## Equity curve full-sample: la differenza accumulata in 50 anni
+
+<figure>
+  <img src="/charts/comprare-ai-minimi-market-timing/01_equity_curves_fullperiod.png" alt="Equity curves delle due strategie dal 1976 al 2025: PIC passivo (blu navy) e timing attivo (ambra). Le linee verticali grigie indicano i 4 trimestri in cui Strategy B ha scaricato il cassetto." />
+  <figcaption>Crescita del portafoglio per le due strategie, su 50 anni di accumulo trimestrale a 1.000 USD/trimestre. Linee verticali grigie = deploy del cassetto in Strategy B (ottobre 2001, luglio 2002, ottobre 2008, luglio 2010).</figcaption>
+</figure>
+
+I numeri full-sample (1976-01 → 2025-12, 200.000 USD totali investiti):
+
+| Strategia                  | Valore finale (USD) | vs Total invested |
+|----------------------------|---------------------|-------------------|
+| Strategy A (PIC passivo)   | $9,059,925          | +4,430%           |
+| Strategy B (timing attivo) | $8,326,221          | +4,063%           |
+| **Differenza A − B**       | **+$733,704**       | **+367%**         |
+
+Tradotto: il "trader pensante" che ha tenuto un cassetto pieno di buone intenzioni per 50 anni ha lasciato sul tavolo **733.704 dollari** rispetto a chi non ha fatto nulla — un valore pari a 3.7 volte tutto il capitale investito nel frattempo. È il prezzo di voler essere più furbi del mercato.
+
+## Il simulatore: prova tu
+
+Tutti questi numeri dipendono da tre parametri che ho fissato io: la percentuale di accantonamento (10%), la soglia di drawdown che attiva il deploy (25%), il tasso del cassetto (2% lordo annuo). Cambiandoli, cambia il risultato. **Quanto?** Prova tu.
+
+<MarketTimingSimulator client:visible />
+
+Esperimenti che valgono la pena:
+
+- Prova a portare la **soglia di drawdown** dal 25% al 15% o al 10%. Vedrai più deploy nella storia, ma anche più "falsi allarmi" — il deploy avviene troppo presto, prima del bottom vero, sprecando le munizioni.
+- Prova a portare la **percentuale di accantonamento** al 25-30%. Il cassetto cresce più rapidamente, ma il "costo opportunità" del cassetto inerte cresce in proporzione.
+- Prova a **alzare il tasso del cassetto al 5%**. È la situazione che molti investitori ipotizzano a posteriori ("mettiamo i soldi in un BOT al 4%, capitalizza"). Vedrai che il gap si riduce, ma raramente la strategia attiva supera la passiva. Anche con tassi generosi.
+
+## I due caveat onesti su parametri e cambio
+
+**Sul tasso del 2% lordo del conto deposito**: è un valore *generoso* su un orizzonte di 50 anni. In Italia oggi (fine 2025) un conto deposito vincolato 12 mesi rende mediamente 2-3% lordo, scendendo verso 1.5-2% sui depositi liberi. Negli anni 2010-2020 i tassi sui CD sono stati per lunghi tratti sotto l'1% lordo. Negli anni '80, al contrario, sui CD italiani si potevano vedere rendimenti del 12-15%. Avere usato un fisso al 2% per tutto il periodo significa **sopravvalutare** il cassetto nei decenni 2010-2020 e **sottovalutarlo** negli anni '80.
+
+Il bilancio netto su 50 anni è leggermente sfavorevole alla strategia attiva, perché i drawdown ≥25% del periodo (e quindi i pochi momenti in cui il cassetto si scarica utilmente) sono caduti in larga parte negli anni '80, 2000-2002 e 2008-2010, periodi in cui i tassi reali sono stati superiori al 2%. Quindi se avessimo usato i tassi storici reali, la strategia attiva avrebbe leggermente meno svantaggio sui drawdown grossi. Ma è un effetto di secondo ordine: **la conclusione sulla direzione regge**. Anzi, usare un 2% medio di lungo termine è una scelta benevola verso la strategia attiva — se la strategia perde *anche* con un cassetto mediamente generoso, perde *certamente* con un cassetto realisticamente medio.
+
+**Sul rischio di cambio per l'investitore italiano**: come accennato all'inizio, un investitore in EUR che compra ETF S&P 500 (CSPX, VUAA, SXR8) è esposto al cambio EUR/USD per la quota azionaria. Su orizzonti corti (1-3 anni) il cambio può cambiare il risultato di qualche punto. Ma su 20 anni di **acquisti ricorrenti trimestrali** (80 punti di campionamento del cambio), l'effetto si annulla quasi completamente — è esattamente la logica del DCA applicata al cambio anziché al prezzo dell'asset. La conclusione qualitativa che il timing perde sistematicamente vale anche per chi investe in EUR.
+
+## Quindi: si può comprare ai minimi?
+
+Sui dati reali la risposta è una sola: **no, non in modo affidabile e non con regole meccaniche semplici**. La strategia testata qui è ragionevole, è quella che molti investitori retail elaborano spontaneamente, ed è perdente in 3 finestre 10Y su 4 e in 6 finestre 20Y su 7.
+
+I motivi strutturali sono tre:
+
+1. **I crash veri sono rari**. In 50 anni di mercato, l'S&P 500 ha toccato −25% di drawdown solo poche volte (e a soglie più basse del 25% i "falsi allarmi" diventano molti). Il resto del tempo il cassetto sta fermo, e tenerlo fermo costa.
+2. **Le munizioni accumulate sono piccole**. Il 10% del flusso trimestrale, anche dopo 5-6 anni di accumulo, rappresenta una frazione minuscola del portafoglio totale già investito. Anche un deploy "perfetto" alla soglia giusta sposta poco il valore finale.
+3. **Il timing del deploy è impossibile da azzeccare**. La soglia del 25% può scattare a metà discesa (come nel 2008) o coincidere col bottom (come nel 2002 — quasi). Non c'è modo a priori di sapere quale dei due sarà.
+
+L'argomento intuitivo *"compro un po' a sconto quando il mercato crolla"* sembra furbo, ma confonde la **possibilità** del crash (che effettivamente arriva, prima o poi) con la **frequenza** (che è bassa) e con la **precisione** (che è impossibile). Su 50 anni, il guadagno dei 4 momenti in cui la strategia ha funzionato è stato più che compensato dal costo opportunità dei 196 trimestri normali.
+
+## Takeaway
+
+1. **Il PIC passivo trimestrale batte la strategia attiva nel 75% delle finestre 10Y e nell'85% delle finestre 20Y**. Time the market è quasi impossibile, anche con regole semplici.
+2. **L'asimmetria del trade-off è devastante**: nei migliori scenari il timing batte la passiva di +1.74% (10Y) o +0.38% (20Y). Nei peggiori scenari perde fino al −8.4% (20Y). Hai upside risicato e downside reale.
+3. **Su 50 anni, il cassetto si è scaricato 4 volte**. In 96 trimestri su 100, il "trader pensante" ha tenuto soldi al 2% mentre il mercato saliva. È matematicamente garantito perdere in quei casi.
+4. **I deploy avvengono raramente al minimo**. La soglia del 25% scatta a metà discesa nei crash grandi (2008), non al bottom. La storia mostra che dopo un −25% il mercato spesso scende ancora del 20-25% prima di girare.
+5. **Allungando l'orizzonte la strategia attiva peggiora**, non migliora. Più tempo = più trimestri normali in cui il cassetto sta fermo a basso rendimento.
+6. **Il cassetto al 2% è generoso** rispetto alla media storica reale dei conti deposito italiani. Se il tasso fosse realisticamente più basso (es. 1% medio), la strategia attiva perderebbe ancora di più.
+7. **Il rischio di cambio per l'investitore EUR si annulla** su 20 anni di acquisti ricorrenti — la conclusione qualitativa di questo articolo regge anche per un retail italiano che compra CSPX o simili in EUR.
+
+La cosa che funziona meglio, sui dati, è quella che a tanti sembra banale: **mettere i soldi che entrano sul mercato il prima possibile, ignorare i giornali, e non guardare il portafoglio**. Niente munizioni, niente cassetti, niente "compro al ribasso". È il consiglio meno sexy del mondo. Ed è anche, per ora, quello che storicamente ha funzionato meglio.
+
+---
+
+### Fonti e riproducibilità
+
+- Dati S&P 500 mensili (price + dividendo): [Shiller dataset](http://www.econ.yale.edu/~shiller/data.htm) — file `ie_data.xls`, mirror CSV su [datasets/s-and-p-500](https://github.com/datasets/s-and-p-500).
+- Codice della simulazione: [`scripts/comprare-ai-minimi-market-timing.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/comprare-ai-minimi-market-timing.py) nel repository del blog.
+- Equity curves full-period (CSV): [`/charts/comprare-ai-minimi-market-timing/data.csv`](/charts/comprare-ai-minimi-market-timing/data.csv).
+- Summary numerico completo: [`/charts/comprare-ai-minimi-market-timing/summary.json`](/charts/comprare-ai-minimi-market-timing/summary.json).
+- Letteratura accademica di riferimento: Sharpe, W. F. (1975), *"Likely Gains from Market Timing"*, Financial Analysts Journal — il primo paper che dimostra formalmente quanto un market timer debba essere accurato (per battere il PIC passivo serve indovinare oltre il 70% delle chiamate di acquisto/vendita).
+
+> Nota: questa analisi è limitata all'universo USA in dollari e a una specifica strategia di timing (10% accantonato, deploy a −25%). Strategie diverse (es. trigger su SMA-200, deploy progressivo, soglie multiple) potrebbero produrre risultati leggermente diversi ma — in base alla letteratura accademica — non qualitativamente differenti.
