@@ -1,0 +1,92 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const allTools = await getCollection("tools", ({ data }) => !data.draft);
+const tools = allTools.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = new Intl.DateTimeFormat("it-IT", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+
+const toolTypeLabels: Record<string, string> = {
+  excel: "Excel",
+  "google-sheets": "Google Sheets",
+  calculator: "Calcolatore",
+  dashboard: "Dashboard",
+  "reading-list": "Letture",
+  other: "Strumento",
+};
+---
+<BaseLayout
+  title="Strumenti"
+  description="Strumenti gratuiti per l'investitore indipendente: tracker, calcolatori, dashboard live. Scaricabili e modificabili liberamente."
+>
+  <section class="mb-12">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
+      Strumenti
+    </h1>
+    <p class="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+      Strumenti gratuiti per l'investitore indipendente.
+    </p>
+    <p class="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
+      Tracker, calcolatori, dashboard, liste di letture. Tutto scaricabile e
+      modificabile liberamente. Niente registrazione, niente email richieste.
+    </p>
+  </section>
+
+  <section aria-labelledby="all-tools">
+    <div class="mb-6 flex items-baseline justify-between">
+      <h2 id="all-tools" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        Tutti gli strumenti
+      </h2>
+      <span class="text-xs text-slate-400 dark:text-slate-500">
+        {tools.length} {tools.length === 1 ? "strumento" : "strumenti"}
+      </span>
+    </div>
+
+    {tools.length === 0 ? (
+      <p class="text-slate-500 dark:text-slate-400">
+        Nessuno strumento ancora pubblicato. Stay tuned.
+      </p>
+    ) : (
+      <ul class="divide-y divide-slate-200 dark:divide-slate-800">
+        {tools.map((tool) => {
+          const typeLabel = toolTypeLabels[tool.data.toolType] ?? toolTypeLabels.other;
+          return (
+            <li class="py-5">
+              <a href={`/strumenti/${tool.slug}`} class="group block">
+                <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
+                  <span class="rounded-md bg-blue-900/10 px-1.5 py-0.5 text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
+                    {typeLabel}
+                  </span>
+                  {tool.data.tier === "pro" && (
+                    <span class="rounded-md bg-amber-100 px-1.5 py-0.5 text-amber-900 dark:bg-amber-400/10 dark:text-amber-400">
+                      Pro
+                    </span>
+                  )}
+                  <time datetime={tool.data.pubDate.toISOString()}>
+                    {fmt.format(tool.data.pubDate)}
+                  </time>
+                  {tool.data.tags?.slice(0, 3).map((t) => (
+                    <span>#{t}</span>
+                  ))}
+                </div>
+                <h3 class="mt-1 text-xl font-medium text-slate-900 group-hover:text-blue-900 dark:text-slate-50 dark:group-hover:text-blue-400">
+                  {tool.data.title}
+                </h3>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  {tool.data.description}
+                </p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+</BaseLayout>
