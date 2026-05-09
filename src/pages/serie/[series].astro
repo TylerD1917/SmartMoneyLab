@@ -1,12 +1,30 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { getSeriesMeta } from "../data/series";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SERIES, getSeriesMeta } from "../../data/series";
+
+export async function getStaticPaths() {
+  return Object.keys(SERIES).map((slug) => ({
+    params: { series: slug },
+  }));
+}
+
+const { series } = Astro.params;
+const meta = getSeriesMeta(series);
+if (!meta) {
+  throw new Error(`Series '${series}' not found in registry`);
+}
 
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
-const posts = allPosts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const seriesPosts = allPosts
+  .filter((p) => p.data.series === series)
+  .sort((a, b) => {
+    // Ordina per seriesOrder se presente, altrimenti per pubDate
+    const aOrder = a.data.seriesOrder ?? 999;
+    const bOrder = b.data.seriesOrder ?? 999;
+    if (aOrder !== bOrder) return aOrder - bOrder;
+    return a.data.pubDate.valueOf() - b.data.pubDate.valueOf();
+  });
 
 const fmt = new Intl.DateTimeFormat("it-IT", {
   day: "numeric",
@@ -21,53 +39,51 @@ const verdictMap = {
 } as const;
 ---
 <BaseLayout
-  title="SmartMoneyLab"
-  description="Finanza personale e analisi quantitativa. Articoli, simulazioni e strumenti interattivi per investitori retail con conoscenze intermedie."
+  title={meta.title}
+  description={meta.description}
 >
-  <section class="mb-14 mt-2">
+  <section class="mb-12">
+    <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-900/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
+      Serie
+    </div>
     <h1 class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
-      SmartMoneyLab
+      {meta.title}
     </h1>
-    <p class="mt-3 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-      Finanza personale e analisi quantitativa.
-    </p>
-    <p class="mt-2 max-w-2xl text-sm text-slate-500 dark:text-slate-400">
-      Articoli divulgativi, simulazioni riproducibili e strumenti interattivi per
-      investitori retail con conoscenze intermedie. Niente clickbait, niente promesse
-      di rendimento — solo dati e fonti primarie.
+    <p class="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-300">
+      {meta.description}
     </p>
   </section>
 
-  <section aria-labelledby="latest-posts">
+  <section aria-labelledby="series-posts">
     <div class="mb-6 flex items-baseline justify-between">
-      <h2 id="latest-posts" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-        Ultimi articoli
+      <h2 id="series-posts" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        Articoli della serie
       </h2>
-      <span class="text-xs text-slate-400 dark:text-slate-500">{posts.length} {posts.length === 1 ? "post" : "post"}</span>
+      <span class="text-xs text-slate-400 dark:text-slate-500">
+        {seriesPosts.length} {seriesPosts.length === 1 ? "articolo" : "articoli"}
+      </span>
     </div>
 
-    {posts.length === 0 ? (
-      <p class="text-slate-500 dark:text-slate-400">Nessun articolo pubblicato. Stay tuned.</p>
+    {seriesPosts.length === 0 ? (
+      <p class="text-slate-500 dark:text-slate-400">
+        Nessun articolo della serie ancora pubblicato. Stay tuned.
+      </p>
     ) : (
       <ul class="divide-y divide-slate-200 dark:divide-slate-800">
-        {posts.map((post) => {
-          const seriesMeta = getSeriesMeta(post.data.series);
+        {seriesPosts.map((post) => {
           const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
           return (
             <li class="py-5">
-              <a
-                href={`/posts/${post.slug}`}
-                class="group block"
-              >
+              <a href={`/posts/${post.slug}`} class="group block">
                 <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
+                  {post.data.seriesOrder && (
+                    <span class="font-mono text-slate-400">
+                      #{post.data.seriesOrder}
+                    </span>
+                  )}
                   <time datetime={post.data.pubDate.toISOString()}>
                     {fmt.format(post.data.pubDate)}
                   </time>
-                  {seriesMeta && (
-                    <span class="rounded-md bg-blue-900/10 px-1.5 py-0.5 font-medium text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
-                      Serie · {seriesMeta.shortLabel}
-                    </span>
-                  )}
                   {v && (
                     <span
                       class:list={[
@@ -80,9 +96,6 @@ const verdictMap = {
                       {v.label}
                     </span>
                   )}
-                  {post.data.tags?.slice(0, 2).map((t) => (
-                    <span>#{t}</span>
-                  ))}
                 </div>
                 <h3 class="mt-1 text-xl font-medium text-slate-900 group-hover:text-blue-900 dark:text-slate-50 dark:group-hover:text-blue-400">
                   {post.data.title}

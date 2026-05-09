@@ -15,6 +15,11 @@ const posts = defineCollection({
       draft: z.boolean().default(false),
       // Slug del progetto Python associato (se presente) — corrisponde a scripts/[slug].py
       simulationSlug: z.string().optional(),
+      // Appartenenza a una "serie" tematica trasversale (es. "battere-il-mercato")
+      series: z.string().optional(),
+      seriesOrder: z.number().int().positive().optional(),
+      // Verdict opzionale per articoli-strategia (vince/parziale/non vince)
+      verdict: z.enum(["vince", "parziale", "non-vince"]).optional(),
     }),
 });
 
