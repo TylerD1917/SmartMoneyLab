@@ -1,0 +1,237 @@
+---
+title: "PAC con leva tattica: si possono potenziare i rendimenti senza peggiorare il rischio?"
+description: "Una strategia di PAC che attiva la leva 2x solo nei drawdown. 50 anni di NASDAQ e SP500: il framework 6+1 dice NON VINCE, l'asimmetria del payoff dice il contrario. Due verdetti opposti, una lezione sola."
+pubDate: 2026-05-24
+tags: ["strategie", "leva", "pac", "dca", "nasdaq", "sp500", "drawdown", "rolling-windows", "backtest", "asimmetria"]
+author: "SmartMoneyLab"
+simulationSlug: "pac-leva-tattica"
+series: "battere-il-mercato"
+seriesOrder: 2
+verdict: "parziale"
+draft: false
+---
+
+import PacLevaSimulator from "../../components/interactive/PacLevaSimulator.jsx";
+
+## In breve
+
+Ho testato una strategia di PAC tattica su 50 anni di dati daily (gennaio 1976 – dicembre 2025): **$300 al mese** divisi tra **30% NASDAQ + 70% SP500**, con una regola in più. Ogni volta che si effettua una contribuzione, si calcola il drawdown dai massimi **separatamente** per ciascun indice. Se l'indice ha perso più del 20% dai massimi, la quota di quel mese va su un ETF 2x daily-rebalanced; altrimenti su un 1x. Lo switch è **indipendente** sui due indici e riguarda **solo la nuova contribuzione** — le posizioni 1x già accumulate non si toccano. Quando l'indice torna sui massimi, il switch si disattiva e si torna in 1x.
+
+Benchmark: lo stesso PAC, sempre 30/70 in 1x, nessuno switch. Gli ETF 2x sono sintetici, costruiti con costi realistici calibrati su **due ETF veri** — il ProShares Ultra S&P 500 (SSO, 17.5 anni di storia) e il ProShares Ultra QQQ (QLD, 19.5 anni di storia). Funding cost stimato: 1.85% sul SP500, 2.18% sul NASDAQ.
+
+I tre risultati che reggono l'articolo:
+
+1. **Il framework 6+1 dice NON VINCE su tutte le finestre testate** (15, 20, 25 anni). La tattica batte il benchmark in CAGR e win rate, ma perde sistematicamente su volatilità, Max Drawdown, Sharpe e Sortino. Su 25 anni passa solo 2 criteri su 7.
+2. **L'asimmetria del payoff dice un'altra storia, soprattutto su orizzonti lunghi**. Sulle finestre 25Y, la mediana del rapporto valore-finale-tattica / valore-finale-benchmark è **+8.0%**, il 95° percentile è **+71.7%**, e il 5° percentile è **+0.8%** — cioè anche nel peggior 5% degli scenari storici la tattica *non perde*. Su 25 anni, **il 96% delle finestre rolling** vede la tattica chiudere sopra il benchmark.
+3. **L'effetto si rafforza con l'orizzonte**. A 15 anni la peggior finestra costa il **−7.4%** rispetto al B&H; a 20 anni scende a **−3.9%**; a 25 anni il downside di coda è praticamente azzerato (**+0.8%**). Sul full period 50Y, $180.000 contribuiti diventano **$9.82M con la tattica vs $8.18M con il B&H**: +$1.64M, +20%.
+
+Detto in modo netto: usando le **metriche di rischio puro** (vol, MDD, Sharpe), la strategia è peggiore del buy & hold. Usando le **metriche pratiche del PAC** (valore finale relativo, asimmetria del payoff su orizzonte tipico), la strategia è strutturalmente vincente. **Quale dei due framework è quello giusto dipende da cosa stai effettivamente facendo** — e il punto di questo articolo è proprio mostrare la tensione tra le due letture, non risolverla per te.
+
+## La domanda
+
+Le strategie di "tattica sulla leva" sono ricorrenti nel FinTwit americano. La logica della versione più semplice è questa: se il mercato ha perso il 20% dai massimi, la probabilità che recuperi nei mesi successivi è (storicamente) molto alta. Investire in 2x in quel momento amplifica il rimbalzo. Quando il mercato torna ai massimi, si torna in 1x e si attende il prossimo drawdown. La promessa retorica è "potenziare il rendimento senza prendersi *strutturalmente* più rischio".
+
+Suona bene. È testabile. E come tutte le strategie tattiche, si scontra con due forze:
+
+1. **Il volatility drag intrinseco al 2x daily-rebalanced**. Lo abbiamo misurato nell'[articolo precedente sulla leva](/blog/leva-raddoppia-rendimento-mercato): la leva 2x non produce mai un moltiplicatore 2x effettivo, perde tra il 15 e il 30% del rendimento "lineare ideale" in volatility drag su orizzonti pluridecennali. Più tempo passi in 2x, più paghi.
+2. **I costi reali del prodotto**. Un ETF 2x daily-rebalanced UCITS costa lo 0.60% di TER più un funding cost del prestito implicito (calibrato sui dati ProShares: 1.85% sul SP500, 2.18% sul NASDAQ). Sul 2x si paga ~2.5% all'anno in costi, e si paga **per tutto il tempo in cui si è in 2x**.
+
+La tesi della tattica è che questi costi vengano *più che compensati* dal pickup di rendimento durante i rebound post-crash. Vediamo se è vero, dove è vero, e a che prezzo.
+
+## La strategia
+
+Il piano di accumulo è classico: **$300 al mese**, primo giorno di trading del mese, allocazione fissa **30% NASDAQ Composite + 70% SP500**. Su un orizzonte di 50 anni questo significa 600 contribuzioni totali per un capitale versato di $180.000.
+
+Ad ogni contribuzione applico una regola di switch tattica:
+
+- Calcolo il drawdown corrente del **NASDAQ Composite** dai massimi storici (sulla serie 1x dell'indice, dall'inizio della finestra simulata): se è inferiore al −20%, i $90 destinati alla quota NASDAQ vanno sull'ETF NASDAQ 2x; altrimenti sull'1x.
+- Calcolo separatamente il drawdown del **SP500** dai massimi storici: se è inferiore al −20%, i $210 destinati alla quota SP500 vanno sull'ETF SP500 2x; altrimenti sull'1x.
+
+Lo switch è **indipendente** sui due indici. Può capitare — e capita — che in un certo mese il NASDAQ sia in drawdown >20% mentre l'SP500 no, o viceversa. In quel caso la contribuzione viene splittata mista (es. $90 in NASDAQ 2x + $210 in SP500 1x).
+
+Lo switch riguarda **esclusivamente le nuove contribuzioni**. Le quote di 1x già accumulate nei mesi precedenti rimangono in 1x; le quote di 2x acquistate durante un drawdown precedente rimangono in 2x finché non vendiamo. (In questo modello non si vende mai, è puro accumulo.)
+
+La modalità 2x **persiste** finché il drawdown non viene completamente riassorbito (cioè finché l'indice non torna ai massimi storici). Da quel momento le nuove contribuzioni tornano in 1x. Le quote di 2x già accumulate restano in portafoglio e continuano a maturare in 2x — questo è importante e ci torno sotto.
+
+Il benchmark è ovvio: stesso PAC, stesso split 30/70, sempre 1x. Nessuno switch, mai.
+
+### Quanto tempo si passa effettivamente in 2x
+
+Su 50 anni (1976–2025) la strategia ha indirizzato nuove contribuzioni verso il NASDAQ 2x in **203 mesi su 600 (33.8%)**, e verso il SP500 2x in **73 mesi su 600 (12.2%)**. Il NASDAQ è strutturalmente più volatile e più soggetto a drawdown profondi (dot-com bubble 2000–2002, GFC 2008, COVID 2020, drawdown del 2022): in pratica la quota NASDAQ è stata in 2x un terzo del tempo. La quota SP500 si è attivata molto meno spesso, perché i drawdown ≥20% sull'SP500 sono più rari e brevi.
+
+Sulle finestre rolling la frazione di tempo in 2x cresce con l'orizzonte: dal **30% (NASDAQ) / 15% (SP500) sulle 15Y** al **44% (NASDAQ) / 18% (SP500) sulle 25Y**. Più la finestra è lunga, più crash contiene, più tempo si trascorre in modalità leverage. Ne riparlo nelle conclusioni perché ha un'implicazione concettuale importante: nel limite asintotico, una "tattica sui drawdown" tende a sovrapporsi a una **strategia 2x semi-strutturale**.
+
+## Gli ETF 2x sintetici: calibrazione su dati reali
+
+Come nell'articolo precedente sulla leva, gli ETF a leva sono **sintetici**: applico il rendimento daily moltiplicato per 2 al sottostante e sottraggo un drag annualizzato (TER + funding) suddiviso sui 252 giorni di trading. Questo cattura automaticamente il volatility drag (proprietà intrinseca del compounding daily) e simula in modo coerente cosa avrebbe fatto un ETF 2x se fosse esistito dal 1976.
+
+Per **calibrare i costi reali** confronto due ETF veri con la loro versione sintetica costruita matematicamente:
+
+| Indice | ETF reale | Periodo calibrazione | Drag totale empirico | TER ETF | Funding cost stimato |
+|---|---|---|---|---|---|
+| SP500 | ProShares SSO | 2006-06-21 → 2023-12-29 (17.5 anni) | 2.74%/anno | 0.89% | **+1.85%/anno** |
+| NASDAQ | ProShares QLD | 2006-06-22 → 2025-12-30 (19.5 anni) | 2.18%/anno (residuo post-TER) | 0.95% | **+2.18%/anno** |
+
+Il funding cost del NASDAQ esce 33 punti base più alto di quello del SP500. È coerente con il fatto che il Nasdaq-100 ha volatilità più elevata e gli swap dealer prezzano un premio sul prestito implicito. Una cross-check utile: i due funding cost dovrebbero essere simili perché il mercato del funding overnight (storicamente LIBOR, oggi SOFR) è lo stesso per i due asset. La differenza di 33 bps è piccola, plausibile, e dice che la calibrazione è internamente coerente.
+
+Per la simulazione applico i drag della **versione UCITS** (che è quella che il retail italiano può effettivamente comprare in EUR su Borsa Italiana): TER 0.60% per entrambi i prodotti, più il funding cost calibrato. Risultato:
+
+- **SP500 2x UCITS**: 0.60% TER + 1.85% funding = **2.45%/anno** di drag
+- **NASDAQ 2x UCITS**: 0.60% TER + 2.18% funding = **2.78%/anno** di drag
+
+Questi drag vengono applicati **per ogni giorno in cui si possiede l'ETF 2x**. Su una quota tenuta 5 anni in 2x, l'erosione cumulata dei costi è circa il **−13% sul SP500 2x** e **−14% sul NASDAQ 2x** rispetto alla versione "matematicamente pura" senza costi. La tattica deve raccogliere abbastanza pickup dal rimbalzo post-crash per superare questa soglia.
+
+## Primo verdetto: il framework SmartMoneyLab 6+1
+
+Applico il framework 6+1 fissato nell'[articolo introduttivo della serie](/blog/energia-tech-batte-mercato), su finestre rolling di 15, 20 e 25 anni con step di 3 mesi.
+
+| # | Criterio | 15Y (141 finestre) | 20Y (121 finestre) | 25Y (101 finestre) |
+|---|---|---|---|---|
+| 1 | **CAGR mediano** ≥ B&H | 13.49% vs 11.34% (+2.14pp) **OK** | 11.61% vs 10.27% (+1.34pp) **OK** | 10.74% vs 9.31% (+1.43pp) **OK** |
+| 2 | **Win rate** ≥ 60% | 84.4% **OK** | 85.1% **OK** | **96.0%** **OK** |
+| 3 | **Vol** ≤ B&H × 1.10 | 23.34% vs 18.43% (+27%) NO | 25.08% vs 19.77% (+27%) NO | 25.75% vs 19.37% (+33%) NO |
+| 4 | **\|MDD\|** ≤ \|B&H\| × 1.10 | −65.4% vs −55.1% NO | −74.8% vs −60.3% NO | −80.6% vs −60.8% NO |
+| 5 | **Sharpe** ≥ B&H | 0.492 vs 0.507 NO | 0.383 vs 0.418 NO | 0.339 vs 0.377 NO |
+| 6 | **Calmar** ≥ B&H | 0.206 vs 0.206 **OK** | 0.155 vs 0.170 NO | 0.133 vs 0.153 NO |
+| 7 | **Sortino** ≥ B&H | 0.631 vs 0.637 NO | 0.476 vs 0.542 NO | 0.433 vs 0.493 NO |
+| | **Verdict** | **NON VINCE (3/7)** | **NON VINCE (2/7)** | **NON VINCE (2/7)** |
+
+Il verdict letto in modo asciutto è chiaro: la strategia **batte il benchmark sul rendimento** (CAGR mediano sopra di 1.3-2.1 punti percentuali, win rate >84%) ma **paga questo pickup con il 27-33% in più di volatilità e drawdown del 10-20% peggiori in valore assoluto**. Sharpe e Sortino — che misurano l'efficienza del rendimento per unità di rischio — risultano leggermente inferiori al benchmark. Calmar idem, eccetto sulla finestra 15Y dove è in sostanziale pareggio.
+
+Se ci si ferma qui, la conclusione del framework 6+1 è che la tattica **non è "battere il mercato"**: sta semplicemente *amplificando* sia il rendimento sia il rischio in modo proporzionato. Una versione più cara e meno efficiente dell'esposizione a equity. Verdict: NON VINCE.
+
+E sarebbe la fine dell'articolo. Tranne che c'è un problema con questo framework, e il problema è specifico al fatto che stiamo guardando un PAC, non un buy & hold lump-sum.
+
+## Il problema del Max Drawdown nei PAC
+
+Il framework 6+1 nasce nel primo articolo della serie per giudicare strategie buy & hold lump-sum: depositi 100k in t=0 e lo lasci lavorare. Su quel tipo di portafoglio, **il Max Drawdown misurato come percentuale del valore portafoglio è una metrica fedele del rischio reale**: se hai $1M investiti e ne perdi il −50%, perdi $500k veri. Quei $500k sono soldi che ti possono cambiare la vita.
+
+Su un **PAC**, la stessa metrica si comporta in modo molto diverso. Il valore portafoglio è piccolo all'inizio (ai primi mesi vale poche centinaia di dollari) e cresce lentamente per anni prima di diventare grande in $$$ assoluti. Quasi sempre il Max Drawdown percentuale di un PAC viene determinato dai **primi 3-5 anni** della simulazione, quando il portafoglio è ancora a 4 cifre. Un −50% in quel periodo è −2-5k assoluti. Lo stesso −50% applicato sul valore portafoglio a fine corsa (10y+) sarebbe centinaia di migliaia di dollari, ma quasi mai *quello* è il drawdown massimo registrato — perché in valore percentuale i drawdown più severi tendono a verificarsi all'inizio, quando ogni crash colpisce un portafoglio non ancora "ammortizzato" dalla crescita composta.
+
+Quindi quando la tabella sopra dice "MDD tattica −81% vs B&H −61% su 25Y", quel −81% **non significa "ti sei svegliato un giorno con $810k in meno dei $1M di ieri"**. Significa molto più probabilmente "nei primi 3-4 anni della simulazione il tuo portafoglio è sceso a un terzo del valore", quando però quel portafoglio era $3k e non $3M.
+
+È una sottigliezza che il framework 6+1 non distingue. E non è scorretto bocciare la tattica per quel −81%: significa pur sempre che lo stomaco serve. Ma è scorretto interpretarlo come "il rischio in $$$ veri è il 30% più alto". Il rischio in $$$ veri di un PAC si misura su **altre metriche**.
+
+## Secondo verdetto: l'asimmetria del payoff
+
+Quella metrica esiste, ed è la cosa che il PAC consente di misurare in modo pulito: il **rapporto tra valore finale della tattica e valore finale del benchmark** su ciascuna finestra rolling. È una metrica di soldi-in-tasca: alla fine della finestra, *quanti $$$ in più o in meno avrei rispetto al PAC passivo?*
+
+Su 50 anni di backtest la distribuzione di questo rapporto è asimmetrica in modo notevole — e l'asimmetria si rafforza con l'orizzonte. Ecco i percentili:
+
+| Finestra | Shortfall p5 | Mediana p50 | Upside p95 | Win rate |
+|---|---|---|---|---|
+| **15 anni** | **−7.4%** | +6.8% | **+35.0%** | 84.4% |
+| **20 anni** | **−3.9%** | +12.4% | **+47.5%** | 85.1% |
+| **25 anni** | **+0.8%** | +8.0% | **+71.7%** | **96.0%** |
+
+Lettura: nel 5% peggior caso sulle finestre **15Y** la tattica chiude il −7.4% sotto il benchmark. Nel 5% migliore, +35.0% sopra. Mediana +6.8%. Quattro volte su cinque chiude sopra.
+
+Sulle finestre **20Y** il quadro migliora: il downside di coda si dimezza (−3.9%), la mediana sale a +12.4%, l'upside di coda arriva a +47.5%.
+
+Sulle finestre **25Y** succede una cosa interessante: **il downside di coda sparisce**. Il 5° percentile della distribuzione è **+0.8%** — cioè nel peggior 5% degli scenari storici la tattica **non perde**, semplicemente fa marginalmente meglio del benchmark. La mediana è +8.0%, ma è il **95° percentile a +71.7%** a raccontare la storia: nei migliori scenari, il PAC tattico chiude con il **72% di capitale in più** del benchmark sullo stesso flusso di contributi.
+
+E il win rate: **96%**. Su 101 finestre rolling 25Y indipendenti (ognuna spaziata di 3 mesi dalla precedente), la tattica ha battuto il benchmark in 97. Le altre 4 hanno chiuso in sostanziale pareggio. Non c'è una sola finestra 25Y nella storia 1976–2025 in cui il PAC tattico abbia perso in modo significativo rispetto al passivo.
+
+### CAGR a confronto, percentili per finestra
+
+Per chiudere il cerchio sul "quanto rende davvero" la tattica rispetto al passivo, ecco i CAGR (annualizzati, money-weighted via IRR) ai percentili principali della distribuzione rolling, con la differenza in punti percentuali (pp) sulla terza riga di ciascuna tabella.
+
+**Finestre 15 anni** — 141 osservazioni indipendenti, spaziate 3 mesi:
+
+| CAGR | p5 | p25 | p50 | p75 | p95 |
+|---|---|---|---|---|---|
+| Tattica | +2.22% | +9.16% | +13.49% | +15.27% | +20.55% |
+| Buy & Hold | +3.22% | +8.66% | +11.34% | +14.53% | +18.33% |
+| **Δ (T − B&H)** | **−0.99 pp** | **+0.15 pp** | **+0.80 pp** | **+2.11 pp** | **+3.39 pp** |
+
+**Finestre 20 anni** — 121 osservazioni:
+
+| CAGR | p5 | p25 | p50 | p75 | p95 |
+|---|---|---|---|---|---|
+| Tattica | +5.61% | +8.72% | +11.61% | +15.34% | +19.20% |
+| Buy & Hold | +5.95% | +7.82% | +10.27% | +12.88% | +17.52% |
+| **Δ (T − B&H)** | **−0.35 pp** | **+0.52 pp** | **+0.97 pp** | **+2.05 pp** | **+3.19 pp** |
+
+**Finestre 25 anni** — 101 osservazioni:
+
+| CAGR | p5 | p25 | p50 | p75 | p95 |
+|---|---|---|---|---|---|
+| Tattica | +7.57% | +8.85% | +10.74% | +12.47% | +15.05% |
+| Buy & Hold | +7.36% | +8.33% | +9.31% | +11.39% | +13.28% |
+| **Δ (T − B&H)** | **+0.05 pp** | **+0.32 pp** | **+0.49 pp** | **+1.43 pp** | **+3.38 pp** |
+
+Tre cose da notare leggendole insieme:
+
+- **Da p25 in su, la tattica produce un CAGR superiore al benchmark in tutte e tre le finestre**. Su 25 anni l'extra-rendimento mediano è di mezzo punto percentuale annuo, l'extra del p95 è oltre +3 pp/anno. Su un PAC pluri-decennale, mezzo punto di CAGR composto diventa una frazione enorme del capitale finale.
+- **La coda negativa si concentra sulle finestre brevi**. Solo nel 5° percentile delle 15Y e (marginalmente) delle 20Y la tattica chiude sotto il passivo, e di poco — ~1 pp di CAGR sulle 15Y, ~0.3 pp sulle 20Y.
+- **Su 25 anni la coda negativa scompare**. Il 5° percentile della differenza è **+0.05 pp**: praticamente zero. Significa che nel peggior 5% degli scenari storici della finestra 25Y, la tattica ha *pareggiato* il benchmark — non lo ha mai battuto sotto in modo significativo. Sotto p25 il delta è piccolo (~+0.3 pp), sopra p75 diventa sostanzioso (+1.4 a +3.4 pp).
+
+Il payoff è quindi **asimmetrico in modo strutturale e favorevole all'investitore tattico**, e l'asimmetria si amplifica con l'orizzonte. Nelle 15Y c'è una vera coda di "perdita relativa"; nelle 25Y quella coda si è chiusa storicamente.
+
+## Perché l'asimmetria si rafforza con l'orizzonte
+
+L'effetto è guidato da due meccanismi che si rinforzano a vicenda.
+
+**Primo**: più la finestra è lunga, più crash contiene. Sui 15 anni una finestra può accidentalmente "centrare" un periodo senza grandi drawdown (es. 1995–2010 catturerebbe la dot-com ma molte finestre più strette di 15Y mancano i bear market). Sulle 25Y questo non succede mai: nel periodo storico 1976–2025 ogni finestra 25Y attraversa **almeno due bear market severi**, spesso tre o quattro. Più drawdown = più occasioni per la tattica di entrare in 2x al momento giusto e raccogliere il rebound.
+
+**Secondo**: le quote in 2x acquistate durante un drawdown **non vengono mai vendute**. Restano in portafoglio e continuano a maturare in 2x anche dopo che la modalità tattica si è spenta (cioè quando le *nuove* contribuzioni tornano in 1x). Su orizzonti lunghi questo crea un compounding leggero ma persistente: ogni crash lascia "depositata" in portafoglio una quota di 2x che continua a generare alpha-da-leva nei bull market successivi. Più tempo passa, più questa quota di 2x storica si è accumulata e ha avuto tempo di compoundare.
+
+In altre parole: il **costo della tattica è front-loaded** (il drag dei costi e la maggiore volatilità si pagano subito, ad ogni mese in 2x), ma il **beneficio è back-loaded** (le quote di 2x maturate composte si accumulano nel tempo). Se l'orizzonte è breve, paghi i costi e raccogli poco beneficio. Se l'orizzonte è lungo, il beneficio composto sovrasta il costo.
+
+Il PAC tipico — quello con cui un ventenne italiano costruisce il proprio capitale pensionistico, o quello con cui un quarantenne accumula durante la fase produttiva della vita — ha esattamente l'orizzonte (20-30 anni) in cui questo effetto opera al massimo. È il caso d'uso *naturale* della strategia.
+
+## Quando la tattica non funziona
+
+Ci sono due categorie di scenari storici in cui la tattica fa peggio del benchmark.
+
+**Scenari "bull continuo"**. Periodi storici in cui non ci sono mai stati drawdown ≥20% per più di pochi giorni. Ne esistono pochi davvero, ma il **1995–2000** è il caso più visibile: l'SP500 non ha mai toccato il −20% dai massimi per 5 anni interi (ha avuto due correzioni a −19% nel 1997 e 1998, mai sotto i −20%). In quegli anni la tattica si attiva pochissimo sui SP500 e molto poco sul NASDAQ. Il pickup di rebound non c'è perché non c'è il crash, ma il drag dei costi si paga ogni volta che si entra in 2x — e quando si esce a un drawdown del 19.5% poco prima della soglia, ci si è esposti al rischio aggiuntivo senza raccogliere il rebound. Le finestre 15Y che includono solo questo regime mostrano la tattica leggermente sotto il benchmark.
+
+**Scenari "crash terminale"**. Se la finestra finisce a ridosso di un crash profondo prima che il rebound si materializzi (es. una finestra 15Y che si chiude esattamente a fine 2008 o a fine 2022), la tattica si trova caricata di 2x al momento sbagliato: ha accumulato esposizione 2x durante un drawdown che però non ha avuto tempo di rimbalzare prima della chiusura della finestra. Sono finestre rare ma esistono, e contribuiscono al 5° percentile negativo sulle 15Y.
+
+Entrambi gli scenari si attenuano sull'orizzonte lungo: i bull continui più lunghi della storia sono ~5-8 anni, su 25Y vengono diluiti. I crash terminali idem: anche se la finestra finisce su un crash, una finestra 25Y ne ha attraversati altri 2-3 prima e ha accumulato abbastanza pickup composto da assorbire il colpo finale.
+
+## Esplora i parametri
+
+Tutto quello descritto sopra è valido per la mia configurazione di default — soglia drawdown −20% e $300/mese (= $3.600/anno) — e per il periodo 1976–2025. Il simulatore qui sotto ricalcola la strategia daccapo ogni volta che muovi uno slider: cambia la soglia di drawdown che attiva la leva oppure la cifra che versi ogni anno, e osserva come variano valore finale e differenza rispetto al buy & hold sui 50 anni completi.
+
+Una cosa importante che salta all'occhio giocandoci: **abbassare la soglia migliora drasticamente il valore finale sul periodo pieno**. A −10% il vantaggio sul B&H sale oltre il +130%, a −5% supera il +300%. La tentazione di scegliere la soglia più bassa è fortissima. È un classico caso in cui guardare solo il valore finale del backtest è ingannevole: queste soglie aggressive significano stare in leva la metà o più del tempo, e fanno esplodere vol/MDD/Sharpe nel framework 6+1 sulle rolling windows. Sul full period 50Y il compounding maschera il rischio, ma su finestre 15-20 anni — quelle che un PAC reale attraversa — il profilo si deteriora rapidamente. La soglia −20% scelta nell'articolo non è il punto di massimo payoff: è il compromesso tra premio asimmetrico e tenuta del profilo di rischio.
+
+<PacLevaSimulator client:visible />
+
+## Cosa porto a casa
+
+**Primo: il framework 6+1 è severo per design, e ha ragione su questa strategia tecnica**. La tattica produce CAGR migliore, ma a costo di volatilità più alta, drawdown peggiori, Sharpe e Sortino marginalmente inferiori. Letta come "strategia per battere il mercato" nel senso stretto del framework, **non vince**. Chi cerca una strategia che migliori il rapporto rendimento-rischio rispetto al passivo, qui non lo trova.
+
+**Secondo: il PAC misurato sul payoff finale racconta un'altra storia**. Su 50 anni di backtest, su orizzonti tipici (20-30 anni) e con regole semplici (drawdown 20%, switch indipendente sui due indici, solo nuove contribuzioni), la tattica produce un'asimmetria strutturalmente favorevole: poco da perdere nel peggior caso, molto da guadagnare nel migliore, mediana sempre positiva, win rate 85-96%. Sul valore finale del PAC su 25 anni, **la tattica batte il benchmark nel 96% degli scenari storici, con downside di coda virtualmente nullo**. Per qualcuno che sta accumulando capitale a lungo termine e si misura sul "quanti soldi ho alla fine", questi sono numeri molto difficili da ignorare.
+
+**Terzo: i due verdetti convivono perché misurano cose diverse**. Il framework 6+1 misura il rischio puro lungo il percorso. L'asimmetria del payoff misura il rendimento relativo all'arrivo. Sono entrambe metriche legittime, e quale conta di più dipende da chi sei e cosa stai facendo. Se sei un investitore a leva attivo che gestisce il drawdown emotivamente, il framework 6+1 conta tantissimo — il −80% di MDD percentuale ti farà capitolare prima del rebound. Se sei un investitore PAC che imposta i versamenti automatici e non guarda il conto per 20 anni, conta molto di più l'asimmetria del payoff — il MDD percentuale lo subisce il tuo broker, non tu emotivamente, e quello che conta è la cifra a fine corsa.
+
+L'errore — quello che il FinTwit fa abitualmente — è prendere uno dei due framework e dichiararlo "il giusto" per tutti. Non è così.
+
+## Una nota concettuale sulla "tattica"
+
+Un dato finale che vale la pena far notare: la frazione di tempo che la strategia passa in 2x **cresce con l'orizzonte**. Su 15 anni la quota NASDAQ è in 2x il 30% del tempo; su 25 anni il 44%. Sul full period 50Y, il 33.8%.
+
+Se estendessimo l'orizzonte ulteriormente, la frazione di tempo in 2x si stabilizzerebbe asintoticamente intorno a un valore che dipende dalla frequenza storica dei drawdown ≥20% e dalla loro durata media. Per il NASDAQ è probabile che si attesti tra il 40 e il 50%. Significa che, su orizzonti molto lunghi, la "leva tattica" non è una strategia *parsimoniosa* — è una strategia che passa **circa la metà del tempo in leverage**. La narrativa "uso la leva solo quando serve" è in parte fuorviante: la leva si attiva spesso, ed è proprio per questo che produce il pickup di rendimento osservato. Non è un free lunch e non è un intervento chirurgico: è un'esposizione semi-strutturale al 2x condizionata ai drawdown.
+
+Questo è un punto che vale anche guardando il grafico della switch history sull'intero periodo 1976–2025: i mesi in 2x non sono distribuiti uniformemente. Si concentrano in finestre lunghe (1981-1982, 2001-2003 doppio crash dot-com, 2008-2009 GFC, 2022 inflation reset) durante le quali la tattica può passare *anni* interi in 2x prima che l'indice torni ai massimi. Chi adotta questa strategia deve essere consapevole che il "ritorno alla normalità 1x" può non essere imminente: nel caso del NASDAQ post-dot-com il Composite è tornato sopra il massimo del marzo 2000 solo nel 2015, e la strategia ha mantenuto contribuzioni in 2x per la maggior parte di quel periodo.
+
+## Note metodologiche
+
+**Periodo**: 5 gennaio 1976 – 30 dicembre 2025. 12.603 giorni di trading. Dati daily ^GSPC via Yahoo Finance per l'SP500, NASDAQ Composite (NASDAQCOM) da FRED per il NASDAQ.
+
+**Total Return vs Price-only**. L'SP500 è in Total Return ricostruito con dividendi Shiller (approssimazione standard: dividendo annualizzato distribuito uniformemente sui 252 giorni di trading). Il NASDAQ è in **price-only**: il Composite è un indice di prezzo, e per il sottoperiodo 1976–1999 non esistono serie TR pulite del Composite. Il dividend yield storico del Composite è ~1% all'anno (vs ~2% dell'SP500). Questa asimmetria di trattamento penalizza la quota NASDAQ in modo uniforme nella tattica e nel benchmark, **quindi non distorce il confronto strategia-vs-benchmark**, che è il focus dell'articolo. Distorce solo i CAGR assoluti, riducendoli di circa 30 bps annui sulla quota NASDAQ (~10 bps a livello di portafoglio 30/70). Lo dichiariamo per onestà metodologica.
+
+**Calibrazione 2x**. Drag totale degli ETF 2x sintetici calibrato empiricamente sui prezzi giornalieri di SSO (ProShares Ultra S&P 500, 2006-06-21 → 2023-12-29) e QLD (ProShares Ultra QQQ, 2006-06-22 → 2025-12-30). Decomposizione TER + funding cost: SP500 funding 1.85%/anno, NASDAQ funding 2.18%/anno. Drag applicato alla simulazione: versione UCITS (TER 0.60% + funding) = 2.45%/anno SP500, 2.78%/anno NASDAQ.
+
+**Rolling windows**. 15, 20 e 25 anni con step di 3 mesi. CAGR money-weighted (IRR sui flussi mensili). Volatilità annualizzata dai rendimenti daily del valore portafoglio. Max Drawdown sulla serie daily del valore portafoglio. Sharpe e Sortino con risk-free 2% annuo costante (proxy storica T-bill 3M sul lungo periodo).
+
+**Drawdown reference**. I drawdown che attivano lo switch sono calcolati sull'indice 1x dell'asset corrispondente, dai massimi raggiunti **dall'inizio della finestra simulata** (non dai massimi assoluti del 1976). Ogni finestra rolling è auto-contenuta e vede solo il proprio passato — non c'è look-ahead.
+
+**Cosa NON c'è in questo modello**. Tasse (sia sul rebalancing di switch sia sui dividendi reinvestiti), bid-ask spread sull'esecuzione mensile, slippage, costi di transazione del broker. Sono tutti trascurabili a livello di PAC mensile retail in EUR su Borsa Italiana (TER UCITS già nel drag, esecuzione single-trade trascurabile). Le tasse sulla rendita finale sarebbero ovviamente rilevanti ma si applicano in modo equivalente a tattica e benchmark, quindi non spostano il rapporto strat/bench.
+
+**Reproducibilità**. Lo script Python completo è in `scripts/pac-leva-tattica.py` del repo. Tutti i grafici e il summary.json di questo articolo sono generati da quello script in modo deterministico.
+
+## Disclaimer
+
+Questo articolo non è consulenza finanziaria, fiscale o di investimento. È un esercizio di analisi quantitativa basato su dati storici: i rendimenti passati non sono indicativi dei rendimenti futuri. Gli ETF a leva 2x daily-rebalanced sono prodotti complessi con un profilo di rischio elevato, soggetti a volatility drag, possibile assorbimento totale del capitale in scenari estremi (es. crash daily ≥−50%), e non sono adatti a tutti gli investitori. Prima di adottare qualsiasi strategia che preveda l'uso di leva, consulta un consulente finanziario qualificato e leggi con attenzione il KID dello strumento. Le simulazioni di questo articolo non considerano la fiscalità italiana sui proventi degli ETF e sui capital gain, che è materialmente rilevante e va valutata caso per caso.
