@@ -1,0 +1,230 @@
+---
+title: "Conviene un prestito per investire al posto del PAC? La risposta nei dati"
+description: "Se hai un cash flow di $250 al mese: meglio fare PAC tradizionale o trasformarli nella rata di un prestito e investire subito il lump sum? 50 anni di NASDAQ e SP500, due scenari TAEG, win rate e payoff."
+pubDate: 2026-05-28
+tags: ["prestito", "lump-sum", "pac", "dca", "leva", "taeg", "finanziamento", "rolling-windows", "backtest", "nasdaq", "sp500"]
+author: "SmartMoneyLab"
+simulationSlug: "prestito-vs-pac"
+draft: false
+---
+
+## In breve
+
+La domanda è venuta fuori più volte: chi non ha un capitale iniziale ma ha un cash flow periodico — diciamo $250/mese — fa il PAC tradizionale. Ma quello stesso cash flow può essere trasformato nella rata di un prestito a tasso fisso. Risultato: invece di versare $250/mese sull'indice per dieci anni, ricevi subito il capitale equivalente (circa $20.000) e lo investi tutto in lump sum. Le rate del prestito le paghi con lo stesso $250/mese di cassa, e dopo dieci anni il prestito è estinto e l'investimento resta.
+
+Sembra una scorciatoia furba — "stare di più nel mercato" — ma c'è il TAEG che si mangia parte del vantaggio. Quale dei due percorsi finisce davvero con più capitale alla fine?
+
+Ho simulato la cosa su 50 anni di dati (1976–2025) su NASDAQ e SP500, in due scenari TAEG (6% ottimistico, 8% realistico per il mercato italiano del prestito personale 2026), sia su finestre di 10 anni (un prestito) sia su finestre di 20 anni (due prestiti consecutivi). Step rolling di 3 mesi su entrambi gli indici. Tre risultati che reggono tutto l'articolo:
+
+1. **Il lump sum finanziato batte il PAC nella maggior parte delle finestre storiche, in tutti gli 8 scenari testati**. Il win rate va dal **65% al 82%** a seconda dello scenario. Il caso più favorevole è SP500 a 20 anni con TAEG 6%: il lump sum vince in **81% delle 121 finestre rolling**. Il caso meno favorevole è NASDAQ a 20 anni con TAEG 8%: vince comunque nel **65%**.
+2. **Il punto di break-even del TAEG si colloca attorno al 11-12% annuo**. Sotto questa soglia il lump sum finanziato è statisticamente superiore al PAC; sopra, è il PAC a vincere. Tra TAEG 0% e 6% il lump sum vince in più del 75% delle finestre storiche; tra 6% e 8% si scende intorno al 70%; oltre il 12% si capovolge sotto il 50%.
+3. **Quando il lump perde, perde forte**. Il drawdown massimo del portafoglio lump sum è sistematicamente peggiore del PAC: su finestre 20 anni NASDAQ, il MDD mediano del lump è del **−76%** contro il **−65%** del PAC. Nel 5° percentile dei casi, il lump chiude con il **30-36% in meno** del PAC sulle finestre 10y. La maggiore probabilità di vincere non è gratis: arriva con una coda negativa più profonda.
+
+Risultato netto, raccontato senza fronzoli: a TAEG realistici (6-8%) il lump sum finanziato è la scelta che produce, in media e nella maggior parte delle storie passate, più capitale finale del PAC. Ma è una scelta che richiede di assorbire un drawdown molto peggiore, e diventa svantaggiosa appena il TAEG sale oltre il rendimento medio storico del mercato.
+
+## La domanda
+
+Le persone non investono partendo da un capitale: investono partendo da un flusso di cassa. Stipendio, freelance, rendita — qualsiasi sia la fonte, la realtà operativa è "ho $X al mese, voglio metterli sul mercato". La risposta standard è "fai un PAC". Versi $X al mese sull'indice, ti capitalizzi nel tempo, attraversi serenamente i drawdown perché il prossimo versamento li sfrutta.
+
+Ma c'è un'alternativa che molti hanno considerato e che la letteratura accademica conosce da decenni: trasformare quel cash flow in un prestito personale. Le banche concedono prestiti personali standardizzati su 10 anni a TAEG tra il 6% e il 12% a seconda del cliente. Una rata da $250/mese × 120 mesi a TAEG 8% si traduce in **$20.605** di capitale erogato il giorno zero. Quello che eri costretto a distribuire nel tempo, all'improvviso ce l'hai tutto subito.
+
+L'intuizione finanziaria a favore del lump sum è semplice: se il mercato sale in media nel tempo, stare nel mercato il prima possibile è meglio che stare nel mercato un po' alla volta. Lump sum vs DCA è un classico tema della letteratura, e i risultati noti dicono che il lump sum batte il DCA in circa il 67% delle finestre storiche sui mercati azionari globali quando entrambi partono da uno stock di liquidità già disponibile.
+
+Ma qui c'è una differenza importante: nel nostro caso il capitale del lump non lo possediamo, **lo prendiamo in prestito al tasso TAEG**. Quel TAEG è una "tassa" che si applica al vantaggio del lump sum. Se il TAEG è zero (caso assurdo) il lump deve vincere praticamente sempre. Se il TAEG è altissimo (es. 20%) il lump deve perdere praticamente sempre, perché il vantaggio di stare nel mercato è inferiore al costo del finanziamento. In mezzo c'è un punto di break-even — e l'esistenza di questo punto è la storia di questo articolo.
+
+Reframing della domanda: **a partire da quale TAEG il lump sum finanziato smette di essere statisticamente conveniente rispetto al PAC?** Su questa domanda i dati storici hanno una risposta precisa.
+
+## La regola del confronto
+
+Per renderlo un confronto pulito, le due strategie devono essere simmetriche sul **cash flow personale**. Cioè dal tuo conto corrente, in entrambi gli scenari, escono esattamente $250 al mese — né più né meno. La differenza è solo *cosa* fa quel denaro.
+
+**Scenario A — PAC.** Versamento $250/mese sull'indice 1x. Niente prestito, niente lump sum. Dopo 120 mesi hai versato $30.000 in totale e il portafoglio vale quanto il mercato ha capitalizzato quei versamenti. Dopo 240 mesi hai versato $60.000 e analogamente.
+
+**Scenario B — Lump sum finanziato.** Al giorno zero la banca eroga il capitale $C calcolato dalla formula del prestito (rata $250/mese, durata 120 mesi, TAEG fisso). Investi $C *interamente* sull'indice 1x. Da quel momento paghi $250/mese di rata, che escono dal tuo cash flow personale (non dall'investimento). L'investimento cresce indisturbato con il mercato. Dopo 120 mesi il prestito è estinto, hai pagato un totale di $30.000 in rate, e l'investimento di partenza vale quanto il mercato ha capitalizzato il capitale iniziale.
+
+**Versione 20 anni.** A 120 mesi accendi un secondo prestito identico al primo: nuovo capitale $C investito, nuove rate per altri 120 mesi. A 240 mesi hai pagato $60.000 totali di rate. Il PAC equivalente versa $250/mese ininterrotti per tutti i 240 mesi.
+
+| Scenario A — PAC | Scenario B — Lump sum finanziato |
+|---|---|
+| Cash flow uscito: $250/mese | Cash flow uscito: $250/mese (rata) |
+| Investito sul mercato: $250/mese (gradualmente) | Investito sul mercato: $C il giorno zero |
+| Durata: 120m (10y) o 240m (20y) | Durata: 120m (10y) o 240m (20y, doppio prestito) |
+| TAEG: irrilevante | TAEG: 6% o 8% nei due scenari testati |
+
+I capitali derivati dalla formula del prestito:
+
+- **TAEG 6% (ottimistico)**: $C = $22.518
+- **TAEG 8% (realistico)**: $C = $20.605
+
+Sono cifre realistiche per chi vuole accedere a un prestito personale italiano standard nel 2026 — il 6% è il TAEG che ottiene un cliente con merito creditizio elevato, l'8% è la media per un cliente generico.
+
+Indici: NASDAQ Composite e S&P 500 Total Return, ognuno simulato separatamente. Rolling windows con step di 3 mesi → 161 finestre 10y e 121 finestre 20y per ciascun indice e ciascun TAEG. In totale 8 scenari × ~140 finestre = ~1.100 osservazioni indipendenti su cui si basano i numeri sotto.
+
+## I numeri principali: chi vince e quanto spesso
+
+La metrica più diretta è la **frazione di finestre rolling in cui il lump sum finanziato chiude con più capitale del PAC**. Eccola, su tutti gli 8 scenari:
+
+| Indice | TAEG | Finestra | Win rate LUMP vs PAC | N. finestre |
+|---|---|---|---|---|
+| SP500 | 6% | 10 anni | **75.2%** | 161 |
+| SP500 | 6% | 20 anni | **81.0%** | 121 |
+| SP500 | 8% | 10 anni | **72.0%** | 161 |
+| SP500 | 8% | 20 anni | **72.7%** | 121 |
+| NASDAQ | 6% | 10 anni | **73.9%** | 161 |
+| NASDAQ | 6% | 20 anni | **81.8%** | 121 |
+| NASDAQ | 8% | 10 anni | **67.1%** | 161 |
+| NASDAQ | 8% | 20 anni | **65.3%** | 121 |
+
+In **tutti gli 8 scenari** il lump sum finanziato batte il PAC nella maggioranza delle finestre rolling testate, con percentuali che vanno dal 65% al 82%. Non c'è uno scenario, su due indici principali e due TAEG realistici, in cui il PAC tradizionale sia statisticamente più conveniente sui dati storici 1976-2025.
+
+Cosa significa "vincere" qui? Significa che nel singolo backtest storico il portafoglio finale del lump sum è risultato più alto del portafoglio finale del PAC sullo stesso flusso di cassa di $250/mese. Vincere il 75% delle volte vuol dire che su 161 finestre rolling 10y, in 121 il portafoglio lump sum è arrivato a fine corsa con più capitale del PAC; nelle altre 40 il PAC ha chiuso più alto.
+
+## Quanto vince — e quanto perde — il lump sum
+
+Il win rate dice "chi vince più spesso", ma non dice "di quanto". Per quello bisogna guardare la distribuzione del rapporto tra valore finale lump e valore finale PAC. Ratio > 1.0 → lump vince. Ratio = 1.2 → lump finisce con il 20% di capitale in più del PAC. Ratio = 0.9 → lump finisce con il 10% in meno.
+
+Ecco i percentili principali del **rapporto valore finale lump / valore finale PAC** per ciascuno scenario:
+
+| Indice | TAEG | Finestra | p5 (peggior caso) | p50 (mediana) | p95 (miglior caso) |
+|---|---|---|---|---|---|
+| SP500 | 6% | 10y | 0.75 (−25%) | **1.30 (+30%)** | 1.59 (+59%) |
+| SP500 | 6% | 20y | 0.90 (−10%) | **1.23 (+23%)** | 1.55 (+55%) |
+| SP500 | 8% | 10y | 0.68 (−32%) | **1.19 (+19%)** | 1.45 (+45%) |
+| SP500 | 8% | 20y | 0.82 (−18%) | **1.13 (+13%)** | 1.42 (+42%) |
+| NASDAQ | 6% | 10y | 0.70 (−30%) | **1.29 (+29%)** | 1.60 (+60%) |
+| NASDAQ | 6% | 20y | 0.88 (−12%) | **1.20 (+20%)** | 1.45 (+45%) |
+| NASDAQ | 8% | 10y | 0.64 (−36%) | **1.18 (+18%)** | 1.46 (+46%) |
+| NASDAQ | 8% | 20y | 0.80 (−20%) | **1.10 (+10%)** | 1.33 (+33%) |
+
+Tre letture importanti.
+
+**Prima**: nel **caso peggiore (p5)** il lump sum finisce con capitale inferiore al PAC. Su finestre 10y può finire fino al 36% sotto il PAC (NASDAQ TAEG 8%). Significa che se centri una finestra storica sfortunata — tipicamente quella che si chiude proprio sotto un grande crash — il lump sum non solo perde, ma perde forte. Il p5 non è "perdo qualche punto percentuale": è "perdo un terzo del capitale che il PAC avrebbe accumulato".
+
+**Seconda**: la **mediana** del rapporto è sempre superiore a 1. Nei casi più favorevoli (TAEG 6% su finestre 10y) il lump produce mediamente il 30% in più del PAC. Nei meno favorevoli (TAEG 8% su 20y NASDAQ) ancora il 10% in più. Per chi accetta il rischio di coda, l'aspettativa storica è netta.
+
+**Terza**: nel **caso migliore (p95)** il lump sum supera il PAC del 33% (peggior scenario) fino al 60% (miglior scenario). Niente di esplosivo come le strategie con leva, ma significativo: su $30k di rate pagate, +30% di payoff finale fa una differenza enorme in $$$ assoluti.
+
+L'asimmetria è quindi **favorevole al lump sum su mediana e upside, ma con un downside non trascurabile**: la coda negativa esiste ed è importante. Su 10y, la differenza tra p5 e p95 è di circa 80-100 punti percentuali — è un range largo.
+
+## Il punto di rottura sul TAEG
+
+Tutto il ragionamento precedente vale per TAEG 6% e 8%. Cosa succede al variare del TAEG? Per rispondere, ho simulato 8 livelli di TAEG diversi (da 0% al 14%) sullo stesso framework, e ho riportato il win rate del lump in ciascun caso.
+
+**SP500 — Win rate LUMP al variare del TAEG:**
+
+| TAEG | 10 anni | 20 anni |
+|---|---|---|
+| 0% | 94.4% | **100.0%** |
+| 2% | 89.4% | **100.0%** |
+| 4% | 82.0% | 93.4% |
+| 6% | 75.2% | 81.0% |
+| 8% | 72.0% | 72.7% |
+| 10% | 65.2% | 56.2% |
+| 12% | **50.9%** ← break-even | 40.5% |
+| 14% | 33.5% | 19.8% |
+
+**NASDAQ — Win rate LUMP al variare del TAEG:**
+
+| TAEG | 10 anni | 20 anni |
+|---|---|---|
+| 0% | 93.8% | 96.7% |
+| 2% | 91.3% | 96.7% |
+| 4% | 82.6% | 92.6% |
+| 6% | 73.9% | 81.8% |
+| 8% | 67.1% | 65.3% |
+| 10% | 60.2% | **52.1%** ← break-even |
+| 12% | 48.4% | 31.4% |
+| 14% | 28.0% | 9.9% |
+
+Il **break-even (50% di win rate)** si colloca intorno a:
+
+- SP500 10y: TAEG **~12%**
+- SP500 20y: TAEG **~11%**
+- NASDAQ 10y: TAEG **~11.5%**
+- NASDAQ 20y: TAEG **~10%**
+
+In media, **sotto un TAEG dell'11% il lump sum è statisticamente superiore al PAC sui dati storici 1976-2025**. Sopra, si capovolge a favore del PAC. Su 20 anni il break-even del NASDAQ è un punto sotto quello del SP500: il NASDAQ è più volatile, quindi il drag di volatilità sul lump cresce di più nell'orizzonte lungo, e il break-even arriva un po' prima.
+
+Nota su SP500 20 anni con TAEG 0% e 2%: **il lump sum vince in 121 finestre su 121** — il 100%. In 50 anni di storia non esiste una finestra 20Y in cui un PAC su SP500 abbia chiuso sopra un lump sum di pari cassa con costo del prestito ≤2%. Questo è il risultato classico del "tempo nel mercato" portato all'estremo: con costo del finanziamento prossimo a zero, non c'è scenario storico in cui distribuire l'esposizione su 20 anni batta concentrare tutto all'inizio.
+
+## Il prezzo da pagare: il drawdown
+
+Il lump sum ha un'asimmetria favorevole sul payoff finale e una probabilità di vittoria solida. Ma c'è una cosa che il "valore finale dopo 10 o 20 anni" non racconta: cosa succede *durante* il percorso. Il drawdown massimo del portafoglio è sistematicamente peggiore nel lump sum, e su orizzonti lunghi la differenza è sostanziale.
+
+**MDD mediano del portafoglio, per scenario:**
+
+| Indice | TAEG | Finestra | MDD lump | MDD PAC | Peggioramento |
+|---|---|---|---|---|---|
+| SP500 | 6% | 10y | −34% | −32% | piccolo |
+| SP500 | 6% | 20y | −55% | −46% | medio |
+| SP500 | 8% | 10y | −34% | −32% | piccolo |
+| SP500 | 8% | 20y | −55% | −46% | medio |
+| NASDAQ | 6% | 10y | −36% | −36% | nullo |
+| NASDAQ | 6% | 20y | **−76%** | **−65%** | grande |
+| NASDAQ | 8% | 10y | −36% | −36% | nullo |
+| NASDAQ | 8% | 20y | **−76%** | **−65%** | grande |
+
+La logica è intuitiva: nel lump sum hai $20.000 esposti al mercato dal giorno uno. Quando arriva il primo grande crash — e su orizzonti 20Y attraversi praticamente sempre almeno uno — il drawdown si applica a una somma piena. Nel PAC, al primo grande crash il portafoglio è ancora piccolo (i versamenti si stanno appena accumulando), quindi un −50% di mercato si traduce in un −X% del portafoglio molto più piccolo in valore assoluto.
+
+Su SP500 a 20 anni, il MDD del lump arriva al −55% mediano contro il −46% del PAC: 9 punti percentuali in più. Su NASDAQ a 20 anni la differenza esplode a 11 punti, e i livelli assoluti diventano duri (−76% del portafoglio totale, in una finestra mediana, non nel caso peggiore).
+
+C'è anche un'osservazione metodologica importante sulla **volatilità**: il PAC mostra una volatilità annualizzata del portafoglio sistematicamente *più alta* del lump sum (sì, contro-intuitivo). Su SP500 10y, la vol del PAC è circa il 43% annuo contro il 17% del lump. La spiegazione è contabile: la vol del portafoglio PAC include i versamenti in arrivo, che nei primi anni sono percentualmente enormi rispetto al portafoglio esistente, e fanno apparire la curva del PAC molto "saltellante" anche se in realtà l'esposizione di mercato sottostante non lo è. La vol del lump sum, invece, è effettivamente la volatilità dell'indice perché il portafoglio è esposto al 100% dal giorno uno. **Quindi la metrica "volatilità del portafoglio" non è un buon indicatore di rischio comparativo tra le due strategie**, e l'ho lasciata fuori dalla discussione principale. Il MDD assoluto in dollari, invece, è una misura di rischio realistica e ha il segno chiaro che ci si aspetta.
+
+## Perché succede: la matematica intuitiva
+
+Il fenomeno è meno misterioso di quanto sembri. È il prodotto di tre fattori che si rinforzano.
+
+**Primo: il mercato sale in media nel tempo**. SP500 ha reso ~10% annuo nominale (TR) negli ultimi 50 anni; NASDAQ Composite ~10-11% in price-only. Su orizzonti lunghi questa media domina. Stare esposti dal giorno uno significa catturare 10 anni interi di compounding sul capitale pieno. Distribuire l'esposizione su 10 anni significa che il primo dollaro lavora 10 anni, l'ultimo lavora un mese — il tempo medio di esposizione del PAC è circa la metà del tempo del lump.
+
+**Secondo: il TAEG agisce come una tassa fissa annuale sul vantaggio**. Se il rendimento medio annuo del mercato è R e il TAEG è T, il vantaggio netto del lump sum nei primi 10 anni cresce come (R − T) per il capitale iniziale, contro il PAC che invece beneficia di R sul capitale che progressivamente costruisce. Se R supera T il lump vince in media; se R è inferiore a T perde. R storico ≈ 10%, quindi finché T resta sotto il 10% il lump è in zona favorevole. A T ≈ R il break-even, e infatti i nostri break-even cadono attorno al 10-12% (poco sopra R per via dell'effetto compounding asimmetrico).
+
+**Terzo: ma il MDD non è una tassa, è uno shock istantaneo**. Mentre il rendimento medio è cumulativo (compounding), il drawdown è una percentuale che si applica subito al portafoglio attuale. Su $20.000 di lump iniziali, un −50% di mercato è −$10.000 *al primo crash*. Su un PAC che dopo 2 anni ha $5.000 versati, un −50% di mercato è −$2.500. In dollari assoluti il lump perde 4 volte tanto al primo grande crash. Sull'orizzonte lungo questo viene recuperato (mediana favorevole al lump), ma fa male nel mentre — e produce il p5 del ratio finale che sta intorno a 0.65-0.80.
+
+## Cosa non abbiamo simulato
+
+Tre semplificazioni che vale la pena dichiarare per onestà:
+
+- **Le tasse al disinvestimento sono ignorate**. Sul valore finale dovresti sottrarre il 26% (in Italia) sulle plusvalenze. La cosa si applica però *uguale* a lump e PAC, quindi la differenza relativa rimane simile in percentuale, anche se in dollari assoluti i numeri si ridimensionano. Per chi è interessato a un confronto netto in tasse, basta moltiplicare le cifre finali per ~0.74.
+- **Niente affidabilità creditizia, niente assicurazioni sul prestito**. Nella realtà un prestito personale potrebbe richiedere un'assicurazione vita o sospensione che alzano il costo effettivo. In più, **non tutti ottengono $20.000 di prestito** — il TAEG e l'importo dipendono dal merito creditizio. La simulazione assume erogazione sicura del capitale derivato.
+- **Niente shock di disoccupazione, niente cash flow improvvisamente nullo**. In tutti gli scenari il flusso $250/mese è garantito per 10 o 20 anni. Nella realtà, se perdi il lavoro a metà del prestito hai ancora $250/mese di rata da pagare, e nessuna tolleranza a saltarla. Questo è un rischio asimmetrico del lump sum finanziato che il PAC non ha: con il PAC se interrompi i versamenti, sospendi i versamenti e basta; con il prestito se interrompi i pagamenti, hai un default e tutte le conseguenze legali e creditizie del caso.
+
+Questi tre punti spostano in qualche misura il bilancio a favore del PAC nella realtà operativa rispetto a quanto suggeriscono i numeri sui dati storici puri. La differenza più grande è il terzo: il prestito introduce un rischio di insolvenza che il PAC non ha. Su 10 o 20 anni di orizzonte, la probabilità di attraversare almeno un periodo difficile non è trascurabile.
+
+## Cosa porto a casa
+
+Non c'è un verdetto netto: questo non è un test di strategia (non sto confrontando due investimenti, sto confrontando due *modi di accedere allo stesso investimento*), e l'output dei dati è ricco abbastanza da sostenere più di una lettura. Quattro considerazioni pratiche, in ordine di importanza.
+
+**Una.** Il lump sum finanziato a TAEG realistici (6-8%) batte il PAC tradizionale **nella maggior parte delle finestre storiche** dal 1976 al 2025. Win rate tra il 65% e l'82% a seconda di indice, TAEG e durata. Il rendimento mediano è superiore del 10-30%. Questo è un effetto robusto, non un risultato sensibile a singole scelte di parametrizzazione. Su orizzonti lunghi (20Y) e TAEG bassi (≤4%) il lump batte il PAC in oltre il 92% delle finestre, e con TAEG 0% si arriva al 100% delle finestre 20Y sull'SP500. Sul piano dei rendimenti, **non c'è una storia particolarmente forte a favore del PAC tradizionale rispetto al lump finanziato** dato l'orizzonte tipico di un piano di accumulo.
+
+**Due.** Il punto di rottura sul TAEG è precisamente attorno all'**11-12%**, sotto il quale il lump sum è statisticamente superiore al PAC sui dati storici. Per il mercato italiano del prestito personale 2026, dove i TAEG migliori partono dal 6-7% e i meno favorevoli arrivano al 10-12%, questo significa che **il lump sum finanziato è in zona favorevole per quasi tutti i clienti** che hanno accesso a un prestito personale a condizioni standard. Sopra il 12%, l'aritmetica si capovolge.
+
+**Tre.** Il prezzo storico del lump sum è il **drawdown massimo del portafoglio**, che è sistematicamente peggiore di quello del PAC: in scala −5 punti percentuali sul SP500, fino a −11 punti sul NASDAQ a 20 anni. Su un portafoglio NASDAQ in lump il MDD mediano è del 76%. Significa che, in molte finestre storiche, sei sceso a un quarto del valore di picco prima di rivederlo, mentre stavi pagando rate al mese e non potevi vendere per fermare l'emorragia (sarebbe disinvestire in perdita, contraddicendo lo scopo del lump sum). Chi non sopporta questo emotivamente capitolerà — e tutto il vantaggio statistico evapora con la prima vendita in fondo al drawdown.
+
+**Quattro.** Il rischio non quantificato nei dati è quello **operativo**: il prestito introduce un'obbligazione legale a pagare $250/mese per 10 o 20 anni. Il PAC è un piano *interrompibile* senza conseguenze. Su orizzonti decennali la probabilità di attraversare un periodo difficile — disoccupazione, malattia, divorzio — non è zero, ed è in quel periodo che la differenza tra "smetto di versare per qualche mese" e "non riesco a pagare le rate e vado in default" diventa enorme. Questo rischio non lo misuro nel backtest ma esiste, ed è il pezzo di puzzle che potrebbe far inclinare la scelta verso il PAC anche dentro la zona dove il lump è statisticamente superiore.
+
+In sintesi: i numeri sono dalla parte del lump sum finanziato in modo solido, ma la decisione finale è meno univoca dei numeri. Dipende dal tuo TAEG specifico, dal tuo MDD-tolerance, dal tuo cash flow di sicurezza in caso di sciagure. Il pezzo che il backtest non può sostituire è l'autovalutazione di queste tre variabili personali.
+
+## Esplora i parametri
+
+Il simulatore qui sotto ricalcola la strategia con i parametri che scegli tu: TAEG (da 0% al 14% in step di 0.5%) e capitale ricevuto dal prestito (da $5k a $40k). La rata mensile è calcolata di conseguenza, e il PAC equivalente investe la stessa rata mese per mese. Il calcolo gira su ~50 anni di dati storici NASDAQ e SP500, e mostra equity curve di un esempio rappresentativo (1976–2025) e percentili sulla distribuzione delle finestre rolling.
+
+Quello che vale la pena notare giocandoci: la combinazione TAEG-capitale che ottieni dalla banca non è del tutto libera. In pratica un capitale di $30.000 a TAEG 6% implica una rata di $333/mese — molto sopra i $250/mese del case study. Se il tuo cash flow disponibile è davvero $250/mese, sei limitato a capitali ~$20-22k a TAEG 6-8%. Il simulatore ti lascia comunque esplorare combinazioni "ipotetiche" (es. TAEG 4% con capitale $25k = condizioni amico-finanziatore), utili per capire dove sta il vantaggio della strategia in scenari più favorevoli del realistico.
+
+import PrestitoPacSimulator from "../../components/interactive/PrestitoPacSimulator.jsx";
+
+<PrestitoPacSimulator client:visible />
+
+## Note metodologiche
+
+- **Dati**: SP500 Total Return ricostruito da prezzo daily Yahoo + dividendi monthly Shiller dal 1976. NASDAQ Composite daily price-only da FRED (TR non disponibile per 1976-1999, dividend yield storico ~1% non incluso nei rendimenti; il confronto LUMP vs PAC è comunque invariante perché entrambi usano la stessa serie).
+- **CAGR money-weighted** via IRR sui flussi di cassa personali (rate uscite mese per mese + valore finale). Per il PAC sono i versamenti, per il lump sono le rate del prestito. La simmetria è esatta: in entrambi gli scenari escono $250/mese.
+- **Rolling windows** con step di 3 mesi sull'intero periodo, finestre da 120 e 240 mesi. N. di finestre indipendenti: 161 (10y) e 121 (20y) per ciascuno degli 8 scenari.
+- **Capitale del prestito** derivato dalla formula del prestito amortizing standard: `C = M * (1 - (1+r)^(-n)) / r`, dove `M = 250`, `r = TAEG/12`, `n = 120`. Risultati: `C(6%) = 22.518`, `C(8%) = 20.605`.
+- **Tasse**: non simulate. Sia lump che PAC sono al lordo. La differenza relativa è ~invariante alle tasse, ma in $$$ assoluti i numeri vanno ridimensionati moltiplicando per (1 − aliquota).
+- **Risk-free** per Sharpe/Sortino (se mostrati): 2.0% (storico USA approssimato).
+- **Volatilità del portafoglio**: calcolata sui returns daily del valore di portafoglio. Per i PAC questo include la "volatilità contabile" dovuta ai versamenti — è la ragione per cui mostro volatilità solo nelle note metodologiche e non come metrica decisionale principale.
+- **Sequenza temporale dei prestiti consecutivi (20y)**: secondo prestito accesso al mese 121, identico al primo (stesso TAEG, stessa rata, stesso capitale). Non si liquida il primo investimento per finanziare il secondo.
+
+## Disclaimer
+
+Contenuto informativo e di analisi quantitativa storica. Non è consulenza finanziaria, fiscale o legale. Il backtest su dati storici non garantisce risultati futuri. Prendere un prestito personale per investire sui mercati azionari espone a rischi significativi, incluso il rischio di perdite superiori al capitale di partenza, il rischio di insolvenza se il flusso di cassa viene interrotto, e i rischi legali e creditizi associati al default. Le scelte di portafoglio dovrebbero essere prese con un consulente abilitato e in piena consapevolezza dei propri obiettivi, orizzonti e tolleranza al rischio.
