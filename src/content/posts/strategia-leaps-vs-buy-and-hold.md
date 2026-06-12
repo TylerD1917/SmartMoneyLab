@@ -1,6 +1,6 @@
 ---
 title: "Una strategia LEAPS batte il mercato? 50 anni di dati sull'S&P 500"
-description: "Portafoglio 70% LEAPS call sull'S&P 500 a strike 85% e maturity 2 anni + 30% Treasury 10y, con roll annuale, contro buy & hold puro. Su 49 anni di rolling windows il LEAPS vince il 100% delle finestre ventennali — ma il Calmar è identico al B&H. Il colpo di scena nella seconda metà dell'articolo."
+description: "70% in call LEAPS sull'S&P 500 (strike 85%, maturity 2 anni, roll annuale) + 30% Treasury 10y, contro buy & hold puro. Su 49 anni il LEAPS vince il 100% delle finestre 20y — ma il Calmar è identico. Leva, non alfa."
 pubDate: 2026-06-11
 tags: ["opzioni", "leaps", "leva", "rolling-windows", "backtest", "sp500", "black-scholes"]
 author: "SmartMoneyLab"
