@@ -1,0 +1,56 @@
+---
+title: "Calcolatore FIRE — Quanto capitale serve per smettere di lavorare?"
+description: "Calcolatore interattivo per stimare il capitale necessario per smettere di lavorare. Personalizzabile con età, spesa annua, tasso di prelievo e inflazione. Tasso di successo lordo e netto Italia (26% capital gain + bollo 0,2%)."
+pubDate: 2026-06-15
+tags: ["FIRE", "decumulo", "calcolatore", "tasso-prelievo", "fiscalita", "pensione"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import FireDecumuloSimulator from "../../components/interactive/FireDecumuloSimulator.jsx";
+
+## Cosa fa
+
+È un calcolatore live per stimare il capitale necessario a smettere di lavorare in Italia, partendo dai dati storici dell'S&P 500 Total Return dal 1872 al 2022 (151 anni) e applicando la fiscalità italiana sui titoli (26% sui capital gain + bollo 0,2% annuo sul controvalore).
+
+Inserisci sei parametri tuoi specifici — età attuale, età FIRE target, età di morte assunta, spesa annua oggi, tasso di prelievo netto target, scenario inflazione — e ottieni in tempo reale:
+
+- **Capitale richiesto al momento del FIRE** in euro nominali (cioè al lordo dell'inflazione che ci sarà fino a quel momento)
+- **Equivalente in euro reali di oggi** (cioè quanto vale, in potere d'acquisto attuale, la cifra di cui sopra)
+- **Tasso di prelievo lordo effettivo** considerando la fiscalità italiana
+- **Probabilità di successo** del piano di decumulo netto Italia (con confronto al modello lordo americano) su 20, 30 e 40 anni, più la riga evidenziata dell'orizzonte specifico nel tuo caso
+
+I numeri sono pescati dalla [simulazione Monte Carlo del decumulo](/posts/quanto-capitale-serve-per-smettere-di-lavorare) che ho costruito nell'articolo dedicato — 10.000 traiettorie ipotetiche per ciascuna combinazione di tasso, orizzonte e quota di plusvalenza. Funziona offline, niente registrazione, niente cookie. Apri, sposta gli slider, prendi i numeri.
+
+<FireDecumuloSimulator client:load />
+
+## Le ipotesi del modello, in chiaro
+
+Quattro cose da sapere perché tu possa usare il calcolatore con cognizione:
+
+- **Portafoglio sottostante**: 100% S&P 500 Total Return reale (con dividendi reinvestiti, deflazionato per CPI mensile). È lo stesso asset usato dallo studio Trinity 1998 e da gran parte della letteratura FIRE americana. Un portafoglio meno azionario (es. 60/40) riduce di poco il successo ma riduce molto la volatilità del decumulo.
+- **Prelievo costante in potere d'acquisto**: il prelievo annuale è rivalutato per l'inflazione storica, in modo da mantenere costante il tenore di vita reale. È lo standard della letteratura. La spesa annua che inserisci nel calcolatore è quindi "spesa annua equivalente di oggi" — il calcolatore la rivaluta automaticamente al momento del FIRE.
+- **Fiscalità italiana semplificata**: assumo 26% sui capital gain e 0,2% annuo di bollo. La quota di plusvalenza nel capitale al momento del FIRE è stimata in funzione di quanti anni di piano d'accumulo (PAC) avrai fatto prima di smettere — dal 50% (smetto oggi col patrimonio attuale) al 75% (smetto dopo 30 anni di PAC continuativo).
+- **Lordo come confronto**: ogni successo netto Italia è affiancato dal successo "lordo" — cioè il modello americano puro senza tasse, che è la cifra raccontata dalla maggior parte degli articoli sul FIRE che leggi online. La differenza fra le due cifre è il "costo Italia" del tuo piano di decumulo. Tipicamente è di 5-9 punti percentuali di sicurezza.
+
+## Per chi è (e per chi non è)
+
+**Utile se**:
+- Stai pianificando l'indipendenza finanziaria precoce o il pensionamento e vuoi un ordine di grandezza realistico del capitale che ti serve
+- Vuoi capire la differenza tra il "4% rule" americano e il vero tasso sicuro per il retail italiano
+- Vuoi testare scenari diversi (e se l'inflazione fosse al 3%? E se prelevassi il 3% invece del 4%? E se vivessi fino a 90 invece che 80?) e vedere come cambia il capitale richiesto
+
+**Non utile se**:
+- Vuoi un consiglio personalizzato di consulenza finanziaria. Non lo è. È un calcolatore parametrico basato su dati storici.
+- Stai cercando una garanzia che il piano funzionerà. Non esiste. I dati storici dicono "se i prossimi 30 anni assomigliano agli ultimi 150, queste sono le probabilità". I prossimi 30 anni potrebbero essere diversi.
+- Vuoi modellare la pensione INPS, una rendita immobiliare, un'eredità futura o altri flussi che non sono il decumulo di un patrimonio investito in azioni. Quelli sono pezzi importanti di una pianificazione personale completa, ma fuori scope di questo strumento.
+
+## Per chi vuole capire i numeri sotto
+
+L'articolo dettagliato sul blog spiega la metodologia in profondità: cos'è il tasso di prelievo sicuro, come funziona il rischio della sequenza dei rendimenti, perché il modello Monte Carlo è più severo dei rolling storici, come ho modellato la fiscalità italiana, dove sono i limiti del modello.
+
+→ [Leggi l'articolo completo: "Quanto capitale serve per smettere di lavorare?"](/posts/quanto-capitale-serve-per-smettere-di-lavorare)
+
+Il codice Python che genera la simulazione e i dati è anch'esso pubblicato nel repository del blog — è riproducibile, modificabile, criticabile. Se trovi un errore o un miglioramento metodologico, scrivimi.
