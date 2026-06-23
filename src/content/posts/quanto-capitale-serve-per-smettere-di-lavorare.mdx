@@ -1,0 +1,254 @@
+---
+title: "Quanto capitale serve per smettere di lavorare? 150 anni di dati e il vero costo della fiscalità italiana"
+description: "150 anni di S&P 500 testati con simulazioni: il 4% rule funziona, ma in Italia la fiscalità sottrae 5-9 punti di sicurezza. Il vero tasso è il 3,5%. Quanto serve davvero per smettere di lavorare in Italia."
+pubDate: 2026-06-14
+tags: ["decumulo", "fire", "tasso-prelievo", "pensione", "monte-carlo", "fiscalita", "sp500", "rolling-windows"]
+author: "SmartMoneyLab"
+simulationSlug: "decumulo-fire-swr"
+draft: false
+---
+
+import FireDecumuloSimulator from "../../components/interactive/FireDecumuloSimulator.jsx";
+
+## In breve
+
+La domanda è semplice: quanto capitale devo aver accumulato per smettere di lavorare e vivere di rendita per il resto della vita? La risposta in letteratura americana è chiara — la cosiddetta "regola del 4%" formulata da William Bengen nel 1994 e validata dallo studio Trinity nel 1998. Ho fatto girare quella regola sui dati storici dell'S&P 500 dal 1872 al 2022 (151 anni) e poi l'ho corretta per la realtà fiscale italiana. Tre risultati che entrano in apertura.
+
+1. **La regola del 4% funziona davvero, ma con condizioni specifiche.** Sui 30 anni di vita post-lavoro, prelevando il 4% del capitale iniziale rivalutato per l'inflazione ogni anno, il capitale sopravvive nel **96,7% delle finestre storiche** dal 1872 in poi (validazione esatta dello studio Trinity 1998). Un test più stringente — la simulazione Monte Carlo a 10.000 traiettorie che include anche scenari peggiori del peggior passato — porta il successo al **89,3%**. La regola è solida, ma il margine reale è del 90%, non del 95% raccontato dai post motivazionali sul tema dell'indipendenza finanziaria.
+
+2. **In Italia la fiscalità ti toglie 5-9 punti di sicurezza.** L'imposta del 26% sulla plusvalenza al momento della vendita più il bollo dello 0,2% annuo sul controvalore titoli trasformano un prelievo netto del 3,5% in un prelievo lordo effettivo del 4-4,4%, a seconda di quanto è alta la quota di plusvalenza nel tuo capitale. Conseguenza diretta: la "regola del 4% netto in tasca" sui 30 anni di vita dopo il lavoro ha una probabilità di successo del **83%, non del 96%**. Per stare davvero sopra il 90% di sicurezza in Italia bisogna scendere al **3% o 3,5% netto**, non al 4%.
+
+3. **La risposta diretta alla domanda "quanto capitale mi serve oggi".** Per vivere con 30.000 € reali all'anno (2.500 € al mese) prelevati al 3,5% netto, considerando la fiscalità italiana, ti serve un patrimonio di **857.000 € investito oggi** se vuoi smettere subito. Se vuoi smettere tra 20 anni, lo stesso identico tenore di vita richiede **1.274.000 €** nominali al momento della scelta (inflazione al 2%), oppure **1.548.000 €** se l'inflazione sarà al 3%. Il calcolatore interattivo nella seconda parte dell'articolo personalizza questi numeri sulla tua situazione concreta.
+
+L'articolo è strutturato in tre parti. La prima spiega cos'è un tasso di prelievo sicuro e perché esiste un numero magico che la letteratura ha trovato sui dati storici. La seconda corregge la teoria americana per la realtà fiscale italiana. La terza è il calcolatore: inserisci i tuoi parametri e ottieni capitale richiesto + probabilità di sopravvivenza personalizzate.
+
+## La domanda fondamentale
+
+Esiste una semplice intuizione che governa l'intero problema dell'indipendenza finanziaria: se hai un patrimonio investito che rende in media il 6-8% reale all'anno (cioè al netto dell'inflazione), e tu ne prelevi una frazione minore di quel rendimento ogni anno, in teoria il capitale dovrebbe durare per sempre. Il problema è che "in media" è un'astrazione. I rendimenti reali del mercato azionario sono molto volatili, e l'ordine con cui i rendimenti negativi capitano nei primi anni di vita post-lavoro è cruciale: subire un crollo del 40% nel primo anno mentre stai prelevando il 4% del capitale è una combinazione molto peggiore che subirlo dieci anni dopo, quando una buona parte del capitale ha già recuperato attraverso i rendimenti precedenti.
+
+Il primo che ha quantificato il problema in modo rigoroso è stato William Bengen, un consulente finanziario americano, nel 1994. Bengen ha preso i dati storici di azioni e obbligazioni dal 1926 al 1976, ha simulato centinaia di scenari di vita post-lavoro per ogni possibile anno di partenza, e ha cercato il tasso di prelievo più alto che avrebbe consentito al capitale di sopravvivere per almeno 30 anni in tutti gli scenari testati. La sua risposta è stata: **4% del capitale iniziale, rivalutato per l'inflazione ogni anno**. Lo studio Trinity del 1998 ha rifinito i numeri e raffinato i mix tra azioni e obbligazioni. Da allora il "4% rule" è diventato il pilastro della finanza personale per chi pianifica il pensionamento o l'indipendenza finanziaria anticipata.
+
+In questo articolo aggiorno l'analisi sui dati più ampi disponibili (S&P 500 *Total Return* dal 1872 al 2022, 151 anni), aggiungo una seconda metodologia di simulazione più severa (campionamento casuale a blocchi, 10.000 scenari ipotetici), e correggo i risultati per la realtà fiscale italiana — che la letteratura americana ignora completamente.
+
+## Cosa è il "tasso di prelievo sicuro"
+
+Per chi non ha mai sentito il termine: il *tasso di prelievo sicuro* (in inglese *Safe Withdrawal Rate*, abbreviato spesso SWR) è la frazione del capitale iniziale che puoi prelevare ogni anno con alta probabilità di non rimanere senza soldi prima della fine della vita prevista. La definizione operativa standard nella letteratura è:
+
+> Anno 1: prelevi X € (= tasso di prelievo × capitale iniziale)  
+> Anno 2: prelevi X € rivalutati per l'inflazione del 2° anno  
+> Anno 3: prelevi X € rivalutati per l'inflazione del 3° anno  
+> ...
+
+In modo che il **potere d'acquisto del prelievo resti costante** anno per anno. Se il prelievo del primo anno paga la spesa annua di un appartamento, il prelievo del decimo anno deve pagare lo stesso appartamento ai prezzi del decimo anno.
+
+Il "successo" è definito in due modi nella letteratura, ed entrambi sono importanti:
+
+- **Caso A — Sopravvivenza nuda**: il capitale resta sopra zero per tutto l'orizzonte. Cioè a fine vita non ti sei trovato in mutande. Definizione minima.
+- **Caso B — Preservazione del capitale**: il capitale finale è almeno il 50% del capitale iniziale, espresso in euro reali (cioè con il potere d'acquisto di oggi). Definizione utile per chi vuole lasciare qualcosa ai figli o alla compagna.
+
+I due numeri differiscono molto. Un tasso che sopravvive nel 90% degli scenari potrebbe preservare il 50% del capitale solo nel 70%. Bisogna decidere quale dei due obiettivi conta per te.
+
+## Il metodo
+
+Ho lavorato a frequenza annuale sui dati Shiller, che ricostruiscono S&P 500 *Total Return* (cioè con dividendi reinvestiti) e indice dei prezzi al consumo CPI dal 1872 al 2022. 151 anni di dati. I rendimenti sono espressi in **euro reali** — cioè ho sottratto l'inflazione storica mese per mese per ottenere il rendimento reale dell'investimento azionario. Lavorare in reali elimina la variabilità dell'inflazione futura dal modello: tutto è già "deflazionato" e i risultati possono essere letti come *potere d'acquisto* indipendentemente dall'inflazione che ci sarà nei prossimi 30 anni.
+
+Tasso di prelievo testati: 2,5%, 3%, 3,5%, 4%, 4,5%, 5%. Orizzonti di decumulo: 20, 30 e 40 anni — coprono dallo scenario "pensione tradizionale" (decumulo dai 65 ai 85) allo scenario "indipendenza finanziaria precoce" (decumulo dai 40 agli 80).
+
+Due metodologie complementari per coprire entrambi gli angoli del problema:
+
+**Finestre mobili storiche (rolling windows)**. Per ogni anno di partenza dal 1872 in poi (1872, 1873, 1874, ...), simulo la fase di decumulo come se quel fosse stato il primo anno di vita post-lavoro. Con 151 anni di dati e orizzonti di 30 anni, ho circa 120 finestre disponibili. Il "tasso di successo" è la quota di finestre in cui il capitale è sopravvissuto. È la metodologia originale Bengen / Trinity.
+
+**Campionamento a blocchi (block bootstrap)**. Per ogni traiettoria simulata, genero una sequenza ipotetica di rendimenti pescando blocchi consecutivi di 2 anni dai dati storici, fino a coprire l'orizzonte richiesto. Ripeto 10.000 volte per ogni combinazione di tasso e orizzonte. Il vantaggio: posso esplorare scenari ipotetici che la storia non ha mai prodotto realmente — per esempio due Grandi Depressioni consecutive, o una sequenza di cinque anni negativi all'inizio del decumulo seguita da un crollo a metà. I blocchi di due anni servono a preservare le correlazioni di breve periodo (il *volatility clustering*: dopo un anno di volatilità alta tende ad arrivarne un altro).
+
+La rolling windows ti dice "cosa è successo realmente in passato". Il bootstrap ti dice "cosa potrebbe succedere se il futuro fosse statisticamente simile al passato, ma con un campionamento delle code che non sappiamo se la storia ha già esplorato". Insieme danno un quadro onesto del rischio.
+
+I dati sono **lordi** — coerentemente con tutta la metodologia del blog. Niente costi degli ETF, niente tasse. Il risultato lordo è il punto di partenza, su cui poi aggiungiamo nella seconda parte dell'articolo il "costo Italia" per ottenere il numero reale che ti riguarda come investitore residente in Italia.
+
+## I risultati lordi
+
+Prima validazione del modello: replicare il risultato classico Trinity Study sul 4% e 30 anni di decumulo.
+
+| Metodologia | Tasso di prelievo 4% / 30 anni |
+|---|---|
+| Finestre mobili storiche | **96,7%** di successo |
+| Campionamento a blocchi 10.000 traiettorie | **89,3%** di successo |
+| Trinity Study 1998 (riferimento) | 95% |
+
+Match esatto. Il modello è ben calibrato.
+
+La differenza fra le due metodologie è già un punto editoriale. Il bootstrap include scenari che il passato non ha realmente prodotto ma sono statisticamente plausibili — combinazioni di periodi cattivi che potrebbero capitare nei prossimi 30 anni anche se non sono mai capitati esattamente così negli ultimi 150. In altre parole: **la storia è stata generosa con chi ha applicato il 4% rule**. Una stima onesta del rischio futuro è probabilmente più vicina al bootstrap (89-90%) che al rolling storico (97%).
+
+Ecco la matrice completa del bootstrap, **caso A** (sopravvivenza pura, capitale > 0):
+
+| Prelievo | 20 anni | 30 anni | 40 anni |
+|---|---|---|---|
+| 2,5% | 99,6% | 98,2% | 96,2% |
+| 3,0% | 98,9% | 95,9% | 92,8% |
+| 3,5% | 97,9% | **93,2%** | 89,3% |
+| 4,0% | 96,2% | **89,3%** | 85,0% |
+| 4,5% | 93,6% | 84,8% | 80,1% |
+| 5,0% | 90,2% | 79,3% | 73,5% |
+
+E il **caso B** (preservazione, capitale finale ≥ 50% reale):
+
+| Prelievo | 20 anni | 30 anni | 40 anni |
+|---|---|---|---|
+| 2,5% | 94,2% | 93,6% | 93,0% |
+| 3,0% | 92,0% | 90,0% | 89,4% |
+| 3,5% | 88,6% | 87,0% | 85,3% |
+| 4,0% | 85,2% | 81,9% | 80,5% |
+| 4,5% | 81,5% | 77,3% | 75,8% |
+| 5,0% | 76,8% | 70,9% | 68,6% |
+
+Tre osservazioni meritano un commento.
+
+**1. Per orizzonti lunghi serve scendere dal 4%.** Sui 40 anni di decumulo (lo scenario di chi smette di lavorare a 40 anni e arriva a 80), il 4% scende all'85%. Per stare sopra il 90% serve scendere al 3,5%. La "regola del 4%" è stata calibrata da Bengen per **30 anni**, non per 40. Le community americane di indipendenza finanziaria anticipata lo sanno e parlano della "regola del 3,5%" o "regola del 3,25%" proprio per coprire orizzonti più lunghi.
+
+**2. Il caso B è molto più stringente del caso A.** Al 4% sui 30 anni, il caso A vince nel 89% degli scenari, ma il caso B (lasci almeno la metà del patrimonio reale ai figli o ti rimane qualcosa per imprevisti) vince solo nell'82%. Chi pensa al pensionamento come "consumare il capitale fino alla fine" può vivere con A. Chi pensa al patrimonio come asset da trasmettere deve guardare B, e probabilmente prelevare meno.
+
+**3. Sopra il 4,5% si esce dalla "zona sicura".** A 5% / 30 anni, il caso A è all'79% — uno scenario su cinque finisce in povertà. Il 5% non è una "regola" come il 4%, è una scommessa. Nessuna letteratura accademica seria lo consiglia per piani di vita reali.
+
+![Heatmap success rate caso A](/charts/decumulo-fire-swr/01_heatmap_success_rate_A.png)
+
+## Il rischio della sequenza dei rendimenti
+
+C'è un fenomeno specifico del decumulo che è invisibile in fase di accumulo, e che spiega perché alcune finestre storiche sono fallite anche al 4% di prelievo. Si chiama **rischio della sequenza dei rendimenti** (*sequence of returns risk* in inglese, ma non userò più questo termine — chiamiamolo "rischio sequenza" per restare in italiano).
+
+L'idea è semplice. Se prelevi una percentuale fissa del capitale ogni anno, e subisci un crollo del mercato nei primi anni del decumulo, due cose ti penalizzano contemporaneamente: stai vendendo quote a prezzi bassi per coprire il prelievo (consumi più capitale rispetto a vendere a prezzi alti), e il capitale residuo è più piccolo per beneficiare del recupero successivo. Lo stesso crollo che capitasse a metà dei 30 anni di decumulo sarebbe molto meno dannoso: avresti già beneficiato dei rendimenti positivi precedenti, e il capitale residuo dopo il crollo basterebbe ancora a coprire le spese residue.
+
+Nelle finestre mobili storiche, le combinazioni che hanno fatto fallire il 4% / 30 anni sono iniziate in tre periodi specifici:
+
+- **Inizio anni '30** (1929, 1930, 1931): chi è andato in "pensione" all'inizio della Grande Depressione ha visto il mercato perdere il 79% reale nei primi quattro anni. Anche con un 4% di prelievo modesto, il capitale è stato decimato prima che il recupero arrivasse.
+- **Metà anni '60 e inizio anni '70** (1965, 1966, 1969, 1973): la "stagflazione" americana ha portato decennio di rendimenti reali negativi del mercato azionario (inflazione alta + crescita stagnante = rendimenti reali = − 4 e − 7 % anno). Combinati con prelievi rivalutati per l'inflazione, sono uno dei pochi periodi che ha fatto fallire il 4%.
+- **Primi anni 2000**: i crolli del 2000-2002 e poi del 2008 a stretto giro hanno creato un decennio di rendimenti reali negativi che ha stressato il modello.
+
+Il grafico sotto mostra tutte le finestre storiche di decumulo al 4% / 30 anni. Le verdi tenue sono finestre sopravvissute; le rosse marcate sono finestre che hanno esaurito il capitale prima dei 30 anni.
+
+![Wall of failure](/charts/decumulo-fire-swr/05_wall_of_failure.png)
+
+Sono pochi casi (3-4% delle finestre storiche), ma esistono. E sono concentrati in tre eventi specifici riconoscibili dalla cronaca. Il "4% rule" non è invincibile; è una regola con un cuscinetto del 95-97% costruito sulla storia americana.
+
+## La fiscalità italiana cambia il numero
+
+Qui arriviamo al punto che la letteratura americana ignora completamente, e che è il vero motivo per cui i numeri della Trinity Study non si applicano direttamente al retail italiano. Quando vendi quote di un ETF per coprire il prelievo annuale, l'Italia ti tassa la plusvalenza al **26%**. Cioè, sulla differenza fra prezzo di vendita oggi e prezzo medio di carico delle quote che vendi, lo Stato ne preleva 26 euro ogni cento.
+
+In più c'è il **bollo titoli dello 0,2% annuo** sul controvalore del tuo deposito titoli, applicato indipendentemente da quanto vendi. Non sembra molto, ma su 30 anni di patrimonio investito accumula tra il 5% e il 7% di erosione del capitale finale.
+
+Per modellare l'effetto della tassazione ho usato un approccio semplificato standard nella letteratura italiana sull'argomento, chiamiamolo **approccio della quota plusvalenza statica**. La logica è la seguente.
+
+Quando vendi una quota, una frazione del prezzo di vendita è "ritorno del capitale" (cioè i soldi che hai messo originalmente, rivalutati per nulla in termini reali) e una frazione è "plusvalenza" tassabile. Per un piano d'accumulo trentennale su un indice azionario in crescita, al termine dell'accumulo circa il **70-75% del capitale finale è plusvalenza** (perché hai versato per 30 anni ma il mercato è cresciuto molto di più dei tuoi versamenti). Per un piano di soli 10 anni di accumulo, la quota plusvalenza è più bassa, intorno al **50-55%**. Per un patrimonio già accumulato che vai a far fruttare per la prima volta, la quota plusvalenza iniziale è bassa, intorno al **50%**.
+
+Ho applicato questa tabella:
+
+| Anni di piano d'accumulo prima del FIRE | Quota plusvalenza ipotizzata |
+|---|---|
+| 0 (decumulo immediato del patrimonio attuale) | 50% |
+| 10 anni di PAC | 55% |
+| 20 anni di PAC | 65% |
+| 25 anni di PAC | 70% |
+| 30 anni di PAC | 75% |
+
+L'effetto pratico: se vuoi portare a casa un prelievo netto di 30.000 € reali (dopo le tasse), devi vendere un controvalore lordo più alto, perché una parte va in tasse. Il calcolo è:
+
+> Prelievo lordo richiesto = Prelievo netto desiderato ÷ (1 − 0,26 × quota plusvalenza)
+
+Per un piano trentennale di accumulo (quota plusvalenza 75%):
+
+> 30.000 € netti = 30.000 ÷ (1 − 0,26 × 0,75) = **30.000 ÷ 0,805 = 37.267 € lordi**
+
+Cioè per portare a casa 30.000 € reali in tasca, devi vendere un controvalore di 37.267 € reali. Il tasso di prelievo "effettivo" sul tuo patrimonio non è il 3,5%, è il 4,35%. E questo cambia tutto.
+
+Aggiungendo l'effetto del bollo (lo modello come drag costante dello 0,2% sul rendimento reale annuo), ecco la tabella che davvero ti riguarda — il **tasso di prelievo netto Italia** sui 30 anni di decumulo, per chi ha fatto un piano d'accumulo trentennale prima:
+
+| Prelievo netto in tasca | Tasso lordo effettivo | Successo lordo (no tasse) | **Successo netto Italia** | Costo Italia |
+|---|---|---|---|---|
+| 2,5% | 3,11% | 98,2% | **95,4%** | -2,8 pp |
+| 3,0% | 3,73% | 95,9% | **91,1%** | -4,8 pp |
+| 3,5% | 4,35% | 93,2% | **86,1%** | -7,1 pp |
+| 4,0% | 4,97% | 89,3% | **79,0%** | -10,3 pp |
+| 4,5% | 5,59% | 84,8% | **71,0%** | -13,8 pp |
+| 5,0% | 6,21% | 79,3% | **62,9%** | -16,4 pp |
+
+E lo stesso esercizio per chi vuole smettere oggi col patrimonio attuale, senza piano d'accumulo a precedere (quota plusvalenza 50%):
+
+| Prelievo netto in tasca | Tasso lordo effettivo | Successo lordo | **Successo netto Italia** | Costo Italia |
+|---|---|---|---|---|
+| 2,5% | 2,87% | 98,2% | **96,4%** | -1,8 pp |
+| 3,0% | 3,45% | 95,9% | **92,9%** | -3,0 pp |
+| 3,5% | 4,02% | 93,2% | **88,2%** | -5,0 pp |
+| 4,0% | 4,60% | 89,3% | **83,1%** | -6,2 pp |
+| 4,5% | 5,17% | 84,8% | **76,7%** | -8,1 pp |
+| 5,0% | 5,75% | 79,3% | **69,7%** | -9,6 pp |
+
+![Lordo vs Netto Italia, FIRE oggi](/charts/decumulo-fire-svr/09_lordo_vs_netto_fire_oggi.png)
+
+Tre insight forti che escono dalla tabella:
+
+**1. Il "4% rule netto Italia" non è il 4% americano.** Sui 30 anni, è il 79% di successo per chi ha fatto un piano d'accumulo trentennale, e l'83% per chi smette oggi. Lontano dal 95-97% dello studio Trinity americano. Per stare *davvero* sopra il 90% di successo netto, in Italia bisogna scendere al **3% o 3,5% netto**, non al 4%.
+
+**2. La fiscalità italiana costa tra 5 e 10 punti percentuali di sicurezza** rispetto al modello lordo, a seconda della quota di plusvalenza e del tasso di prelievo. Più alto il prelievo, più alto il "costo Italia" — perché l'imposta del 26% colpisce ogni euro di plusvalenza venduta, quindi più vendi più paghi. Per i prelievi modesti il costo è contenuto; per i prelievi aggressivi diventa devastante.
+
+**3. La "regola del 3,5% netto" è il vero compromesso italiano per il decumulo trentennale.** Successo dell'86% per chi ha fatto un piano d'accumulo, dell'88% per chi smette oggi. È quello che chiamerei il **giusto numero conservativo** per pianificare in Italia. È più severo del 4% americano, ma è onesto.
+
+## La risposta diretta alla domanda
+
+Adesso possiamo rispondere alla domanda che apre l'articolo: quanto capitale serve per smettere di lavorare? La risposta dipende da tre variabili tue specifiche — quanto vuoi spendere all'anno, quanto sei tollerante al rischio (cioè quale tasso di prelievo accetti come "abbastanza sicuro"), quanto vuoi smettere presto (cioè per quanti anni il capitale deve durare). Ho preso come riferimento la spesa di **30.000 € reali all'anno** che è la cifra che mi serve per vivere bene da single in Italia oggi (2.500 € al mese, costo casa e vita esclusa la villa con piscina). Mappalo sulla tua situazione con una proporzione lineare: se vuoi spendere 45.000 €, moltiplica per 1,5; se ne vuoi spendere 20.000, moltiplica per 0,67.
+
+### Scenario "smetto oggi col patrimonio attuale"
+
+Considerando la fiscalità italiana (quota plusvalenza 50%) e un decumulo di 30 anni:
+
+| Tasso di prelievo netto | Capitale richiesto oggi | Successo netto Italia, 30y |
+|---|---|---|
+| 3% | **1.000.000 €** | 92,9% |
+| 3,5% | **857.000 €** | 88,2% |
+| 4% | **750.000 €** | 83,1% |
+| 4,5% | 666.000 € | 76,7% |
+
+Il "milione" classico della tradizione americana applicato in Italia significa circa 3% netto — una scelta molto prudente. Lo "0,857 milioni" del 3,5% è la cifra del compromesso ragionevole. Sotto i 750.000 € sei nel territorio del rischio reale: 17% di probabilità di esaurire il capitale prima dei 30 anni di decumulo.
+
+### Scenario "smetto tra 20 anni dopo aver fatto un PAC ventennale"
+
+Se programmi di accumulare un patrimonio nei prossimi 20 anni e poi smettere, la spesa target di 30.000 € *di oggi* diventa più alta in euro nominali al momento dello smetto, perché l'inflazione tra oggi e quel momento riduce il potere d'acquisto. Con inflazione al 2% annuo (target BCE), 30.000 € oggi diventano 44.578 € nominali tra 20 anni. Con inflazione al 3% diventano 54.183 €.
+
+Capitale richiesto al momento dello smetto (cioè nel 2046), per 30 anni di decumulo successivi (cioè dal 2046 al 2076), quota plusvalenza 65%:
+
+| Tasso netto | Inflazione 2% — Capitale al 2046 | Inflazione 3% — Capitale al 2046 | Successo netto, 30y |
+|---|---|---|---|
+| 3% | **1.486.000 €** | **1.806.000 €** | 92,4% |
+| 3,5% | **1.274.000 €** | **1.548.000 €** | 86,4% |
+| 4% | **1.114.000 €** | **1.355.000 €** | 80,6% |
+
+Lo scenario "fra 20 anni con inflazione al 2%" e prelievo prudente al 3,5% richiede **1.274.000 € nominali al momento dello smetto**. È molto, ma è il numero onesto. Il calcolatore qua sotto ti permette di mapparlo sul tuo caso preciso.
+
+### Il calcolatore personalizzato
+
+<FireDecumuloSimulator client:load />
+
+## I limiti del modello
+
+Quattro caveat metodologici da dichiarare onestamente, prima di chiudere.
+
+**Il modello fiscale è una semplificazione.** L'approccio della quota plusvalenza statica fissa la frazione di plusvalenza al momento del decumulo, ma in realtà questa frazione cambia anno per anno (man mano che vendi, il prezzo medio di carico dei lotti residui si adegua). Il modello più rigoroso tracciante il prezzo medio di carico LIFO o medio ponderato di ogni vendita; la differenza con il modello semplificato sui 30 anni di decumulo è dell'ordine di 1-2 punti percentuali di successo, non drammatica ma da segnalare. Il modello che ho usato è quello standard nei calcolatori FIRE italiani (Moneyfarm, HEDEN, ecc.) ed è una buona approssimazione.
+
+**Dati 100% S&P 500.** Sto testando un portafoglio interamente azionario US. Bengen testava 50/50 azioni-bond. Lo studio Trinity testava 75/25 e 100% azioni in parallelo. Un portafoglio meno azionario riduce il successo di poco (1-2 pp) ma riduce molto la volatilità del decumulo — vivere con un portafoglio 100% azioni richiede stomaco, anche se il modello dice che funziona. In un articolo successivo testerò con un'allocazione 60/40 e MSCI World per dare un quadro più completo.
+
+**Costi degli ETF non modellati.** Il TER medio del mio mix di ETF UCITS è circa 0,3% all'anno (calibrato sul mio portafoglio personale). Sui 30 anni di decumulo questo cumula a una decina di punti percentuali di erosione del capitale finale. L'effetto sul successo è dell'ordine di 1-2 pp aggiuntivi. Lo dichiaro come "costo nascosto" e segnalo che andrebbe modellato in modo esplicito in un'analisi totalmente rigorosa.
+
+**Il regime fiscale italiano potrebbe cambiare.** Il 26% sui capital gain e il bollo 0,2% sono i regimi attuali (2026). Politicamente potrebbero salire o scendere nei prossimi 30 anni di decumulo. Modellare il rischio politico è oltre lo scopo di questa analisi. Per onestà: ho assunto il regime fiscale costante.
+
+## Cosa porto a casa
+
+1. **La regola del 4% americana funziona**, ma è calibrata su 30 anni esatti, niente tasse e niente costi. Sui 30 anni di decumulo dà 89% di successo nel bootstrap e 97% nelle finestre storiche. Solida ma non invincibile.
+
+2. **Il vero tasso sicuro per il retail italiano è il 3,5% netto** (non il 4%). Equivale a un 4-4,4% lordo effettivo a seconda della quota plusvalenza, e dà 86-88% di successo sui 30 anni di decumulo. È la "regola del 3,5% netto Italia" e secondo me dovrebbe essere il vero numero di riferimento per chi pianifica l'indipendenza finanziaria nel nostro paese.
+
+3. **La fiscalità italiana costa 5-10 punti di sicurezza** rispetto al modello americano lordo. Non è un dettaglio: è una differenza di magnitudine paragonabile alla scelta fra orizzonte 30 anni e orizzonte 40 anni. Chi pianifica il decumulo in Italia ignorando le tasse pianifica con il modello sbagliato.
+
+4. **Per orizzonti lunghi (40 anni di decumulo, scenario "smetto a 40")** serve scendere al 3% netto. Sui 40 anni, il 3,5% netto Italia dà solo 80% di successo, il 3% sale a 87%. Chi punta all'indipendenza finanziaria precoce non può applicare la regola pensata per chi smette a 65 anni.
+
+5. **La risposta numerica diretta**: per vivere con 30.000 € reali all'anno smettendo oggi, ti servono circa **857.000 € investiti oggi** (tasso 3,5% netto, 88% successo a 30 anni). Per smettere tra 20 anni con lo stesso tenore di vita, ti servono circa **1,3 milioni di euro nominali** al momento dello smetto (inflazione 2%). Per smettere tra 30 anni, circa **1,55 milioni**. Tre numeri da memorizzare.
+
+6. **Il calcolatore qui sopra** ti permette di personalizzare i numeri sulla tua situazione precisa — età corrente, età FIRE target, spesa annua effettiva, scenario inflazione. Usalo come strumento di lavoro, non come oracolo. I numeri sono basati sul passato e ti dicono "se i prossimi 30 anni assomigliano agli ultimi 150, queste sono le probabilità". Non sono garanzie.
+
+In sintesi: l'indipendenza finanziaria in Italia richiede di smettere di copiare i numeri americani e cominciare a fare i conti col regime fiscale che è la nostra realtà operativa. Il 4% rule netto Italia è un mito. Il 3,5% netto Italia è la realtà operativa. La differenza tra i due è di circa 200.000 € di patrimonio target per chi pianifica una vita di 30.000 € all'anno — ovvero un paio di anni di PAC aggiuntivo per chi sta ancora accumulando, o un anno in meno di vita post-lavoro per chi vuole smettere subito. Sapere il numero giusto cambia il piano.
