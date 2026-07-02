@@ -92,6 +92,12 @@ PROXY_TICKERS = {
 
     # Uranium / Nucleare
     "URA":     "proxy_ura_uranium",      # Global X Uranium, dal 2010
+
+    # Sleeve difensive aggiunte per l'articolo "Quale sleeve difensiva..."
+    "XLP":     "proxy_xlp_staples",      # Consumer Staples Select Sector SPDR, dal 1998
+    "XLU":     "proxy_xlu_utilities",    # Utilities Select Sector SPDR, dal 1998
+    "USMV":    "proxy_usmv_minvol",      # iShares MSCI USA Min Volatility, dal 2011
+    "QUAL":    "proxy_qual_quality",     # iShares MSCI USA Quality Factor, dal 2013
 }
 
 # Gruppo B — ETF UCITS REALI nel portafoglio di Tyler
