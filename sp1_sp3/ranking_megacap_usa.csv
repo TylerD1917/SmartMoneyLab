@@ -1,0 +1,48 @@
+year,rank1,rank2,rank3,ticker1,ticker2,ticker3,confidence,note
+1980,IBM,AT&T,Exxon,IBM,T,XOM,alta,"XOM = ex Exxon; AT&T pre-breakup"
+1981,IBM,AT&T,Exxon,IBM,T,XOM,alta,
+1982,IBM,AT&T,Exxon,IBM,T,XOM,alta,
+1983,IBM,AT&T,Exxon,IBM,T,XOM,alta,"ultimo anno AT&T integrata"
+1984,IBM,Exxon,AT&T,IBM,XOM,T,media,"breakup AT&T (gen 1984): T post-breakup non comparabile"
+1985,IBM,Exxon,GE,IBM,XOM,GE,media,
+1986,IBM,Exxon,GE,IBM,XOM,GE,media,
+1987,IBM,Exxon,GE,IBM,XOM,GE,media,
+1988,IBM,Exxon,GE,IBM,XOM,GE,media,
+1989,IBM,Exxon,GE,IBM,XOM,GE,media,
+1990,IBM,Exxon,GE,IBM,XOM,GE,media,"IBM ancora #1 ma in declino"
+1991,Exxon,IBM,GE,XOM,IBM,GE,media,"Exxon supera IBM"
+1992,Exxon,GE,Wal-Mart,XOM,GE,WMT,media,"IBM crolla; Walmart entra top3"
+1993,GE,Exxon,Wal-Mart,GE,XOM,WMT,media,"GE diventa #1"
+1994,GE,Exxon,AT&T,GE,XOM,T,media,
+1995,GE,Exxon,Coca-Cola,GE,XOM,KO,media,
+1996,GE,Coca-Cola,Exxon,GE,KO,XOM,media,
+1997,GE,Coca-Cola,Exxon,GE,KO,XOM,media,
+1998,GE,Microsoft,Coca-Cola,GE,MSFT,KO,media,"MSFT in rapida ascesa"
+1999,Microsoft,GE,Exxon,MSFT,GE,XOM,media,"MSFT #1; fusione Exxon-Mobil nov 1999"
+2000,Microsoft,GE,Cisco,MSFT,GE,CSCO,media,"Cisco brevemente #1 a marzo 2000 (bolla)"
+2001,GE,Microsoft,Exxon Mobil,GE,MSFT,XOM,media,"post dot-com; ExxonMobil"
+2002,GE,Microsoft,Wal-Mart,GE,MSFT,WMT,media,
+2003,GE,Microsoft,Exxon Mobil,GE,MSFT,XOM,media,
+2004,GE,Exxon Mobil,Microsoft,GE,XOM,MSFT,media,
+2005,Exxon Mobil,GE,Microsoft,XOM,GE,MSFT,media,"XOM torna #1"
+2006,Exxon Mobil,GE,Microsoft,XOM,GE,MSFT,alta,
+2007,Exxon Mobil,GE,Microsoft,XOM,GE,MSFT,alta,"PetroChina brevemente sopra (non-US, escluso)"
+2008,Exxon Mobil,Wal-Mart,Microsoft,XOM,WMT,MSFT,alta,"crisi: GE crolla"
+2009,Exxon Mobil,Microsoft,Wal-Mart,XOM,MSFT,WMT,alta,
+2010,Exxon Mobil,Apple,Microsoft,XOM,AAPL,MSFT,alta,"Apple entra top3"
+2011,Exxon Mobil,Apple,Microsoft,XOM,AAPL,MSFT,alta,"Apple supera XOM ad agosto 2011"
+2012,Apple,Exxon Mobil,Microsoft,AAPL,XOM,MSFT,alta,"Apple #1"
+2013,Apple,Exxon Mobil,Google,AAPL,XOM,GOOGL,alta,
+2014,Apple,Exxon Mobil,Microsoft,AAPL,XOM,MSFT,alta,
+2015,Apple,Microsoft,Exxon Mobil,AAPL,MSFT,XOM,alta,"Google -> Alphabet (ott 2015)"
+2016,Apple,Alphabet,Microsoft,AAPL,GOOGL,MSFT,alta,
+2017,Apple,Alphabet,Microsoft,AAPL,GOOGL,MSFT,alta,
+2018,Apple,Microsoft,Alphabet,AAPL,MSFT,GOOGL,alta,"Amazon e MSFT sfiorano il #1"
+2019,Microsoft,Apple,Amazon,MSFT,AAPL,AMZN,alta,"MSFT #1 inizio anno"
+2020,Apple,Microsoft,Amazon,AAPL,MSFT,AMZN,alta,
+2021,Apple,Microsoft,Alphabet,AAPL,MSFT,GOOGL,alta,
+2022,Apple,Microsoft,Alphabet,AAPL,MSFT,GOOGL,alta,"Exxon rimbalza (energia) ma fuori top3"
+2023,Apple,Microsoft,Alphabet,AAPL,MSFT,GOOGL,alta,"Nvidia inizia il rally"
+2024,Apple,Microsoft,Nvidia,AAPL,MSFT,NVDA,alta,"Nvidia brevemente #1 (giu 2024)"
+2025,Nvidia,Apple,Microsoft,NVDA,AAPL,MSFT,media,"testa-a-testa Nvidia/Apple/MSFT"
+2026,Nvidia,Microsoft,Apple,NVDA,MSFT,AAPL,bassa,"anno corrente: da confermare a consuntivo"

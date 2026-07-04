@@ -1,0 +1,193 @@
+---
+title: "Investire solo nell'azienda più grande batte il mercato? SP1 e SP3 su 31 anni, al netto delle tasse"
+description: "Comprare ogni anno solo l'azienda USA più capitalizzata (o le prime 3) batte l'S&P 500? Test 1995-2025 col framework a 7 criteri, al netto della tassazione italiana. Scorecard, finestre mobili, verdict."
+pubDate: 2026-07-03
+tags: ["strategie", "mega-cap", "sp500", "rolling-windows", "backtest", "tassazione", "diversificazione", "stock-picking"]
+author: "SmartMoneyLab"
+simulationSlug: "azienda-piu-grande-batte-mercato"
+series: "battere-il-mercato"
+seriesOrder: 4
+verdict: "parziale"
+draft: false
+---
+
+## In breve
+
+Testo due strategie meccaniche e apparentemente ovvie, su 31 anni di dati (1995-2025), **al netto della tassazione italiana** e contro un ETF S&P 500 ad accumulo — cioè lo strumento che un retail italiano compra davvero:
+
+- **SP1**: ogni anno tutto sull'azienda USA numero 1 per capitalizzazione. Rotazione annuale.
+- **SP3**: ogni anno equal-weight sulle prime 3. Rotazione e ribilanciamento annuali.
+
+Tre risultati centrali:
+
+1. **Netto e su finestre di 10 anni, SP3 ha battuto l'ETF ad accumulo nel 100% delle coorti** (22 su 22), con un CAGR netto mediano del **10.3% contro il 6.7%** dell'ETF. Anche sulle finestre a 5 anni vince nell'85% dei casi. Perfino pagando il 26% ad ogni ribilanciamento e sui dividendi ogni anno, non esiste un solo decennio del periodo in cui la strategia diversificata sulle prime tre abbia perso contro l'indice.
+2. **Ma la "numero 1 da sola" è la versione peggiore, non la migliore.** SP1 a 10 anni rende *meno* di SP3 (9.8% netto mediano) e perde contro l'ETF in una coorte su quattro (win rate 73%), sopportando un drawdown massimo dell'**−81%**. Il dato più eloquente è il Calmar (CAGR / drawdown): SP1 fa 0.201, l'indice fa 0.200. Sono la stessa cifra. **La concentrazione al vertice non produce alfa: produce leva sull'indice** — più rendimento e più rischio nella stessa proporzione. Come già visto nell'articolo sui LEAPS: leva senza alfa.
+3. **Il verdict del framework è PARZIALE per entrambe**, ed è corretto. Il rendimento c'è, ma lo si paga in volatilità (sempre più alta dell'indice) e, per SP1, in drawdown molto peggiore del semplice indice. E il multiplo stellare (SP3 chiude a 99.8× il capitale netto) è un artefatto di coda: la coorte *tipica* a 10 anni porta a casa circa il 10% netto annuo, non il moltiplicatore da titolo acchiappa-click.
+
+## La domanda
+
+C'è un'idea che gira da sempre, e ha il fascino della semplicità: *"se avessi comprato solo Apple / solo Microsoft / solo la più grande di turno, oggi sarei ricco"*. È il tipo di ragionamento che sembra ovvio col senno di poi. La versione un po' più sofisticata è: *"non serve indovinare il vincitore, basta comprare ogni anno l'azienda più capitalizzata del mondo — tanto il mercato me la indica da solo — e ruotare quando cambia il numero 1"*.
+
+È una strategia meccanica, automatizzabile, che non richiede analisi fondamentale: il ranking per capitalizzazione è pubblico e osservabile in tempo reale. La domanda che inaugura questo articolo della serie *"Strategie per battere il mercato?"* è quindi netta: **investire ogni anno solo nell'azienda più grande (o nelle prime tre) batte davvero l'S&P 500?**
+
+Ho un sospetto di partenza, e lo dichiaro: penso che *nel rendimento* batta il mercato, ma che il conto lo si paghi altrove — nel rischio e nelle tasse. E ho anche il sospetto che la versione "solo la numero 1" sia peggiore della versione diversificata, perché una singola azienda al vertice è fragilissima. Ma i sospetti non contano: contano i numeri, netti, su finestre mobili, con il framework di sempre.
+
+## Le due strategie e il ranking storico
+
+Le regole sono volutamente stupide, perché è tutto il punto: nessuna abilità, nessuna previsione.
+
+**SP1 — solo la numero 1.** Al primo giorno di borsa di ogni anno, tutto il capitale sull'azienda USA più capitalizzata in quel momento. Se a inizio anno successivo il numero 1 è cambiato, si ruota interamente sul nuovo leader. Se è lo stesso, si resta.
+
+**SP3 — le prime tre, equipesate.** Al primo giorno di borsa di ogni anno, capitale diviso in tre parti uguali sulle prime tre aziende per capitalizzazione. Ribilanciamento annuale ai pesi 1/3 e rotazione dei nomi che escono dal podio.
+
+Il cuore dei dati è il ranking storico. E qui va fatta una **nota metodologica onesta**, perché è l'unico punto delicato. Ho ricostruito a mano la classifica top-3 anno per anno, dal 1995 al 2025. Non è un dato "stimato con il senno di poi": la capitalizzazione delle mega-cap è osservabile in tempo reale, e il numero 1 mondiale è un dato pubblico e famoso in ogni singolo anno (nessuno, a inizio 2013, aveva dubbi che Apple fosse la più grande). Trattandosi di 1-3 nomi, la lista è *verificabile*, non frutto di un database point-in-time a pagamento. Detto ciò, dichiaro la confidenza: **il ranking dal 2006 in poi è inequivocabile; gli anni 1995-2005 sono a confidenza media**, perché il vertice ruotava spesso (IBM, Exxon, GE, poi Microsoft e la breve fiammata di Cisco nel 2000) e un paio di corporate action vanno gestite a mano (la fusione Exxon-Mobil del 1999). Nessun look-ahead sul *chi*, ma sui primi anni la classifica è più fragile e lo scrivo a chiare lettere.
+
+Il percorso del "numero 1" nel periodo, in sintesi: General Electric per gran parte dei tardi anni '90, Microsoft a cavallo del 2000, di nuovo GE e poi Exxon Mobil negli anni 2000, infine Apple dal 2012, con Microsoft, Alphabet, Amazon e — dal 2024 — Nvidia a contendersi il podio nell'ultima fase. Già da questo elenco si intuisce il problema di SP1: essere stati "tutto su Microsoft" nel 2000, o "tutto sul numero 1" durante lo scoppio della bolla, è stato doloroso.
+
+## Il metodo
+
+Il setup è coerente con gli altri articoli della serie, con un'aggiunta importante specifica di questo pezzo: **tutto viene valutato al netto delle tasse italiane**.
+
+- **Periodo**: gennaio 1995 – dicembre 2025 (31 anni). L'inizio coincide di fatto con la disponibilità di un benchmark pulito (l'ETF SPY, nato nel 1993).
+- **Dati**: prezzi daily *total return* (dividendi reinvestiti) via yfinance. Per la parte fiscale, prezzo e dividendi separati, perché in Italia hanno trattamento diverso.
+- **Benchmark**: S&P 500 come **ETF armonizzato ad accumulo** (tipo CSPX / SXR8 / VUAA), cioè lo strumento reale dell'investitore italiano. Uso SPY solo come proxy di prezzo dell'indice, ma lo *tasso* come un ETF ad accumulo.
+- **Framework a 7 criteri** (identico a tutta la serie): CAGR mediano rolling ≥ benchmark; win rate ≥ 60%; volatilità ≤ benchmark ×1.10; max drawdown mediano ≤ benchmark ×1.10; Sharpe ≥ benchmark; Calmar ≥ benchmark; Sortino ≥ benchmark. **Verdict**: VINCE se soddisfa tutti e 7 i criteri, PARZIALE se ne soddisfa 4-6, NON VINCE se 3 o meno.
+- **Finestre rolling**: 5 e 10 anni. Per la scorecard di rischio, step di 3 mesi su serie daily; per il confronto netto (dove le tasse si applicano ad eventi annuali) le coorti partono ad anni successivi, passo annuale.
+- **Risk-free** per Sharpe/Sortino: 2% annuo costante.
+
+Il motore fiscale merita una spiegazione, perché è ciò che rende questo test diverso dal solito backtest lordo che non dice nulla a un italiano.
+
+### Come modello la tassazione (26%)
+
+- **Plusvalenze da prezzo** (azioni singole): redditi diversi, tassate al 26% **solo alla vendita**. Nella strategia questo significa: si paga ai ribilanciamenti, quando un nome esce dal podio o viene alleggerito. Le posizioni che restano (Apple numero 1 per anni) **non vengono vendute, quindi la plusvalenza resta differita e non tassata** finché non ruota. Le minusvalenze realizzate vanno nello "zainetto" e compensano le plusvalenze future, entro l'anno di realizzo più i quattro successivi.
+- **Dividendi** (azioni singole): redditi di capitale, tassati al 26% **ogni anno alla percezione**, senza possibilità di compensazione con le minus. Il netto viene reinvestito.
+- **Benchmark ETF ad accumulo**: qui sta il punto che confonde molti. Un ETF ad accumulo **reinveste i dividendi dentro il fondo senza tassazione annua**, e il 26% si paga **una volta sola, sull'intera plusvalenza, alla vendita finale**. È il massimo dell'efficienza fiscale, ed è il motivo per cui il suo "tax drag" nel test è appena di 102 punti base l'anno: per 31 anni non vende mai e non distribuisce mai nulla di tassabile.
+
+Da qui l'asimmetria, che non è un bug ma il cuore economico della questione: **la strategia in azioni singole rinuncia allo scudo fiscale dell'accumulo**. Paga i dividendi ogni anno e realizza plusvalenze ad ogni rotazione, mentre l'ETF differisce tutto. Se la strategia vince *anche* con questo handicap fiscale, la vittoria è solida. Lo script completo che produce tutto è nel repository ([`scripts/azienda-piu-grande-batte-mercato.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/azienda-piu-grande-batte-mercato.py)), riga per riga, riproducibile.
+
+## Risultati full-sample: il rendimento c'è, il rischio pure
+
+Partiamo dal quadro d'insieme sui 31 anni. Queste sono metriche di rischio/rendimento *lorde* (dai NAV daily), utili a fotografare il profilo; il netto arriva subito dopo.
+
+<figure>
+  <img src="/charts/azienda-piu-grande-batte-mercato/01_equity_fullperiod.png" alt="Crescita di 1 euro investito in SP1, SP3 e S&P 500 dal 1995 al 2025, scala logaritmica. SP3 termina nettamente sopra le altre due, SP1 mostra oscillazioni molto più ampie." />
+  <figcaption>Crescita di 1€ (total return, scala logaritmica) nelle tre strategie, 1995-2025. Impressione visiva: SP3 domina, SP1 è più erratica dell'indice nonostante il rendimento finale alto.</figcaption>
+</figure>
+
+| Strategia | CAGR | Volatilità | Max drawdown | Sharpe | Sortino | Calmar | Multiplo |
+|---|---|---|---|---|---|---|---|
+| SP1 (solo #1) | 16.3% | 30.8% | **−81.1%** | 0.58 | 0.80 | 0.201 | 107.8× |
+| SP3 (prime 3) | 19.1% | 24.0% | −58.7% | 0.76 | 1.08 | 0.325 | 223.7× |
+| S&P 500 | 11.0% | 19.0% | −55.2% | 0.54 | 0.69 | 0.200 | 25.7× |
+
+Lettura:
+
+- Sul **rendimento**, entrambe stracciano l'indice: SP3 fa +8.1 punti percentuali di CAGR l'anno, SP1 +5.3. Su 31 anni composti la differenza diventa mostruosa (223.7× contro 25.7×).
+- Ma guardiamo il **rischio**. SP1 ha una volatilità del 30.8% (il 62% in più dell'indice) e soprattutto un drawdown massimo dell'**−81%**: è il crollo delle mega-cap del 2000-2002, vissuto tutto concentrato su un singolo nome. Il dato più eloquente non è il rendimento, è il **Calmar (rendimento diviso drawdown): 0.201 per SP1, 0.200 per l'indice. Sono la stessa cifra**. SP1 ti fa attraversare l'inferno del −81% per portarti a casa **lo stesso rapporto rendimento/dolore** di chi ha comprato l'indice e non ha fatto niente. Il rendimento in più non è alfa: è pura scala. Più rischio → più rendimento, ma nella stessa proporzione dell'indice. È lo stesso pattern osservato nell'articolo sulla strategia LEAPS: **leva senza alfa**, dove concentrarsi al vertice si comporta come applicare una leva sull'indice.
+- **SP3 è un'altra storia.** Diversificando su tre nomi, il drawdown resta simile all'indice (−58.7% vs −55.2%), ma tutte le metriche aggiustate per il rischio lo battono nettamente: Sharpe 0.76 contro 0.54, Sortino 1.08 contro 0.69, Calmar **0.325 contro 0.200 (+63%)**. Qui c'è alfa vero, non solo scala. L'unica cosa che "sfora" è la volatilità assoluta.
+
+Già qui emerge la spina dorsale dell'articolo: **la diversificazione minima (tre nomi invece di uno) non riduce il rendimento — anzi lo aumenta — e produce alfa vero, non solo scala.** La concentrazione sul singolo numero 1 è la scelta peggiore: alza tutto in modo proporzionale (rendimento, volatilità, drawdown) senza migliorare il rapporto rendimento/dolore rispetto al semplice indice.
+
+## Il cuore: i risultati netti su finestre mobili
+
+Il full-sample è suggestivo ma ingannevole: dipende da *quando* inizi e finisci, ed è dominato dalla coda spettacolare degli ultimi anni (Apple, poi Nvidia). La domanda vera per un investitore è un'altra: **"se fossi entrato in un anno qualunque e avessi tenuto 5 o 10 anni, quante volte avrei battuto l'ETF — al netto delle tasse?"**
+
+Qui si applica tutto il motore fiscale: 26% ad ogni ribilanciamento, dividendi tassati ogni anno, liquidazione finale, contro un ETF ad accumulo tassato una volta sola. Ogni finestra è un investitore-coorte indipendente che parte con capitale fresco.
+
+<figure>
+  <img src="/charts/azienda-piu-grande-batte-mercato/06_net_cagr_rolling_box.png" alt="Boxplot del CAGR netto su finestre mobili di 10 anni per SP1, SP3 e S&P 500 ad accumulo. Le distribuzioni di SP1 e SP3 sono chiaramente sopra quella dell'ETF." />
+  <figcaption>Distribuzione del CAGR <strong>netto</strong> (tasse italiane pagate) su finestre mobili di 10 anni. Le coorti di SP1 e SP3 stanno quasi sempre sopra l'ETF ad accumulo.</figcaption>
+</figure>
+
+| Orizzonte | SP1 mediano | win rate SP1 | SP3 mediano | win rate SP3 | ETF mediano |
+|---|---|---|---|---|---|
+| 5 anni (27 coorti) | 13.1% | 78% | 11.8% | 85% | 9.1% |
+| 10 anni (22 coorti) | 9.8% | **73%** | 10.3% | **100%** | 6.7% |
+| 10 anni — worst | −1.1% | — | **+0.2%** | — | −1.2% |
+
+Tre cose, in ordine di importanza:
+
+**SP3 è quasi imbattibile, al netto.** Su finestre di 10 anni ha superato l'ETF ad accumulo in **tutte e 22 le coorti** (win rate 100%), con un CAGR netto mediano del 10.3% contro il 6.7% dell'ETF: circa 3.6 punti percentuali l'anno di vantaggio, tasse pagate. E il dato non è mediano: **la peggior coorte di SP3 rende comunque +0.2% netto, contro un −1.2% della peggior coorte dell'ETF**. Anche a 5 anni vince nell'85% dei casi. Questo è il numero onesto da tenere a mente: non "99× in 31 anni", ma "battuto l'indice in ogni decennio, sempre positivo, al netto".
+
+**SP1 conferma di essere la trappola.** A 10 anni il suo CAGR netto mediano (9.8%) scende *sotto* quello di SP3 (10.3%), e soprattutto perde contro l'ETF in **6 coorti su 22** (win rate 73%). La rotazione più frequente e la concentrazione lo penalizzano più della versione diversificata: paga più tasse (vedremo il tax drag tra poco) e incassa drawdown peggiori, senza in cambio un rendimento superiore sul lungo periodo. Chi compra "solo la numero 1" pensando di massimizzare, in realtà ottiene *meno* di chi ne compra tre.
+
+**La coda non è la mediana.** Attenzione a non farsi ipnotizzare dai moltiplicatori full-sample. Il 213× lordo (99.8× netto) di SP3 è trascinato dall'ultimo decennio irripetibile. La coorte *tipica* a 10 anni porta a casa un onesto ~10% netto annuo. È comunque ottimo — batte l'indice — ma è un pianeta diverso dal "diventi ricco" che il moltiplicatore suggerisce.
+
+## La scorecard: perché il verdict è PARZIALE
+
+Il rendimento netto, da solo, non fa un "vince". Il framework a 7 criteri esiste proprio per non chiamare vittoria un rendimento alto comprato con rischio alto. Ecco la scorecard.
+
+<figure>
+  <img src="/charts/azienda-piu-grande-batte-mercato/02_scorecard.png" alt="Scorecard a 7 criteri per SP1 e SP3 su orizzonti 5 e 10 anni, con celle verdi per i criteri soddisfatti e rosse per quelli falliti." />
+  <figcaption>Scorecard del framework. Verde = criterio soddisfatto, rosso = fallito. SP3 arriva a 6/7, SP1 si ferma a 4-5/7.</figcaption>
+</figure>
+
+| Criterio | SP1 (10y) | SP3 (10y) |
+|---|---|---|
+| CAGR mediano ≥ benchmark | ✓ | ✓ |
+| Win rate ≥ 60% | ✓ | ✓ |
+| Volatilità ≤ 1.10× | ✗ | ✗ |
+| Max drawdown ≤ 1.10× | ✗ | ✓ |
+| Sharpe ≥ benchmark | ✓ | ✓ |
+| Calmar ≥ benchmark | ✓ | ✓ |
+| Sortino ≥ benchmark | ✓ | ✓ |
+| **Totale** | **5/7 → PARZIALE** | **6/7 → PARZIALE** |
+
+Entrambe falliscono la **volatilità assoluta**, sempre: sono strategie concentrate, oscillano più dell'indice per definizione. SP1 fallisce anche il **max drawdown**: l'−81% del 2000-2002 non è confrontabile con l'−55% dell'indice. Sul **Calmar** SP1 passa il criterio ma per un capello (0.201 vs 0.200): il messaggio del criterio, in questo caso, si legge come "SP1 non ha peggiorato il rapporto rendimento/dolore, ma non lo ha nemmeno migliorato". SP3 invece manca *solo* la volatilità, e passa tutto il resto — comprese le metriche di rischio che contano davvero.
+
+E qui una **onestà intellettuale sul framework stesso**: il criterio della volatilità assoluta penalizza anche l'oscillazione *al rialzo*. Il fatto che il Sortino di SP3 (1.08) sia molto più alto di quello dell'indice (0.69) ci dice che gran parte della sua "volatilità" è fatta di strappi verso l'alto, non di crolli. In altri termini, SP3 è "bocciata" su un criterio che misura anche la parte buona della volatilità. È un limite del framework, non della strategia — ma il framework va applicato con coerenza, quindi il verdict resta PARZIALE. Un PARZIALE forte, a un solo criterio dalla vittoria piena.
+
+## La realtà fiscale: quanto costa rinunciare all'accumulo
+
+Abbiamo detto che le strategie pagano un pegno fiscale che l'ETF ad accumulo evita. Ecco il conto esatto.
+
+<figure>
+  <img src="/charts/azienda-piu-grande-batte-mercato/03_gross_vs_net_tax.png" alt="Confronto tra CAGR lordo e netto per SP1, SP3 e S&P 500, con il tax drag annuo in punti base indicato per ciascuno." />
+  <figcaption>CAGR lordo contro netto e tax drag annuo. Le strategie in azioni singole perdono 3-3.6 volte più rendimento all'anno rispetto all'ETF ad accumulo.</figcaption>
+</figure>
+
+| Strategia | CAGR lordo | CAGR netto | Tax drag | Multiplo netto |
+|---|---|---|---|---|
+| SP1 | 16.2% | 12.6% | **358 bps/anno** | 39.3× |
+| SP3 | 18.9% | 16.0% | 293 bps/anno | 99.8× |
+| S&P 500 (accumulo) | 10.9% | 9.9% | **102 bps/anno** | 18.8× |
+
+Nota: qui "lordo" e "netto" sono capitalizzati sui NAV a fine anno del motore fiscale annuale, non sui NAV daily della tabella di rischio — la piccola discrepanza sui CAGR lordi (16.3% daily vs 16.2% annuale) è normale e dovuta alla granularità della capitalizzazione.
+
+Il tax drag delle strategie è **3-3.6 volte** quello dell'ETF. Due le cause: i dividendi delle azioni singole, tassati al 26% ogni anno (mentre nell'accumulo si reinvestono intatti), e le plusvalenze realizzate ad ogni rotazione (mentre l'ETF non vende mai per 31 anni). SP1 paga più di SP3 (358 contro 293 bps) proprio perché ruota di più: cambiare integralmente posizione ogni volta che cambia il numero 1 realizza plusvalenze più spesso.
+
+È un punto che vale per qualunque strategia di stock-picking rispetto all'ETF pigro: **una fetta consistente del tuo alfa lordo la versi allo Stato per il solo fatto di muoverti.** E nonostante ciò — è la parte notevole — SP3 continua a battere l'ETF nettamente anche al netto. Il che la dice lunga su quanto fosse ampio il vantaggio lordo di partenza in questo specifico periodo.
+
+## Il contrappunto: attenzione al regime e alla storia lunga
+
+Prima di tirare le somme, due secchiate d'acqua fredda, perché senza queste l'articolo sarebbe disonesto.
+
+**Primo: è l'era d'oro delle mega-cap.** Il periodo 1995-2025 è dominato da un fenomeno storico specifico — l'ascesa delle grandi società tecnologiche americane a pesi mai visti nell'indice. Gran parte del vantaggio, soprattutto nella coda, viene da Apple e poi Nvidia. Includere il 1995-2004 (con la bolla e il suo scoppio, dove il numero 1 come Microsoft venne massacrato) *attenua* il cherry-picking ma non lo elimina: resta un unico grande regime favorevole alle grandi.
+
+**Secondo, e più importante: la storia lunga dice il contrario.** La ricerca accademica sull'argomento (Dimensional, Research Affiliates e altri) mostra un fatto scomodo: **l'azienda più grande del mercato tende a *sottoperformare* nel decennio successivo al momento in cui raggiunge la vetta.** Il motivo è intuitivo: si diventa numero 1 dopo una corsa spettacolare, cioè quando le aspettative (e le valutazioni) sono massime, e da lì la strada più probabile è la delusione, non un'ulteriore accelerazione. Il nostro test cattura un periodo in cui questo *non* è successo — anzi, il contrario. Non c'è nessuna garanzia che il prossimo trentennio somigli a questo. Una strategia che ha funzionato splendidamente in un regime può ribaltarsi nel successivo.
+
+Detto brutalmente: questi numeri raccontano cosa *è successo*, non cosa *succederà*. E raccontano soprattutto una verità sul rischio: concentrarsi sui giganti è stato pagante *finché* i giganti hanno continuato a crescere.
+
+## Takeaway
+
+1. **Netto e su 10 anni, SP3 (le prime tre) ha battuto l'ETF ad accumulo nel 100% delle coorti**, con un CAGR netto mediano del 10.3% contro il 6.7%. È il risultato più solido del test: non un moltiplicatore da vetrina, ma un vantaggio ripetuto in ogni decennio, tasse pagate — e anche la peggior coorte di SP3 rende comunque positivo.
+2. **La versione "solo la numero 1" (SP1) non è alfa, è leva.** A 10 anni rende meno di SP3 (9.8% netto), perde contro l'ETF in una coorte su quattro, sopporta un drawdown dell'81% e ha un Calmar identico all'indice (0.201 vs 0.200). Concentrarsi al vertice ti dà più rendimento pagato con esattamente la stessa proporzione di rischio del comprare l'indice — stesso pattern dei LEAPS. **Diversificare anche solo su tre nomi cambia tutto** e produce alfa vero (Calmar +63% vs indice).
+3. **Il verdict è PARZIALE per entrambe.** Il rendimento c'è, ma si paga in volatilità (sempre) e, per SP1, in drawdown molto peggiore dell'indice. SP3 è un PARZIALE forte, a un solo criterio (la volatilità assoluta) dalla vittoria piena.
+4. **Lo stock-picking versa allo Stato una fetta grande dell'alfa.** Le strategie perdono 3-3.6 volte più rendimento in tasse rispetto all'ETF ad accumulo, per il solo fatto di incassare dividendi ogni anno e ruotare. È il costo strutturale del muoversi.
+5. **Non confondere questo regime con una legge di natura.** L'evidenza accademica di lungo periodo dice che la numero 1 tende a *sottoperformare* dopo aver toccato la vetta. Il 1995-2025 è andato all'opposto; il futuro non è obbligato a somigliargli.
+
+La sintesi meno sexy e più utile: se questi numeri ti tentano, la parte "seria" non è "compra la più grande", è "**diversificare batte concentrare, e il wrapper fiscale conta quanto la strategia**". Un ETF S&P 500 ad accumulo comprato e dimenticato ha reso il 9.9% netto annuo su 31 anni senza farti prendere un solo −82%, senza una singola dichiarazione dei redditi complicata, e senza doverci pensare. SP3 lo ha battuto — ma sapendo esattamente quale prezzo, in rischio e in tasse, stavi pagando.
+
+---
+
+### Fonti e riproducibilità
+
+- Prezzi e dividendi via yfinance (`Adj Close` per il total return; prezzo e dividendi separati per il calcolo fiscale). Benchmark: SPY come proxy dell'indice, tassato come ETF armonizzato ad accumulo.
+- Ranking storico top-3 curato a mano: [`sp1_sp3/ranking_megacap_usa.csv`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/sp1_sp3/ranking_megacap_usa.csv) — confidenza alta dal 2006, media 1995-2005.
+- Codice della simulazione: [`scripts/azienda-piu-grande-batte-mercato.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/azienda-piu-grande-batte-mercato.py).
+- Output numerico completo (scorecard, fisco, finestre nette): [`/charts/azienda-piu-grande-batte-mercato/summary.json`](/charts/azienda-piu-grande-batte-mercato/summary.json).
+- Letteratura di riferimento sul tema "la più grande sottoperforma": studi di Dimensional Fund Advisors e Research Affiliates sulla performance delle società al vertice della capitalizzazione nei decenni successivi.
+
+> Nota metodologica: le metriche di rischio (volatilità, Sharpe, Sortino, drawdown) sono calcolate sui NAV daily lordi; i risultati netti provengono dal motore fiscale annuale, con una lieve differenza di capitalizzazione (annuale vs giornaliera) sui CAGR lordi. Le due cifre sono coerenti in direzione e magnitudo. Il rebalancing di SP3 deduce la tassa dell'anno riscalando i pesi (effetto di secondo ordine); la finestra di compensazione delle minusvalenze è "anno di realizzo + 4". Non è modellato il bollo 0.2% annuo sui prodotti finanziari, che grava in modo analogo su ETF e deposito titoli delle azioni, quindi non altera il differenziale tra le strategie.
+
+> Disclaimer: contenuto informativo ed educativo, non consulenza finanziaria. Le performance passate non sono indicative di quelle future. Le strategie discusse sono esercizi quantitativi, non raccomandazioni operative. La tassazione è modellata in forma semplificata e non sostituisce il parere di un commercialista.
