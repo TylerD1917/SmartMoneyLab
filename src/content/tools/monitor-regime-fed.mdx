@@ -1,0 +1,61 @@
+---
+title: "Monitor Regime Fed — dove siamo, storicamente cosa è successo"
+description: "Monitor live: diagnostica direzione e livello reale dei Fed Funds oggi e mostra i range storici dei rendimenti di S&P 500 e NASDAQ nei periodi classificati nello stesso bucket."
+pubDate: 2026-07-12
+tags: ["fed", "tassi", "sp500", "nasdaq", "macro", "monitor", "policy-monetaria"]
+author: "SmartMoneyLab"
+toolType: "dashboard"
+tier: "free"
+draft: false
+---
+
+import FedRegimeMonitor from "../../components/interactive/FedRegimeMonitor.jsx";
+
+## Cosa fa
+
+Questo strumento diagnostica in tempo reale il **regime monetario Fed** in cui ci troviamo — livello dei Fed Funds, direzione trailing 12 mesi, livello reale (Fed Funds meno CPI YoY) — usando dati pubblici FRED aggiornati mensilmente. Per il bucket in cui il presente cade, mostra i **range storici dei rendimenti** che S&P 500 e NASDAQ hanno registrato sui 55 anni di dati del backtest sorgente (1971-2026): rendimento contemporaneo, forward 12 mesi, forward 24 mesi.
+
+<FedRegimeMonitor client:load />
+
+## Cosa NON fa (leggere prima di guardare i numeri)
+
+**Non predice il futuro dei mercati.** Nessuno strumento può farlo. Questo tool mostra la mediana e i percentili storici di rendimenti registrati in periodi passati classificati nello stesso "quadrante" macro del presente. La correlazione lineare fra livello dei tassi Fed e rendimenti azionari, su 55 anni di dati, è essenzialmente zero (circa +0.05 per S&P 500 forward 12m, −0.03 per NASDAQ). Il tool è un **posizionatore storico**, non un previsore.
+
+Perché farsene qualcosa allora? Perché il *quadrante macro* in cui siamo influenza la narrativa mediatica e le aspettative del retail. Sapere che nei periodi storicamente simili al presente l'S&P ha reso in mediana X% con range da p5 a p95 di Y% - Z% è un contesto utile — a patto di leggerlo come descrizione storica, non come previsione. Uno strumento più onesto e più informativo del solito "quando la Fed alza, storicamente il Nasdaq fa X" che gira senza dispersione né correlazione.
+
+## Le tre segmentazioni
+
+**Direzione** — variazione dei Fed Funds nei 12 mesi trailing. Tre bucket: discesa (−1pp o più), stabile, rialzo (+1pp o più). Coglie il "regime di policy": la Fed sta stringendo, allentando, o ferma.
+
+**Livello reale** — Fed Funds meno CPI YoY (inflazione dei consumatori). Quattro bucket: sotto 0% (accomodante), 0-2%, 2-4%, sopra 4% (restrittivo). Distingue "tassi nominalmente alti ma reali negativi" (2022) da "tassi nominalmente moderati ma reali molto restrittivi" (1997). È la variabile che il macro accademico considera più significativa.
+
+**Livello nominale** — omesso da questo tool perché nel backtest è la segmentazione con pattern meno robusto (non monotona, mediane simili tra fasce). Le altre due catturano più informazione.
+
+## Fonti e riproducibilità
+
+**Dati live** direttamente dai CSV pubblici FRED (Federal Reserve Bank of St. Louis):
+
+- [Fed Funds Rate — serie FEDFUNDS](https://fred.stlouisfed.org/series/FEDFUNDS)
+- [Consumer Price Index — serie CPIAUCSL](https://fred.stlouisfed.org/series/CPIAUCSL)
+
+Il fetch avviene direttamente dal browser al momento del caricamento della pagina — se il tuo browser blocca il CORS (raro con FRED) il tool passa in modalità snapshot, usando i dati dell'ultimo backtest.
+
+**Range storici** dei rendimenti: derivati da [`scripts/regimi-tassi-sp500-nasdaq.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/regimi-tassi-sp500-nasdaq.py), esportati in [`/tools/monitor-regime-fed-lookup.json`](/tools/monitor-regime-fed-lookup.json), rigenerati ad ogni update del backtest.
+
+- **S&P 500**: total return dal dataset Shiller (1871-oggi, ricostruito con formula `r_t = (P_t + D_(t-1)/12) / P_(t-1) − 1`)
+- **NASDAQ Composite**: price return da FRED serie NASDAQCOM (1971-oggi) più dividendo costante 0.75% annuo (approssimazione conservativa in assenza di serie TR lunga)
+
+**Panel** del backtest: aprile 1971 → aprile 2026 (661 osservazioni mensili). Copre 11 presidenti Fed, dallo stagflation degli anni Settanta al ciclo restrittivo 2022-2024.
+
+Metodologia estesa (con limiti, event study sui pivot Fed, correlazioni, tabelle complete): [articolo di riferimento](/posts/regimi-tassi-sp500-nasdaq).
+
+## Per chi è (e per chi non è)
+
+**Utile se**:
+- Vuoi capire in quale quadrante macro siamo *oggi*, senza dover leggere 500 opinioni social
+- Vuoi confrontare "cosa raccontano di solito i media quando la Fed è in questo regime" con "cosa è successo storicamente"
+- Vuoi capire la differenza tra "livello nominale dei tassi" e "regime effettivo di policy monetaria"
+
+**Non utile se**:
+- Cerchi una raccomandazione di acquisto o vendita in base alla Fed. Non è né sarà mai questo. L'articolo di riferimento dimostra che il livello dei tassi non è un predittore lineare dei rendimenti.
+- Cerchi conferma di una tesi già formata ("la Fed è hawkish, esco dal Nasdaq"). I dati del tool tendono anzi a mostrare l'opposto delle intuizioni comuni.
