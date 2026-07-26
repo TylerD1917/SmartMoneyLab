@@ -33,8 +33,11 @@ import { useState, useEffect, useMemo } from "react";
 // ------------------------------------------------------------------ //
 // Endpoints e costanti                                                //
 // ------------------------------------------------------------------ //
-const FRED_FFR_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=FEDFUNDS";
-const FRED_CPI_URL = "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL";
+// Endpoint via Cloudflare Pages Function proxy (functions/api/fred/[series].js).
+// FRED blocca CORS su fetch client-side diretto; il proxy edge lo aggira e
+// aggiunge cache 12h per non tempestare l'upstream.
+const FRED_FFR_URL = "/api/fred/FEDFUNDS";
+const FRED_CPI_URL = "/api/fred/CPIAUCSL";
 const LOOKUP_URL = "/tools/monitor-regime-fed-lookup.json";
 
 const DIR_THRESHOLD_PP = 1.0; // coerente col backtest sorgente
