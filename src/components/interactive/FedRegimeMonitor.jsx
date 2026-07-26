@@ -371,7 +371,7 @@ function BucketCard({ title, bucketLabel, sp500Stats, nasdaqStats, allBuckets, s
         </span>
       </div>
       <p className="mb-4 text-sm text-slate-600 dark:text-slate-400">
-        Rendimenti storici osservati nei periodi classificati nello stesso bucket ({sp500Stats?.n ?? "—"} mesi). Contemporaneo = rendimento durante il regime; forward 12m/24m = rendimento cumulato nei mesi successivi. Le mediane sono <em>annualizzate</em>.
+        Rendimenti storici osservati nei periodi classificati nello stesso bucket ({sp500Stats?.n ?? "—"} mesi). Contemporaneo = media annualizzata dei rendimenti mensili durante il regime; fwd 12m/24m = CAGR mediano cumulato nei mesi successivi. Coerenti con le tabelle dell'articolo.
       </p>
 
       <div className="overflow-x-auto">
@@ -401,10 +401,10 @@ function BucketCard({ title, bucketLabel, sp500Stats, nasdaqStats, allBuckets, s
                     {isCurrent && <span className="mr-1 text-blue-700 dark:text-blue-400">▶</span>}
                     {b}
                   </td>
-                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.contemp_ann_median)}</td>
+                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.contemp_ann_mean)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.fwd12_cagr_median)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.fwd24_cagr_median)}</td>
-                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.contemp_ann_median)}</td>
+                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.contemp_ann_mean)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.fwd12_cagr_median)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.fwd24_cagr_median)}</td>
                   <td className="py-2 pl-3 text-right text-xs text-slate-500 tabular-nums">{sp?.n ?? "—"}</td>
@@ -452,10 +452,10 @@ function StaticTable({ title, allBuckets, sp500All, nasdaqAll }) {
               return (
                 <tr key={b} className="border-b border-slate-100 dark:border-slate-800">
                   <td className="py-2 pr-4 text-slate-800 dark:text-slate-200">{b}</td>
-                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.contemp_ann_median)}</td>
+                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.contemp_ann_mean)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.fwd12_cagr_median)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(sp?.fwd24_cagr_median)}</td>
-                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.contemp_ann_median)}</td>
+                  <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.contemp_ann_mean)}</td>
                   <td className="py-2 pr-3 text-right tabular-nums">{fmtPct(nd?.fwd12_cagr_median)}</td>
                   <td className="py-2 pl-3 text-right text-xs text-slate-500 tabular-nums">{sp?.n ?? "—"}</td>
                 </tr>
