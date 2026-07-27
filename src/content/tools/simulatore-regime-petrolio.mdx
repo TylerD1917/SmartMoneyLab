@@ -1,0 +1,51 @@
+---
+title: "Simulatore Regime Petrolio — dove siamo, storicamente cosa è successo"
+description: "Simulatore: imposta prezzo WTI reale e variazione trailing 3 mesi; vedi in che bucket cadi e i range storici dei rendimenti di S&P 500, NASDAQ, ACWI, DAX, FTSE 100, Nikkei e MSCI EM."
+pubDate: 2026-07-14
+tags: ["petrolio", "wti", "sp500", "nasdaq", "dax", "ftse", "nikkei", "msci-em", "macro", "simulatore"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import OilRegimeSimulator from "../../components/interactive/OilRegimeSimulator.jsx";
+
+## Cosa fa
+
+Simulatore statico del **regime petrolio**. Imposti due input — prezzo WTI in dollari reali (costanti oggi) e variazione cumulata trailing 3 mesi — e il tool classifica il regime nei due bucket (livello + variazione) usati nell'articolo di riferimento e mostra i **range storici dei rendimenti a 6, 12 e 24 mesi** per i 7 indici azionari del backtest: S&P 500 total return, NASDAQ, MSCI ACWI, DAX (in total return nativo), FTSE 100, Nikkei, MSCI EM Gross USD.
+
+<OilRegimeSimulator client:load />
+
+## Cosa NON fa (leggere prima di guardare i numeri)
+
+**Non predice il futuro dei mercati.** Il tool mostra la mediana storica e i percentili p5-p95 dei rendimenti registrati in periodi passati classificati nello stesso "quadrante" macro del regime che hai impostato. La correlazione lineare fra livello del petrolio reale e rendimenti forward è **negativa ma modesta ed estremamente eterogenea per indice** — massima sugli emerging (MSCI EM fwd 12m: −0.38), praticamente zero per il DAX (−0.01, contro-intuitivo). Il valore del simulatore è capire il quadrante in cui ci troviamo, non predire il prossimo movimento di un indice.
+
+Perché farsene qualcosa allora? Perché il regime del petrolio è il macro-shock più raccontato dalla stampa finanziaria. Sapere che nei periodi storicamente simili a quello che stai simulando l'S&P ha reso in mediana X% con range da p5 a p95 di Y-Z% è un contesto utile — a patto di leggerlo come descrizione storica, non come previsione.
+
+## I due regimi
+
+**Livello reale del WTI** — deflazionato con CPI Shiller, quattro fasce: sotto $40 (basso, storicamente raro e concentrato in periodi di stress macro), $40-70 (normale), $70-100 (elevato), sopra $100 (shock). Le fasce sono in dollari costanti oggi.
+
+**Variazione trailing 3 mesi** — variazione cumulata del prezzo reale negli ultimi 3 mesi, tre fasce: crollo (meno 30% o più), stabile, impennata (più 30% o più). La soglia del 30% è coerente col backtest dell'articolo sorgente e cattura eventi come 2008 (GFC), 2014-2015 (crollo shale), 2020 (COVID), 2022 (post-Ucraina).
+
+## Fonti e riproducibilità
+
+- **WTI daily**: Yahoo Finance (`CL=F`), aggregato a fine mese.
+- **CPI**: dataset [Shiller](http://www.econ.yale.edu/~shiller/data.htm), estrapolato al 2.5% annuo dopo settembre 2023.
+- **Indici**: S&P 500 TR ricostruito Shiller; NASDAQ Composite PR da FRED + 0.75%/y div; MSCI ACWI PR + 1.9%/y; DAX TR nativo; FTSE 100 PR + 3.5%/y; Nikkei PR + 1.8%/y; MSCI EM Gross Return USD ufficiale.
+
+Panel: 309 osservazioni mensili, agosto 2000 → aprile 2026. Metodologia estesa, event study, correlazioni per orizzonte 6m/12m/24m, limiti: [articolo di riferimento](/posts/petrolio-e-mercati-azionari).
+
+Codice della simulazione: [`scripts/petrolio-e-mercati-azionari.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/petrolio-e-mercati-azionari.py). Lookup statico letto dal componente: [`/tools/oil-regime-lookup.json`](/tools/oil-regime-lookup.json).
+
+## Per chi è (e per chi non è)
+
+**Utile se**:
+- Vuoi capire in che quadrante siamo *oggi* rispetto alla storia del petrolio degli ultimi 26 anni
+- Vuoi confrontare "cosa raccontano di solito i media quando il petrolio è in questo regime" con "cosa è successo storicamente per ognuno dei 7 indici"
+- Vuoi vedere concretamente perché la narrativa "petrolio caro = borsa in giù" non regge sui dati aggregati
+
+**Non utile se**:
+- Cerchi una raccomandazione operativa. Non è né sarà mai questo — l'articolo di riferimento dimostra che la relazione livello petrolio ↔ rendimenti è modesta e molto eterogenea per indice.
+- Vuoi capire cosa succederà nei prossimi 12 mesi. Nessuno strumento onesto ti dà quella risposta. Il tool mostra range storici, non probabilità future.

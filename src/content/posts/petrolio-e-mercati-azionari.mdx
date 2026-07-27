@@ -8,8 +8,6 @@ simulationSlug: "petrolio-e-mercati-azionari"
 draft: false
 ---
 
-import OilRegimeSimulator from "../../components/interactive/OilRegimeSimulator.jsx";
-
 ## In breve
 
 Ogni volta che il barile fa un movimento rilevante, la stampa finanziaria e i social costruiscono un racconto sull'impatto atteso sui mercati azionari. "Petrolio caro = inflazione = borse in giù". "Petrolio che scende = spinta ai consumi = tempo di comprare". Ho testato la relazione su 26 anni di dati (agosto 2000 - aprile 2026) contro sette indici azionari globali: S&P 500 total return, NASDAQ, MSCI ACWI, DAX (in total return nativo), FTSE 100, Nikkei, MSCI EM Gross. Cinque conclusioni.
@@ -24,11 +22,24 @@ Ogni volta che il barile fa un movimento rilevante, la stampa finanziaria e i so
 
 5. **Event study su shock estremi (variazione ≥ 50% in 3 mesi)**: solo 4 eventi (2 bull, 2 bear) in 26 anni. Numeri suggestivi ma statisticamente fragili — descritti come illustrazione, non regolarità.
 
-## Simulatore del regime
+## Simulatore del regime (in /strumenti)
 
-Prima di entrare nel dettaglio, uno strumento didattico: sposta i due slider per scegliere un livello di prezzo reale e una variazione trailing 3 mesi, e vedi in che bucket si cade e cosa è successo storicamente per ognuno dei 7 indici. Utile per capire "dove siamo oggi" rispetto ai regimi passati — non come previsione.
+Prima di entrare nel dettaglio, ho preparato uno strumento didattico dedicato: sposti due slider — prezzo del WTI in dollari reali e variazione trailing 3 mesi — e il tool classifica in che bucket si cade, mostrando i range storici dei rendimenti a 6, 12 e 24 mesi per ciascuno dei 7 indici. Utile per capire "dove siamo oggi" rispetto ai regimi passati; non è una previsione.
 
-<OilRegimeSimulator client:load />
+<div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; border: 2px solid #d97706; border-radius: 1rem; background: #fef3c7;">
+  <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #92400e; font-weight: 600;">Strumento correlato</div>
+  <div style="font-size: 1.1rem; font-weight: 700; color: #451a03; margin-top: 0.25rem;">
+    Simulatore Regime Petrolio
+  </div>
+  <div style="color: #78350f; margin-top: 0.5rem; font-size: 0.95rem;">
+    Vai al simulatore per esplorare in prima persona come cambiano i range storici dei 7 indici al variare del regime del petrolio.
+  </div>
+  <div style="margin-top: 0.75rem;">
+    <a href="/strumenti/simulatore-regime-petrolio" style="display: inline-block; background: #d97706; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+      Apri il simulatore →
+    </a>
+  </div>
+</div>
 
 ## Dati e metodo
 
@@ -181,6 +192,6 @@ Come per l'articolo sui tassi Fed, l'obiettivo di questo pezzo non è offrire un
 - Codice della simulazione: [`scripts/petrolio-e-mercati-azionari.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/petrolio-e-mercati-azionari.py).
 - Panel mensile, statistiche per bucket, date dei pivot: [`/charts/petrolio-e-mercati-azionari/`](/charts/petrolio-e-mercati-azionari/).
 
-> Nota metodologica: rendimento contemporaneo per bucket = media annualizzata dei rendimenti mensili nel bucket (coerente con l'articolo sui tassi Fed e col Monitor Regime Fed). Forward 6m/12m/24m = CAGR della mediana del rendimento cumulato, per orizzonte. La dispersione (p5, p95) è disponibile nel simulatore sopra.
+> Nota metodologica: rendimento contemporaneo per bucket = media annualizzata dei rendimenti mensili nel bucket (coerente con l'articolo sui tassi Fed e col Monitor Regime Fed). Forward 6m/12m/24m = CAGR della mediana del rendimento cumulato, per orizzonte. La dispersione (p5, p95) è disponibile nel [Simulatore Regime Petrolio](/strumenti/simulatore-regime-petrolio).
 
 > Disclaimer: contenuto informativo ed educativo, non consulenza finanziaria. Le performance passate non sono indicative di quelle future. Le analisi sono esercizi quantitativi descrittivi, non raccomandazioni operative. La segmentazione in regimi è una scelta metodologica soggettiva; risultati diversi possono emergere sotto altre segmentazioni ragionevoli.
