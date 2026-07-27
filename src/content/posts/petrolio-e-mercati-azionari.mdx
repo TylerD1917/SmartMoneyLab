@@ -1,0 +1,186 @@
+---
+title: "Petrolio e mercati azionari globali: cosa dicono 26 anni di dati (2000-2026)"
+description: "Livello e variazione del petrolio predicono i rendimenti di S&P 500, NASDAQ, ACWI, DAX, FTSE 100, Nikkei e MSCI EM? Analisi su 26 anni, tre risultati controintuitivi e un simulatore interattivo."
+pubDate: 2026-07-14
+tags: ["petrolio", "wti", "sp500", "nasdaq", "dax", "ftse", "nikkei", "msci-em", "macro", "policy-energetica"]
+author: "SmartMoneyLab"
+simulationSlug: "petrolio-e-mercati-azionari"
+draft: false
+---
+
+import OilRegimeSimulator from "../../components/interactive/OilRegimeSimulator.jsx";
+
+## In breve
+
+Ogni volta che il barile fa un movimento rilevante, la stampa finanziaria e i social costruiscono un racconto sull'impatto atteso sui mercati azionari. "Petrolio caro = inflazione = borse in giù". "Petrolio che scende = spinta ai consumi = tempo di comprare". Ho testato la relazione su 26 anni di dati (agosto 2000 - aprile 2026) contro sette indici azionari globali: S&P 500 total return, NASDAQ, MSCI ACWI, DAX (in total return nativo), FTSE 100, Nikkei, MSCI EM Gross. Cinque conclusioni.
+
+1. **La correlazione lineare fra livello di petrolio reale e rendimenti forward è negativa ma modesta, e soprattutto molto eterogenea per indice**. Massima sugli emerging (MSCI EM fwd 12m: −0.38, coerente con la narrativa "importatori netti"), praticamente zero per il DAX (−0.01, controintuitivo). L'idea "petrolio caro fa male alle borse" vale sostanzialmente solo per gli emerging.
+
+2. **Il regime "normale" $40-70 reali è il migliore per quasi tutti gli indici**, con S&P forward 12m mediano +15.2%, NASDAQ +22.3%, EM +19.5%. Il regime "shock" oltre $100 reali riduce ma non azzera i forward: S&P resta a +13.5%, EM crolla a +3.2%. Il regime "basso sotto $40" (solo 6 mesi nel campione, tutti concentrati in periodi di stress) è il peggiore contemporaneamente, come vedremo perché.
+
+3. **La variazione del petrolio conta più del livello, ma nel verso opposto a quello del racconto**. Quando il petrolio è appena crollato del 30% o più su 3 mesi, il rendimento forward 12m dell'S&P è **+26%** mediano, NASDAQ **+38%**, EM **+54%**. Interpretazione: i crolli di petrolio sono sintomi di recessioni in corso, seguite da recovery violente sostenute dai tagli Fed e dagli stimoli fiscali. Il contemporaneo di quei mesi è disastroso (S&P −43% annualizzato mediano) — dopo, il rimbalzo.
+
+4. **Il DAX è controintuitivo**. Correlazione livello petrolio ↔ rendimenti forward: −0.01, contro −0.28 dell'ACWI e −0.38 dell'EM. Nonostante l'immaginario collettivo di "Germania industria pesante energia-intensiva", storicamente il DAX non ha reagito al livello del petrolio. Perché lo vediamo nella sezione dedicata.
+
+5. **Event study su shock estremi (variazione ≥ 50% in 3 mesi)**: solo 4 eventi (2 bull, 2 bear) in 26 anni. Numeri suggestivi ma statisticamente fragili — descritti come illustrazione, non regolarità.
+
+## Simulatore del regime
+
+Prima di entrare nel dettaglio, uno strumento didattico: sposta i due slider per scegliere un livello di prezzo reale e una variazione trailing 3 mesi, e vedi in che bucket si cade e cosa è successo storicamente per ognuno dei 7 indici. Utile per capire "dove siamo oggi" rispetto ai regimi passati — non come previsione.
+
+<OilRegimeSimulator client:load />
+
+## Dati e metodo
+
+**Universo indici (7)**. S&P 500 total return ricostruito dal dataset Shiller. NASDAQ Composite: price return da FRED, arricchito con dividendo costante 0.75%/anno (approssimazione conservativa). MSCI ACWI: price return + 1.9%/anno. **DAX**: dato TR nativo, unico grande indice mondiale che incorpora i dividendi reinvestiti direttamente nel calcolo dell'indice — vantaggio raro sfruttato qui. FTSE 100: PR + 3.5% (UK dividend-heavy). Nikkei: PR + 1.8%. MSCI EM: serie mensile Gross Return in USD dal dataset MSCI ufficiale.
+
+**Prezzo del petrolio**. WTI daily via Yahoo Finance, aggregato a fine mese. Deflazionato con Consumer Price Index Shiller (base = ultimo mese disponibile del panel). Il CPI Shiller ha copertura ufficiale fino a settembre 2023; oltre è estrapolato al 2.5% annuo (target Fed, dichiarato come approssimazione).
+
+**Panel finale**. Agosto 2000 - aprile 2026, 309 osservazioni mensili. L'inizio è vincolato dalla disponibilità del CSV WTI. Manca la grande crisi petrolio 1973-79, ma il campione include il super-ciclo 2003-2008 (con picco a $147 nominali di luglio 2008), il crollo 2014-2016 (shale + Arabia Saudita), il crollo COVID 2020 (con brevemente prezzi negativi al future), l'impennata Russia-Ucraina 2022.
+
+**Due definizioni di regime, in parallelo**. **A. Livello reale del WTI** in 4 fasce: sotto $40, $40-70, $70-100, sopra $100 (dollari costanti oggi). **B. Variazione cumulata trailing 3 mesi** del prezzo reale, in 3 fasce: crollo (meno 30% o più), stabile, impennata (più 30% o più).
+
+**Rendimenti**. Contemporanei (rendimento mensile durante il regime) e forward cumulati a 6, 12 e 24 mesi.
+
+**Event study**. Ho identificato gli shock estremi come mesi con variazione trailing 3m in valore assoluto sopra il 50%, richiedendo almeno 12 mesi di quiete dal pivot precedente. Il criterio restituisce 2 bull shocks (giugno 2020 rimbalzo COVID, marzo 2026 rimbalzo recente) e 2 bear shocks (novembre 2008 GFC, marzo 2020 crash COVID). Con n = 2 per direzione, il risultato è illustrativo, non robusto statisticamente.
+
+Lo script completo, panel mensile e statistiche per bucket sono in [`/charts/petrolio-e-mercati-azionari/`](/charts/petrolio-e-mercati-azionari/) e nel repository ([`scripts/petrolio-e-mercati-azionari.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/petrolio-e-mercati-azionari.py)).
+
+## Il contesto — cosa vediamo prima di segmentare
+
+<figure>
+  <img src="/charts/petrolio-e-mercati-azionari/01_context_timeline.png" alt="Grafico con la crescita cumulata di 1$ nei sette indici azionari e il livello del WTI reale sul secondo asse. Il periodo copre 2000-2026." />
+  <figcaption>Crescita di 1$ (scala log) nei sette indici e livello del WTI reale ($ costanti oggi) sul secondo asse. Sono visibili il super-ciclo 2003-2008, il crollo 2014-2016, il crash COVID 2020 e il rimbalzo Ucraina 2022.</figcaption>
+</figure>
+
+A occhio, non si legge un pattern semplice: gli indici salgono in modo diverso durante fasi di petrolio alto e basso. Prima di forzare una narrazione, segmentiamo.
+
+## Sezione A — Livello reale del petrolio
+
+<figure>
+  <img src="/charts/petrolio-e-mercati-azionari/02_regime_A_livello_boxplot.png" alt="Boxplot dei rendimenti mensili dei sette indici per quattro fasce di WTI reale (basso, normale, elevato, shock). Le distribuzioni si sovrappongono ampiamente." />
+  <figcaption>Distribuzione dei rendimenti mensili per fascia di WTI reale. Le mediane sono simili tra bucket per la maggior parte degli indici, con code più dense negli emerging.</figcaption>
+</figure>
+
+CAGR mediano forward 12 mesi per bucket livello e indice:
+
+| Bucket WTI reale | n | S&P 500 | NASDAQ | ACWI | DAX | FTSE | Nikkei | EM |
+|---|---|---|---|---|---|---|---|---|
+| sotto $40 (basso) | 6 | −18.8% | −21.8% | −13.8% | −32.2% | −17.0% | −13.7% | +6.7% |
+| $40-70 (normale) | 101 | **+15.2%** | **+22.3%** | +13.9% | +8.1% | +11.1% | +9.7% | **+19.5%** |
+| $70-100 (elevato) | 93 | +12.0% | +14.8% | **+14.7%** | +12.6% | +9.8% | +11.8% | +11.7% |
+| sopra $100 (shock) | 109 | +13.5% | +12.5% | +8.8% | **+15.9%** | +7.9% | +5.3% | +3.2% |
+
+Tre osservazioni.
+
+**Il regime normale $40-70 è storicamente il migliore per quasi tutti gli indici**. Il livello percepito come "sano" del petrolio coincide con le condizioni macro benigne (2004-2007 pre-bolla, 2016-2019 recovery post-shale). Non stupisce.
+
+**Il regime "sopra $100" (109 mesi, il bucket più popoloso) non è il peggiore in termini di forward**. I rendimenti restano positivi ovunque: S&P +13.5%, DAX addirittura +15.9%. Gli unici che soffrono davvero il petrolio-shock sono Nikkei (+5.3%) e MSCI EM (+3.2%). Il Nikkei si spiega: il Giappone è importatore netto quasi al 100%. L'EM è meno intuitivo — vale la pena ricordare che l'MSCI EM contiene sia esportatori (Russia storicamente, prima della sua rimozione dall'indice; Brasile con Petrobras) sia importatori pesanti (Cina, India). L'effetto netto è comunque negativo.
+
+**Il bucket "sotto $40" (solo 6 mesi) è quello con forward peggiori**, ma non è il petrolio basso a causarlo: sono quelli i mesi che stanno *dentro* a periodi di stress macro (novembre 2001-marzo 2002 nel post-dotcom, brevi finestre COVID 2020). L'endogeneity è totale — sample size 6 mesi, tutti in fasi già patologiche. Nella lettura del tool il bucket va trattato con cautela.
+
+**Correlazioni lineari** livello WTI reale ↔ rendimenti forward 12m: MSCI EM −0.38, ACWI −0.28, S&P −0.19, NASDAQ −0.17, FTSE −0.15, Nikkei −0.10, DAX −0.01. Il segnale è modesto ovunque tranne che sugli emerging.
+
+## Sezione B — Variazione trailing 3 mesi
+
+Questa è la parte più interessante del pezzo. Distinguo tre bucket: crollo (variazione ≤ −30%), stabile, impennata (≥ +30%). Il campione si divide in 10 mesi di crollo, 277 di stabilità, 19 di impennata.
+
+<figure>
+  <img src="/charts/petrolio-e-mercati-azionari/04_regime_B_variazione_boxplot.png" alt="Boxplot dei rendimenti mensili per i tre bucket di variazione trailing del petrolio. Il bucket crollo mostra distribuzioni molto sotto zero." />
+  <figcaption>Rendimenti mensili per bucket di variazione trailing 3m del WTI reale. I mesi di crollo del petrolio hanno rendimenti mensili contemporanei molto negativi.</figcaption>
+</figure>
+
+**Rendimenti contemporanei annualizzati** — cioè cosa hanno reso gli indici nei mesi in cui il petrolio era già dentro a un crollo/impennata/stabilità:
+
+| Direzione WTI | S&P 500 | NASDAQ | ACWI | DAX | FTSE | Nikkei | EM |
+|---|---|---|---|---|---|---|---|
+| Crollo (≤ −30%) | **−42.6%** | −35.2% | −40.8% | −27.7% | −24.5% | −35.1% | **−44.1%** |
+| Stabile | +11.5% | +12.7% | +10.1% | +9.2% | +7.7% | +10.7% | +13.2% |
+| Impennata (≥ +30%) | +11.4% | +23.6% | +17.4% | −1.7% | +6.6% | +22.1% | +32.1% |
+
+Nei mesi in cui il petrolio è appena crollato, l'equity è in caduta libera. Sample: sono per la maggior parte i mesi finali del 2008 (GFC), il crash COVID di marzo 2020 e il crollo shale 2014-2015. Il petrolio scende con il resto — non lo *causa*.
+
+E ora il forward — cosa è successo *dopo* quei crolli:
+
+<figure>
+  <img src="/charts/petrolio-e-mercati-azionari/05_regime_B_forward12m.png" alt="Bar chart che mostra il CAGR mediano forward 12m dei sette indici per i tre bucket di variazione WTI. Il bucket 'crollo' ha rendimenti forward molto positivi per tutti gli indici." />
+  <figcaption>CAGR mediano forward 12 mesi per direzione WTI. I mesi post-crollo del petrolio precedono i migliori 12 mesi successivi per l'equity globale.</figcaption>
+</figure>
+
+| Direzione WTI | S&P 500 | NASDAQ | ACWI | DAX | FTSE | Nikkei | EM |
+|---|---|---|---|---|---|---|---|
+| **Crollo** | **+26.5%** | **+38.4%** | **+30.2%** | +22.2% | +20.7% | +19.7% | **+54.1%** |
+| Stabile | +13.3% | +15.6% | +12.5% | +12.5% | +9.0% | +8.2% | +10.3% |
+| Impennata | +16.0% | +14.3% | +13.7% | +20.7% | +19.0% | +4.4% | +20.2% |
+
+**Il bucket "crollo di petrolio" precede i 12 mesi mediamente più redditizi della storia recente per l'equity globale**. Non perché il petrolio basso stimoli i consumi in modo miracoloso. Per il motivo opposto: i crolli identificati (n=10) sono quasi tutti eventi post-recessione, in cui l'equity aveva già preso una batosta enorme (il contemporaneo mediano è −43% annualizzato per l'S&P) e il forward cattura la recovery post-crisi. La Fed taglia, i governi stimolano, le valuations sono compresse — segue rimbalzo violento.
+
+L'impennata invece dà risultati misti: media buona su S&P (+16%) e DAX (+20.7%), ma Nikkei crolla a +4.4% mediano forward. Le impennate identificate (n=19) includono fasi bullish reali (2003-2005, 2010-2011 recovery post-GFC) ma anche fasi tossiche (2007-2008 pre-GFC, primi mesi 2022 post-Ucraina). Il segnale è ambiguo.
+
+## Il caso DAX — la parte controintuitiva
+
+Correlazione livello WTI reale ↔ DAX forward 12m: −0.01. Praticamente zero. Contro −0.28 dell'ACWI e −0.38 dell'EM.
+
+L'immaginario dice: Germania = industria pesante = petrolio caro = margini compressi = borsa giù. I dati dicono di no. Perché?
+
+Tre ragioni plausibili, di cui almeno una è un artefatto:
+
+- **DAX in total return nativo**. Il DAX incorpora i dividendi reinvestiti direttamente nell'indice. In fasi di petrolio alto le grandi società quotate DAX (BASF, Bayer, Volkswagen, Siemens Energy) mantengono buoni dividendi, che pesano sul TR molto più che sui prezzi puri. Parte del "resiliente" viene dal wrapper.
+- **Composizione settoriale**. Il DAX ha una quota rilevante di *technology* (SAP), *pharma* (Bayer, Merck) e *industriali diversificati* (Siemens, MTU) le cui filiere non sono petrolio-intensive quanto la narrativa suggerisce. I veri energy players tedeschi (RWE, E.ON, EnBW) sono relativamente piccoli in termini di capitalizzazione.
+- **Hedging sistematico**. Le grandi corporate tedesche hedgano l'esposizione a materie prime con derivati OTC, cosa che il retail italiano tende a sottovalutare quando ragiona sulla sensibilità dei fatturati alle materie prime.
+
+Sono ipotesi, non prove. Il dato empirico solido è: **la narrativa "Germania energia-intensiva soffre del petrolio caro" non regge sui dati degli ultimi 26 anni**.
+
+## Event study — n=2, illustrazione non regolarità
+
+Con soglia ±50% su 3 mesi ottengo solo 2 pivot bull (giugno 2020, marzo 2026) e 2 pivot bear (novembre 2008, marzo 2020). Numero troppo piccolo per fare inferenza. Le mediane a t+12m sono:
+
+| Post-shock | S&P | NASDAQ | ACWI | DAX | FTSE | Nikkei | EM |
+|---|---|---|---|---|---|---|---|
+| Post-bull (impennata) | +38.7% | +45.2% | +39.7% | +26.2% | +18.0% | +31.5% | +41.4% |
+| Post-bear (crollo) | +38.4% | +57.0% | +45.5% | +35.8% | +23.8% | +34.3% | +72.3% |
+
+I numeri sono spettacolari ma vanno letti come "cosa è successo nei quattro casi specifici". La lettura macro è coerente col resto: **dopo un pivot violento del petrolio, l'equity globale ha storicamente registrato rimbalzi importanti nei 12 mesi successivi**. Ma con n=2 non pretendo di generalizzare.
+
+## Limiti
+
+**Endogeneity petrolio ↔ ciclo globale**. Il petrolio non si muove nel vuoto: risponde a domanda globale, geopolitica, decisioni OPEC, capacità di raffinazione, dollaro. Ogni correlazione fra petrolio e mercati è confusa da queste variabili comuni. Le medie condizionali sono descrittive, non causali.
+
+**Total Return dei sette indici**. Solo S&P (Shiller) e DAX (nativo) sono TR "puri". Gli altri hanno dividendi aggiunti come costante, approssimazione conservativa. Il ranking *relativo* tra bucket è invariante alla scelta TR/PR; i livelli assoluti dei CAGR potrebbero variare del 1-3% se si avessero i TR "veri".
+
+**CPI estrapolato**. Da settembre 2023 in poi il CPI è estrapolato al 2.5% annuo. È un'ipotesi conservativa (l'inflazione reale USA nel 2024-2026 è stata leggermente sopra il target). Effetto: il WTI reale nei mesi più recenti è leggermente più alto di quello che avremmo con dati CPI veri, non abbastanza per invertire le classificazioni di bucket.
+
+**Sample size event study**. n=2 per direzione. Descrittivo, non robusto.
+
+**Panel post-2000**. La grande crisi petrolifera 1973-79, che ha ridefinito la storia macro-finanziaria del Novecento, resta fuori dal campione. Le conclusioni valgono per l'era "post-Volcker", non per tutte le fasi storiche possibili.
+
+**MSCI EM cambia composizione nel tempo**. La rimozione della Russia dall'indice nel 2022 e i cambi di pesi Cina/India nel decennio scorso rendono l'MSCI EM di oggi non perfettamente confrontabile con quello del 2005.
+
+## Conclusioni
+
+**Prima.** La correlazione lineare fra livello di petrolio reale e rendimenti azionari forward è negativa ma modesta, e soprattutto molto eterogenea per indice. Massima sugli emerging (−0.38), quasi nulla sul DAX (−0.01). L'affermazione "petrolio caro fa male alle borse" è vera *in media* solo per gli emerging.
+
+**Seconda.** Il regime "normale $40-70" è storicamente il migliore per la maggior parte degli indici. Il regime "shock oltre $100" abbassa i forward degli emerging e del Nikkei, ma non azzera quelli di S&P e DAX.
+
+**Terza.** La variazione conta più del livello, ma nel senso contrario a quello del racconto pubblico: **dopo un crollo del petrolio, gli indici forward 12m sono i migliori della serie storica** (S&P +26.5%, EM +54.1%). Interpretazione: i crolli sono sintomi di recessione in corso; la Fed reagisce, i mercati recuperano.
+
+**Quarta.** Il DAX è controintuitivo: nonostante l'immaginario "Germania industria pesante = vittima del petrolio caro", non ha reazione statisticamente rilevante al livello del petrolio negli ultimi 26 anni. Composizione settoriale, TR nativo e hedging sono spiegazioni plausibili ma non provate qui.
+
+Come per l'articolo sui tassi Fed, l'obiettivo di questo pezzo non è offrire una strategia. È mostrare che la narrativa pubblica sul rapporto petrolio-mercati, dominata da slogan del tipo "petrolio su = borsa giù", non ha basi solide nei dati storici degli ultimi 26 anni, se non — parzialmente — per gli emerging. Chi vuole prendere decisioni operative a partire dal prezzo del barile dovrebbe come minimo confrontarle con questi range storici.
+
+---
+
+### Fonti e riproducibilità
+
+- Prezzo del petrolio: WTI daily via Yahoo Finance (`CL=F`), deflazionato con CPI Shiller.
+- S&P 500 total return: [dataset Shiller](http://www.econ.yale.edu/~shiller/data.htm).
+- NASDAQ: [FRED serie NASDAQCOM](https://fred.stlouisfed.org/series/NASDAQCOM), price return + 0.75% div annuo.
+- MSCI ACWI, DAX, FTSE 100, Nikkei: serie daily Yahoo Finance, price return + dividendo approssimato per indice (0.0% DAX perché TR nativo; 1.9% ACWI; 3.5% FTSE; 1.8% Nikkei).
+- MSCI EM: serie mensile Gross Return in USD dal dataset MSCI ufficiale.
+- CPI: Shiller fino settembre 2023, estrapolato al 2.5% annuo (target Fed) oltre.
+- Codice della simulazione: [`scripts/petrolio-e-mercati-azionari.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/petrolio-e-mercati-azionari.py).
+- Panel mensile, statistiche per bucket, date dei pivot: [`/charts/petrolio-e-mercati-azionari/`](/charts/petrolio-e-mercati-azionari/).
+
+> Nota metodologica: rendimento contemporaneo per bucket = media annualizzata dei rendimenti mensili nel bucket (coerente con l'articolo sui tassi Fed e col Monitor Regime Fed). Forward 6m/12m/24m = CAGR della mediana del rendimento cumulato, per orizzonte. La dispersione (p5, p95) è disponibile nel simulatore sopra.
+
+> Disclaimer: contenuto informativo ed educativo, non consulenza finanziaria. Le performance passate non sono indicative di quelle future. Le analisi sono esercizi quantitativi descrittivi, non raccomandazioni operative. La segmentazione in regimi è una scelta metodologica soggettiva; risultati diversi possono emergere sotto altre segmentazioni ragionevoli.
