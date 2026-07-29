@@ -1,0 +1,37 @@
+---
+title: "Simulatore CAPE e rendimenti attesi del mercato"
+description: "Imposta un livello di Shiller CAPE e osserva cosa ha reso storicamente l'S&P 500 a 5, 10 e 20 anni in quella fascia, in termini reali e nominali. 145 anni di dati (1881-2026)."
+pubDate: 2026-07-16
+tags: ["cape", "shiller", "valutazioni", "sp500", "rendimenti-attesi", "simulatore"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import CapeReturnSimulator from "../../components/interactive/CapeReturnSimulator.jsx";
+
+## Cosa fa
+
+Imposti un livello di **Shiller CAPE** (il rapporto prezzo/utili corretto per il ciclo) e lo strumento mostra cosa ha reso storicamente l'S&P 500 nei 5, 10 e 20 anni successivi ogni volta che il CAPE si trovava in quella fascia — in termini sia **reali** (al netto dell'inflazione) sia **nominali**, con mediana e range dal 5° al 95° percentile. I dati coprono 145 anni (1881-2026).
+
+<CapeReturnSimulator client:load />
+
+## Cosa NON fa (leggere prima)
+
+**Non è market timing.** Il CAPE predice l'*ordine di grandezza* dei rendimenti su orizzonti lunghi (la correlazione col rendimento reale è −0.49 a 10 anni, −0.57 a 20 anni), ma **non dice quando** arriverà un eventuale periodo di rendimenti scarsi. Il mercato è stato "caro" per il CAPE per anni interi continuando a salire. Chi usa il CAPE per uscire dal mercato quando è alto rischia di perdere lunghi rialzi.
+
+L'uso corretto è **calibrare le aspettative di lungo periodo**: se il CAPE oggi è alto, la storia suggerisce rendimenti reali futuri più bassi della media — informazione utile per pianificare risparmio, tassi di prelievo, obiettivi pensionistici. Non per entrare o uscire.
+
+## Come leggere i numeri
+
+- **Reale vs nominale**: il reale è al netto dell'inflazione ed è il framing corretto per il CAPE (la relazione è più pulita in termini reali, soprattutto su 20 anni). Il nominale è più intuitivo ma "gonfiato" dall'inflazione: anche fasce sfavorevoli raramente vanno negative in nominale.
+- **Mediana e range**: la mediana è il valore centrale storico; il range p5-p95 mostra quanto ampia è stata la dispersione. Il mercato non è deterministico — la stessa fascia CAPE ha prodotto esiti diversi in epoche diverse.
+- **La fascia >40 ha pochi dati** (22 mesi, concentrati nel 2000 e 2021): le sue statistiche sono indicative, non robuste.
+
+## Fonti e riproducibilità
+
+- Shiller CAPE (PE10) e S&P 500 total return: [dataset Robert Shiller](http://www.econ.yale.edu/~shiller/data.htm), esteso con [multpl](https://www.multpl.com/shiller-pe/table/by-month) per i mesi recenti.
+- Rendimenti reali deflazionati per CPI Shiller. Panel 1881-2026, 1744 osservazioni mensili.
+- Metodologia estesa, scatter, regressioni, tabelle complete: [articolo di riferimento](/posts/shiller-cape-predice-rendimenti).
+- Codice: [`scripts/shiller-cape-predice-rendimenti.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/shiller-cape-predice-rendimenti.py). Lookup: [`/tools/cape-lookup.json`](/tools/cape-lookup.json).

@@ -98,6 +98,14 @@ def _format_eur(value: float) -> str:
     return f"€{value:.0f}"
 
 
+def _format_pct(value: float) -> str:
+    """Formatta come '+X%' / '-X%', arrotondato all'intero.
+    Usato in modalita' --percentage: le curve rappresentano variazioni
+    rispetto al punto iniziale (base 0)."""
+    sign = "+" if value >= 0 else ""
+    return f"{sign}{value:.0f}%"
+
+
 def generate_reel(
     csv_path: str | Path,
     out_path: str | Path,
@@ -110,6 +118,8 @@ def generate_reel(
     initial_capital: float | None = None,
     from_returns: bool = False,
     return_seed_value: float = 1000.0,
+    percentage: bool = False,
+    elapsed: bool = False,
 ) -> Path:
     """
     Genera un reel animato MP4 (o GIF fallback) dal CSV.
@@ -154,6 +164,15 @@ def generate_reel(
     if initial_capital is None:
         initial_capital = float(df.iloc[0].max())
 
+    # Modalita' percentuale: converte i NAV in variazione % dal primo punto.
+    # Utile per reel dove il "quanto" e' meglio raccontato dal cambio (+251%)
+    # che dal moltiplicatore assoluto (3.51x). Forza log_scale=False perche'
+    # la scala log non gestisce valori negativi (es. -7% del bucket <$40).
+    if percentage:
+        first = df.iloc[0]
+        df = df.divide(first).subtract(1).multiply(100)
+        log_scale = False
+
     # ---- Setup figura ---- #
     fig = plt.figure(figsize=(WIDTH_PX / DPI, HEIGHT_PX / DPI), dpi=DPI,
                       facecolor=BG_COLOR)
@@ -190,8 +209,17 @@ def generate_reel(
     ax.set_xlim(df.index[0], df.index[-1])
     # Margini Y piu' ampi (era 0.7/1.4, ora 0.55/1.8) per dare aria
     # alle etichette finali in alto e al pavimento in basso.
-    y_min = max(df[columns].min().min() * 0.55, 1e-6)
-    y_max = df[columns].max().max() * 1.8
+    if percentage:
+        # Range simmetrico attorno a 0; gestisce valori negativi.
+        _lo = float(df[columns].min().min())
+        _hi = float(df[columns].max().max())
+        pad_top = max(abs(_hi) * 0.20, 15)
+        pad_bot = max(abs(_lo) * 0.40, 10)
+        y_min = _lo - pad_bot
+        y_max = _hi + pad_top
+    else:
+        y_min = max(df[columns].min().min() * 0.55, 1e-6)
+        y_max = df[columns].max().max() * 1.8
     ax.set_ylim(y_min, y_max)
     ax.tick_params(colors=FG_COLOR, labelsize=13)
     for spine_name, spine in ax.spines.items():
@@ -200,7 +228,11 @@ def generate_reel(
         spine.set_alpha(0.7)
     ax.grid(True, color=GRID_COLOR, linestyle="--", linewidth=0.7,
             alpha=GRID_ALPHA)
-    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _format_eur(v)))
+    _y_formatter = _format_pct if percentage else _format_eur
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _y_formatter(v)))
+    if percentage:
+        # Linea 0% di riferimento (piu' visibile della griglia)
+        ax.axhline(0, color=FG_COLOR, lw=1.0, alpha=0.5)
 
     # Linee (vuote inizialmente). Spessore ridotto a 3.0 (era 4.5) per
     # un look piu' pulito sui 49 anni di dati.
@@ -254,10 +286,15 @@ def generate_reel(
             # Etichetta al punto finale
             if len(y) > 0:
                 end_labels[i].set_position((x[-1], y[-1]))
-                end_labels[i].set_text(f"  {_format_eur(y[-1])}")
-        # Anno corrente
+                end_labels[i].set_text(f"  {_y_formatter(y[-1])}")
+        # Etichetta temporale: anno di calendario, oppure anni trascorsi
+        # dall'inizio (modalita' elapsed, per reel 'forward da evento').
         if len(x) > 0:
-            year_txt.set_text(str(pd.Timestamp(x[-1]).year))
+            if elapsed:
+                yrs = (pd.Timestamp(x[-1]) - pd.Timestamp(x[0])).days / 365.25
+                year_txt.set_text(f"Anno {yrs:.0f}")
+            else:
+                year_txt.set_text(str(pd.Timestamp(x[-1]).year))
         return lines + end_labels + [year_txt]
 
     print(f"[reel] Generazione {n_frames} frame ({duration_seconds}s @ {FPS}fps)…")
@@ -319,6 +356,13 @@ def main():
                         help="Durata in secondi (default 15)")
     parser.add_argument("--no-log", action="store_true",
                         help="Disabilita scala log Y")
+    parser.add_argument("--percentage", action="store_true",
+                        help="Mostra le curve come variazione %% dal punto iniziale "
+                             "(disabilita automaticamente la scala log)")
+    parser.add_argument("--elapsed", action="store_true",
+                        help="Il contatore in alto mostra gli anni trascorsi dall'inizio "
+                             "('Anno N') invece dell'anno di calendario. Per reel che "
+                             "confrontano traiettorie forward da eventi in epoche diverse.")
     parser.add_argument("--from-returns", action="store_true",
                         help="Le colonne del CSV contengono rendimenti periodali, "
                              "non NAV cumulati. Lo script cumula partendo da "
@@ -342,6 +386,8 @@ def main():
         log_scale=not args.no_log,
         from_returns=args.from_returns,
         return_seed_value=args.seed,
+        percentage=args.percentage,
+        elapsed=args.elapsed,
     )
 
 
