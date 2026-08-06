@@ -1,0 +1,36 @@
+---
+title: "Mappa interattiva delle correlazioni tra asset class"
+description: "La matrice di correlazione tra 28 asset class (2006-2026), esplorabile: passa sopra ogni cella per la correlazione esatta, filtra per categoria, scopri chi diversifica davvero."
+pubDate: 2026-08-06
+tags: ["correlazioni", "diversificazione", "asset-allocation", "heatmap", "materie-prime", "obbligazioni"]
+author: "SmartMoneyLab"
+toolType: "dashboard"
+tier: "free"
+draft: false
+---
+
+import CorrelationHeatmap from "../../components/interactive/CorrelationHeatmap.jsx";
+
+## Cosa fa
+
+La matrice di correlazione tra **28 asset class** — settori, indici geografici, materie prime, beni rifugio — calcolata su vent'anni di dati mensili in dollari (2006-2026). Passa il mouse su ogni cella per leggere la correlazione esatta tra due asset, e filtra per categoria per isolare i gruppi.
+
+<CorrelationHeatmap client:load />
+
+## Come leggere la mappa
+
+- **Rosso** = correlazione alta (i due asset si muovono insieme): mettere entrambi in portafoglio diversifica poco.
+- **Blu** = correlazione bassa o negativa (si muovono diversamente): sono i veri diversificatori.
+- Il grande blocco rosso è l'azionario mondiale — geografie e settori tendono a muoversi insieme (correlazione media 0.67).
+- La fascia blu sono i pochi asset che diversificano davvero: obbligazioni a lungo termine (le uniche con correlazione negativa rispetto all'azionario), oro, materie prime.
+
+## Cosa NON dice
+
+La correlazione misura solo il co-movimento lineare *medio* nel periodo. Non cattura i rischi di coda, gli eventi rari, né i cambi di regime. E le correlazioni **non sono stabili**: salgono nei crolli di panico (nel COVID 2020 la correlazione azionaria media è arrivata a 0.89) e cambiano tra le epoche (obbligazioni e azioni sono state correlate negativamente in questo periodo, ma positivamente negli anni '70). Usa la mappa per capire la struttura, non per estrapolare il futuro.
+
+## Fonti e riproducibilità
+
+- Prezzi mensili in USD da Yahoo Finance (ETF Adj Close = total return; future front-month per le materie prime).
+- MSCI World: serie MSCI World Gross USD.
+- Panel: giugno 2006 - agosto 2026, 243 mesi. Metodologia estesa, portafoglio a minima correlazione, correlazioni nei crolli: [articolo di riferimento](/posts/correlazione-asset-class).
+- Codice: [`scripts/correlazione-asset-class.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/correlazione-asset-class.py). Lookup: [`/tools/corr-lookup.json`](/tools/corr-lookup.json).

@@ -1,0 +1,210 @@
+{
+  "slug": "correlazione-asset-class",
+  "finestra_principale": {
+    "start": "2006-06-30",
+    "end": "2026-08-31",
+    "mesi": 243,
+    "n_asset": 28,
+    "asset": [
+      "Oro",
+      "Argento",
+      "Rame",
+      "Petrolio (WTI)",
+      "Treasury USA 20+",
+      "Nasdaq 100",
+      "Energy",
+      "Healthcare",
+      "Financials",
+      "Value (S&P500)",
+      "Consumer Staples",
+      "Small Cap (Russell 2000)",
+      "Real Estate (REIT)",
+      "Difesa & Aerospazio",
+      "Semiconduttori",
+      "USA (S&P 500)",
+      "Mercati Emergenti",
+      "Europa",
+      "Germania",
+      "Regno Unito",
+      "Cina",
+      "Giappone",
+      "America Latina",
+      "Corea del Sud",
+      "Australia",
+      "Canada",
+      "Taiwan",
+      "MSCI World"
+    ]
+  },
+  "statistiche": {
+    "corr_media_totale": 0.5225828028641947,
+    "corr_media_azionario_azionario": 0.6704544281223705,
+    "corr_media_azionario_rifugi": 0.22614556527157026,
+    "corr_media_tra_rifugi": 0.1904589161475286
+  },
+  "coppie_piu_correlate": [
+    {
+      "a": "USA (S&P 500)",
+      "b": "MSCI World",
+      "corr": 0.97273768281487
+    },
+    {
+      "a": "Europa",
+      "b": "Regno Unito",
+      "corr": 0.9543567373928977
+    },
+    {
+      "a": "Europa",
+      "b": "Germania",
+      "corr": 0.9531386630181397
+    },
+    {
+      "a": "Value (S&P500)",
+      "b": "USA (S&P 500)",
+      "corr": 0.9486107490131561
+    },
+    {
+      "a": "Value (S&P500)",
+      "b": "MSCI World",
+      "corr": 0.9367176065900331
+    },
+    {
+      "a": "Europa",
+      "b": "MSCI World",
+      "corr": 0.9302260375727971
+    }
+  ],
+  "coppie_meno_correlate": [
+    {
+      "a": "Petrolio (WTI)",
+      "b": "Treasury USA 20+",
+      "corr": -0.3347575833949743
+    },
+    {
+      "a": "Treasury USA 20+",
+      "b": "Energy",
+      "corr": -0.2923968489542063
+    },
+    {
+      "a": "Rame",
+      "b": "Treasury USA 20+",
+      "corr": -0.23747437220704312
+    },
+    {
+      "a": "Treasury USA 20+",
+      "b": "Financials",
+      "corr": -0.19744391634417074
+    },
+    {
+      "a": "Treasury USA 20+",
+      "b": "Difesa & Aerospazio",
+      "corr": -0.16250793983132952
+    },
+    {
+      "a": "Treasury USA 20+",
+      "b": "America Latina",
+      "corr": -0.14349420590894052
+    }
+  ],
+  "diversificatori_vs_azionario": {
+    "Treasury USA 20+": -0.06406689198799012,
+    "Oro": 0.14678622171211092,
+    "Argento": 0.2778400778040469,
+    "Petrolio (WTI)": 0.31648109629417404,
+    "Rame": 0.45368732253550964,
+    "Cina": 0.4815802063993436,
+    "Energy": 0.5330887356636574,
+    "Consumer Staples": 0.5635062963090591,
+    "Healthcare": 0.5805334778281556,
+    "Semiconduttori": 0.5972660006998635,
+    "America Latina": 0.6126444734454259,
+    "Real Estate (REIT)": 0.6220789979526657,
+    "Taiwan": 0.6378715119614556,
+    "Corea del Sud": 0.6386198584827186,
+    "Giappone": 0.6482623267353257,
+    "Difesa & Aerospazio": 0.6579740674047762,
+    "Financials": 0.6772608703998331,
+    "Nasdaq 100": 0.6807731385475136,
+    "Small Cap (Russell 2000)": 0.7192775931638641,
+    "Mercati Emergenti": 0.7207921080375738,
+    "Australia": 0.7267706427171642,
+    "Canada": 0.7305621981662188,
+    "Germania": 0.7376134106807046,
+    "Regno Unito": 0.7439196339884151,
+    "Europa": 0.7663503653241507,
+    "Value (S&P500)": 0.7709442747372904,
+    "USA (S&P 500)": 0.7727372683699408,
+    "MSCI World": 0.8000243897994078
+  },
+  "corr_azionaria_crisi": {
+    "GFC 2008": 0.7669801134715918,
+    "COVID 2020": 0.8869940416004273,
+    "Orso 2022": 0.6528051913256588
+  },
+  "corr_azionaria_calma": 0.6704544281223705,
+  "portafoglio_min_corr": {
+    "asset": [
+      "Oro",
+      "Petrolio (WTI)",
+      "Treasury USA 20+",
+      "Financials",
+      "Semiconduttori"
+    ],
+    "corr_media": 0.07359829457904737,
+    "metriche": {
+      "cagr": 0.11540978068566132,
+      "vol": 0.1541978745085736,
+      "mdd": -0.3182505492396329,
+      "sharpe": 0.6187490002033484,
+      "sortino": 0.8761370861064861,
+      "calmar": 0.36263811943576973,
+      "multiplo": 9.051922161132143
+    },
+    "rolling10y_winrate_vs_mercato": {
+      "n": 123,
+      "win_rate": 0.10569105691056911
+    }
+  },
+  "mercato_sp500": {
+    "metriche": {
+      "cagr": 0.1134359200052153,
+      "vol": 0.1522511833773023,
+      "mdd": -0.507848346079225,
+      "sharpe": 0.6136958539998105,
+      "sortino": 0.838874430143848,
+      "calmar": 0.22336573680111807,
+      "multiplo": 8.734254168420321
+    }
+  },
+  "bitcoin_secondaria": {
+    "Oro": 0.051,
+    "Argento": 0.081,
+    "Rame": 0.133,
+    "Petrolio (WTI)": 0.098,
+    "Treasury USA 20+": 0.046,
+    "Nasdaq 100": 0.322,
+    "Energy": 0.161,
+    "Healthcare": 0.13,
+    "Financials": 0.309,
+    "Value (S&P500)": 0.291,
+    "Consumer Staples": 0.173,
+    "Small Cap (Russell 2000)": 0.275,
+    "Real Estate (REIT)": 0.212,
+    "Difesa & Aerospazio": 0.271,
+    "Semiconduttori": 0.18,
+    "USA (S&P 500)": 0.344,
+    "Mercati Emergenti": 0.149,
+    "Europa": 0.255,
+    "Germania": 0.269,
+    "Regno Unito": 0.217,
+    "Cina": 0.025,
+    "Giappone": 0.201,
+    "America Latina": 0.174,
+    "Corea del Sud": 0.118,
+    "Australia": 0.29,
+    "Canada": 0.273,
+    "Taiwan": 0.143,
+    "MSCI World": 0.341,
+    "India": 0.216
+  }
+}
