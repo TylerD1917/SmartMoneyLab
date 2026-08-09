@@ -33,12 +33,12 @@
     "months": 661
   },
   "correlations": {
-    "ffr_vs_sp500_contemporaneous": -0.029654105996277623,
+    "ffr_vs_sp500_contemporaneous": -0.029654105996277616,
     "ffr_vs_sp500_forward12m": 0.044976301185518444,
-    "ffr_vs_sp500_forward24m": 0.09681859636688961,
-    "ffr_vs_nasdaq_contemporaneous": -0.05297925640992024,
-    "ffr_vs_nasdaq_forward12m": -0.027977164375401757,
-    "ffr_vs_nasdaq_forward24m": -0.024362917483501143
+    "ffr_vs_sp500_forward24m": 0.0968185963668896,
+    "ffr_vs_nasdaq_contemporaneous": -0.05297925640992025,
+    "ffr_vs_nasdaq_forward12m": -0.027977164375401785,
+    "ffr_vs_nasdaq_forward24m": -0.02436291748350119
   },
   "regime_A_stats": [
     {

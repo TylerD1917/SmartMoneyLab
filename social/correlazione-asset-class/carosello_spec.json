@@ -1,0 +1,61 @@
+{
+  "slug": "correlazione-asset-class",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["La diversificazione", "è un'illusione?"],
+      "accent_lines": [1],
+      "subtitle": "31 investimenti diversi. 20 anni di dati. Quello che sembra diverso, spesso non lo è."
+    },
+    {
+      "type": "number",
+      "kicker": "Stati Uniti e indice mondiale si muovono così:",
+      "number": "0.97",
+      "note": "(1.00 = identici)",
+      "box": ["Comprare “tutto il mondo”", "o solo l'America è, in pratica,", "quasi la stessa cosa."],
+      "box_accent": [2]
+    },
+    {
+      "type": "chart",
+      "title": ["Chi protegge davvero", "quando la borsa scende?"],
+      "chart": "public/charts/correlazione-asset-class/04_diversificatori_ranking.png",
+      "caption": "Solo obbligazioni e oro. Non un'altra azione."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Nel crollo del 2020, gli investimenti azionari si muovevano insieme al:",
+      "number": "89%",
+      "note": "Nel panico, cadono tutti nello stesso momento.",
+      "box": ["La diversificazione ti abbandona", "proprio quando servirebbe di più."],
+      "box_accent": [1]
+    },
+    {
+      "type": "compare",
+      "kicker": "La perdita peggiore in 20 anni:",
+      "left": {"num": "-32%", "label": "portafoglio diversificato"},
+      "right": {"num": "-51%", "label": "la borsa da sola"},
+      "punch": ["Stesso guadagno.", "Metà delle batoste."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "bullets",
+      "title": ["Cosa insegna, in pratica"],
+      "bullets": [
+        "Comprare tante azioni diverse non riduce di molto il rischio: si muovono quasi tutte insieme.",
+        "I veri paracadute sono le obbligazioni e l'oro, non un'altra azione.",
+        "Diversificare non serve a guadagnare di più. Serve a rischiare di meno."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["L'analisi completa", "è sul blog."],
+      "bullets": [
+        "La mappa di tutti i 31 investimenti",
+        "Il portafoglio più diversificato di sempre",
+        "I dati, spiegati passo passo"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

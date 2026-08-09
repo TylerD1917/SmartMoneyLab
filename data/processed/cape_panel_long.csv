@@ -1,0 +1,2321 @@
+date,market,cape
+1998-01,Australia,18.8
+1998-01,Austria,36.9
+1998-01,Belgium,22.5
+1998-01,Canada,30.5
+1998-01,Denmark,50.6
+1998-01,Dev ex US Large,29.6
+1998-01,Developed Markets Large,31.6
+1998-01,Europe,29.4
+1998-01,Europe ex UK,33.9
+1998-01,Finland,73.1
+1998-01,France,28.2
+1998-01,Germany,36.4
+1998-01,Hong Kong,12.2
+1998-01,Italy,32.9
+1998-01,Japan,38.7
+1998-01,Netherlands,30.1
+1998-01,New Zealand,13.8
+1998-01,Norway,24.6
+1998-01,Singapore,14.7
+1998-01,Spain,27.7
+1998-01,Sweden,36.8
+1998-01,Switzerland,46.2
+1998-01,US Large,33.8
+1998-07,Australia,19.9
+1998-07,Austria,41.4
+1998-07,Belgium,30.8
+1998-07,Canada,32.0
+1998-07,Denmark,52.1
+1998-07,Dev ex US Large,33.1
+1998-07,Developed Markets Large,35.1
+1998-07,Europe,34.6
+1998-07,Europe ex UK,42.5
+1998-07,Finland,106.6
+1998-07,France,36.5
+1998-07,Germany,47.2
+1998-07,Hong Kong,9.1
+1998-07,Italy,42.9
+1998-07,Japan,39.5
+1998-07,Netherlands,34.2
+1998-07,New Zealand,14.5
+1998-07,Norway,24.1
+1998-07,Singapore,11.9
+1998-07,Spain,37.1
+1998-07,Sweden,42.6
+1998-07,Switzerland,56.6
+1998-07,US Large,37.4
+1999-01,Australia,21.4
+1999-01,Austria,28.1
+1999-01,Belgium,31.8
+1999-01,Canada,32.4
+1999-01,Denmark,44.0
+1999-01,Dev ex US Large,31.7
+1999-01,Developed Markets Large,36.3
+1999-01,Europe,32.7
+1999-01,Europe ex UK,38.9
+1999-01,Finland,120.4
+1999-01,France,36.5
+1999-01,Germany,41.9
+1999-01,Hong Kong,12.2
+1999-01,Italy,40.9
+1999-01,Japan,37.0
+1999-01,Netherlands,29.0
+1999-01,New Zealand,14.5
+1999-01,Norway,17.8
+1999-01,Singapore,14.7
+1999-01,Spain,33.8
+1999-01,Sweden,37.8
+1999-01,Switzerland,47.9
+1999-01,US Large,41.8
+1999-07,Australia,22.3
+1999-07,Austria,28.8
+1999-07,Belgium,27.6
+1999-07,Canada,35.6
+1999-07,Denmark,45.0
+1999-07,Dev ex US Large,34.8
+1999-07,Developed Markets Large,38.3
+1999-07,Europe,32.8
+1999-07,Europe ex UK,38.6
+1999-07,Finland,133.5
+1999-07,France,37.7
+1999-07,Germany,39.6
+1999-07,Hong Kong,16.7
+1999-07,Italy,38.1
+1999-07,Japan,52.5
+1999-07,Netherlands,31.4
+1999-07,New Zealand,15.6
+1999-07,Norway,18.5
+1999-07,Singapore,23.4
+1999-07,Spain,31.5
+1999-07,Sweden,44.2
+1999-07,Switzerland,44.1
+1999-07,US Large,42.4
+2000-01,Asia ex Japan,20.0
+2000-01,Australia,22.5
+2000-01,Austria,27.1
+2000-01,Belgium,25.0
+2000-01,Canada,44.6
+2000-01,Denmark,51.5
+2000-01,Dev ex US Large,40.1
+2000-01,Developed Markets Large,41.6
+2000-01,Europe,36.9
+2000-01,Europe ex UK,46.5
+2000-01,Finland,150.0
+2000-01,France,48.6
+2000-01,Germany,51.2
+2000-01,Hong Kong,20.0
+2000-01,Ireland,25.2
+2000-01,Italy,46.9
+2000-01,Japan,64.5
+2000-01,Netherlands,33.1
+2000-01,New Zealand,14.7
+2000-01,Norway,20.4
+2000-01,Singapore,25.3
+2000-01,Spain,35.6
+2000-01,Sweden,66.3
+2000-01,Switzerland,41.8
+2000-01,US Large,43.1
+2000-06,Asia ex Japan,18.2
+2000-06,Australia,24.4
+2000-06,Austria,26.5
+2000-06,Belgium,25.4
+2000-06,Canada,54.9
+2000-06,Denmark,55.8
+2000-06,Dev ex US Large,41.3
+2000-06,Developed Markets Large,42.4
+2000-06,Europe,38.1
+2000-06,Europe ex UK,48.9
+2000-06,Finland,150.0
+2000-06,France,55.6
+2000-06,Germany,48.5
+2000-06,Hong Kong,18.2
+2000-06,Ireland,21.5
+2000-06,Italy,52.1
+2000-06,Japan,69.5
+2000-06,Netherlands,37.3
+2000-06,New Zealand,14.4
+2000-06,Norway,22.4
+2000-06,Singapore,22.7
+2000-06,Spain,35.4
+2000-06,Sweden,67.9
+2000-06,Switzerland,43.7
+2000-06,US Large,43.1
+2001-01,Asia ex Japan,16.9
+2001-01,Australia,23.5
+2001-01,Austria,25.5
+2001-01,Belgium,24.2
+2001-01,Canada,46.6
+2001-01,Denmark,62.0
+2001-01,Dev ex US Large,37.8
+2001-01,Developed Markets Large,38.3
+2001-01,Europe,35.9
+2001-01,Europe ex UK,44.0
+2001-01,Finland,121.3
+2001-01,France,50.5
+2001-01,Germany,44.8
+2001-01,Hong Kong,16.9
+2001-01,Ireland,22.3
+2001-01,Italy,50.7
+2001-01,Japan,63.5
+2001-01,Netherlands,33.6
+2001-01,New Zealand,13.1
+2001-01,Norway,23.1
+2001-01,Singapore,20.8
+2001-01,Spain,33.7
+2001-01,Sweden,51.5
+2001-01,Switzerland,42.3
+2001-01,US Large,38.4
+2001-12,Asia ex Japan,13.4
+2001-12,Australia,23.1
+2001-12,Austria,22.2
+2001-12,Belgium,20.9
+2001-12,Canada,34.3
+2001-12,Denmark,41.9
+2001-12,Dev ex US Large,28.6
+2001-12,Developed Markets Large,30.0
+2001-12,Emerging Markets,14.4
+2001-12,Europe,26.5
+2001-12,Europe ex UK,31.0
+2001-12,Finland,64.0
+2001-12,France,37.8
+2001-12,Germany,31.8
+2001-12,Hong Kong,12.7
+2001-12,Indonesia,9.9
+2001-12,Ireland,20.4
+2001-12,Italy,34.1
+2001-12,Japan,56.4
+2001-12,Malaysia,20.2
+2001-12,Mexico,14.2
+2001-12,Netherlands,22.9
+2001-12,New Zealand,14.0
+2001-12,Norway,18.0
+2001-12,Philippines,8.6
+2001-12,Portugal,19.4
+2001-12,Singapore,16.1
+2001-12,Spain,26.0
+2001-12,Sweden,33.3
+2001-12,Switzerland,30.3
+2001-12,Thailand,10.6
+2001-12,Turkey,12.1
+2001-12,US Large,30.9
+2002-06,Asia ex Japan,13.5
+2002-06,Australia,20.8
+2002-06,Austria,22.7
+2002-06,Belgium,17.9
+2002-06,Canada,29.6
+2002-06,Chile,15.2
+2002-06,Denmark,34.3
+2002-06,Dev ex US Large,24.9
+2002-06,Developed Markets Large,25.7
+2002-06,Emerging Markets,14.7
+2002-06,Europe,21.9
+2002-06,Europe ex UK,25.1
+2002-06,Finland,33.9
+2002-06,France,31.2
+2002-06,Germany,25.9
+2002-06,Hong Kong,12.3
+2002-06,Indonesia,13.6
+2002-06,Ireland,14.4
+2002-06,Italy,28.7
+2002-06,Japan,59.0
+2002-06,Malaysia,21.7
+2002-06,Mexico,14.3
+2002-06,Netherlands,19.6
+2002-06,New Zealand,13.9
+2002-06,Norway,15.0
+2002-06,Philippines,8.2
+2002-06,Portugal,16.3
+2002-06,Singapore,15.4
+2002-06,Spain,19.8
+2002-06,Sweden,23.2
+2002-06,Switzerland,27.1
+2002-06,Thailand,14.5
+2002-06,Turkey,7.2
+2002-06,US Large,26.2
+2002-12,Asia ex Japan,12.0
+2002-12,Australia,18.7
+2002-12,Austria,23.1
+2002-12,Belgium,13.9
+2002-12,Canada,25.8
+2002-12,Chile,14.9
+2002-12,Denmark,24.2
+2002-12,Dev ex US Large,20.0
+2002-12,Developed Markets Large,21.7
+2002-12,Emerging Markets,13.7
+2002-12,Europe,17.2
+2002-12,Europe ex UK,19.2
+2002-12,Finland,29.2
+2002-12,France,24.1
+2002-12,Germany,17.3
+2002-12,Hong Kong,10.6
+2002-12,Indonesia,11.6
+2002-12,Ireland,11.2
+2002-12,Italy,23.5
+2002-12,Japan,56.6
+2002-12,Malaysia,19.5
+2002-12,Mexico,13.3
+2002-12,Netherlands,14.2
+2002-12,New Zealand,13.4
+2002-12,Norway,11.0
+2002-12,Philippines,7.1
+2002-12,Portugal,13.5
+2002-12,Singapore,13.3
+2002-12,Spain,17.1
+2002-12,Sweden,18.1
+2002-12,Switzerland,21.0
+2002-12,Thailand,15.9
+2002-12,Turkey,7.2
+2002-12,US Large,22.9
+2003-07,Asia ex Japan,13.7
+2003-07,Australia,18.6
+2003-07,Austria,27.0
+2003-07,Belgium,13.4
+2003-07,Canada,26.4
+2003-07,Chile,20.2
+2003-07,Colombia,14.4
+2003-07,Denmark,23.2
+2003-07,Dev ex US Large,21.1
+2003-07,Developed Markets Large,23.4
+2003-07,Emerging Markets,16.3
+2003-07,Europe,18.0
+2003-07,Europe ex UK,20.0
+2003-07,Finland,24.0
+2003-07,France,25.0
+2003-07,Germany,19.9
+2003-07,Hong Kong,11.6
+2003-07,Indonesia,13.6
+2003-07,Ireland,11.7
+2003-07,Italy,23.8
+2003-07,Japan,69.7
+2003-07,Malaysia,21.5
+2003-07,Mexico,15.7
+2003-07,Netherlands,13.5
+2003-07,New Zealand,15.3
+2003-07,Norway,12.5
+2003-07,Philippines,9.4
+2003-07,Portugal,13.0
+2003-07,Singapore,15.7
+2003-07,Spain,19.3
+2003-07,Sweden,21.1
+2003-07,Switzerland,22.7
+2003-07,Thailand,25.5
+2003-07,Turkey,7.2
+2003-07,US Large,25.2
+2003-12,Asia ex Japan,17.4
+2003-12,Australia,19.3
+2003-12,Austria,29.4
+2003-12,Belgium,14.6
+2003-12,Canada,28.3
+2003-12,Chile,22.9
+2003-12,Colombia,17.0
+2003-12,Denmark,24.7
+2003-12,Dev ex US Large,22.9
+2003-12,Developed Markets Large,25.5
+2003-12,Emerging Markets,20.7
+2003-12,Europe,19.2
+2003-12,Europe ex UK,21.6
+2003-12,Finland,23.1
+2003-12,France,27.7
+2003-12,Germany,22.9
+2003-12,Hong Kong,14.4
+2003-12,Indonesia,18.1
+2003-12,Ireland,12.2
+2003-12,Italy,24.1
+2003-12,Japan,81.5
+2003-12,Malaysia,23.2
+2003-12,Mexico,18.1
+2003-12,Netherlands,14.1
+2003-12,New Zealand,16.8
+2003-12,Norway,14.1
+2003-12,Peru,29.7
+2003-12,Philippines,11.5
+2003-12,Portugal,15.5
+2003-12,Singapore,17.7
+2003-12,Spain,20.4
+2003-12,Sweden,22.8
+2003-12,Switzerland,24.4
+2003-12,Thailand,46.1
+2003-12,Turkey,12.7
+2003-12,US Large,27.8
+2004-06,Asia ex Japan,17.4
+2004-06,Australia,20.3
+2004-06,Austria,34.1
+2004-06,Belgium,15.4
+2004-06,Brazil,14.8
+2004-06,Canada,27.0
+2004-06,Chile,23.5
+2004-06,Colombia,20.1
+2004-06,Denmark,26.0
+2004-06,Dev ex US Large,23.5
+2004-06,Developed Markets Large,25.4
+2004-06,Emerging Markets,18.6
+2004-06,Europe,19.0
+2004-06,Europe ex UK,21.6
+2004-06,Finland,19.9
+2004-06,France,28.2
+2004-06,Germany,22.5
+2004-06,Hong Kong,14.6
+2004-06,India,16.9
+2004-06,Indonesia,19.9
+2004-06,Ireland,13.7
+2004-06,Italy,23.7
+2004-06,Japan,92.0
+2004-06,Malaysia,23.2
+2004-06,Mexico,20.4
+2004-06,Netherlands,13.9
+2004-06,New Zealand,18.4
+2004-06,Norway,16.1
+2004-06,Peru,26.2
+2004-06,Philippines,13.0
+2004-06,Portugal,16.6
+2004-06,Singapore,18.1
+2004-06,Spain,19.7
+2004-06,Sweden,24.7
+2004-06,Switzerland,24.4
+2004-06,Thailand,45.5
+2004-06,Turkey,11.6
+2004-06,US Large,27.0
+2005-01,Asia ex Japan,21.3
+2005-01,Australia,23.2
+2005-01,Austria,37.4
+2005-01,Belgium,17.5
+2005-01,Brazil,16.9
+2005-01,Canada,26.9
+2005-01,Chile,26.6
+2005-01,Colombia,27.1
+2005-01,Denmark,26.4
+2005-01,Dev ex US Large,23.8
+2005-01,Developed Markets Large,25.4
+2005-01,Emerging Markets,21.6
+2005-01,Europe,19.7
+2005-01,Europe ex UK,22.0
+2005-01,Finland,18.8
+2005-01,France,28.2
+2005-01,Germany,22.3
+2005-01,Hong Kong,17.1
+2005-01,India,21.1
+2005-01,Indonesia,29.1
+2005-01,Ireland,15.1
+2005-01,Italy,25.3
+2005-01,Japan,78.6
+2005-01,Malaysia,25.0
+2005-01,Mexico,24.1
+2005-01,Netherlands,14.2
+2005-01,New Zealand,20.4
+2005-01,Norway,18.2
+2005-01,Peru,25.8
+2005-01,Philippines,16.6
+2005-01,Poland,15.9
+2005-01,Portugal,17.5
+2005-01,Singapore,20.2
+2005-01,Spain,21.2
+2005-01,Sweden,25.2
+2005-01,Switzerland,24.1
+2005-01,Thailand,60.1
+2005-01,Turkey,16.2
+2005-01,US Large,26.9
+2005-12,Asia ex Japan,21.4
+2005-12,Australia,25.7
+2005-12,Austria,43.6
+2005-12,Belgium,19.0
+2005-12,Brazil,20.1
+2005-12,Canada,30.3
+2005-12,Chile,28.4
+2005-12,China,12.1
+2005-12,Colombia,50.1
+2005-12,Czech Republic,43.3
+2005-12,Denmark,32.3
+2005-12,Dev ex US Large,27.6
+2005-12,Developed Markets Large,27.1
+2005-12,Emerging Markets,22.8
+2005-12,Europe,22.1
+2005-12,Europe ex UK,25.1
+2005-12,Finland,22.2
+2005-12,France,30.2
+2005-12,Germany,25.5
+2005-12,Hong Kong,18.5
+2005-12,Hungary,26.1
+2005-12,India,28.1
+2005-12,Indonesia,28.7
+2005-12,Ireland,15.6
+2005-12,Israel,40.4
+2005-12,Italy,25.1
+2005-12,Japan,89.2
+2005-12,Malaysia,23.0
+2005-12,Mexico,29.1
+2005-12,Netherlands,16.3
+2005-12,New Zealand,21.0
+2005-12,Norway,22.0
+2005-12,Peru,28.7
+2005-12,Philippines,17.4
+2005-12,Poland,21.4
+2005-12,Portugal,17.3
+2005-12,Singapore,21.8
+2005-12,South Africa,21.1
+2005-12,South Korea,26.4
+2005-12,Spain,22.3
+2005-12,Sweden,29.9
+2005-12,Switzerland,29.3
+2005-12,Taiwan,21.3
+2005-12,Thailand,80.0
+2005-12,Turkey,21.3
+2005-12,US Large,26.4
+2006-07,Asia ex Japan,21.7
+2006-07,Australia,25.5
+2006-07,Austria,39.5
+2006-07,Belgium,18.5
+2006-07,Brazil,19.7
+2006-07,Canada,30.1
+2006-07,Chile,29.6
+2006-07,China,16.2
+2006-07,Colombia,45.3
+2006-07,Czech Republic,40.8
+2006-07,Denmark,29.6
+2006-07,Dev ex US Large,26.5
+2006-07,Developed Markets Large,26.1
+2006-07,Emerging Markets,22.1
+2006-07,Europe,21.8
+2006-07,Europe ex UK,24.4
+2006-07,Finland,21.7
+2006-07,France,28.5
+2006-07,Germany,24.2
+2006-07,Hong Kong,19.2
+2006-07,Hungary,24.7
+2006-07,India,29.6
+2006-07,Indonesia,33.5
+2006-07,Ireland,15.9
+2006-07,Israel,31.0
+2006-07,Italy,23.9
+2006-07,Japan,73.9
+2006-07,Malaysia,23.4
+2006-07,Mexico,30.2
+2006-07,Netherlands,16.3
+2006-07,New Zealand,20.0
+2006-07,Norway,23.5
+2006-07,Peru,21.3
+2006-07,Philippines,20.4
+2006-07,Poland,24.9
+2006-07,Portugal,18.5
+2006-07,Singapore,22.7
+2006-07,South Africa,21.5
+2006-07,South Korea,23.2
+2006-07,Spain,22.6
+2006-07,Sweden,27.3
+2006-07,Switzerland,29.0
+2006-07,Taiwan,21.3
+2006-07,Thailand,85.4
+2006-07,Turkey,17.6
+2006-07,US Large,25.5
+2006-12,Asia ex Japan,25.8
+2006-12,Australia,27.5
+2006-12,Austria,44.0
+2006-12,Belgium,20.5
+2006-12,Brazil,21.8
+2006-12,Canada,31.9
+2006-12,Chile,37.0
+2006-12,China,23.9
+2006-12,Colombia,47.9
+2006-12,Czech Republic,43.5
+2006-12,Denmark,34.8
+2006-12,Dev ex US Large,27.8
+2006-12,Developed Markets Large,28.0
+2006-12,Emerging Markets,25.4
+2006-12,Europe,23.3
+2006-12,Europe ex UK,26.5
+2006-12,Finland,22.7
+2006-12,France,29.4
+2006-12,Germany,26.8
+2006-12,Hong Kong,22.5
+2006-12,Hungary,24.8
+2006-12,India,37.2
+2006-12,Indonesia,44.3
+2006-12,Ireland,19.2
+2006-12,Israel,32.0
+2006-12,Italy,25.5
+2006-12,Japan,71.4
+2006-12,Malaysia,27.5
+2006-12,Mexico,35.4
+2006-12,Netherlands,17.6
+2006-12,New Zealand,22.5
+2006-12,Norway,26.1
+2006-12,Peru,34.7
+2006-12,Philippines,26.3
+2006-12,Poland,25.1
+2006-12,Portugal,20.8
+2006-12,Singapore,27.8
+2006-12,South Africa,24.8
+2006-12,South Korea,23.7
+2006-12,Spain,25.9
+2006-12,Sweden,32.0
+2006-12,Switzerland,31.2
+2006-12,Taiwan,25.3
+2006-12,Thailand,92.8
+2006-12,Turkey,18.1
+2006-12,US Large,27.9
+2007-07,Asia ex Japan,30.3
+2007-07,Australia,28.2
+2007-07,Austria,39.8
+2007-07,Belgium,18.9
+2007-07,Brazil,23.7
+2007-07,Canada,31.3
+2007-07,Chile,42.9
+2007-07,China,32.7
+2007-07,Colombia,44.8
+2007-07,Czech Republic,46.4
+2007-07,Denmark,36.4
+2007-07,Dev ex US Large,27.0
+2007-07,Developed Markets Large,27.0
+2007-07,Egypt,48.2
+2007-07,Emerging Markets,28.7
+2007-07,Europe,22.8
+2007-07,Europe ex UK,25.8
+2007-07,Finland,25.4
+2007-07,France,27.4
+2007-07,Germany,27.7
+2007-07,Hong Kong,24.9
+2007-07,Hungary,25.2
+2007-07,India,38.7
+2007-07,Indonesia,55.7
+2007-07,Ireland,16.6
+2007-07,Israel,37.3
+2007-07,Italy,22.8
+2007-07,Japan,62.1
+2007-07,Malaysia,34.2
+2007-07,Mexico,36.9
+2007-07,Netherlands,18.6
+2007-07,New Zealand,22.8
+2007-07,Norway,27.8
+2007-07,Peru,54.7
+2007-07,Philippines,32.5
+2007-07,Poland,27.7
+2007-07,Portugal,23.0
+2007-07,Singapore,32.3
+2007-07,South Africa,24.6
+2007-07,South Korea,27.9
+2007-07,Spain,24.9
+2007-07,Sweden,32.0
+2007-07,Switzerland,29.1
+2007-07,Taiwan,27.4
+2007-07,Thailand,120.2
+2007-07,Turkey,22.7
+2007-07,US Large,26.7
+2008-01,Asia ex Japan,27.4
+2008-01,Australia,24.6
+2008-01,Austria,28.0
+2008-01,Belgium,13.7
+2008-01,Brazil,24.7
+2008-01,Canada,28.6
+2008-01,Chile,34.3
+2008-01,China,30.5
+2008-01,Colombia,37.7
+2008-01,Czech Republic,41.3
+2008-01,Denmark,29.1
+2008-01,Dev ex US Large,22.4
+2008-01,Developed Markets Large,23.5
+2008-01,Egypt,52.3
+2008-01,Emerging Markets,25.9
+2008-01,Europe,19.1
+2008-01,Europe ex UK,20.8
+2008-01,Finland,23.7
+2008-01,France,21.5
+2008-01,Germany,23.0
+2008-01,Hong Kong,25.8
+2008-01,Hungary,18.0
+2008-01,India,41.4
+2008-01,Indonesia,65.3
+2008-01,Ireland,12.4
+2008-01,Israel,31.1
+2008-01,Italy,18.5
+2008-01,Japan,44.2
+2008-01,Malaysia,33.8
+2008-01,Mexico,31.4
+2008-01,Netherlands,15.1
+2008-01,New Zealand,19.0
+2008-01,Norway,20.2
+2008-01,Peru,44.6
+2008-01,Philippines,29.6
+2008-01,Poland,20.6
+2008-01,Portugal,18.3
+2008-01,Singapore,25.3
+2008-01,South Africa,22.1
+2008-01,South Korea,21.8
+2008-01,Spain,20.7
+2008-01,Sweden,22.0
+2008-01,Switzerland,23.0
+2008-01,Taiwan,21.6
+2008-01,Thailand,89.9
+2008-01,Turkey,17.0
+2008-01,US Large,24.4
+2008-07,Asia ex Japan,22.9
+2008-07,Australia,20.2
+2008-07,Austria,23.7
+2008-07,Belgium,9.5
+2008-07,Brazil,22.0
+2008-07,Canada,27.6
+2008-07,Chile,36.0
+2008-07,China,28.4
+2008-07,Colombia,36.3
+2008-07,Czech Republic,37.7
+2008-07,Denmark,27.3
+2008-07,Dev ex US Large,19.0
+2008-07,Developed Markets Large,20.4
+2008-07,Egypt,37.2
+2008-07,Emerging Markets,22.3
+2008-07,Europe,16.2
+2008-07,Europe ex UK,17.2
+2008-07,Finland,17.1
+2008-07,France,18.2
+2008-07,Germany,19.7
+2008-07,Hong Kong,21.2
+2008-07,Hungary,15.4
+2008-07,India,30.4
+2008-07,Indonesia,48.0
+2008-07,Ireland,7.3
+2008-07,Israel,28.3
+2008-07,Italy,14.1
+2008-07,Japan,38.1
+2008-07,Malaysia,24.5
+2008-07,Mexico,25.7
+2008-07,Netherlands,12.2
+2008-07,New Zealand,15.5
+2008-07,Norway,20.3
+2008-07,Peru,35.6
+2008-07,Philippines,22.3
+2008-07,Poland,18.7
+2008-07,Portugal,13.1
+2008-07,Singapore,22.9
+2008-07,South Africa,20.2
+2008-07,South Korea,18.7
+2008-07,Spain,17.3
+2008-07,Sweden,18.3
+2008-07,Switzerland,20.1
+2008-07,Taiwan,18.7
+2008-07,Thailand,35.0
+2008-07,Turkey,15.1
+2008-07,US Large,21.4
+2009-01,Asia ex Japan,14.1
+2009-01,Australia,14.1
+2009-01,Austria,9.0
+2009-01,Belgium,5.3
+2009-01,Brazil,13.6
+2009-01,Canada,17.3
+2009-01,Chile,28.1
+2009-01,China,16.8
+2009-01,Colombia,29.7
+2009-01,Czech Republic,21.2
+2009-01,Denmark,16.9
+2009-01,Dev ex US Large,12.9
+2009-01,Developed Markets Large,13.9
+2009-01,Egypt,14.1
+2009-01,Emerging Markets,13.2
+2009-01,Europe,11.1
+2009-01,Europe ex UK,11.3
+2009-01,Finland,9.7
+2009-01,France,12.0
+2009-01,Germany,12.2
+2009-01,Hong Kong,12.9
+2009-01,Hungary,6.7
+2009-01,India,17.2
+2009-01,Indonesia,19.6
+2009-01,Ireland,3.6
+2009-01,Israel,21.4
+2009-01,Italy,8.9
+2009-01,Japan,20.8
+2009-01,Malaysia,17.5
+2009-01,Mexico,17.1
+2009-01,Netherlands,8.4
+2009-01,New Zealand,12.0
+2009-01,Norway,10.1
+2009-01,Peru,18.9
+2009-01,Philippines,16.7
+2009-01,Poland,10.5
+2009-01,Portugal,10.1
+2009-01,Singapore,12.6
+2009-01,South Africa,15.4
+2009-01,South Korea,12.7
+2009-01,Spain,11.6
+2009-01,Sweden,12.5
+2009-01,Switzerland,14.8
+2009-01,Taiwan,10.9
+2009-01,Thailand,15.7
+2009-01,Turkey,8.8
+2009-01,US Large,14.7
+2009-12,Asia ex Japan,22.0
+2009-12,Australia,18.6
+2009-12,Austria,11.7
+2009-12,Belgium,7.8
+2009-12,Brazil,19.3
+2009-12,Canada,21.1
+2009-12,Chile,34.4
+2009-12,China,28.3
+2009-12,Colombia,40.4
+2009-12,Czech Republic,21.7
+2009-12,Denmark,19.7
+2009-12,Dev ex US Large,15.9
+2009-12,Developed Markets Large,18.0
+2009-12,Egypt,17.3
+2009-12,Emerging Markets,19.4
+2009-12,Europe,14.0
+2009-12,Europe ex UK,14.6
+2009-12,Finland,10.9
+2009-12,France,15.2
+2009-12,Germany,16.0
+2009-12,Hong Kong,18.8
+2009-12,Hungary,11.1
+2009-12,India,28.3
+2009-12,Indonesia,25.2
+2009-12,Ireland,4.2
+2009-12,Israel,28.5
+2009-12,Italy,10.9
+2009-12,Japan,23.5
+2009-12,Malaysia,21.6
+2009-12,Mexico,25.1
+2009-12,Netherlands,11.2
+2009-12,New Zealand,11.9
+2009-12,Norway,14.3
+2009-12,Peru,31.6
+2009-12,Philippines,24.6
+2009-12,Poland,14.8
+2009-12,Portugal,13.3
+2009-12,Singapore,19.0
+2009-12,South Africa,17.2
+2009-12,South Korea,17.3
+2009-12,Spain,15.5
+2009-12,Sweden,18.3
+2009-12,Switzerland,18.9
+2009-12,Taiwan,20.2
+2009-12,Thailand,19.1
+2009-12,Turkey,15.3
+2009-12,US Large,20.4
+2010-06,Asia ex Japan,20.7
+2010-06,Australia,16.1
+2010-06,Austria,10.0
+2010-06,Belgium,7.9
+2010-06,Brazil,19.3
+2010-06,Canada,19.7
+2010-06,Chile,34.5
+2010-06,China,25.5
+2010-06,Colombia,39.0
+2010-06,Czech Republic,18.1
+2010-06,Denmark,23.3
+2010-06,Dev ex US Large,14.6
+2010-06,Developed Markets Large,16.7
+2010-06,Egypt,16.1
+2010-06,Emerging Markets,17.6
+2010-06,Europe,13.7
+2010-06,Europe ex UK,13.4
+2010-06,Finland,10.2
+2010-06,France,13.3
+2010-06,Germany,15.6
+2010-06,Hong Kong,18.1
+2010-06,Hungary,10.1
+2010-06,India,26.9
+2010-06,Indonesia,25.7
+2010-06,Ireland,4.0
+2010-06,Israel,25.1
+2010-06,Italy,9.0
+2010-06,Japan,21.7
+2010-06,Malaysia,21.1
+2010-06,Mexico,23.1
+2010-06,Netherlands,11.3
+2010-06,New Zealand,10.7
+2010-06,Norway,11.7
+2010-06,Peru,30.4
+2010-06,Philippines,24.1
+2010-06,Poland,13.8
+2010-06,Portugal,11.2
+2010-06,Singapore,17.6
+2010-06,South Africa,16.1
+2010-06,South Korea,16.6
+2010-06,Spain,11.5
+2010-06,Sweden,19.5
+2010-06,Switzerland,17.8
+2010-06,Taiwan,18.2
+2010-06,Thailand,17.2
+2010-06,Turkey,14.7
+2010-06,US Large,18.8
+2011-01,Asia ex Japan,22.6
+2011-01,Australia,17.3
+2011-01,Austria,12.8
+2011-01,Belgium,8.4
+2011-01,Brazil,16.0
+2011-01,Canada,22.7
+2011-01,Chile,35.3
+2011-01,China,25.2
+2011-01,Colombia,41.1
+2011-01,Czech Republic,17.0
+2011-01,Denmark,26.0
+2011-01,Dev ex US Large,16.4
+2011-01,Developed Markets Large,19.5
+2011-01,Egypt,13.5
+2011-01,Emerging Markets,19.0
+2011-01,Europe,14.6
+2011-01,Europe ex UK,15.2
+2011-01,Finland,13.1
+2011-01,France,15.3
+2011-01,Germany,18.2
+2011-01,Hong Kong,24.1
+2011-01,Hungary,10.9
+2011-01,India,23.9
+2011-01,Indonesia,23.9
+2011-01,Ireland,4.0
+2011-01,Israel,25.5
+2011-01,Italy,10.3
+2011-01,Japan,22.9
+2011-01,Malaysia,23.3
+2011-01,Mexico,25.7
+2011-01,Netherlands,12.7
+2011-01,New Zealand,11.8
+2011-01,Norway,14.4
+2011-01,Peru,34.9
+2011-01,Philippines,22.6
+2011-01,Poland,16.2
+2011-01,Portugal,12.8
+2011-01,Singapore,18.8
+2011-01,South Africa,18.0
+2011-01,South Korea,19.2
+2011-01,Spain,12.6
+2011-01,Sweden,21.9
+2011-01,Switzerland,18.8
+2011-01,Taiwan,22.9
+2011-01,Thailand,18.2
+2011-01,Turkey,15.4
+2011-01,US Large,23.2
+2011-06,Asia ex Japan,21.4
+2011-06,Australia,16.3
+2011-06,Austria,12.0
+2011-06,Belgium,8.3
+2011-06,Brazil,14.2
+2011-06,Canada,21.3
+2011-06,Chile,34.4
+2011-06,China,23.2
+2011-06,Colombia,37.9
+2011-06,Czech Republic,16.4
+2011-06,Denmark,23.2
+2011-06,Dev ex US Large,15.5
+2011-06,Developed Markets Large,18.7
+2011-06,Egypt,12.1
+2011-06,Emerging Markets,17.7
+2011-06,Europe,14.1
+2011-06,Europe ex UK,14.6
+2011-06,Finland,10.9
+2011-06,France,15.0
+2011-06,Germany,18.0
+2011-06,Hong Kong,22.5
+2011-06,Hungary,10.4
+2011-06,India,24.1
+2011-06,Indonesia,26.5
+2011-06,Ireland,4.5
+2011-06,Israel,20.9
+2011-06,Italy,9.4
+2011-06,Japan,20.5
+2011-06,Malaysia,23.2
+2011-06,Mexico,24.6
+2011-06,Netherlands,11.9
+2011-06,New Zealand,12.4
+2011-06,Norway,13.6
+2011-06,Peru,26.2
+2011-06,Philippines,21.7
+2011-06,Poland,16.1
+2011-06,Portugal,12.0
+2011-06,Singapore,17.3
+2011-06,South Africa,17.6
+2011-06,South Korea,18.0
+2011-06,Spain,11.4
+2011-06,Sweden,20.8
+2011-06,Switzerland,17.7
+2011-06,Taiwan,20.9
+2011-06,Thailand,18.2
+2011-06,Turkey,14.2
+2011-06,US Large,22.7
+2012-01,Asia ex Japan,18.2
+2012-01,Australia,14.6
+2012-01,Austria,8.5
+2012-01,Belgium,8.0
+2012-01,Brazil,13.4
+2012-01,Canada,19.0
+2012-01,Chile,28.1
+2012-01,China,18.6
+2012-01,Colombia,33.1
+2012-01,Czech Republic,14.0
+2012-01,Denmark,20.9
+2012-01,Dev ex US Large,13.8
+2012-01,Developed Markets Large,17.3
+2012-01,Egypt,10.1
+2012-01,Emerging Markets,15.8
+2012-01,Europe,12.5
+2012-01,Europe ex UK,12.7
+2012-01,Finland,9.5
+2012-01,France,12.3
+2012-01,Germany,15.3
+2012-01,Hong Kong,19.2
+2012-01,Hungary,8.1
+2012-01,India,19.7
+2012-01,Indonesia,24.0
+2012-01,Ireland,5.1
+2012-01,Israel,18.0
+2012-01,Italy,7.6
+2012-01,Japan,17.8
+2012-01,Malaysia,20.9
+2012-01,Mexico,23.8
+2012-01,Netherlands,11.5
+2012-01,New Zealand,12.1
+2012-01,Norway,12.8
+2012-01,Peru,27.0
+2012-01,Philippines,21.7
+2012-01,Poland,12.6
+2012-01,Portugal,9.0
+2012-01,Singapore,15.1
+2012-01,South Africa,18.4
+2012-01,South Korea,15.8
+2012-01,Spain,9.1
+2012-01,Sweden,17.8
+2012-01,Switzerland,17.3
+2012-01,Taiwan,18.1
+2012-01,Thailand,17.3
+2012-01,Turkey,11.9
+2012-01,US Large,21.5
+2012-07,Asia ex Japan,16.8
+2012-07,Australia,14.3
+2012-07,Austria,7.7
+2012-07,Belgium,9.9
+2012-07,Brazil,11.9
+2012-07,Canada,17.0
+2012-07,Chile,25.7
+2012-07,China,16.2
+2012-07,Colombia,31.5
+2012-07,Czech Republic,12.2
+2012-07,Denmark,24.3
+2012-07,Dev ex US Large,13.4
+2012-07,Developed Markets Large,17.0
+2012-07,Egypt,10.4
+2012-07,Emerging Markets,14.7
+2012-07,Europe,12.3
+2012-07,Europe ex UK,12.5
+2012-07,Finland,8.3
+2012-07,France,11.9
+2012-07,Germany,15.0
+2012-07,Hong Kong,18.0
+2012-07,Hungary,6.9
+2012-07,India,17.7
+2012-07,Indonesia,22.9
+2012-07,Ireland,5.5
+2012-07,Israel,15.5
+2012-07,Italy,6.7
+2012-07,Japan,17.0
+2012-07,Malaysia,21.0
+2012-07,Mexico,25.1
+2012-07,Netherlands,11.5
+2012-07,New Zealand,12.8
+2012-07,Norway,12.7
+2012-07,Peru,22.4
+2012-07,Philippines,22.9
+2012-07,Poland,10.9
+2012-07,Portugal,7.7
+2012-07,Singapore,15.0
+2012-07,South Africa,18.3
+2012-07,South Korea,14.8
+2012-07,Spain,7.0
+2012-07,Sweden,17.4
+2012-07,Switzerland,18.1
+2012-07,Taiwan,16.7
+2012-07,Thailand,17.4
+2012-07,Turkey,12.4
+2012-07,US Large,21.2
+2013-01,Asia ex Japan,17.8
+2013-01,Australia,15.9
+2013-01,Austria,8.7
+2013-01,Belgium,10.8
+2013-01,Brazil,11.8
+2013-01,Canada,18.1
+2013-01,Chile,25.9
+2013-01,China,18.1
+2013-01,Colombia,33.4
+2013-01,Czech Republic,11.0
+2013-01,Denmark,26.3
+2013-01,Dev ex US Large,14.9
+2013-01,Developed Markets Large,18.2
+2013-01,Developed Markets Small,23.9
+2013-01,Egypt,11.3
+2013-01,Emerging Markets,15.3
+2013-01,Europe,13.5
+2013-01,Europe ex UK,13.9
+2013-01,Finland,10.1
+2013-01,France,13.1
+2013-01,Germany,16.4
+2013-01,Hong Kong,20.6
+2013-01,Hungary,7.9
+2013-01,India,19.4
+2013-01,Indonesia,23.1
+2013-01,Ireland,6.0
+2013-01,Israel,13.0
+2013-01,Italy,8.1
+2013-01,Japan,20.9
+2013-01,Malaysia,20.0
+2013-01,Mexico,26.3
+2013-01,Netherlands,13.1
+2013-01,New Zealand,14.8
+2013-01,Norway,12.8
+2013-01,Peru,22.7
+2013-01,Philippines,26.0
+2013-01,Poland,11.7
+2013-01,Portugal,9.9
+2013-01,Singapore,14.9
+2013-01,South Africa,19.4
+2013-01,South Korea,14.5
+2013-01,Spain,8.5
+2013-01,Sweden,18.4
+2013-01,Switzerland,20.5
+2013-01,Taiwan,17.6
+2013-01,Thailand,18.9
+2013-01,Turkey,13.9
+2013-01,US Large,22.1
+2013-11,Asia ex Japan,16.7
+2013-11,Australia,16.7
+2013-11,Austria,9.1
+2013-11,Belgium,12.5
+2013-11,Brazil,10.8
+2013-11,Canada,18.2
+2013-11,Chile,19.9
+2013-11,China,16.1
+2013-11,Colombia,25.2
+2013-11,Czech Republic,10.4
+2013-11,Denmark,26.0
+2013-11,Dev ex US Large,16.2
+2013-11,Developed Markets Large,20.0
+2013-11,Developed Markets Small,26.5
+2013-11,Egypt,10.0
+2013-11,Emerging Markets,14.2
+2013-11,Europe,14.4
+2013-11,Europe ex UK,15.3
+2013-11,Finland,13.4
+2013-11,France,14.2
+2013-11,Germany,17.7
+2013-11,Hong Kong,19.4
+2013-11,Hungary,6.6
+2013-11,India,17.5
+2013-11,Indonesia,18.7
+2013-11,Ireland,8.9
+2013-11,Israel,12.1
+2013-11,Italy,8.7
+2013-11,Japan,25.3
+2013-11,Malaysia,20.7
+2013-11,Mexico,23.1
+2013-11,Netherlands,14.8
+2013-11,New Zealand,14.0
+2013-11,Norway,12.8
+2013-11,Peru,13.3
+2013-11,Philippines,24.4
+2013-11,Poland,11.3
+2013-11,Portugal,9.9
+2013-11,Singapore,14.0
+2013-11,South Africa,19.5
+2013-11,South Korea,14.4
+2013-11,Spain,10.2
+2013-11,Sweden,18.8
+2013-11,Switzerland,21.8
+2013-11,Taiwan,17.4
+2013-11,Thailand,16.1
+2013-11,Turkey,11.6
+2013-11,US Large,24.8
+2014-02,Asia ex Japan,15.9
+2014-02,Australia,16.7
+2014-02,Austria,8.7
+2014-02,Belgium,13.2
+2014-02,Brazil,9.3
+2014-02,Canada,19.1
+2014-02,Chile,19.0
+2014-02,China,14.4
+2014-02,Colombia,23.1
+2014-02,Czech Republic,10.2
+2014-02,Denmark,31.1
+2014-02,Dev ex US Large,16.2
+2014-02,Developed Markets Large,20.3
+2014-02,Developed Markets Small,27.4
+2014-02,Egypt,12.2
+2014-02,Emerging Markets,13.4
+2014-02,Europe,14.8
+2014-02,Europe ex UK,15.8
+2014-02,Finland,13.7
+2014-02,France,14.6
+2014-02,Germany,17.7
+2014-02,Hong Kong,18.6
+2014-02,Hungary,6.0
+2014-02,India,17.6
+2014-02,Indonesia,20.0
+2014-02,Ireland,11.2
+2014-02,Israel,13.2
+2014-02,Italy,9.4
+2014-02,Japan,23.6
+2014-02,Malaysia,20.4
+2014-02,Mexico,20.4
+2014-02,Netherlands,15.0
+2014-02,New Zealand,14.8
+2014-02,Norway,12.6
+2014-02,Peru,14.0
+2014-02,Philippines,24.6
+2014-02,Poland,11.1
+2014-02,Portugal,10.3
+2014-02,Singapore,13.1
+2014-02,South Africa,20.1
+2014-02,South Korea,13.5
+2014-02,Spain,10.8
+2014-02,Sweden,19.5
+2014-02,Switzerland,22.3
+2014-02,Taiwan,17.7
+2014-02,Thailand,15.2
+2014-02,Turkey,9.3
+2014-02,US Large,25.1
+2014-06,Asia ex Japan,16.2
+2014-06,Australia,16.3
+2014-06,Austria,8.3
+2014-06,Belgium,13.9
+2014-06,Brazil,10.0
+2014-06,Canada,19.8
+2014-06,Chile,18.9
+2014-06,China,14.2
+2014-06,Colombia,24.7
+2014-06,Czech Republic,10.4
+2014-06,Denmark,30.3
+2014-06,Dev ex US Large,16.0
+2014-06,Developed Markets Large,20.4
+2014-06,Developed Markets Small,26.4
+2014-06,Egypt,11.8
+2014-06,Emerging Markets,13.8
+2014-06,Europe,14.6
+2014-06,Europe ex UK,15.7
+2014-06,Finland,13.6
+2014-06,France,14.4
+2014-06,Germany,17.1
+2014-06,Hong Kong,18.8
+2014-06,Hungary,6.3
+2014-06,India,19.8
+2014-06,Indonesia,20.7
+2014-06,Ireland,9.8
+2014-06,Israel,13.7
+2014-06,Italy,10.1
+2014-06,Japan,22.9
+2014-06,Malaysia,20.3
+2014-06,Mexico,22.1
+2014-06,Netherlands,15.0
+2014-06,New Zealand,14.5
+2014-06,Norway,13.7
+2014-06,Peru,14.8
+2014-06,Philippines,25.3
+2014-06,Poland,10.5
+2014-06,Portugal,10.1
+2014-06,Singapore,13.6
+2014-06,South Africa,20.9
+2014-06,South Korea,13.2
+2014-06,Spain,11.7
+2014-06,Sweden,19.1
+2014-06,Switzerland,22.0
+2014-06,Taiwan,19.4
+2014-06,Thailand,16.4
+2014-06,Turkey,11.3
+2014-06,US Large,25.6
+2015-01,Asia ex Japan,16.1
+2015-01,Australia,16.5
+2015-01,Austria,6.9
+2015-01,Belgium,17.7
+2015-01,Brazil,8.5
+2015-01,Canada,19.4
+2015-01,Chile,17.3
+2015-01,China,14.6
+2015-01,Colombia,19.4
+2015-01,Czech Republic,10.0
+2015-01,Denmark,31.9
+2015-01,Dev ex US Large,16.7
+2015-01,Developed Markets Large,21.1
+2015-01,Developed Markets Small,25.5
+2015-01,Egypt,14.7
+2015-01,Emerging Markets,14.1
+2015-01,Europe,15.1
+2015-01,Europe ex UK,16.5
+2015-01,Finland,16.1
+2015-01,France,15.1
+2015-01,Germany,18.0
+2015-01,Hong Kong,18.4
+2015-01,Hungary,5.6
+2015-01,India,21.4
+2015-01,Indonesia,20.5
+2015-01,Ireland,12.6
+2015-01,Israel,15.4
+2015-01,Italy,9.9
+2015-01,Japan,24.7
+2015-01,Malaysia,18.4
+2015-01,Mexico,20.3
+2015-01,Netherlands,17.5
+2015-01,New Zealand,15.9
+2015-01,Norway,11.6
+2015-01,Peru,13.3
+2015-01,Philippines,27.7
+2015-01,Poland,10.3
+2015-01,Portugal,7.2
+2015-01,Singapore,13.8
+2015-01,South Africa,21.8
+2015-01,South Korea,12.1
+2015-01,Spain,11.5
+2015-01,Sweden,21.1
+2015-01,Switzerland,21.2
+2015-01,Taiwan,20.0
+2015-01,Thailand,17.0
+2015-01,Turkey,12.2
+2015-01,US Large,25.7
+2015-06,Asia ex Japan,16.2
+2015-06,Australia,15.9
+2015-06,Austria,8.3
+2015-06,Belgium,18.3
+2015-06,Brazil,9.1
+2015-06,Canada,18.7
+2015-06,Chile,16.9
+2015-06,China,15.4
+2015-06,Colombia,17.7
+2015-06,Czech Republic,9.8
+2015-06,Denmark,35.9
+2015-06,Dev ex US Large,17.1
+2015-06,Developed Markets Large,21.3
+2015-06,Developed Markets Small,27.0
+2015-06,Egypt,12.4
+2015-06,Emerging Markets,14.0
+2015-06,Europe,15.2
+2015-06,Europe ex UK,17.0
+2015-06,Finland,15.7
+2015-06,France,15.6
+2015-06,Germany,17.6
+2015-06,Hong Kong,18.8
+2015-06,Hungary,7.7
+2015-06,India,19.5
+2015-06,Indonesia,18.5
+2015-06,Ireland,15.7
+2015-06,Israel,15.8
+2015-06,Italy,11.0
+2015-06,Japan,27.4
+2015-06,Malaysia,17.2
+2015-06,Mexico,22.1
+2015-06,Netherlands,18.8
+2015-06,New Zealand,14.9
+2015-06,Norway,11.7
+2015-06,Peru,12.7
+2015-06,Philippines,26.9
+2015-06,Poland,10.4
+2015-06,Portugal,8.0
+2015-06,Singapore,13.4
+2015-06,South Africa,21.0
+2015-06,South Korea,11.9
+2015-06,Spain,12.0
+2015-06,Sweden,20.2
+2015-06,Switzerland,22.0
+2015-06,Taiwan,20.3
+2015-06,Thailand,16.6
+2015-06,Turkey,10.5
+2015-06,US Large,25.8
+2016-01,Asia ex Japan,12.8
+2016-01,Australia,14.1
+2016-01,Austria,7.9
+2016-01,Belgium,19.7
+2016-01,Brazil,6.7
+2016-01,Canada,16.5
+2016-01,Chile,15.6
+2016-01,China,10.3
+2016-01,Colombia,14.3
+2016-01,Czech Republic,8.4
+2016-01,Denmark,35.6
+2016-01,Dev ex US Large,15.6
+2016-01,Developed Markets Large,19.8
+2016-01,Developed Markets Small,24.6
+2016-01,Egypt,8.2
+2016-01,Emerging Markets,11.7
+2016-01,Europe,14.2
+2016-01,Europe ex UK,15.8
+2016-01,Finland,16.3
+2016-01,France,14.9
+2016-01,Germany,15.7
+2016-01,Hong Kong,14.1
+2016-01,Hungary,9.0
+2016-01,India,17.4
+2016-01,Indonesia,16.9
+2016-01,Ireland,16.9
+2016-01,Israel,15.5
+2016-01,Italy,9.5
+2016-01,Japan,23.3
+2016-01,Malaysia,16.4
+2016-01,Mexico,20.8
+2016-01,Netherlands,18.1
+2016-01,New Zealand,15.8
+2016-01,Norway,9.6
+2016-01,Peru,9.0
+2016-01,Philippines,23.3
+2016-01,Poland,8.2
+2016-01,Portugal,7.7
+2016-01,Singapore,10.6
+2016-01,South Africa,18.3
+2016-01,South Korea,11.0
+2016-01,Spain,10.0
+2016-01,Sweden,17.3
+2016-01,Switzerland,21.1
+2016-01,Taiwan,16.7
+2016-01,Thailand,14.2
+2016-01,Turkey,9.0
+2016-01,US Large,24.1
+2016-07,Asia ex Japan,13.8
+2016-07,Australia,15.6
+2016-07,Austria,8.4
+2016-07,Belgium,20.0
+2016-07,Brazil,9.1
+2016-07,Canada,18.1
+2016-07,Chile,16.2
+2016-07,China,11.1
+2016-07,Colombia,15.3
+2016-07,Czech Republic,8.2
+2016-07,Denmark,35.4
+2016-07,Dev ex US Large,16.0
+2016-07,Developed Markets Large,21.1
+2016-07,Developed Markets Small,25.8
+2016-07,Egypt,11.9
+2016-07,Emerging Markets,12.6
+2016-07,Europe,14.9
+2016-07,Europe ex UK,15.9
+2016-07,Finland,15.6
+2016-07,France,15.2
+2016-07,Germany,15.9
+2016-07,Hong Kong,16.1
+2016-07,Hungary,10.2
+2016-07,India,18.7
+2016-07,Indonesia,18.6
+2016-07,Ireland,16.9
+2016-07,Israel,14.8
+2016-07,Italy,9.1
+2016-07,Japan,21.0
+2016-07,Malaysia,16.2
+2016-07,Mexico,22.2
+2016-07,Netherlands,18.5
+2016-07,New Zealand,20.3
+2016-07,Norway,9.7
+2016-07,Peru,13.7
+2016-07,Philippines,27.0
+2016-07,Poland,8.1
+2016-07,Portugal,8.2
+2016-07,Singapore,11.4
+2016-07,South Africa,19.6
+2016-07,South Korea,11.8
+2016-07,Spain,9.8
+2016-07,Sweden,17.5
+2016-07,Switzerland,20.5
+2016-07,Taiwan,18.4
+2016-07,Thailand,16.8
+2016-07,Turkey,8.9
+2016-07,US Large,26.5
+2017-01,Asia ex Japan,14.2
+2017-01,Australia,16.1
+2017-01,Austria,10.8
+2017-01,Belgium,19.8
+2017-01,Brazil,10.2
+2017-01,Canada,19.8
+2017-01,Chile,16.1
+2017-01,China,11.7
+2017-01,Colombia,15.9
+2017-01,Czech Republic,7.7
+2017-01,Denmark,30.9
+2017-01,Dev ex US Large,17.4
+2017-01,Developed Markets Large,22.6
+2017-01,Developed Markets Small,27.1
+2017-01,Egypt,17.1
+2017-01,Emerging Markets,13.0
+2017-01,Europe,16.1
+2017-01,Europe ex UK,17.3
+2017-01,Finland,15.9
+2017-01,France,16.9
+2017-01,Germany,17.6
+2017-01,Hong Kong,16.0
+2017-01,Hungary,12.5
+2017-01,India,18.4
+2017-01,Indonesia,17.5
+2017-01,Ireland,20.4
+2017-01,Israel,12.3
+2017-01,Italy,10.7
+2017-01,Japan,24.0
+2017-01,Malaysia,15.9
+2017-01,Mexico,22.1
+2017-01,Netherlands,20.0
+2017-01,New Zealand,19.4
+2017-01,Norway,11.2
+2017-01,Peru,14.6
+2017-01,Philippines,23.7
+2017-01,Poland,9.7
+2017-01,Portugal,8.7
+2017-01,Singapore,12.1
+2017-01,South Africa,17.8
+2017-01,South Korea,12.6
+2017-01,Spain,11.1
+2017-01,Sweden,19.5
+2017-01,Switzerland,21.3
+2017-01,Taiwan,19.0
+2017-01,Thailand,17.3
+2017-01,Turkey,9.6
+2017-01,US Large,27.7
+2017-06,Asia ex Japan,15.9
+2017-06,Australia,16.4
+2017-06,Austria,13.0
+2017-06,Belgium,21.5
+2017-06,Brazil,10.0
+2017-06,Canada,19.4
+2017-06,Chile,17.5
+2017-06,China,13.5
+2017-06,Colombia,16.7
+2017-06,Czech Republic,7.5
+2017-06,Denmark,32.9
+2017-06,Dev ex US Large,18.5
+2017-06,Developed Markets Large,23.7
+2017-06,Developed Markets Small,28.6
+2017-06,Egypt,15.7
+2017-06,Emerging Markets,14.2
+2017-06,Europe,17.3
+2017-06,Europe ex UK,18.8
+2017-06,Finland,18.5
+2017-06,France,18.6
+2017-06,Germany,18.2
+2017-06,Hong Kong,17.5
+2017-06,Hungary,13.4
+2017-06,India,19.6
+2017-06,Indonesia,19.4
+2017-06,Ireland,22.5
+2017-06,Israel,13.3
+2017-06,Italy,12.5
+2017-06,Japan,25.1
+2017-06,Malaysia,16.4
+2017-06,Mexico,22.7
+2017-06,Netherlands,22.4
+2017-06,New Zealand,19.3
+2017-06,Norway,11.3
+2017-06,Peru,14.9
+2017-06,Philippines,25.1
+2017-06,Poland,11.0
+2017-06,Portugal,9.3
+2017-06,Singapore,12.9
+2017-06,South Africa,17.6
+2017-06,South Korea,14.4
+2017-06,Spain,12.9
+2017-06,Sweden,20.6
+2017-06,Switzerland,23.1
+2017-06,Taiwan,21.0
+2017-06,Thailand,17.6
+2017-06,Turkey,10.4
+2017-06,US Large,29.0
+2018-01,Asia ex Japan,18.6
+2018-01,Australia,17.4
+2018-01,Austria,16.4
+2018-01,Belgium,24.4
+2018-01,Brazil,13.5
+2018-01,Canada,20.7
+2018-01,Chile,21.1
+2018-01,China,18.1
+2018-01,Colombia,17.7
+2018-01,Czech Republic,8.6
+2018-01,Denmark,33.2
+2018-01,Dev ex US Large,20.1
+2018-01,Developed Markets Large,26.4
+2018-01,Developed Markets Small,31.0
+2018-01,Egypt,14.5
+2018-01,Emerging Markets,16.8
+2018-01,Europe,18.6
+2018-01,Europe ex UK,20.4
+2018-01,Finland,18.9
+2018-01,France,20.3
+2018-01,Germany,19.7
+2018-01,Hong Kong,19.7
+2018-01,Hungary,15.8
+2018-01,India,22.4
+2018-01,Indonesia,23.0
+2018-01,Ireland,27.3
+2018-01,Israel,12.7
+2018-01,Italy,15.7
+2018-01,Japan,27.9
+2018-01,Malaysia,17.1
+2018-01,Mexico,22.6
+2018-01,Netherlands,24.6
+2018-01,New Zealand,20.2
+2018-01,Norway,14.0
+2018-01,Peru,20.1
+2018-01,Philippines,27.1
+2018-01,Poland,12.5
+2018-01,Portugal,10.6
+2018-01,Singapore,14.7
+2018-01,South Africa,20.3
+2018-01,South Korea,15.5
+2018-01,Spain,13.4
+2018-01,Sweden,20.3
+2018-01,Switzerland,25.1
+2018-01,Taiwan,21.5
+2018-01,Thailand,20.7
+2018-01,Turkey,11.5
+2018-01,US Large,33.3
+2018-06,Asia ex Japan,16.5
+2018-06,Australia,18.3
+2018-06,Austria,15.2
+2018-06,Belgium,24.6
+2018-06,Brazil,12.6
+2018-06,Canada,20.9
+2018-06,Chile,19.1
+2018-06,China,15.0
+2018-06,Colombia,16.7
+2018-06,Czech Republic,8.8
+2018-06,Denmark,31.7
+2018-06,Dev ex US Large,20.0
+2018-06,Developed Markets Large,25.9
+2018-06,Developed Markets Small,29.9
+2018-06,Egypt,14.1
+2018-06,Emerging Markets,15.2
+2018-06,Europe,18.8
+2018-06,Europe ex UK,20.3
+2018-06,Finland,21.2
+2018-06,France,20.6
+2018-06,Germany,18.7
+2018-06,Hong Kong,17.8
+2018-06,Hungary,13.5
+2018-06,India,22.4
+2018-06,Indonesia,17.2
+2018-06,Ireland,31.9
+2018-06,Israel,13.9
+2018-06,Italy,15.9
+2018-06,Japan,26.2
+2018-06,Malaysia,16.7
+2018-06,Mexico,21.9
+2018-06,Netherlands,25.5
+2018-06,New Zealand,21.7
+2018-06,Norway,14.8
+2018-06,Peru,19.7
+2018-06,Philippines,23.0
+2018-06,Poland,11.4
+2018-06,Portugal,12.1
+2018-06,Singapore,13.7
+2018-06,South Africa,18.8
+2018-06,South Korea,13.4
+2018-06,Spain,12.9
+2018-06,Sweden,20.4
+2018-06,Switzerland,24.8
+2018-06,Taiwan,21.0
+2018-06,Thailand,19.3
+2018-06,Turkey,8.3
+2018-06,US Large,31.8
+2019-01,Asia ex Japan,15.3
+2019-01,Australia,16.9
+2019-01,Austria,13.1
+2019-01,Belgium,21.1
+2019-01,Brazil,15.6
+2019-01,Canada,19.8
+2019-01,Chile,18.4
+2019-01,China,13.7
+2019-01,Colombia,15.9
+2019-01,Czech Republic,8.9
+2019-01,Denmark,28.4
+2019-01,Dev ex US Large,18.4
+2019-01,Developed Markets Large,24.0
+2019-01,Developed Markets Small,25.8
+2019-01,Egypt,13.3
+2019-01,Emerging Markets,14.5
+2019-01,Europe,17.4
+2019-01,Europe ex UK,18.8
+2019-01,Finland,21.4
+2019-01,France,18.9
+2019-01,Germany,16.3
+2019-01,Hong Kong,17.1
+2019-01,Hungary,15.7
+2019-01,India,21.7
+2019-01,Indonesia,19.3
+2019-01,Ireland,33.7
+2019-01,Israel,13.4
+2019-01,Italy,15.3
+2019-01,Japan,22.8
+2019-01,Malaysia,15.5
+2019-01,Mexico,19.0
+2019-01,Netherlands,23.6
+2019-01,New Zealand,22.2
+2019-01,Norway,14.3
+2019-01,Peru,19.4
+2019-01,Philippines,23.3
+2019-01,Poland,11.9
+2019-01,Portugal,11.2
+2019-01,Singapore,13.3
+2019-01,South Africa,17.8
+2019-01,South Korea,12.5
+2019-01,Spain,12.4
+2019-01,Sweden,18.9
+2019-01,Switzerland,24.0
+2019-01,Taiwan,18.6
+2019-01,Thailand,18.4
+2019-01,Turkey,8.4
+2019-01,US Large,29.3
+2019-07,Asia ex Japan,15.2
+2019-07,Australia,19.1
+2019-07,Austria,13.1
+2019-07,Belgium,22.0
+2019-07,Brazil,16.0
+2019-07,Canada,20.6
+2019-07,Chile,16.3
+2019-07,China,13.5
+2019-07,Colombia,16.6
+2019-07,Czech Republic,8.7
+2019-07,Denmark,30.0
+2019-07,Dev ex US Large,19.2
+2019-07,Developed Markets Large,24.8
+2019-07,Developed Markets Small,25.9
+2019-07,Egypt,13.7
+2019-07,Emerging Markets,14.5
+2019-07,Europe,18.6
+2019-07,Europe ex UK,20.1
+2019-07,Finland,21.6
+2019-07,France,20.7
+2019-07,Germany,16.8
+2019-07,Hong Kong,17.6
+2019-07,Hungary,15.0
+2019-07,India,22.4
+2019-07,Indonesia,18.5
+2019-07,Ireland,38.6
+2019-07,Israel,12.4
+2019-07,Italy,17.0
+2019-07,Japan,21.7
+2019-07,Malaysia,15.4
+2019-07,Mexico,18.2
+2019-07,Netherlands,25.3
+2019-07,New Zealand,26.5
+2019-07,Norway,14.7
+2019-07,Peru,18.7
+2019-07,Philippines,23.0
+2019-07,Poland,11.6
+2019-07,Portugal,12.1
+2019-07,Singapore,14.1
+2019-07,South Africa,18.3
+2019-07,South Korea,11.7
+2019-07,Spain,13.0
+2019-07,Sweden,19.8
+2019-07,Switzerland,25.6
+2019-07,Taiwan,19.5
+2019-07,Thailand,18.5
+2019-07,Turkey,7.3
+2019-07,US Large,29.8
+2020-01,Asia ex Japan,14.7
+2020-01,Australia,19.4
+2020-01,Austria,12.7
+2020-01,Belgium,20.7
+2020-01,Brazil,17.4
+2020-01,Canada,21.1
+2020-01,Chile,15.0
+2020-01,China,13.2
+2020-01,Colombia,16.6
+2020-01,Czech Republic,8.5
+2020-01,Denmark,33.2
+2020-01,Dev ex US Large,19.2
+2020-01,Developed Markets Large,25.3
+2020-01,Developed Markets Small,25.8
+2020-01,Egypt,15.0
+2020-01,Emerging Markets,14.3
+2020-01,Europe,19.0
+2020-01,Europe ex UK,20.9
+2020-01,Finland,22.4
+2020-01,France,21.2
+2020-01,Germany,17.1
+2020-01,Hong Kong,14.9
+2020-01,Hungary,16.3
+2020-01,India,22.0
+2020-01,Indonesia,17.2
+2020-01,Ireland,42.9
+2020-01,Israel,13.4
+2020-01,Italy,18.7
+2020-01,Japan,21.1
+2020-01,Malaysia,13.8
+2020-01,Mexico,17.9
+2020-01,Netherlands,25.4
+2020-01,New Zealand,30.6
+2020-01,Norway,14.3
+2020-01,Peru,16.3
+2020-01,Philippines,19.6
+2020-01,Poland,9.9
+2020-01,Portugal,15.1
+2020-01,Singapore,13.4
+2020-01,South Africa,17.0
+2020-01,South Korea,11.7
+2020-01,Spain,13.5
+2020-01,Sweden,20.6
+2020-01,Switzerland,26.5
+2020-01,Taiwan,20.5
+2020-01,Thailand,15.5
+2020-01,Turkey,7.9
+2020-01,US Large,30.6
+2020-07,Asia ex Japan,15.7
+2020-07,Australia,16.1
+2020-07,Austria,8.6
+2020-07,Belgium,15.5
+2020-07,Brazil,16.0
+2020-07,Canada,19.0
+2020-07,Chile,12.7
+2020-07,China,15.4
+2020-07,Colombia,10.5
+2020-07,Czech Republic,6.5
+2020-07,Denmark,34.3
+2020-07,Dev ex US Large,16.5
+2020-07,Developed Markets Large,23.8
+2020-07,Developed Markets Small,21.6
+2020-07,Egypt,10.7
+2020-07,Emerging Markets,14.9
+2020-07,Europe,16.4
+2020-07,Europe ex UK,18.4
+2020-07,Finland,21.0
+2020-07,France,17.3
+2020-07,Germany,15.3
+2020-07,Hong Kong,13.4
+2020-07,Hungary,12.1
+2020-07,India,20.7
+2020-07,Indonesia,14.2
+2020-07,Ireland,37.9
+2020-07,Israel,13.7
+2020-07,Italy,15.0
+2020-07,Japan,17.7
+2020-07,Malaysia,14.8
+2020-07,Mexico,15.0
+2020-07,Netherlands,24.2
+2020-07,New Zealand,33.4
+2020-07,Norway,12.2
+2020-07,Peru,12.0
+2020-07,Philippines,15.6
+2020-07,Poland,8.2
+2020-07,Portugal,13.8
+2020-07,Singapore,10.7
+2020-07,South Africa,16.5
+2020-07,South Korea,12.2
+2020-07,Spain,10.3
+2020-07,Sweden,19.0
+2020-07,Switzerland,24.3
+2020-07,Taiwan,22.5
+2020-07,Thailand,13.3
+2020-07,Turkey,6.5
+2020-07,US Large,30.2
+2021-01,Asia ex Japan,19.0
+2021-01,Australia,17.5
+2021-01,Austria,12.0
+2021-01,Belgium,17.0
+2021-01,Brazil,17.5
+2021-01,Canada,20.2
+2021-01,Chile,13.7
+2021-01,China,18.4
+2021-01,Colombia,11.8
+2021-01,Czech Republic,8.4
+2021-01,Denmark,37.0
+2021-01,Dev ex US Large,18.5
+2021-01,Developed Markets Large,26.6
+2021-01,Developed Markets Small,25.4
+2021-01,Egypt,10.9
+2021-01,Emerging Markets,17.8
+2021-01,Europe,18.0
+2021-01,Europe ex UK,20.4
+2021-01,Finland,23.7
+2021-01,France,19.5
+2021-01,Germany,17.0
+2021-01,Hong Kong,16.0
+2021-01,Hungary,15.1
+2021-01,India,24.4
+2021-01,Indonesia,15.4
+2021-01,Ireland,36.7
+2021-01,Israel,15.5
+2021-01,Italy,17.4
+2021-01,Japan,21.3
+2021-01,Malaysia,14.0
+2021-01,Mexico,17.0
+2021-01,Netherlands,28.5
+2021-01,New Zealand,32.5
+2021-01,Norway,13.6
+2021-01,Peru,14.9
+2021-01,Philippines,16.5
+2021-01,Poland,8.9
+2021-01,Portugal,16.5
+2021-01,Singapore,12.0
+2021-01,South Africa,17.3
+2021-01,South Korea,16.7
+2021-01,Spain,12.2
+2021-01,Sweden,21.2
+2021-01,Switzerland,25.2
+2021-01,Taiwan,27.4
+2021-01,Thailand,14.1
+2021-01,Turkey,7.4
+2021-01,US Large,33.8
+2021-06,Asia ex Japan,19.3
+2021-06,Australia,19.5
+2021-06,Austria,14.4
+2021-06,Belgium,18.8
+2021-06,Brazil,18.8
+2021-06,Canada,23.1
+2021-06,Chile,13.8
+2021-06,China,17.3
+2021-06,Colombia,11.3
+2021-06,Czech Republic,10.2
+2021-06,Denmark,41.2
+2021-06,Dev ex US Large,20.5
+2021-06,Developed Markets Large,29.8
+2021-06,Developed Markets Small,27.8
+2021-06,Egypt,8.6
+2021-06,Emerging Markets,18.1
+2021-06,Europe,20.4
+2021-06,Europe ex UK,23.3
+2021-06,Finland,25.8
+2021-06,France,23.4
+2021-06,Germany,18.7
+2021-06,Hong Kong,16.7
+2021-06,Hungary,16.2
+2021-06,India,27.8
+2021-06,Indonesia,14.1
+2021-06,Ireland,37.7
+2021-06,Israel,16.2
+2021-06,Italy,20.5
+2021-06,Japan,22.7
+2021-06,Malaysia,13.4
+2021-06,Mexico,19.3
+2021-06,Netherlands,33.3
+2021-06,New Zealand,27.5
+2021-06,Norway,15.8
+2021-06,Peru,13.3
+2021-06,Philippines,17.3
+2021-06,Poland,10.0
+2021-06,Portugal,17.0
+2021-06,Singapore,13.1
+2021-06,South Africa,17.0
+2021-06,South Korea,17.6
+2021-06,Spain,14.2
+2021-06,Sweden,24.0
+2021-06,Switzerland,28.2
+2021-06,Taiwan,29.5
+2021-06,Thailand,15.0
+2021-06,Turkey,6.7
+2021-06,US Large,37.5
+2022-01,Asia ex Japan,16.6
+2022-01,Australia,18.1
+2022-01,Austria,16.4
+2022-01,Belgium,17.2
+2022-01,Brazil,14.8
+2022-01,Canada,23.5
+2022-01,Chile,13.7
+2022-01,China,12.9
+2022-01,Colombia,14.1
+2022-01,Czech Republic,12.8
+2022-01,Denmark,39.3
+2022-01,Dev ex US Large,20.2
+2022-01,Developed Markets Large,29.6
+2022-01,Developed Markets Small,26.0
+2022-01,Egypt,9.5
+2022-01,Emerging Markets,15.8
+2022-01,Europe,20.7
+2022-01,Europe ex UK,23.3
+2022-01,Finland,25.8
+2022-01,France,25.1
+2022-01,Germany,17.9
+2022-01,Hong Kong,15.0
+2022-01,Hungary,17.2
+2022-01,India,30.6
+2022-01,Indonesia,16.4
+2022-01,Ireland,34.5
+2022-01,Israel,16.2
+2022-01,Italy,21.3
+2022-01,Japan,21.3
+2022-01,Malaysia,13.0
+2022-01,Mexico,19.0
+2022-01,Netherlands,31.3
+2022-01,New Zealand,23.0
+2022-01,Norway,17.1
+2022-01,Peru,14.6
+2022-01,Philippines,18.6
+2022-01,Poland,10.2
+2022-01,Portugal,19.9
+2022-01,Singapore,12.4
+2022-01,South Africa,17.2
+2022-01,South Korea,14.1
+2022-01,Spain,14.4
+2022-01,Sweden,22.1
+2022-01,Switzerland,27.7
+2022-01,Taiwan,28.4
+2022-01,Thailand,15.5
+2022-01,Turkey,7.6
+2022-01,US Large,37.0
+2022-07,Asia ex Japan,14.1
+2022-07,Australia,17.6
+2022-07,Austria,11.0
+2022-07,Belgium,15.1
+2022-07,Brazil,12.1
+2022-07,Canada,20.2
+2022-07,Chile,15.7
+2022-07,China,10.6
+2022-07,Colombia,12.0
+2022-07,Czech Republic,12.4
+2022-07,Denmark,37.8
+2022-07,Dev ex US Large,18.2
+2022-07,Developed Markets Large,25.6
+2022-07,Developed Markets Small,22.8
+2022-07,Egypt,6.5
+2022-07,Emerging Markets,13.9
+2022-07,Europe,18.2
+2022-07,Europe ex UK,19.8
+2022-07,Finland,22.8
+2022-07,France,22.2
+2022-07,Germany,13.6
+2022-07,Hong Kong,13.8
+2022-07,Hungary,9.9
+2022-07,India,28.8
+2022-07,Indonesia,16.7
+2022-07,Ireland,25.7
+2022-07,Israel,14.4
+2022-07,Italy,17.2
+2022-07,Japan,20.2
+2022-07,Malaysia,12.7
+2022-07,Mexico,17.0
+2022-07,Netherlands,26.6
+2022-07,New Zealand,22.1
+2022-07,Norway,17.7
+2022-07,Peru,12.2
+2022-07,Philippines,15.5
+2022-07,Poland,7.3
+2022-07,Portugal,22.4
+2022-07,Singapore,10.8
+2022-07,South Africa,14.9
+2022-07,South Korea,12.1
+2022-07,Spain,13.2
+2022-07,Sweden,17.8
+2022-07,Switzerland,23.9
+2022-07,Taiwan,21.7
+2022-07,Thailand,15.0
+2022-07,Turkey,6.4
+2022-07,US Large,30.8
+2023-01,Asia ex Japan,14.4
+2023-01,Australia,18.2
+2023-01,Austria,11.5
+2023-01,Belgium,14.9
+2023-01,Brazil,11.7
+2023-01,Canada,20.8
+2023-01,Chile,13.4
+2023-01,China,11.6
+2023-01,Colombia,11.7
+2023-01,Czech Republic,11.3
+2023-01,Denmark,35.1
+2023-01,Dev ex US Large,18.3
+2023-01,Developed Markets Large,24.8
+2023-01,Developed Markets Small,22.0
+2023-01,Egypt,11.0
+2023-01,Emerging Markets,14.2
+2023-01,Europe,18.6
+2023-01,Europe ex UK,20.3
+2023-01,Finland,21.5
+2023-01,France,23.4
+2023-01,Germany,14.9
+2023-01,Hong Kong,14.3
+2023-01,Hungary,9.1
+2023-01,India,28.3
+2023-01,Indonesia,17.0
+2023-01,Ireland,27.5
+2023-01,Israel,13.5
+2023-01,Italy,18.5
+2023-01,Japan,19.0
+2023-01,Malaysia,12.8
+2023-01,Mexico,18.2
+2023-01,Netherlands,25.9
+2023-01,New Zealand,24.1
+2023-01,Norway,15.7
+2023-01,Peru,14.7
+2023-01,Philippines,16.0
+2023-01,Poland,7.7
+2023-01,Portugal,21.6
+2023-01,Singapore,11.3
+2023-01,South Africa,15.8
+2023-01,South Korea,11.5
+2023-01,Spain,14.6
+2023-01,Sweden,17.6
+2023-01,Switzerland,23.2
+2023-01,Taiwan,20.7
+2023-01,Thailand,16.1
+2023-01,Turkey,9.9
+2023-01,US Large,29.5
+2023-07,Asia ex Japan,14.5
+2023-07,Australia,17.4
+2023-07,Austria,10.5
+2023-07,Belgium,15.1
+2023-07,Brazil,11.2
+2023-07,Canada,19.7
+2023-07,Chile,12.8
+2023-07,China,11.0
+2023-07,Colombia,9.0
+2023-07,Czech Republic,11.2
+2023-07,Denmark,36.2
+2023-07,Dev ex US Large,18.6
+2023-07,Developed Markets Large,26.1
+2023-07,Developed Markets Small,21.5
+2023-07,Egypt,9.2
+2023-07,Emerging Markets,14.3
+2023-07,Europe,18.4
+2023-07,Europe ex UK,20.2
+2023-07,Finland,17.0
+2023-07,France,23.3
+2023-07,Germany,15.0
+2023-07,Hong Kong,12.9
+2023-07,Hungary,9.4
+2023-07,India,30.1
+2023-07,Indonesia,17.3
+2023-07,Ireland,29.3
+2023-07,Israel,13.5
+2023-07,Italy,19.1
+2023-07,Japan,21.4
+2023-07,Malaysia,12.7
+2023-07,Mexico,17.6
+2023-07,Netherlands,27.0
+2023-07,New Zealand,23.7
+2023-07,Norway,14.6
+2023-07,Peru,16.7
+2023-07,Philippines,15.7
+2023-07,Poland,8.6
+2023-07,Portugal,21.7
+2023-07,Singapore,11.6
+2023-07,South Africa,15.4
+2023-07,South Korea,12.6
+2023-07,Spain,14.8
+2023-07,Sweden,17.2
+2023-07,Switzerland,22.3
+2023-07,Taiwan,21.2
+2023-07,Thailand,15.8
+2023-07,Turkey,11.5
+2023-07,US Large,31.5
+2024-01,Asia ex Japan,13.4
+2024-01,Australia,17.8
+2024-01,Austria,10.6
+2024-01,Belgium,14.7
+2024-01,Brazil,10.9
+2024-01,Canada,19.7
+2024-01,Chile,10.7
+2024-01,China,8.5
+2024-01,Colombia,8.5
+2024-01,Czech Republic,11.0
+2024-01,Denmark,41.6
+2024-01,Dev ex US Large,18.7
+2024-01,Developed Markets Large,26.7
+2024-01,Developed Markets Small,21.0
+2024-01,Egypt,13.7
+2024-01,Emerging Markets,13.4
+2024-01,Europe,18.4
+2024-01,Europe ex UK,20.3
+2024-01,Finland,16.3
+2024-01,France,23.0
+2024-01,Germany,15.3
+2024-01,Hong Kong,10.4
+2024-01,Hungary,10.2
+2024-01,India,33.9
+2024-01,Indonesia,16.0
+2024-01,Ireland,26.0
+2024-01,Israel,14.3
+2024-01,Italy,18.3
+2024-01,Japan,22.5
+2024-01,Malaysia,13.2
+2024-01,Mexico,17.8
+2024-01,Netherlands,28.5
+2024-01,New Zealand,23.3
+2024-01,Norway,14.1
+2024-01,Peru,17.1
+2024-01,Philippines,15.6
+2024-01,Poland,9.1
+2024-01,Portugal,21.5
+2024-01,Singapore,10.4
+2024-01,South Africa,13.7
+2024-01,South Korea,11.8
+2024-01,Spain,14.7
+2024-01,Sweden,17.5
+2024-01,Switzerland,21.8
+2024-01,Taiwan,21.3
+2024-01,Thailand,14.2
+2024-01,Turkey,9.7
+2024-01,US Large,32.4
+2024-07,Asia ex Japan,15.8
+2024-07,Australia,18.3
+2024-07,Austria,10.6
+2024-07,Belgium,16.4
+2024-07,Brazil,10.0
+2024-07,Canada,20.9
+2024-07,Chile,10.8
+2024-07,China,9.8
+2024-07,Colombia,8.7
+2024-07,Czech Republic,11.4
+2024-07,Denmark,44.4
+2024-07,Dev ex US Large,19.4
+2024-07,Developed Markets Large,28.8
+2024-07,Developed Markets Small,21.9
+2024-07,Egypt,10.6
+2024-07,Emerging Markets,15.5
+2024-07,Europe,19.0
+2024-07,Europe ex UK,20.7
+2024-07,Finland,15.4
+2024-07,France,21.7
+2024-07,Germany,15.9
+2024-07,Hong Kong,10.2
+2024-07,Hungary,10.1
+2024-07,India,38.4
+2024-07,Indonesia,16.0
+2024-07,Ireland,26.9
+2024-07,Israel,15.5
+2024-07,Italy,18.4
+2024-07,Japan,23.6
+2024-07,Malaysia,14.5
+2024-07,Mexico,16.0
+2024-07,Netherlands,29.1
+2024-07,New Zealand,24.8
+2024-07,Norway,14.6
+2024-07,Peru,19.8
+2024-07,Philippines,15.3
+2024-07,Poland,9.5
+2024-07,Portugal,21.0
+2024-07,Singapore,12.1
+2024-07,South Africa,14.9
+2024-07,South Korea,13.6
+2024-07,Spain,15.0
+2024-07,Sweden,18.7
+2024-07,Switzerland,22.8
+2024-07,Taiwan,26.7
+2024-07,Thailand,14.3
+2024-07,Turkey,10.0
+2024-07,US Large,35.3
+2025-01,Asia ex Japan,16.4
+2025-01,Australia,19.2
+2025-01,Austria,11.1
+2025-01,Belgium,17.3
+2025-01,Brazil,9.2
+2025-01,Canada,23.0
+2025-01,Chile,11.8
+2025-01,China,11.6
+2025-01,Colombia,9.8
+2025-01,Czech Republic,13.4
+2025-01,Denmark,32.2
+2025-01,Dev ex US Large,19.5
+2025-01,Developed Markets Large,30.5
+2025-01,Developed Markets Small,21.6
+2025-01,Egypt,9.2
+2025-01,Emerging Markets,15.9
+2025-01,Europe,19.3
+2025-01,Europe ex UK,20.9
+2025-01,Finland,15.6
+2025-01,France,22.4
+2025-01,Germany,18.3
+2025-01,Hong Kong,11.0
+2025-01,Hungary,10.9
+2025-01,India,34.2
+2025-01,Indonesia,14.8
+2025-01,Ireland,23.2
+2025-01,Israel,19.0
+2025-01,Italy,18.4
+2025-01,Japan,22.3
+2025-01,Malaysia,14.3
+2025-01,Mexico,15.0
+2025-01,Netherlands,26.9
+2025-01,New Zealand,25.3
+2025-01,Norway,15.6
+2025-01,Peru,18.6
+2025-01,Philippines,13.4
+2025-01,Poland,9.4
+2025-01,Portugal,17.2
+2025-01,Singapore,14.7
+2025-01,South Africa,15.3
+2025-01,South Korea,11.6
+2025-01,Spain,16.1
+2025-01,Sweden,19.1
+2025-01,Switzerland,23.2
+2025-01,Taiwan,28.6
+2025-01,Thailand,14.5
+2025-01,Turkey,7.9
+2025-01,US Large,37.7
+2026-01,Asia ex Japan,22.6
+2026-01,Australia,18.7
+2026-01,Austria,15.0
+2026-01,Belgium,21.8
+2026-01,Brazil,11.2
+2026-01,Canada,26.6
+2026-01,Chile,17.3
+2026-01,China,15.7
+2026-01,Colombia,15.9
+2026-01,Czech Republic,16.6
+2026-01,Denmark,23.9
+2026-01,Dev ex US Large,21.5
+2026-01,Developed Markets Large,32.4
+2026-01,Developed Markets Small,24.9
+2026-01,Egypt,13.0
+2026-01,Emerging Markets,21.3
+2026-01,Europe,20.8
+2026-01,Europe ex UK,22.1
+2026-01,Finland,19.5
+2026-01,France,21.8
+2026-01,Germany,19.3
+2026-01,Hong Kong,16.5
+2026-01,Hungary,14.1
+2026-01,India,34.8
+2026-01,Indonesia,13.3
+2026-01,Ireland,25.0
+2026-01,Israel,22.8
+2026-01,Italy,20.2
+2026-01,Japan,26.2
+2026-01,Malaysia,15.9
+2026-01,Mexico,18.6
+2026-01,Netherlands,32.2
+2026-01,New Zealand,26.7
+2026-01,Norway,16.9
+2026-01,Peru,35.4
+2026-01,Philippines,14.8
+2026-01,Poland,13.0
+2026-01,Portugal,21.6
+2026-01,Singapore,17.8
+2026-01,South Africa,22.0
+2026-01,South Korea,25.8
+2026-01,Spain,21.9
+2026-01,Sweden,20.2
+2026-01,Switzerland,23.6
+2026-01,Taiwan,37.3
+2026-01,Thailand,15.8
+2026-01,Turkey,8.7
+2026-01,US Large,40.0
+2026-07,Asia ex Japan,25.0
+2026-07,Australia,19.4
+2026-07,Austria,16.1
+2026-07,Belgium,23.6
+2026-07,Brazil,10.2
+2026-07,Canada,28.2
+2026-07,Chile,15.5
+2026-07,China,13.7
+2026-07,Colombia,14.7
+2026-07,Czech Republic,16.6
+2026-07,Denmark,20.8
+2026-07,Dev ex US Large,22.3
+2026-07,Developed Markets Large,33.3
+2026-07,Developed Markets Small,24.9
+2026-07,Egypt,11.7
+2026-07,Emerging Markets,22.9
+2026-07,Europe,21.3
+2026-07,Europe ex UK,22.6
+2026-07,Finland,20.7
+2026-07,France,21.9
+2026-07,Germany,19.2
+2026-07,Hong Kong,16.3
+2026-07,Hungary,15.3
+2026-07,India,32.5
+2026-07,Indonesia,9.3
+2026-07,Ireland,23.6
+2026-07,Israel,21.5
+2026-07,Italy,20.8
+2026-07,Japan,28.3
+2026-07,Malaysia,15.7
+2026-07,Mexico,18.2
+2026-07,Netherlands,34.6
+2026-07,New Zealand,29.2
+2026-07,Norway,17.9
+2026-07,Peru,33.6
+2026-07,Philippines,14.7
+2026-07,Poland,15.0
+2026-07,Portugal,22.6
+2026-07,Singapore,20.2
+2026-07,South Africa,18.3
+2026-07,South Korea,33.9
+2026-07,Spain,22.9
+2026-07,Sweden,20.8
+2026-07,Switzerland,24.8
+2026-07,Taiwan,49.5
+2026-07,Thailand,18.8
+2026-07,Turkey,7.4
+2026-07,US Large,40.4

@@ -1,0 +1,39 @@
+---
+title: "Predittore CAPE: rendimenti attesi di World, Europa, Emergenti, Cina, India, Giappone"
+description: "Rendimento annualizzato atteso a 5 e 10 anni per sei grandi mercati, in base al loro CAPE attuale e alla loro relazione storica. Con banda di incertezza e affidabilità del segnale."
+pubDate: 2026-08-09
+tags: ["cape", "valutazioni", "rendimenti-attesi", "world", "emergenti", "internazionale", "simulatore"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import CapePredictor from "../../components/interactive/CapePredictor.jsx";
+
+## Cosa fa
+
+Per sei grandi mercati — **World** (mercati sviluppati), **Europa**, **Emergenti**, **Cina**, **India**, **Giappone** — lo strumento stima il **rendimento annualizzato atteso a 5 e 10 anni** partendo dal loro livello di CAPE attuale e dalla relazione storica tra valutazione e rendimenti successivi (dal 2001). Per ogni mercato vedi la stima centrale, la banda di incertezza e quanto quel segnale è stato affidabile storicamente.
+
+In cima trovi anche la classifica dei **3 mercati più sottovalutati e dei 3 più sopravvalutati** rispetto alla propria storia. Il CAPE corrente è già inserito (non devi cercarlo): la data di rilevazione è indicata in alto. Puoi comunque muovere il cursore per vedere come cambierebbe la stima ad altri livelli di valutazione.
+
+<CapePredictor client:load />
+
+## Cosa NON fa (leggere prima)
+
+**Non è market timing e non è una previsione certa.** Le stime dicono l'*ordine di grandezza* del rendimento che, storicamente, è seguito a un certo livello di CAPE — non *quando* arriverà. Un mercato può restare caro (o economico) per anni. L'uso corretto è **calibrare le aspettative** con cui si investe, non decidere quando entrare o uscire.
+
+**L'affidabilità cambia da mercato a mercato.** Sul World il CAPE ha spiegato storicamente gran parte del rendimento a 10 anni; su Cina ed emergenti quasi nulla. Lo strumento lo segnala con l'etichetta di affidabilità (alta / media / bassa) e con la larghezza della banda: dove l'affidabilità è bassa, la stima centrale conta poco.
+
+**La banda è ampia apposta.** Riflette 25 anni di storia con finestre sovrapposte: la relazione CAPE-rendimento è reale ma rumorosa. Guarda sempre la banda, non solo il numero centrale.
+
+## Come si aggiorna
+
+I valori di CAPE sono "istantanee" prese periodicamente da [Research Affiliates](https://interactive.researchaffiliates.com/asset-allocation). La data dell'ultima rilevazione è mostrata in cima allo strumento; l'aggiornamento avviene ogni 2-3 mesi. La relazione storica (la parte che genera le stime) è invece stabile e cambia solo con l'aggiunta di nuovi anni di dati.
+
+## Fonti e riproducibilità
+
+- CAPE per mercato: [Research Affiliates — Asset Allocation Interactive](https://interactive.researchaffiliates.com/asset-allocation).
+- Rendimenti: indici [MSCI](https://www.msci.com/end-of-day-data-search) Total Return lordo, in USD, mensili.
+- Metodologia completa, tabelle e caveat: [articolo di riferimento](/posts/cape-internazionale-predice-rendimenti).
+- Codice: [`scripts/build_cape_predictor.py`](https://github.com/TylerD1917/smartmoneylab). Lookup: [`/tools/cape-predictor-lookup.json`](/tools/cape-predictor-lookup.json).

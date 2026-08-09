@@ -38,3 +38,6 @@ venv/
 .ipynb_checkpoints/
 
 # generated assets (mantenere tracciate le PNG/SVG di output: NON ignorate public/charts)
+
+# analytics privati (engagement IG + traffico sito): NON devono finire nel repo pubblico
+analytics/
