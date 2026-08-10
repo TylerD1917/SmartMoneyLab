@@ -179,5 +179,178 @@
         "uncond_p75": 0.06623103914100502
       }
     }
+  },
+  "ranking": {
+    "universe_n": 24,
+    "items": [
+      {
+        "market": "Indonesia",
+        "label": "Indonesia",
+        "cape_now": 9.3,
+        "median": 18.6,
+        "ratio": 0.5
+      },
+      {
+        "market": "Denmark",
+        "label": "Danimarca",
+        "cape_now": 20.8,
+        "median": 32.2,
+        "ratio": 0.64
+      },
+      {
+        "market": "Brazil",
+        "label": "Brasile",
+        "cape_now": 10.2,
+        "median": 13.4,
+        "ratio": 0.76
+      },
+      {
+        "market": "China",
+        "label": "Cina",
+        "cape_now": 13.7,
+        "median": 15.2,
+        "ratio": 0.9
+      },
+      {
+        "market": "Finland",
+        "label": "Finlandia",
+        "cape_now": 20.7,
+        "median": 20.9,
+        "ratio": 0.99
+      },
+      {
+        "market": "South Africa",
+        "label": "Sudafrica",
+        "cape_now": 18.3,
+        "median": 18.3,
+        "ratio": 1.0
+      },
+      {
+        "market": "France",
+        "label": "Francia",
+        "cape_now": 21.9,
+        "median": 21.8,
+        "ratio": 1.01
+      },
+      {
+        "market": "Sweden",
+        "label": "Svezia",
+        "cape_now": 20.8,
+        "median": 20.5,
+        "ratio": 1.01
+      },
+      {
+        "market": "Switzerland",
+        "label": "Svizzera",
+        "cape_now": 24.8,
+        "median": 23.8,
+        "ratio": 1.04
+      },
+      {
+        "market": "Australia",
+        "label": "Australia",
+        "cape_now": 19.4,
+        "median": 18.5,
+        "ratio": 1.05
+      },
+      {
+        "market": "Germany",
+        "label": "Germania",
+        "cape_now": 19.2,
+        "median": 18.1,
+        "ratio": 1.06
+      },
+      {
+        "market": "Thailand",
+        "label": "Thailandia",
+        "cape_now": 18.8,
+        "median": 17.2,
+        "ratio": 1.09
+      },
+      {
+        "market": "Italy",
+        "label": "Italia",
+        "cape_now": 20.8,
+        "median": 18.4,
+        "ratio": 1.13
+      },
+      {
+        "market": "Japan",
+        "label": "Giappone",
+        "cape_now": 28.3,
+        "median": 24.9,
+        "ratio": 1.14
+      },
+      {
+        "market": "Norway",
+        "label": "Norvegia",
+        "cape_now": 17.9,
+        "median": 14.6,
+        "ratio": 1.23
+      },
+      {
+        "market": "Austria",
+        "label": "Austria",
+        "cape_now": 16.1,
+        "median": 13.1,
+        "ratio": 1.23
+      },
+      {
+        "market": "Canada",
+        "label": "Canada",
+        "cape_now": 28.2,
+        "median": 21.2,
+        "ratio": 1.33
+      },
+      {
+        "market": "Belgium",
+        "label": "Belgio",
+        "cape_now": 23.6,
+        "median": 17.6,
+        "ratio": 1.34
+      },
+      {
+        "market": "India",
+        "label": "India",
+        "cape_now": 32.5,
+        "median": 23.1,
+        "ratio": 1.4
+      },
+      {
+        "market": "US Large",
+        "label": "USA",
+        "cape_now": 40.4,
+        "median": 27.9,
+        "ratio": 1.45
+      },
+      {
+        "market": "Spain",
+        "label": "Spagna",
+        "cape_now": 22.9,
+        "median": 14.6,
+        "ratio": 1.56
+      },
+      {
+        "market": "Netherlands",
+        "label": "Olanda",
+        "cape_now": 34.6,
+        "median": 19.8,
+        "ratio": 1.75
+      },
+      {
+        "market": "Taiwan",
+        "label": "Taiwan",
+        "cape_now": 49.5,
+        "median": 20.9,
+        "ratio": 2.36
+      },
+      {
+        "market": "South Korea",
+        "label": "Corea",
+        "cape_now": 33.9,
+        "median": 14.2,
+        "ratio": 2.38
+      }
+    ]
   }
 }

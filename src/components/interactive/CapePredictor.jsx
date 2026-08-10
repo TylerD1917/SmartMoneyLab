@@ -77,11 +77,10 @@ export default function CapePredictor() {
   const p10 = predict(m.h10, capeUsed);
   const clip = x => Math.max(-0.10, Math.min(0.25, x));
 
-  const ranked = ORDER
-    .map(k => ({ k, mm: lookup.markets[k], ratio: lookup.markets[k].cape_now / lookup.markets[k].hist_median }))
-    .sort((a, b) => a.ratio - b.ratio);
-  const under = ranked.slice(0, 3);
-  const over = ranked.slice(-3).reverse();
+  const rankItems = lookup.ranking?.items ?? [];
+  const rankN = lookup.ranking?.universe_n ?? rankItems.length;
+  const under = rankItems.slice(0, 3);
+  const over = rankItems.slice(-3).reverse();
 
   return (
     <div className="not-prose my-8 space-y-6">
@@ -107,16 +106,16 @@ export default function CapePredictor() {
       <div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-900">
         <div className="mb-3 flex items-baseline justify-between flex-wrap gap-2">
           <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Valutazione oggi rispetto alla propria storia</h3>
-          <span className="text-xs text-slate-500 dark:text-slate-400">tra i sei mercati · {asOf}</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">tra i {rankN} mercati dello studio · {asOf}</span>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-950/40">
             <div className="mb-2 text-sm font-semibold text-emerald-800 dark:text-emerald-200">I 3 più sottovalutati</div>
             <ul className="space-y-1">
-              {under.map(({ k, mm, ratio }) => (
-                <li key={k} className="flex justify-between text-sm">
-                  <span className="text-slate-800 dark:text-slate-200">{mm.label}</span>
-                  <span className="font-semibold tabular-nums text-emerald-700 dark:text-emerald-400">{ratio.toFixed(2)}×</span>
+              {under.map((it) => (
+                <li key={it.market} className="flex justify-between text-sm">
+                  <span className="text-slate-800 dark:text-slate-200">{it.label}</span>
+                  <span className="font-semibold tabular-nums text-emerald-700 dark:text-emerald-400">{it.ratio.toFixed(2)}×</span>
                 </li>
               ))}
             </ul>
@@ -124,17 +123,17 @@ export default function CapePredictor() {
           <div className="rounded-xl border border-rose-200 bg-rose-50 p-4 dark:border-rose-800 dark:bg-rose-950/40">
             <div className="mb-2 text-sm font-semibold text-rose-800 dark:text-rose-200">I 3 più sopravvalutati</div>
             <ul className="space-y-1">
-              {over.map(({ k, mm, ratio }) => (
-                <li key={k} className="flex justify-between text-sm">
-                  <span className="text-slate-800 dark:text-slate-200">{mm.label}</span>
-                  <span className="font-semibold tabular-nums text-rose-700 dark:text-rose-400">{ratio.toFixed(2)}×</span>
+              {over.map((it) => (
+                <li key={it.market} className="flex justify-between text-sm">
+                  <span className="text-slate-800 dark:text-slate-200">{it.label}</span>
+                  <span className="font-semibold tabular-nums text-rose-700 dark:text-rose-400">{it.ratio.toFixed(2)}×</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
         <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-          Rapporto tra il CAPE attuale e la mediana storica del mercato: sotto 1 = più economico del suo tipico, sopra 1 = più caro. Il segnale conta <em>dentro</em> un mercato, non per confrontare mercati diversi.
+          Rapporto tra il CAPE attuale e la mediana storica del mercato (sui {rankN} mercati singoli analizzati nello studio): sotto 1 = più economico del suo tipico, sopra 1 = più caro. Il segnale conta <em>dentro</em> un mercato, non per confrontare mercati diversi.
         </p>
       </div>
 

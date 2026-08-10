@@ -43,7 +43,23 @@ for mk,lab in MARKETS.items():
         "h5":fit(d,"fwd5_ann"),"h10":fit(d,"fwd10_ann"),
     }
 
+# --- classifica valutazione su TUTTI i mercati dello studio (24 paesi) ---
+RANK_LABELS={"Japan":"Giappone","Germany":"Germania","France":"Francia","Switzerland":"Svizzera",
+    "Australia":"Australia","Canada":"Canada","Italy":"Italia","Spain":"Spagna","Netherlands":"Olanda",
+    "Denmark":"Danimarca","Finland":"Finlandia","Norway":"Norvegia","Sweden":"Svezia","Belgium":"Belgio",
+    "Austria":"Austria","Brazil":"Brasile","China":"Cina","India":"India","South Africa":"Sudafrica",
+    "South Korea":"Corea","Taiwan":"Taiwan","Indonesia":"Indonesia","Thailand":"Thailandia","US Large":"USA"}
+rank=[]
+for mk,lab in RANK_LABELS.items():
+    h=capeL[capeL.market==mk].sort_values("date")
+    now=float(h.cape.iloc[-1]); med=float(h.cape.median())
+    rank.append({"market":mk,"label":lab,"cape_now":round(now,1),"median":round(med,1),"ratio":round(now/med,2)})
+rank.sort(key=lambda x:x["ratio"])
+out["ranking"]={"universe_n":len(rank),"items":rank}
+
 json.dump(out,open(os.path.join(OUT,"cape-predictor-lookup.json"),"w"),indent=2,ensure_ascii=False)
+print("\nCLASSIFICA — 3 sottovalutati:", [f'{r["label"]} {r["ratio"]}x' for r in rank[:3]])
+print("CLASSIFICA — 3 sopravvalutati:", [f'{r["label"]} {r["ratio"]}x' for r in rank[-3:][::-1]])
 
 # stampa anteprima previsioni
 print(f"as_of={AS_OF}\n{'mercato':28s}{'CAPE':>6s}{'vs med':>8s}{'prev5y':>10s}{'prev10y':>10s}{'R2_10':>7s}")
