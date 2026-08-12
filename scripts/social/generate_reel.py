@@ -228,6 +228,10 @@ def generate_reel(
         spine.set_alpha(0.7)
     ax.grid(True, color=GRID_COLOR, linestyle="--", linewidth=0.7,
             alpha=GRID_ALPHA)
+    if elapsed:
+        # In modalita' 'anni trascorsi' le date sull'asse x sono fittizie:
+        # nascondo le etichette per non far leggere anni di calendario fuorvianti.
+        ax.tick_params(axis="x", labelbottom=False)
     _y_formatter = _format_pct if percentage else _format_eur
     ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _y_formatter(v)))
     if percentage:

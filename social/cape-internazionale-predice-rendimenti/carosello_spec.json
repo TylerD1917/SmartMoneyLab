@@ -1,0 +1,61 @@
+{
+  "slug": "cape-internazionale-predice-rendimenti",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Il CAPE predice", "i rendimenti?"],
+      "accent_lines": [1],
+      "subtitle": "Lo abbiamo testato fuori dagli USA: Europa, Giappone, emergenti. 24 mercati, 25 anni di dati."
+    },
+    {
+      "type": "number",
+      "kicker": "Confrontare il CAPE tra paesi diversi per scegliere dove investire:",
+      "number": "≈0%",
+      "note": "(quanto spiega dei rendimenti a 10 anni)",
+      "box": ["“Compra i paesi col CAPE più basso”", "sui dati NON ha funzionato."],
+      "box_accent": [1]
+    },
+    {
+      "type": "compare",
+      "kicker": "Vs la propria storia, a 10 anni:",
+      "left": {"num": "9,6%", "label": "comprato economico"},
+      "right": {"num": "4,3%", "label": "comprato caro"},
+      "punch": ["Più del doppio.", "Ogni anno, per un decennio."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Lo stesso indicatore,", "due usi opposti"],
+      "chart": "public/charts/cape-internazionale-predice-rendimenti/01_assoluto_vs_relativo.png",
+      "caption": "Tra paesi: piatto. Vs la sua storia: funziona."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Sul World, l'indice più comprato:",
+      "number": "77%",
+      "note": "dei suoi rendimenti a 10 anni",
+      "box": ["dipende dal livello di CAPE", "al momento dell'acquisto."],
+      "box_accent": [0]
+    },
+    {
+      "type": "bullets",
+      "title": ["Dove siamo oggi", "(rispetto alla loro storia)"],
+      "bullets": [
+        "World a 1,31× la sua valutazione tipica: caro.",
+        "Emergenti 1,50×, Europa 1,15×: tutti sopra la media.",
+        "Tradotto: da qui, aspettative di rendimento più contenute — non un crollo."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Abbiamo creato uno", "strumento gratuito"],
+      "bullets": [
+        "Rendimenti attesi a 5 e 10 anni",
+        "I 3 più sotto e sopravvalutati oggi",
+        "L'analisi completa e i dati sul blog"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
