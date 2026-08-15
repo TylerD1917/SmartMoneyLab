@@ -1,0 +1,61 @@
+{
+  "slug": "leva-nasdaq-copertura-opzionaria",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Un Nasdaq", "potenziato?"],
+      "accent_lines": [1],
+      "subtitle": "Una strategia a leva 2x con copertura in opzioni, testata su 50 anni di dati (1975-2026)."
+    },
+    {
+      "type": "compare",
+      "kicker": "Rendimento annuo mediano, 10 anni:",
+      "left": {"num": "15%", "label": "strategia 2x coperta"},
+      "right": {"num": "10%", "label": "Nasdaq semplice"},
+      "punch": ["Quasi 5 punti in più.", "Ogni anno, al netto delle tasse."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["10.000€ diventano", "milioni"],
+      "chart": "public/charts/leva-nasdaq-copertura-opzionaria/01_equity_full.png",
+      "caption": "Strategia vs Nasdaq, 50 anni (lordo)."
+    },
+    {
+      "type": "number_light",
+      "kicker": "In quante finestre storiche di 15 anni ha battuto il Nasdaq?",
+      "number": "72%",
+      "note": "e con rischio/rendimento migliore",
+      "box": ["Non è solo leva:", "è un vantaggio vero."],
+      "box_accent": [1]
+    },
+    {
+      "type": "number",
+      "kicker": "Il prezzo da pagare:",
+      "number": "−94%",
+      "note": "la peggiore caduta su 20 anni (Nasdaq: −78%)",
+      "box": ["Batti il mercato solo se reggi", "cadute che quasi nessuno regge."],
+      "box_accent": [0]
+    },
+    {
+      "type": "bullets",
+      "title": ["Come funziona, in breve"],
+      "bullets": [
+        "Leva 2x sul Nasdaq (il 3x è troppo fragile e si azzera).",
+        "Una put annuale che nei crolli si monetizza in liquidità.",
+        "Serve orizzonte 15+ anni e nervi saldissimi."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["I numeri completi", "e i limiti: sul blog."],
+      "bullets": [
+        "Il backtest su 50 anni, lordo e netto",
+        "Il framework a 6+1 metriche",
+        "Tutti i caveat, senza hype"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
