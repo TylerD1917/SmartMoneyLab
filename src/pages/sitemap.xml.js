@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 export const prerender = true;
 
 export async function GET(context) {
-  const site = context.site; // URL da astro.config (https://smartmoneylab.pages.dev)
+  const site = context.site; // URL da astro.config (https://smartmoneylab.it)
 
   const posts = await getCollection("posts", ({ data }) => !data.draft);
   const tools = await getCollection("tools", ({ data }) => !data.draft);

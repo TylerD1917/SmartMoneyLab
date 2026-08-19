@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartmoneylab.pages.dev/sitemap.xml
+Sitemap: https://smartmoneylab.it/sitemap.xml

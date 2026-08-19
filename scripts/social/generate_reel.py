@@ -199,7 +199,7 @@ def generate_reel(
                  color=WATERMARK_COLOR, fontsize=18, fontstyle="italic")
 
     # Watermark in basso, stile italic come la slide IG
-    fig.text(0.5, 0.03, "SmartMoneyLab  →  smartmoneylab.pages.dev",
+    fig.text(0.5, 0.03, "SmartMoneyLab  →  smartmoneylab.it",
              ha="center", va="bottom", color=WATERMARK_COLOR,
              fontsize=15, fontstyle="italic")
 

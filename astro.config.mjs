@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   // Aggiornare con il dominio definitivo prima del go-live (es. https://smartmoneylab.it)
-  site: "https://smartmoneylab.pages.dev",
+  site: "https://smartmoneylab.it",
   trailingSlash: "ignore",
   integrations: [
     tailwind({

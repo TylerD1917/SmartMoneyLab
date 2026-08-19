@@ -107,7 +107,7 @@ def footer(dark_bg=True):
     c = FOOTER_WHITE if dark_bg else NAVY
     return (f'<text x="{W/2}" y="1300" font-family="{FONT_FAMILY}" font-size="26" '
             f'fill="{c}" font-style="italic" text-anchor="middle">'
-            f'SmartMoneyLab  →  smartmoneylab.pages.dev</text>')
+            f'SmartMoneyLab  →  smartmoneylab.it</text>')
 
 
 def dots(current: int, total: int, light: bool):
