@@ -85,7 +85,7 @@ Buona notizia: **la fiscalità è identica per i tre**. Sono tutti ETF armonizza
 - imposta di bollo **0.2% annuo** sul valore del deposito titoli;
 - gli ETF **ad accumulazione** (come VWCE e SWDA) reinvestono i dividendi senza tassarli subito, differendo l'imposta alla vendita — un piccolo vantaggio di efficienza fiscale rispetto a quelli a distribuzione.
 
-La tassazione, quindi, non è un criterio per scegliere tra i tre. (Trovi il dettaglio nella nostra guida alla tassazione degli ETF.)
+La tassazione, quindi, non è un criterio per scegliere tra i tre. (Trovi il dettaglio nella nostra [guida alla tassazione degli ETF in Italia](/posts/tassazione-etf-italia/).)
 
 ## Quale scegliere
 
