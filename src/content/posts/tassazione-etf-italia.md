@@ -61,7 +61,7 @@ In pratica: **un ETF può generare una minusvalenza, ma i suoi guadagni non poss
 
 Le minusvalenze, inoltre, hanno una scadenza: si possono usare entro il **31 dicembre del quarto anno successivo** a quello in cui le hai realizzate (una minusvalenza del 2022 scade il 31 dicembre 2026), con ordine FIFO (si consumano prima le più vecchie).
 
-*(Come recuperare concretamente le minusvalenze da ETF — comprando strumenti "compensabili" come azioni, ETC o certificati — merita un articolo a parte: lo pubblicheremo a breve.)*
+*(Come recuperare concretamente le minusvalenze da ETF — comprando strumenti "compensabili" come azioni, ETC o certificati — lo spieghiamo con un caso reale e i conti nella [guida al recupero delle minusvalenze](/posts/come-recuperare-minusvalenze-etf/).)*
 
 ## Accumulazione o distribuzione? Sul fisco vince l'accumulazione
 
