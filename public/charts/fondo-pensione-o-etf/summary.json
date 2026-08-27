@@ -1,94 +1,72 @@
 {
   "metodo": {
     "finestra_anni": 10,
-    "passo": "mensile",
-    "stessa_finestra_per_tutti_gli_indici": true,
-    "ritenuta_dividendi_gross_to_net": 0.004,
-    "indice_base_case": "MSCI World",
-    "impostazione_confronto": "parita' di esborso netto in tasca",
-    "nota_TFR": "il TFR e' gia' nel fondo in entrambi gli scenari: si elide, modellata solo la contribuzione incrementale",
-    "nota_scaglioni": "si assume RAL tale che l'intero versamento di 5.300 EUR sia dedotto all'aliquota marginale indicata"
-  },
-  "motore": {
-    "MSCI World": {
-      "col": "Developed Markets Large",
-      "n_mesi": 305,
-      "n_finestre": 185,
-      "periodo": [
-        "2000-12",
-        "2026-04"
-      ],
-      "ultima_partenza": "2016-04",
-      "mediana": 0.08691552511038991,
-      "media": 0.08387061518208416,
-      "min": 0.0281686482995549,
-      "max": 0.1385242199223875,
-      "p25": 0.059798287378244774,
-      "p75": 0.10395456057325592,
-      "r_netto_div": 0.08291552511038991
-    },
-    "FTSE All-World": {
-      "col": "ACWI",
-      "n_mesi": 305,
-      "n_finestre": 185,
-      "periodo": [
-        "2000-12",
-        "2026-04"
-      ],
-      "ultima_partenza": "2016-04",
-      "mediana": 0.08414919630368001,
-      "media": 0.08098038847576594,
-      "min": 0.03599100806791711,
-      "max": 0.13529757614100069,
-      "p25": 0.060854877039501654,
-      "p75": 0.0972996354180351,
-      "r_netto_div": 0.08014919630368
-    },
-    "S&P 500": {
-      "col": "US Large",
-      "n_mesi": 305,
-      "n_finestre": 185,
-      "periodo": [
-        "2000-12",
-        "2026-04"
-      ],
-      "ultima_partenza": "2016-04",
-      "mediana": 0.10645718190971953,
-      "media": 0.1027638946017525,
-      "min": 0.013650883489319199,
-      "max": 0.16817096250085917,
-      "p25": 0.07550372069665023,
-      "p75": 0.1354642308629721,
-      "r_netto_div": 0.10245718190971953
-    }
+    "indice_base_ETF": "MSCI World",
+    "fondo_rendimento_netto_COVIP": 0.05,
+    "fondo_scenario_parita_lordo": 0.06233242008831193,
+    "impostazione": "parità di esborso netto in tasca; il 5% COVIP è già netto di costi e imposta annua",
+    "aliquota_di_pareggio_base": 0.2966350052459431
   },
   "parametri": {
     "anni": 30,
     "tetto_deducibile": 5300.0,
-    "isc_fondo_negoziale": 0.005,
-    "imposta_annua_fondo": 0.2,
     "aliquota_uscita_30anni": 0.105,
     "ter_etf": 0.002,
     "bollo": 0.002,
     "capital_gain_etf": 0.26,
-    "costi_fondo_varianti": {
-      "Fondo negoziale": 0.005,
-      "Fondo aperto": 0.013,
-      "PIP": 0.022
-    },
     "aliquote": {
       "23%": 0.23,
       "33%": 0.33,
       "43%": 0.43
     }
   },
+  "fp_netto": 335430.89176597033,
+  "fp_lordo": 352125.89176597033,
+  "fp_netto_parita_lordo": 419921.8888854874,
+  "motore_ETF": {
+    "MSCI World": {
+      "col": "Developed Markets Large",
+      "n_finestre": 185,
+      "periodo": [
+        "2000-12",
+        "2026-04"
+      ],
+      "mediana": 0.08691552511038991,
+      "media": 0.08387061518208416,
+      "min": 0.0281686482995549,
+      "max": 0.1385242199223875,
+      "r_netto_div": 0.08291552511038991
+    },
+    "FTSE All-World": {
+      "col": "ACWI",
+      "n_finestre": 185,
+      "periodo": [
+        "2000-12",
+        "2026-04"
+      ],
+      "mediana": 0.08414919630368001,
+      "media": 0.08098038847576594,
+      "min": 0.03599100806791711,
+      "max": 0.13529757614100069,
+      "r_netto_div": 0.08014919630368
+    },
+    "S&P 500": {
+      "col": "US Large",
+      "n_finestre": 185,
+      "periodo": [
+        "2000-12",
+        "2026-04"
+      ],
+      "mediana": 0.10645718190971953,
+      "media": 0.1027638946017525,
+      "min": 0.013650883489319199,
+      "max": 0.16817096250085917,
+      "r_netto_div": 0.10245718190971953
+    }
+  },
   "risultati": {
     "MSCI World": {
       "r": 0.08291552511038991,
-      "fp_lordo": 436616.8888854874,
-      "fp_netto": 419921.8888854874,
-      "fp_tassa_uscita": 16695.0,
-      "versato_fp": 159000.0,
       "per_aliquota": {
         "23%": {
           "aliquota": 0.23,
@@ -97,14 +75,9 @@
           "etf_lordo": 453212.10639578616,
           "etf_netto": 367208.75873288175,
           "etf_tassa_cg": 86003.34766290442,
-          "delta": 52713.13015260565,
-          "delta_pct": 0.1435508519309332,
-          "A_fp_piu_cash": 456491.8888854874,
-          "A_etf": 476894.4918608853,
-          "A_delta": -20402.602975397895,
-          "B_fp_piu_sidecar": 529607.6220134911,
-          "B_etf": 476894.4918608853,
-          "B_delta": 52713.13015260582
+          "delta": -31777.866966911417,
+          "delta_pct": -0.08653896785187398,
+          "vince": "ETF"
         },
         "33%": {
           "aliquota": 0.33,
@@ -113,14 +86,9 @@
           "etf_lordo": 394353.3912794503,
           "etf_netto": 319519.3095467932,
           "etf_tassa_cg": 74834.0817326571,
-          "delta": 100402.57933869417,
-          "delta_pct": 0.31423008356241566,
-          "A_fp_piu_cash": 472391.8888854874,
-          "A_etf": 476894.4918608853,
-          "A_delta": -4502.602975397895,
-          "B_fp_piu_sidecar": 577297.0711995795,
-          "B_etf": 476894.4918608853,
-          "B_delta": 100402.57933869422
+          "delta": 15911.5822191771,
+          "delta_pct": 0.04979849963292082,
+          "vince": "FP"
         },
         "43%": {
           "aliquota": 0.43,
@@ -129,23 +97,14 @@
           "etf_lordo": 335494.6761631144,
           "etf_netto": 271829.86036070465,
           "etf_tassa_cg": 63664.81580240972,
-          "delta": 148092.02852478274,
-          "delta_pct": 0.5447967648891554,
-          "A_fp_piu_cash": 488291.8888854874,
-          "A_etf": 476894.4918608853,
-          "A_delta": 11397.397024602105,
-          "B_fp_piu_sidecar": 624986.520385668,
-          "B_etf": 476894.4918608853,
-          "B_delta": 148092.02852478274
+          "delta": 63601.031405265676,
+          "delta_pct": 0.23397367500711752,
+          "vince": "FP"
         }
       }
     },
     "FTSE All-World": {
       "r": 0.08014919630368,
-      "fp_lordo": 419889.7234315693,
-      "fp_netto": 403194.7234315693,
-      "fp_tassa_uscita": 16695.0,
-      "versato_fp": 159000.0,
       "per_aliquota": {
         "23%": {
           "aliquota": 0.23,
@@ -154,14 +113,9 @@
           "etf_lordo": 430887.8250385125,
           "etf_netto": 350688.7905284993,
           "etf_tassa_cg": 80199.03451001324,
-          "delta": 52505.93290307,
-          "delta_pct": 0.14972230171355605,
-          "A_fp_piu_cash": 439764.7234315693,
-          "A_etf": 455439.9876993495,
-          "A_delta": -15675.264267780236,
-          "B_fp_piu_sidecar": 507945.92060241965,
-          "B_etf": 455439.9876993495,
-          "B_delta": 52505.93290307012
+          "delta": -15257.89876252896,
+          "delta_pct": -0.04350837316338174,
+          "vince": "ETF"
         },
         "33%": {
           "aliquota": 0.33,
@@ -170,14 +124,9 @@
           "etf_lordo": 374928.3672413029,
           "etf_netto": 305144.7917585642,
           "etf_tassa_cg": 69783.57548273873,
-          "delta": 98049.9316730051,
-          "delta_pct": 0.3213226452528932,
-          "A_fp_piu_cash": 455664.7234315693,
-          "A_etf": 455439.9876993495,
-          "A_delta": 224.73573221976403,
-          "B_fp_piu_sidecar": 553489.9193723546,
-          "B_etf": 455439.9876993495,
-          "B_delta": 98049.9316730051
+          "delta": 30286.100007406145,
+          "delta_pct": 0.09925157114059169,
+          "vince": "FP"
         },
         "43%": {
           "aliquota": 0.43,
@@ -186,23 +135,14 @@
           "etf_lordo": 318968.90944409353,
           "etf_netto": 259600.7929886292,
           "etf_tassa_cg": 59368.11645546433,
-          "delta": 143593.9304429401,
-          "delta_pct": 0.553133635648138,
-          "A_fp_piu_cash": 471564.7234315693,
-          "A_etf": 455439.9876993495,
-          "A_delta": 16124.735732219764,
-          "B_fp_piu_sidecar": 599033.9181422896,
-          "B_etf": 455439.9876993495,
-          "B_delta": 143593.9304429401
+          "delta": 75830.09877734113,
+          "delta_pct": 0.29210272397227444,
+          "vince": "FP"
         }
       }
     },
     "S&P 500": {
       "r": 0.10245718190971953,
-      "fp_lordo": 578450.4545481539,
-      "fp_netto": 561755.4545481539,
-      "fp_tassa_uscita": 16695.0,
-      "versato_fp": 159000.0,
       "per_aliquota": {
         "23%": {
           "aliquota": 0.23,
@@ -211,14 +151,9 @@
           "etf_lordo": 651997.3517075842,
           "etf_netto": 514309.84026361234,
           "etf_tassa_cg": 137687.5114439719,
-          "delta": 47445.614284541574,
-          "delta_pct": 0.09225103346306396,
-          "A_fp_piu_cash": 598325.4545481539,
-          "A_etf": 667934.8574852105,
-          "A_delta": -69609.40293705661,
-          "B_fp_piu_sidecar": 715380.4717697523,
-          "B_etf": 667934.8574852105,
-          "B_delta": 47445.61428454181
+          "delta": -178878.948497642,
+          "delta_pct": -0.34780386159043086,
+          "vince": "ETF"
         },
         "33%": {
           "aliquota": 0.33,
@@ -227,14 +162,9 @@
           "etf_lordo": 567322.3709663394,
           "etf_netto": 447516.3545150911,
           "etf_tassa_cg": 119806.01645124826,
-          "delta": 114239.1000330628,
-          "delta_pct": 0.2552735757709843,
-          "A_fp_piu_cash": 614225.4545481539,
-          "A_etf": 667934.8574852105,
-          "A_delta": -53709.40293705661,
-          "B_fp_piu_sidecar": 782173.9575182735,
-          "B_etf": 667934.8574852105,
-          "B_delta": 114239.10003306298
+          "delta": -112085.46274912078,
+          "delta_pct": -0.25046115436512173,
+          "vince": "ETF"
         },
         "43%": {
           "aliquota": 0.43,
@@ -243,106 +173,27 @@
           "etf_lordo": 482647.3902250946,
           "etf_netto": 380722.86876657,
           "etf_tassa_cg": 101924.52145852463,
-          "delta": 181032.5857815839,
-          "delta_pct": 0.47549701011677126,
-          "A_fp_piu_cash": 630125.4545481539,
-          "A_etf": 667934.8574852105,
-          "A_delta": -37809.40293705661,
-          "B_fp_piu_sidecar": 848967.4432667946,
-          "B_etf": 667934.8574852105,
-          "B_delta": 181032.58578158403
-        }
-      }
-    }
-  },
-  "sensitivity_costo_fondo": {
-    "Fondo negoziale": {
-      "isc": 0.005,
-      "fp_netto": 419921.8888854874,
-      "per_aliquota": {
-        "23%": {
-          "etf_netto": 367208.75873288175,
-          "delta": 52713.13015260565,
-          "vince": "FP"
-        },
-        "33%": {
-          "etf_netto": 319519.3095467932,
-          "delta": 100402.57933869417,
-          "vince": "FP"
-        },
-        "43%": {
-          "etf_netto": 271829.86036070465,
-          "delta": 148092.02852478274,
-          "vince": "FP"
-        }
-      }
-    },
-    "Fondo aperto": {
-      "isc": 0.013,
-      "fp_netto": 373496.6963863475,
-      "per_aliquota": {
-        "23%": {
-          "etf_netto": 367208.75873288175,
-          "delta": 6287.937653465779,
-          "vince": "FP"
-        },
-        "33%": {
-          "etf_netto": 319519.3095467932,
-          "delta": 53977.386839554296,
-          "vince": "FP"
-        },
-        "43%": {
-          "etf_netto": 271829.86036070465,
-          "delta": 101666.83602564287,
-          "vince": "FP"
-        }
-      }
-    },
-    "PIP": {
-      "isc": 0.022,
-      "fp_netto": 327861.3861442053,
-      "per_aliquota": {
-        "23%": {
-          "etf_netto": 367208.75873288175,
-          "delta": -39347.37258867646,
+          "delta": -45291.97700059967,
+          "delta_pct": -0.11896311127128334,
           "vince": "ETF"
-        },
-        "33%": {
-          "etf_netto": 319519.3095467932,
-          "delta": 8342.076597412059,
-          "vince": "FP"
-        },
-        "43%": {
-          "etf_netto": 271829.86036070465,
-          "delta": 56031.525783500634,
-          "vince": "FP"
         }
       }
     }
-  },
-  "isc_di_pareggio": {
-    "23%": 0.014166325361997613,
-    "28%": 0.018796507916274775,
-    "33%": 0.023793441169818,
-    "38%": 0.029218761940131656,
-    "43%": 0.03515078924253549
   },
   "waterfall": {
     "23%": {
       "ETF netto": 367208.75873288175,
       "Leva della deduzione": 109685.73312800354,
-      "Costi prodotto e bollo": -7893.80663379177,
-      "Imposta annua 20%": -104564.18745183287,
-      "Tassa finale 10,5% vs 26%": 55485.391110226745,
-      "FP netto": 419921.8888854874
+      "Minor rendimento del fondo": -236461.25939738817,
+      "Tassa finale 10,5% vs 26%": 94997.65930247321,
+      "Fondo pensione": 335430.89176597033
     },
     "33%": {
       "ETF netto": 319519.3095467932,
       "Leva della deduzione": 157375.18231409206,
-      "Costi prodotto e bollo": -7893.80663379177,
-      "Imposta annua 20%": -104564.18745183287,
-      "Tassa finale 10,5% vs 26%": 55485.391110226745,
-      "FP netto": 419921.8888854874
+      "Minor rendimento del fondo": -236461.25939738817,
+      "Tassa finale 10,5% vs 26%": 94997.65930247321,
+      "Fondo pensione": 335430.89176597033
     }
   }
 }
