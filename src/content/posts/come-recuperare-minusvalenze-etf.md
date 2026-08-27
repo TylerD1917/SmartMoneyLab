@@ -5,6 +5,29 @@ pubDate: 2026-08-23
 tags: ["minusvalenze", "etf", "compensazione-minusvalenze", "zainetto-fiscale", "etc", "certificati", "certificati-a-leva", "azioni", "fisco", "tassazione", "fineco", "recuperare-minusvalenze"]
 author: "SmartMoneyLab"
 simulationSlug: "come-recuperare-minusvalenze-etf"
+seoImage: "/charts/come-recuperare-minusvalenze-etf/01_tre_esiti.png"
+faq:
+  - q: "Posso recuperare le minusvalenze comprando un altro ETF?"
+    a: |-
+      No. I guadagni degli ETF sono redditi di capitale e non compensano le minusvalenze. Servono strumenti che generano "redditi diversi": ETC, ETN, azioni, obbligazioni, certificati, derivati.
+  - q: "Entro quando devo usare le minusvalenze?"
+    a: |-
+      Entro il 31 dicembre del quarto anno successivo a quello in cui le hai realizzate. Una minus del 2024 scade il 31 dicembre 2028. Si consumano prima le più vecchie (FIFO).
+  - q: "Gli ETC compensano davvero le minusvalenze da ETF?"
+    a: |-
+      Sì. Gli ETC (e gli ETN) non sono fondi: le loro plusvalenze sono redditi diversi e possono compensare minusvalenze pregresse, comprese quelle originate da ETF.
+  - q: "Quanto risparmio davvero?"
+    a: |-
+      Al massimo il 26% della minusvalenza compensata. Su 900,22€ di minus, fino a 234,06€ di imposte non pagate. È un tetto: se realizzi un guadagno più piccolo, recuperi solo la parte corrispondente.
+  - q: "Conviene sempre provarci?"
+    a: |-
+      No. Per compensare devi realizzare un guadagno, quindi ti esponi al rischio di mercato dello strumento che compri. Se scende, perdi soldi veri e generi altre minus. Ha senso solo con strumenti che terresti comunque in portafoglio.
+  - q: "In regime amministrato devo fare qualcosa?"
+    a: |-
+      No: il broker italiano (es. Fineco) attinge automaticamente allo zainetto quando realizzi una plusvalenza compensabile. In regime dichiarativo, invece, gestisci tu la compensazione in dichiarazione.
+  - q: "I certificati a leva fissa convengono per recuperare le minus?"
+    a: |-
+      Le loro plusvalenze sono compensabili e su Fineco si negoziano a zero commissioni. Ma la leva si ricompone ogni giorno, quindi il risultato dipende dal timing: sul 5x Ferrari, entrando a gennaio (mercato nervoso) hai fatto +12% contro +18,7% dell'azione per via della "volatility decay"; entrando ad aprile (trend pulito) hai fatto +107% contro +26%. Ottimo strumento sui movimenti rapidi e direzionali, rischioso se tenuto a lungo su mercati volatili.
 draft: false
 ---
 

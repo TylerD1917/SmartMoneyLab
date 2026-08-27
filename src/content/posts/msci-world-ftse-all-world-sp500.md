@@ -5,6 +5,20 @@ pubDate: 2026-08-16
 tags: ["etf", "msci-world", "ftse-all-world", "sp500", "vwce", "swda", "cspx", "quale-etf", "investire-in-etf", "diversificazione"]
 author: "SmartMoneyLab"
 simulationSlug: "msci-world-ftse-all-world-sp500"
+seoImage: "/charts/msci-world-ftse-all-world-sp500/01_crescita_10k.png"
+faq:
+  - q: "MSCI World e S&P 500 sono la stessa cosa?"
+    a: |-
+      No, ma si assomigliano moltissimo: il MSCI World è per il 72% composto da azioni USA, quindi si muove quasi come l'S&P 500 (correlazione 0.97). La differenza è il ~28% di altri paesi sviluppati.
+  - q: "VWCE o SWDA, quale scegliere?"
+    a: |-
+      VWCE (FTSE All-World) include anche i mercati emergenti e oggi costa meno (0.14% vs 0.20%). SWDA (MSCI World) è solo mercati sviluppati. Sono correlati al 99.7%: la differenza pratica è minima.
+  - q: "FTSE All-World e MSCI ACWI sono uguali?"
+    a: |-
+      Quasi. Coprono entrambi mondo sviluppato + emergente. Il FTSE All-World include più titoli e classifica la Corea del Sud come sviluppata; il MSCI ACWI come emergente. Le performance sono praticamente sovrapponibili.
+  - q: "Meglio S&P 500 o MSCI World per il lungo periodo?"
+    a: |-
+      Storicamente ha reso di più l'S&P 500, ma con il rischio di concentrazione su un solo paese. Il MSCI World è più diversificato. La risposta dipende da quanto credi che gli USA continueranno a battere il resto del mondo.
 draft: false
 ---
 

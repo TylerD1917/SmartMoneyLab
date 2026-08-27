@@ -20,6 +20,16 @@ const posts = defineCollection({
       seriesOrder: z.number().int().positive().optional(),
       // Verdict opzionale per articoli-strategia (vince/parziale/non vince)
       verdict: z.enum(["vince", "parziale", "non-vince"]).optional(),
+      // FAQ per lo schema markup JSON-LD (FAQPage). Le stesse domande vanno
+      // comunque scritte nel corpo dell'articolo: qui servono solo a Google.
+      faq: z
+        .array(z.object({ q: z.string(), a: z.string() }))
+        .optional(),
+      // Quale grafico mettere dentro la card di anteprima social, come path
+      // pubblico (es. "/charts/slug/02_montanti.png"). Se omesso, lo script
+      // scripts/make_og_images.py usa il primo grafico della cartella.
+      // NON e' l'og:image finale: quella e' sempre /og/<slug>.png, generata.
+      seoImage: z.string().optional(),
     }),
 });
 

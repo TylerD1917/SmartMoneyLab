@@ -1,0 +1,136 @@
+---
+/**
+ * Schema markup JSON-LD (schema.org) per i rich result di Google.
+ *
+ * Emette UN SOLO blocco `<script type="application/ld+json">` con un `@graph`
+ * di entita' collegate tra loro via `@id`. E' l'approccio corretto: piu' blocchi
+ * separati rischiano di creare entita' duplicate e in conflitto.
+ *
+ * Entita' generate:
+ *   - Organization  (publisher del sito)
+ *   - WebSite
+ *   - WebPage
+ *   - BlogPosting   (solo se `type="BlogPosting"`, cioe' per gli articoli)
+ *   - BreadcrumbList
+ *   - FAQPage       (solo se il post dichiara `faq` nel frontmatter)
+ *
+ * Usato da PostLayout e ToolLayout. Per aggiungerlo altrove basta importarlo
+ * e passargli `title`, `description` e `breadcrumbs`.
+ */
+
+export interface Crumb {
+  name: string;
+  url: string; // path assoluto sul sito, es. "/posts/slug/"
+}
+
+export interface Props {
+  type?: "BlogPosting" | "WebPage";
+  title: string;
+  description: string;
+  breadcrumbs?: Crumb[];
+  datePublished?: Date;
+  dateModified?: Date;
+  author?: string;
+  /** Path pubblico dell'immagine principale, es. "/charts/slug/02.png" */
+  image?: string;
+  keywords?: string[];
+  faq?: { q: string; a: string }[];
+}
+
+const {
+  type = "WebPage",
+  title,
+  description,
+  breadcrumbs = [],
+  datePublished,
+  dateModified,
+  author = "SmartMoneyLab",
+  image,
+  keywords = [],
+  faq,
+} = Astro.props;
+
+const SITE = Astro.site ?? new URL("https://smartmoneylab.it");
+const SITE_NAME = "SmartMoneyLab";
+const abs = (path: string) => new URL(path, SITE).toString();
+
+const pageUrl = new URL(Astro.url.pathname, SITE).toString();
+const orgId = abs("/#organization");
+const siteId = abs("/#website");
+const pageId = `${pageUrl}#webpage`;
+
+const graph: Record<string, unknown>[] = [
+  {
+    "@type": "Organization",
+    "@id": orgId,
+    name: SITE_NAME,
+    url: abs("/"),
+    logo: { "@type": "ImageObject", url: abs("/favicon.svg") },
+  },
+  {
+    "@type": "WebSite",
+    "@id": siteId,
+    url: abs("/"),
+    name: SITE_NAME,
+    inLanguage: "it-IT",
+    publisher: { "@id": orgId },
+  },
+  {
+    "@type": "WebPage",
+    "@id": pageId,
+    url: pageUrl,
+    name: title,
+    description,
+    inLanguage: "it-IT",
+    isPartOf: { "@id": siteId },
+    ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: abs(image) } } : {}),
+  },
+];
+
+if (type === "BlogPosting" && datePublished) {
+  graph.push({
+    "@type": "BlogPosting",
+    "@id": `${pageUrl}#article`,
+    headline: title.slice(0, 110), // Google tronca oltre i 110 caratteri
+    description,
+    inLanguage: "it-IT",
+    datePublished: datePublished.toISOString(),
+    dateModified: (dateModified ?? datePublished).toISOString(),
+    author: { "@type": "Person", name: author, url: abs("/chi-siamo") },
+    publisher: { "@id": orgId },
+    isPartOf: { "@id": siteId },
+    mainEntityOfPage: { "@id": pageId },
+    ...(image ? { image: [abs(image)] } : {}),
+    ...(keywords.length ? { keywords: keywords.join(", ") } : {}),
+  });
+}
+
+if (breadcrumbs.length > 0) {
+  graph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: breadcrumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: abs(c.url),
+    })),
+  });
+}
+
+if (faq && faq.length > 0) {
+  graph.push({
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    isPartOf: { "@id": pageId },
+    mainEntity: faq.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  });
+}
+
+const jsonLd = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
+---
+<script type="application/ld+json" is:inline set:html={jsonLd} />

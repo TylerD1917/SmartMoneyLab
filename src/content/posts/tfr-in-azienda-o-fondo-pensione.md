@@ -5,6 +5,26 @@ pubDate: 2026-08-26
 tags: ["tfr", "fondo-pensione", "previdenza-complementare", "tfr-o-fondo-pensione", "pensione-integrativa", "deducibilita", "fisco", "covip", "silenzio-assenso", "investire"]
 author: "SmartMoneyLab"
 simulationSlug: "tfr-o-fondo-pensione"
+seoImage: "/charts/tfr-o-fondo-pensione/02_montante.png"
+faq:
+  - q: "Conviene di più il TFR in azienda o il fondo pensione?"
+    a: |-
+      Dipende dal comparto e dall'orizzonte. Su periodi lunghi, un fondo pensione con componente azionaria ha storicamente reso molto più del TFR (circa 5% contro 2,5% annuo negli ultimi 10 anni) e paga meno tasse all'uscita (15%-9% contro 23%-30%). Con comparti garantiti/obbligazionari, invece, il TFR può risultare competitivo.
+  - q: "Quanto rende il TFR lasciato in azienda?"
+    a: |-
+      Si rivaluta dell'1,5% fisso più il 75% dell'inflazione ISTAT. Negli ultimi 10 anni ha reso in media circa il 2,5% annuo netto.
+  - q: "Come è tassato il fondo pensione rispetto al TFR?"
+    a: |-
+      La prestazione del fondo è tassata al 15%, che scende fino al 9% dopo 35 anni di iscrizione. Il TFR liquidato in azienda usa la tassazione separata, di norma tra il 23% e il 30%. Inoltre i rendimenti del fondo sono tassati al 20% (contro il 26% degli ETF).
+  - q: "Posso perdere soldi con il fondo pensione?"
+    a: |-
+      Sì, se scegli un comparto azionario o bilanciato il valore può oscillare e scendere nel breve. Sui comparti garantiti il capitale è tutelato. Il rischio va commisurato all'orizzonte: più sei giovane, più puoi permetterti azioni.
+  - q: "Se verso il TFR nel fondo, posso riprenderlo?"
+    a: |-
+      La destinazione del TFR alla previdenza complementare è di norma irreversibile. Puoi però chiedere anticipazioni (per spese sanitarie, prima casa, ecc.) o trasferire il montante a un altro fondo.
+  - q: "Il contributo del datore di lavoro spetta sempre?"
+    a: |-
+      No: spetta se aderisci al fondo negoziale di categoria versando anche la tua quota minima. Lasciando il TFR in azienda, quel contributo non lo ricevi.
 draft: false
 ---
 
@@ -76,7 +96,7 @@ I numeri parlano da soli. Lo stesso identico TFR, versato per 30 anni, vale a fi
 - **~99.000€** in un fondo bilanciato;
 - **~141.000€** in un fondo azionario.
 
-La differenza tra azienda e fondo azionario è di circa **60.000€ netti** — quasi il doppio — e nasce dalla combinazione di rendimento più alto e tassa finale più bassa. E qui **non** abbiamo nemmeno conteggiato il contributo del datore e la deduzione dei versamenti volontari, che rendono il vantaggio ancora più ampio: al confronto tra un PAC in ETF e la contribuzione aggiuntiva al fondo pensione — sfruttando la deduzione — dedicheremo un articolo a parte.
+La differenza tra azienda e fondo azionario è di circa **60.000€ netti** — quasi il doppio — e nasce dalla combinazione di rendimento più alto e tassa finale più bassa. E qui **non** abbiamo nemmeno conteggiato il contributo del datore e la deduzione dei versamenti volontari, che rendono il vantaggio ancora più ampio: lo approfondiamo nel confronto diretto tra [fondo pensione ed ETF a parità di esborso](/posts/fondo-pensione-o-etf/), dove la deduzione ribalta spesso il risultato.
 
 ## Cosa cambia nel 2026 (novità importanti)
 

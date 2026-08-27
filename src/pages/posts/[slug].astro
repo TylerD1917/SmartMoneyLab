@@ -27,6 +27,8 @@ const { Content } = await post.render();
   series={post.data.series}
   seriesOrder={post.data.seriesOrder}
   verdict={post.data.verdict}
+  faq={post.data.faq}
+  ogImage={`/og/${post.slug}.png`}
 >
   <Content />
 </PostLayout>

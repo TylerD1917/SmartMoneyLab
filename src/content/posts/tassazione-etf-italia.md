@@ -5,6 +5,26 @@ pubDate: 2026-08-21
 tags: ["etf", "tassazione", "tasse", "minusvalenze", "fisco", "accumulazione", "distribuzione", "imposta-di-bollo", "investire-in-etf"]
 author: "SmartMoneyLab"
 simulationSlug: "tassazione-etf-italia"
+seoImage: "/charts/tassazione-etf-italia/01_accumulo_vs_distribuzione.png"
+faq:
+  - q: "Quanto si paga di tasse sugli ETF in Italia?"
+    a: |-
+      Il 26% su plusvalenze e dividendi degli ETF armonizzati. Scende al 12,5% per la quota di proventi derivante da titoli di Stato italiani o white list.
+  - q: "Le minusvalenze si possono compensare con gli ETF?"
+    a: |-
+      No. I guadagni degli ETF sono "redditi di capitale" e non sono compensabili. Le perdite da ETF, invece, generano minusvalenze utilizzabili solo contro le plusvalenze di azioni, obbligazioni, ETC o certificati, entro il quarto anno successivo.
+  - q: "Meglio un ETF ad accumulazione o a distribuzione per le tasse?"
+    a: |-
+      Ad accumulazione: rinvia l'imposta sui dividendi e fa comporre più capitale. La distribuzione conviene solo se cerchi una rendita periodica.
+  - q: "Gli ETF pagano l'imposta di bollo?"
+    a: |-
+      Sì, lo 0,2% annuo sul valore di mercato al 31 dicembre.
+  - q: "Conviene un ETF americano perché costa meno?"
+    a: |-
+      No: gli ETF USA sono "non armonizzati" e tassati a IRPEF (fino a oltre il 43%), e di norma un investitore retail europeo non può nemmeno acquistarli.
+  - q: "Amministrato o dichiarativo: pago di più con uno dei due?"
+    a: |-
+      No, le imposte sono identiche. Cambia solo se fa i conti il broker (amministrato) o li fai tu in dichiarazione (dichiarativo).
 draft: false
 ---
 

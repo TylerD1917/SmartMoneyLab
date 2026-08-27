@@ -2,6 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import Disclaimer from "../components/Disclaimer.astro";
 import Comments from "../components/Comments.astro";
+import SeoSchema from "../components/SeoSchema.astro";
 import { getSeriesMeta } from "../data/series";
 
 export interface Props {
@@ -15,6 +16,7 @@ export interface Props {
   series?: string;
   seriesOrder?: number;
   verdict?: "vince" | "parziale" | "non-vince";
+  faq?: { q: string; a: string }[];
 }
 
 const {
@@ -28,9 +30,19 @@ const {
   series,
   seriesOrder,
   verdict,
+  faq,
 } = Astro.props;
 
 const seriesMeta = getSeriesMeta(series);
+
+// Breadcrumb: "Articoli" e' la home del blog (vedi nav in Header.astro).
+// Se il post appartiene a una serie, la serie diventa il livello intermedio.
+const breadcrumbs = [
+  { name: "Articoli", url: "/" },
+  ...(seriesMeta ? [{ name: seriesMeta.shortLabel, url: `/serie/${seriesMeta.slug}` }] : []),
+  { name: title, url: Astro.url.pathname },
+];
+
 const verdictMap = {
   vince: { label: "Vince", color: "emerald" },
   parziale: { label: "Parziale", color: "amber" },
@@ -45,6 +57,18 @@ const fmt = new Intl.DateTimeFormat("it-IT", {
 });
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage}>
+  <SeoSchema
+    type="BlogPosting"
+    title={title}
+    description={description}
+    breadcrumbs={breadcrumbs}
+    datePublished={pubDate}
+    dateModified={updatedDate}
+    author={author}
+    image={ogImage}
+    keywords={tags}
+    faq={faq}
+  />
   <article class="mx-auto max-w-3xl">
     <header class="mb-8 border-b border-slate-200 pb-6 dark:border-slate-800">
       {seriesMeta && (
