@@ -1,0 +1,34 @@
+{
+  "tfr_yr": 2222.222222222222,
+  "anni": 30,
+  "contrib_tot": 66666.66666666667,
+  "cat10_negoziali": {
+    "GAR": 0.7935483870967742,
+    "OBB MISTO": 2.419230769230769,
+    "AZN": 4.996875,
+    "BIL": 3.1307692307692307,
+    "OBB PURO": 0.6966666666666667
+  },
+  "cat10_aperti": {
+    "OBB PURO": -0.015417200958500703,
+    "BIL": 2.2203576029118826,
+    "AZN": 5.0116129032258065,
+    "OBB MISTO": 0.2939320052027291
+  },
+  "tfr_10y": 2.5,
+  "montante_lordo": {
+    "TFR in azienda": 97561.56258504794,
+    "Fondo bilanciato": 105723.14601404892,
+    "Fondo azionario": 147641.88334002942
+  },
+  "montante_netto": {
+    "TFR in azienda": 80894.89591838127,
+    "Fondo bilanciato": 98723.14601404892,
+    "Fondo azionario": 140641.88334002942
+  },
+  "aliquota_uscita": {
+    "TFR in azienda": 0.25,
+    "Fondo bilanciato": 0.105,
+    "Fondo azionario": 0.105
+  }
+}
