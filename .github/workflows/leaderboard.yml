@@ -1,0 +1,54 @@
+name: Aggiorna leaderboard portafogli
+
+# Ogni lunedì mattina (dopo che Tyler ha caricato il report BTP la domenica sera).
+# Avviabile anche a mano da GitHub → Actions → "Run workflow".
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # lunedì 06:00 UTC (~07:00-08:00 in Italia)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leaderboard
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installa dipendenze
+        run: pip install --upgrade yfinance pandas numpy openpyxl
+
+      - name: Scarica dati freschi (yfinance + FRED)
+        run: python scripts/leaderboard/fetch_data.py
+
+      - name: Ricostruisci le serie bond (US da FRED, BTP da report Banca d'Italia)
+        run: python scripts/leaderboard/build_bonds.py
+
+      - name: Assembla i blocchi in EUR
+        run: python scripts/leaderboard/build_blocks.py
+
+      - name: Calcola la leaderboard
+        run: python scripts/leaderboard/build_leaderboard.py
+
+      - name: Committa il JSON aggiornato
+        run: |
+          git config user.name "smartmoneylab-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add public/tools/leaderboard.json
+          if git diff --staged --quiet; then
+            echo "Nessuna variazione nel JSON."
+          else
+            git commit -m "chore: aggiorna leaderboard portafogli ($(date -u +%F))"
+            git push
+          fi

@@ -1,0 +1,51 @@
+---
+title: "Leaderboard dei portafogli: strategie celebri a confronto"
+description: "Il rendimento di 11 portafogli famosi (All Weather, 60/40, Golden Butterfly, 90/10 Buffett e altri) e 4 benchmark, in euro, aggiornato ogni settimana. YTD, 1, 3, 5 e 7 anni."
+pubDate: 2026-08-29
+tags: ["portafogli", "asset-allocation", "all-weather", "60-40", "golden-butterfly", "benchmark", "rendimenti", "leaderboard"]
+author: "SmartMoneyLab"
+toolType: "dashboard"
+tier: "free"
+draft: true
+---
+
+import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderboard.jsx";
+
+> **Disclaimer.** Strumento informativo, **non è consulenza finanziaria**. I rendimenti passati non predicono quelli futuri. Le simulazioni usano ipotesi dichiarate e semplificate. Decidi con la tua testa e, se serve, con un consulente abilitato.
+
+## Cosa fa
+
+Mette a confronto, **in euro** e a parità di regole, alcuni dei portafogli più celebri della storia degli investimenti insieme ai grandi benchmark di mercato. Ogni portafoglio è ricostruito dai suoi mattoncini (azioni, obbligazioni, oro, materie prime…), ribilanciato una volta l'anno, e tracciato nel tempo. La tabella si aggiorna **ogni settimana**.
+
+<PortfolioLeaderboard client:load />
+
+## Le versioni "€/IT": Treasury o BTP?
+
+Diversi portafogli classici (60/40, All Weather, Golden Butterfly) usano come parte obbligazionaria i **titoli di Stato USA**. Per un investitore europeo però comprare Treasury americani è complesso e aggiunge il rischio di cambio. Per questo ogni strategia con Treasury è presente in **due versioni**:
+
+- **Treasury USA (€)** — la formulazione originale, con i titoli USA convertiti in euro (quindi con il rischio di cambio incluso);
+- **BTP (€/IT)** — la stessa strategia ma con **titoli di Stato italiani** al posto dei Treasury: quello che un risparmiatore italiano comprerebbe davvero.
+
+Confrontare le due versioni fa vedere quanto pesa la scelta del titolo e del cambio.
+
+## Come sono calcolati i numeri
+
+- **Tutto in euro.** I mattoncini in dollari (azioni globali, oro, Treasury…) sono convertiti in euro al cambio del periodo: è il rendimento che avrebbe ottenuto un investitore in euro, cambio incluso.
+- **Ribilanciamento annuale** (1° gennaio): i pesi tornano ai valori target una volta l'anno; nel frattempo il portafoglio "deriva" col mercato.
+- **Total return.** Dividendi e cedole sono **inclusi e reinvestiti**. Per la parte obbligazionaria usiamo serie a *maturità costante* costruite dai rendimenti dei titoli: catturano la cedola incassata **e** l'oscillazione di prezzo, esattamente come un ETF obbligazionario o una scala di titoli continuamente rinnovata.
+- **Al lordo** di tasse e costi di negoziazione, coerentemente con il resto del sito. I costi dei prodotti (ETF) non sono modellati.
+- I rendimenti a più anni sono **annualizzati** (CAGR). "YTD" è da inizio anno.
+
+## Cosa NON dice
+
+I rendimenti passati **non predicono** quelli futuri: una finestra storica è una sola realizzazione della storia, non una legge. Il confronto è in euro e nominale (non corretto per l'inflazione). Le allocazioni sono le versioni "da manuale" delle strategie: il tuo portafoglio reale, con ETF specifici e costi, renderà in modo un po' diverso. E la classifica cambia con la finestra temporale: un portafoglio difensivo che oggi appare indietro è costruito per perdere meno nei crolli, non per vincere le classifiche nei mercati toro.
+
+## Vuoi proporre il tuo portafoglio?
+
+Stiamo aggiungendo la possibilità di **inviare la tua allocazione** e vederla nella leaderboard. A breve qui troverai il modulo (con iscrizione alla newsletter). Nel frattempo, se hai un'idea, scrivici sui canali social.
+
+## Fonti e riproducibilità
+
+- Azioni, oro, Bitcoin, materie prime (CMOD), cambio EUR/USD: prezzi da Yahoo Finance (Adj Close = total return). Treasury USA da rendimenti FRED; BTP da rendimenti benchmark Banca d'Italia; ricostruzione total-return a maturità costante.
+- Codice: [`scripts/leaderboard/`](https://github.com/TylerD1917/smartmoneylab/tree/main/scripts/leaderboard). Dati: [`/tools/leaderboard.json`](/tools/leaderboard.json), aggiornato settimanalmente.
+- Approfondimenti sulle singole strategie: [TFR o fondo pensione](/posts/tfr-in-azienda-o-fondo-pensione/), [fondo pensione o ETF](/posts/fondo-pensione-o-etf/), [World, All-World o S&P 500](/posts/msci-world-ftse-all-world-sp500/).

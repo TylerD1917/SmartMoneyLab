@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Disclaimer from "../../components/Disclaimer.astro";
+import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderboard.jsx";
+---
+<BaseLayout
+  title="Portafogli a confronto"
+  description="Il rendimento di portafogli celebri (All Weather, 60/40, Golden Butterfly, 90/10 Buffett e altri) e dei grandi benchmark, in euro, aggiornato ogni settimana. YTD, 1, 3, 5 e 7 anni."
+>
+  <div class="mx-auto max-w-5xl px-4">
+    <article class="prose prose-slate mx-auto max-w-3xl dark:prose-invert">
+      <h1>Portafogli a confronto</h1>
+      <p class="lead">
+        Alcuni dei portafogli più celebri della storia degli investimenti,
+        messi alla prova sugli stessi dati e con le stesse regole. Ogni
+        strategia è ricostruita dai suoi mattoncini (azioni, obbligazioni,
+        oro, materie prime…), convertita <strong>in euro</strong>, ribilanciata
+        una volta l'anno e tracciata nel tempo. La classifica si aggiorna
+        <strong>ogni settimana</strong>.
+      </p>
+    </article>
+
+    <PortfolioLeaderboard client:load />
+
+    <article class="prose prose-slate mx-auto mt-6 max-w-3xl dark:prose-invert">
+      <h2>Le versioni "€/IT": Treasury o BTP?</h2>
+      <p>
+        Diversi portafogli classici (60/40, All Weather, Golden Butterfly) usano
+        come parte obbligazionaria i <strong>titoli di Stato USA</strong>. Per un
+        investitore europeo, però, comprare Treasury americani è complesso e
+        aggiunge il rischio di cambio. Per questo ogni strategia con Treasury è
+        presente in <strong>due versioni</strong>:
+      </p>
+      <ul>
+        <li><strong>Treasury USA (€)</strong> — la formulazione originale, con i titoli USA convertiti in euro (quindi con il rischio di cambio incluso);</li>
+        <li><strong>BTP (€/IT)</strong> — la stessa strategia ma con <strong>titoli di Stato italiani</strong> al posto dei Treasury: quello che un risparmiatore italiano comprerebbe davvero.</li>
+      </ul>
+      <p>Confrontare le due versioni fa vedere quanto pesano la scelta del titolo e il cambio.</p>
+
+      <h2>Come sono calcolati i numeri</h2>
+      <ul>
+        <li><strong>Tutto in euro.</strong> I mattoncini in dollari (azioni globali, oro, Treasury…) sono convertiti in euro al cambio del periodo: è il rendimento che avrebbe ottenuto davvero un investitore in euro, cambio incluso.</li>
+        <li><strong>Ribilanciamento annuale</strong> (1° gennaio): i pesi tornano ai valori target una volta l'anno; nel frattempo il portafoglio "deriva" col mercato.</li>
+        <li><strong>Total return.</strong> Dividendi e cedole sono <strong>inclusi e reinvestiti</strong>. Per la parte obbligazionaria usiamo serie a <em>maturità costante</em> costruite dai rendimenti dei titoli: catturano la cedola incassata <strong>e</strong> l'oscillazione di prezzo, come un ETF obbligazionario o una scala di titoli continuamente rinnovata.</li>
+        <li><strong>Al lordo</strong> di tasse e costi di negoziazione, coerentemente con il resto del sito. I costi dei prodotti (ETF) non sono modellati.</li>
+        <li>I rendimenti pluriennali sono <strong>annualizzati</strong> (CAGR); "YTD" è da inizio anno. Il grafico ribasa le curve a 100 all'inizio del periodo selezionato.</li>
+      </ul>
+
+      <h2>Cosa NON dice</h2>
+      <p>
+        I rendimenti passati <strong>non predicono</strong> quelli futuri: una
+        finestra storica è una sola realizzazione della storia, non una legge. Il
+        confronto è in euro e nominale (non corretto per l'inflazione). Le
+        allocazioni sono le versioni "da manuale" delle strategie: il tuo
+        portafoglio reale, con ETF specifici e costi, renderà in modo un po'
+        diverso. E la classifica cambia con la finestra temporale: un portafoglio
+        difensivo che oggi appare indietro è costruito per perdere meno nei
+        crolli, non per vincere le classifiche nei mercati toro.
+      </p>
+
+      <h2>Proponi il tuo portafoglio</h2>
+      <p>
+        Stiamo aggiungendo la possibilità di <strong>inviare la tua allocazione</strong>
+        e vederla nella classifica. A breve qui troverai il modulo, con
+        iscrizione alla newsletter. Nel frattempo, se hai un'idea, scrivici sui
+        canali social o via email.
+      </p>
+
+      <h2>Fonti e riproducibilità</h2>
+      <ul>
+        <li>Azioni, oro, Bitcoin, materie prime (CMOD), cambio EUR/USD: prezzi da Yahoo Finance (Adj Close = total return). Treasury USA da rendimenti FRED; BTP da rendimenti benchmark Banca d'Italia; ricostruzione total-return a maturità costante.</li>
+        <li>Codice: <a href="https://github.com/TylerD1917/smartmoneylab/tree/main/scripts/leaderboard">scripts/leaderboard</a>. Dati: <a href="/tools/leaderboard.json">/tools/leaderboard.json</a>, aggiornato settimanalmente.</li>
+        <li>Approfondimenti sulle strategie: <a href="/posts/tfr-in-azienda-o-fondo-pensione/">TFR o fondo pensione</a>, <a href="/posts/fondo-pensione-o-etf/">fondo pensione o ETF</a>, <a href="/posts/msci-world-ftse-all-world-sp500/">World, All-World o S&amp;P 500</a>.</li>
+      </ul>
+
+      <Disclaimer />
+    </article>
+  </div>
+</BaseLayout>
