@@ -14,13 +14,29 @@ interface Props { height?: number; }
 const { height = 560 } = Astro.props;
 ---
 <section id="newsletter" class="not-prose my-8 flex justify-center px-4">
-  <iframe
-    srcdoc={embedHtml}
-    title="Iscriviti alla newsletter di SmartMoneyLab"
-    loading="lazy"
-    scrolling="no"
-    allowtransparency="true"
-    class="w-full max-w-[420px]"
-    style={`height:${height}px;border:0;overflow:hidden;background:transparent`}
-  ></iframe>
+  <div class="w-full max-w-[420px] overflow-hidden rounded-2xl">
+    <iframe
+      class="ml-nl-iframe"
+      srcdoc={embedHtml}
+      title="Iscriviti alla newsletter di SmartMoneyLab"
+      loading="lazy"
+      scrolling="no"
+      style={`display:block;width:100%;height:${height}px;border:0;background:transparent`}
+    ></iframe>
+  </div>
 </section>
+<script is:inline>
+  (function () {
+    document.querySelectorAll("iframe.ml-nl-iframe").forEach(function (f) {
+      function fit() {
+        try {
+          var h = f.contentWindow.document.body.scrollHeight;
+          if (h > 50) f.style.height = h + "px";
+        } catch (e) {}
+      }
+      f.addEventListener("load", function () {
+        fit(); setTimeout(fit, 400); setTimeout(fit, 1200);
+      });
+    });
+  })();
+</script>
