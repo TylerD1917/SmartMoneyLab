@@ -11,7 +11,7 @@
  */
 import embedHtml from "./mailerlite-newsletter.html?raw";
 interface Props { height?: number; }
-const { height = 680 } = Astro.props;
+const { height = 560 } = Astro.props;
 ---
 <section id="newsletter" class="not-prose my-8 flex justify-center px-4">
   <iframe
@@ -19,7 +19,8 @@ const { height = 680 } = Astro.props;
     title="Iscriviti alla newsletter di SmartMoneyLab"
     loading="lazy"
     scrolling="no"
+    allowtransparency="true"
     class="w-full max-w-[420px]"
-    style={`height:${height}px;border:0;overflow:hidden`}
+    style={`height:${height}px;border:0;overflow:hidden;background:transparent`}
   ></iframe>
 </section>
