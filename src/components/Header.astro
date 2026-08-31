@@ -1,5 +1,4 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
 const navItems = [
   { label: "Articoli", href: "/" },
   { label: "Portafogli", href: "/portafogli" },
@@ -37,7 +36,6 @@ const path = Astro.url.pathname;
           );
         })
       }
-      <ThemeToggle />
     </nav>
   </div>
 </header>
