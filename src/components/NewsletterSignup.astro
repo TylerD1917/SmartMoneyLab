@@ -1,0 +1,25 @@
+---
+/**
+ * Blocco "Iscriviti alla newsletter".
+ * Carica l'embed MailerLite (in src/components/mailerlite-newsletter.html)
+ * dentro un iframe isolato: i suoi CSS/JS non entrano in conflitto con il sito
+ * ed è sicuro anche se il blocco compare in più punti.
+ *
+ * Props:
+ *   height: altezza dell'iframe in px (default 680). Regolala se il form si
+ *           taglia o avanza troppo spazio, in base a quanto è alto il tuo modulo.
+ */
+import embedHtml from "./mailerlite-newsletter.html?raw";
+interface Props { height?: number; }
+const { height = 680 } = Astro.props;
+---
+<section id="newsletter" class="not-prose my-8 flex justify-center px-4">
+  <iframe
+    srcdoc={embedHtml}
+    title="Iscriviti alla newsletter di SmartMoneyLab"
+    loading="lazy"
+    scrolling="no"
+    class="w-full max-w-[420px]"
+    style={`height:${height}px;border:0;overflow:hidden`}
+  ></iframe>
+</section>

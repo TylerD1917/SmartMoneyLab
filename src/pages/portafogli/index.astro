@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Disclaimer from "../../components/Disclaimer.astro";
+import NewsletterSignup from "../../components/NewsletterSignup.astro";
 import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderboard.jsx";
 ---
 <BaseLayout
@@ -60,11 +61,33 @@ import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderbo
 
       <h2>Proponi il tuo portafoglio</h2>
       <p>
-        Stiamo aggiungendo la possibilità di <strong>inviare la tua allocazione</strong>
-        e vederla nella classifica. A breve qui troverai il modulo, con
-        iscrizione alla newsletter. Nel frattempo, se hai un'idea, scrivici sui
-        canali social o via email.
+        Hai un'allocazione che vorresti vedere nella classifica? Mandacela: se è
+        ben posta e i dati la permettono, la aggiungiamo — citandoti con il nome
+        o il nickname che preferisci. Ti basta indicare la tua <strong>email</strong>
+        (per risponderti sulla proposta) e gli asset con i rispettivi <strong>pesi</strong>.
       </p>
+
+      <!-- ============================================================
+           INCOLLA QUI L'EMBED DEL FORM TALLY "Proponi il tuo portafoglio".
+           Tally → New form → campi consigliati:
+             • Nome/nickname (per la citazione)   • Email
+             • blocco ripetibile o 6 righe: "Asset" (testo) + "Peso %" (numero)
+             • Messaggio (facoltativo)
+             • checkbox facoltativa "Iscrivimi anche alla newsletter" (separata)
+           Poi Share → Embed → incolla qui l'iframe. Fino ad allora, segnaposto:
+      ============================================================ -->
+      <div class="not-prose my-4 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-400 dark:border-slate-600 dark:bg-slate-800/40">
+        Modulo proposta (Tally) — incolla qui l'embed del form
+      </div>
+
+      <p class="text-sm">
+        Ti chiediamo solo un contatto email per risponderti sulla proposta.
+        L'iscrizione alla newsletter è <strong>separata e facoltativa</strong>
+        (vedi il box qui sotto). I dati della proposta sono trattati secondo la
+        nostra <a href="/privacy">privacy policy</a>.
+      </p>
+
+      <NewsletterSignup />
 
       <h2>Fonti e riproducibilità</h2>
       <ul>

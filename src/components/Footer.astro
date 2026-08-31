@@ -1,7 +1,15 @@
 ---
+import NewsletterSignup from "./NewsletterSignup.astro";
 const year = new Date().getFullYear();
+// La pagina /portafogli ha già il blocco iscrizione inline: nel footer lo saltiamo lì
+const showNewsletter = !Astro.url.pathname.startsWith("/portafogli");
 ---
 <footer class="mt-24 border-t border-slate-200 dark:border-slate-800">
+  {showNewsletter && (
+    <div class="mx-auto max-w-5xl px-4 pt-10">
+      <NewsletterSignup />
+    </div>
+  )}
   <div class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-10 text-sm text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between">
     <div>
       &copy; {year} SmartMoneyLab — Finanza personale e analisi quantitativa.
@@ -20,8 +28,10 @@ const year = new Date().getFullYear();
         class="hover:text-slate-900 dark:hover:text-slate-100"
       >Instagram</a>
       <a href="/rss.xml" class="hover:text-slate-900 dark:hover:text-slate-100">RSS</a>
+      <a href="/portafogli" class="hover:text-slate-900 dark:hover:text-slate-100">Portafogli</a>
       <a href="/strumenti" class="hover:text-slate-900 dark:hover:text-slate-100">Strumenti</a>
       <a href="/chi-siamo" class="hover:text-slate-900 dark:hover:text-slate-100">Chi sono</a>
+      <a href="/privacy" class="hover:text-slate-900 dark:hover:text-slate-100">Privacy</a>
     </div>
   </div>
 </footer>

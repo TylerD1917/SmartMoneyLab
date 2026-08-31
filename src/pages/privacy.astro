@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+// NOTA PER TYLER: bozza di privacy policy da rivedere/adattare. Non è un parere
+// legale. Verifica in particolare: identificazione del titolare (se il progetto
+// diventa commerciale può servire più della sola email), l'elenco esatto dei
+// responsabili (MailerLite, Tally, Cloudflare) e i loro paesi/garanzie, e i
+// tempi di conservazione. In caso di dubbi, fai validare il testo.
+const aggiornato = "settembre 2026";
+---
+<BaseLayout
+  title="Privacy Policy"
+  description="Come SmartMoneyLab tratta i dati personali di chi si iscrive alla newsletter o propone un portafoglio: finalità, base giuridica, strumenti usati e diritti dell'interessato."
+>
+  <article class="prose prose-slate mx-auto max-w-3xl dark:prose-invert">
+    <h1>Privacy Policy</h1>
+    <p class="lead">
+      Questa pagina spiega come vengono trattati i dati personali di chi
+      interagisce con SmartMoneyLab, in particolare iscrivendosi alla newsletter
+      o inviando una proposta di portafoglio. Trattiamo il minimo indispensabile
+      e non vendiamo né cediamo i dati a terzi per finalità di marketing.
+    </p>
+    <p><em>Ultimo aggiornamento: {aggiornato}.</em></p>
+
+    <h2>Titolare del trattamento</h2>
+    <p>
+      Il titolare è il gestore di SmartMoneyLab, contattabile all'indirizzo
+      <a href="mailto:smartmoneylab@proton.me">smartmoneylab@proton.me</a>.
+      SmartMoneyLab è un progetto personale a scopo informativo e divulgativo.
+    </p>
+
+    <h2>Quali dati raccogliamo e perché</h2>
+    <ul>
+      <li>
+        <strong>Iscrizione alla newsletter</strong> — raccogliamo il tuo
+        <strong>indirizzo email</strong>, previo tuo <strong>consenso esplicito</strong>,
+        per inviarti i nuovi articoli e gli aggiornamenti della leaderboard.
+        L'iscrizione prevede una conferma via email (double opt-in).
+      </li>
+      <li>
+        <strong>Proposta di portafoglio</strong> — se ci invii un'allocazione
+        tramite il modulo, raccogliamo l'<strong>email</strong> (per risponderti),
+        il <strong>nome o nickname</strong> che indichi e i <strong>dati della
+        proposta</strong> (asset e pesi, eventuale messaggio). L'email della
+        proposta viene usata solo per gestire la richiesta, non per marketing,
+        salvo che tu ti iscriva separatamente alla newsletter.
+      </li>
+    </ul>
+
+    <h2>Base giuridica</h2>
+    <ul>
+      <li><strong>Newsletter</strong>: il tuo <strong>consenso</strong> (art. 6.1.a GDPR), revocabile in ogni momento.</li>
+      <li><strong>Gestione della proposta</strong>: riscontro a una tua richiesta / legittimo interesse a risponderti (art. 6.1.b/f GDPR).</li>
+    </ul>
+
+    <h2>Strumenti e responsabili del trattamento</h2>
+    <p>Per erogare questi servizi ci appoggiamo a fornitori terzi che agiscono come responsabili del trattamento:</p>
+    <ul>
+      <li><strong>MailerLite</strong> — gestione della lista newsletter e invio delle email.</li>
+      <li><strong>Tally</strong> — raccolta delle proposte di portafoglio tramite modulo.</li>
+      <li><strong>Cloudflare</strong> — hosting del sito e distribuzione dei contenuti.</li>
+    </ul>
+    <p>
+      Questi fornitori possono trattare i dati anche al di fuori dell'Unione
+      Europea, con le garanzie previste dal GDPR (es. clausole contrattuali
+      standard). Fai riferimento alle rispettive privacy policy per il dettaglio.
+    </p>
+
+    <h2>Conservazione</h2>
+    <p>
+      Conserviamo l'email di chi è iscritto alla newsletter finché resti iscritto;
+      se ti disiscrivi, l'indirizzo viene rimosso o anonimizzato. I dati delle
+      proposte di portafoglio sono conservati per il tempo necessario a valutarle
+      e, se pubblicate, per il periodo in cui restano nella leaderboard.
+    </p>
+
+    <h2>I tuoi diritti</h2>
+    <p>
+      Puoi in ogni momento chiedere accesso, rettifica, cancellazione o
+      limitazione dei tuoi dati, opporti al trattamento e revocare il consenso.
+      Per la newsletter puoi <strong>disiscriverti con un clic</strong> dal link in
+      fondo a ogni email. Per qualsiasi richiesta scrivi a
+      <a href="mailto:smartmoneylab@proton.me">smartmoneylab@proton.me</a>.
+      Hai inoltre diritto di proporre reclamo al Garante per la protezione dei
+      dati personali.
+    </p>
+
+    <h2>Cookie</h2>
+    <p>
+      Il sito non usa cookie di profilazione. Eventuali moduli o contenuti
+      incorporati (MailerLite, Tally) possono impostare cookie tecnici necessari
+      al loro funzionamento.
+    </p>
+  </article>
+</BaseLayout>
