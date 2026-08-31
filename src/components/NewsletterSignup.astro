@@ -28,14 +28,22 @@ const { height = 560 } = Astro.props;
 <script is:inline>
   (function () {
     document.querySelectorAll("iframe.ml-nl-iframe").forEach(function (f) {
-      function fit() {
-        try {
-          var h = f.contentWindow.document.body.scrollHeight;
-          if (h > 50) f.style.height = h + "px";
-        } catch (e) {}
-      }
       f.addEventListener("load", function () {
+        var doc;
+        try { doc = f.contentWindow.document; } catch (e) { return; }
+        function fit() {
+          try {
+            var h = doc.body.scrollHeight;
+            if (h > 50) f.style.height = h + "px";
+          } catch (e) {}
+        }
         fit(); setTimeout(fit, 400); setTimeout(fit, 1200);
+        // Riadatta l'altezza quando il contenuto cambia (es. form -> messaggio "Grazie!")
+        try {
+          new ResizeObserver(fit).observe(doc.body);
+        } catch (e) {
+          setInterval(fit, 800);
+        }
       });
     });
   })();
