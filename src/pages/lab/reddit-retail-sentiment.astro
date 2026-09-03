@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Disclaimer from "../../components/Disclaimer.astro";
+import RedditSentiment from "../../components/interactive/RedditSentiment.jsx";
+---
+<BaseLayout
+  title="Reddit Retail Sentiment: il portafoglio di r/wallstreetbets"
+  description="Esperimento live: ogni mese costruiamo un portafoglio con i titoli più amati su r/wallstreetbets (Reddit Sentiment Score) e lo confrontiamo con l'S&P 500. Il sentiment del retail è momentum o contrarian?"
+>
+  <div class="mx-auto max-w-5xl px-4">
+    <article class="prose prose-slate mx-auto max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-blue-700">Lab · esperimento in diretta</p>
+      <h1>Reddit Retail Sentiment</h1>
+      <p class="lead">
+        Cosa pensano <em>davvero</em> gli investitori retail? Ogni mese misuriamo il sentiment su
+        <strong>r/wallstreetbets</strong>, costruiamo un portafoglio con i cinque titoli più "amati" e lo seguiamo
+        contro l'<strong>S&P 500</strong>. La domanda è semplice e affascinante: <strong>l'opinione della folla è un
+        segnale di momentum o è, al contrario, un indicatore contrarian?</strong> Non lo sappiamo — per questo lo
+        misuriamo, in diretta, davanti a te.
+      </p>
+    </article>
+
+    <RedditSentiment client:load />
+
+    <article class="prose prose-slate mx-auto mt-6 max-w-3xl">
+      <h2>Come funziona il Reddit Sentiment Score</h2>
+      <p>
+        Non ci limitiamo a "quali 5 azioni sono nominate di più". Per ogni titolo calcoliamo un punteggio composito che
+        <strong>separa la popolarità dalla convinzione</strong>, combinando cinque segnali — ciascuno normalizzato in
+        percentile rispetto agli altri titoli:
+      </p>
+      <ul>
+        <li><strong>Sentiment</strong> (quanto è bullish) — 30%</li>
+        <li><strong>Menzioni</strong> (quanto se ne parla) — 25%</li>
+        <li><strong>Commenti</strong> (quanto se ne discute) — 20%</li>
+        <li><strong>Crescita delle menzioni</strong> vs mese precedente — 15%</li>
+        <li><strong>Engagement</strong> (upvote) — 10%</li>
+      </ul>
+      <p>
+        Così un titolo poco nominato ma con sentiment fortissimo può battere un big molto citato ma tiepido. Applichiamo
+        anche una <strong>soglia minima di menzioni</strong> (per togliere il rumore), un <strong>filtro sul segno</strong>
+        (entrano solo i titoli con sentiment positivo) ed <strong>escludiamo ETF e indici</strong> (comprare l'S&P 500
+        renderebbe insensato il confronto con l'S&P 500). Il punteggio scomposto è <strong>pubblico</strong> nella tabella
+        qui sopra: vedi <em>perché</em> un titolo è stato scelto.
+      </p>
+
+      <h2>Le regole del portafoglio</h2>
+      <p>
+        A inizio di ogni mese "compriamo" i <strong>5 titoli col punteggio più alto</strong>, in <strong>parti uguali</strong>
+        (20% ciascuno), e li teniamo fino al ribilanciamento del mese successivo. La <strong>squadra</strong> quindi cambia
+        una volta al mese, ma il <strong>valore del portafoglio è aggiornato ogni settimana</strong>, così vedi come si muove
+        in tempo quasi reale. Tutto in dollari, al lordo di tasse e costi, confrontato con l'S&P 500. È un
+        <strong>esperimento forward</strong>: parte dal lancio e accumula da lì — niente backtest retroattivo (la storia del
+        sentiment non è ricostruibile in modo affidabile). All'inizio non c'è ancora un track record, ed è normale:
+        <strong>torna a controllare per vedere come va.</strong>
+      </p>
+
+      <h2>Cosa NON è</h2>
+      <p>
+        Un <strong>esperimento</strong> per rispondere a una domanda di ricerca, non un segnale operativo. Il sentiment non
+        è verità: c'è eco delle bolle, pump-and-dump, sarcasmo e rumore. Non comprare titoli perché li vedi qui.
+      </p>
+      <Disclaimer />
+
+      <p class="text-sm">
+        Vedi anche la <a href="/portafogli">classifica dei portafogli celebri</a> e gli altri <a href="/lab">esperimenti del Lab</a>.
+      </p>
+    </article>
+  </div>
+</BaseLayout>

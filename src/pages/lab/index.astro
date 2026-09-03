@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Elenco esperimenti del Lab (aggiungerne uno = una voce qui).
+const esperimenti = [
+  {
+    href: "/lab/reddit-retail-sentiment",
+    tag: "Sentiment · in diretta",
+    title: "Reddit Retail Sentiment",
+    desc: "Ogni mese un portafoglio con i titoli più amati su r/wallstreetbets, contro l'S&P 500. Il retail è momentum o contrarian?",
+  },
+];
+---
+<BaseLayout
+  title="Lab — esperimenti e ricerca quantitativa in diretta"
+  description="Il Lab di SmartMoneyLab: esperimenti quant che girano in diretta, con dati veri e aggiornati. Ricerca, non consigli — dalla domanda al risultato, sotto i tuoi occhi."
+>
+  <div class="mx-auto max-w-4xl px-4">
+    <article class="prose prose-slate mx-auto max-w-3xl">
+      <h1>Lab</h1>
+      <p class="lead">
+        Il posto dove proviamo idee. Esperimenti di <strong>ricerca quantitativa in diretta</strong>: prendiamo una
+        domanda ("il sentiment del retail batte il mercato?"), costruiamo un test con dati veri e lo lasciamo girare —
+        aggiornato in automatico, risultati alla luce del sole. Non sono consigli né segnali: sono <strong>esperimenti</strong>,
+        con tutti i loro limiti dichiarati.
+      </p>
+    </article>
+
+    <div class="mx-auto mt-6 max-w-3xl space-y-4">
+      {esperimenti.map((e) => (
+        <a href={e.href} class="block rounded-2xl border border-slate-200 bg-white p-5 no-underline transition hover:border-blue-300 hover:shadow-sm">
+          <span class="text-xs font-semibold uppercase tracking-wide text-blue-700">{e.tag}</span>
+          <h2 class="mt-1 mb-1 text-xl font-semibold text-slate-900">{e.title}</h2>
+          <p class="m-0 text-sm text-slate-600">{e.desc}</p>
+        </a>
+      ))}
+    </div>
+
+    <p class="mx-auto mt-8 max-w-3xl text-sm text-slate-400">
+      Altri esperimenti in arrivo. Hai un'idea da testare? Scrivici sui canali social o via email.
+    </p>
+  </div>
+</BaseLayout>

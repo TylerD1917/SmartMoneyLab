@@ -1,0 +1,44 @@
+name: Reddit Retail Sentiment (Lab)
+
+# Gira ogni lunedì: aggiorna il VALORE del portafoglio (prezzi).
+# Lo script ribilancia la squadra da solo al primo run di ogni mese.
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # lunedì 06:00 UTC
+  workflow_dispatch:        # esecuzione manuale (per il primo lancio)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reddit-sentiment
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance
+
+      - name: Run sentiment pipeline
+        run: python scripts/lab/reddit_sentiment.py
+
+      - name: Commit updated JSON
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/tools/reddit-sentiment.json
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica."
+          else
+            git commit -m "chore(lab): aggiorna Reddit sentiment $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push
+          fi
