@@ -38,6 +38,7 @@ export default function RedditSentiment() {
 
   const d = state.d;
   const selected = new Set(d.current.selection);
+  const nameOf = Object.fromEntries((d.current.ranking ?? []).map(r => [r.ticker, r.name]));
 
   return (
     <div className="not-prose my-8 space-y-6">
@@ -81,7 +82,11 @@ export default function RedditSentiment() {
         <h3 className="text-sm font-semibold text-slate-700">La squadra del mese (top 5, equipesati)</h3>
         <div className="mt-3 flex flex-wrap gap-2">
           {d.current.selection.map(tk => (
-            <span key={tk} className="rounded-lg bg-blue-900 px-3 py-1.5 text-sm font-bold text-white">{tk} <span className="font-normal text-blue-200">20%</span></span>
+            <span key={tk} className="inline-flex items-baseline gap-1.5 rounded-lg bg-blue-900 px-3 py-1.5 text-white">
+              <span className="text-sm font-bold">{tk}</span>
+              {nameOf[tk] && <span className="text-xs font-normal text-blue-100/90">{nameOf[tk]}</span>}
+              <span className="text-xs font-normal text-blue-300">· 20%</span>
+            </span>
           ))}
         </div>
       </div>
@@ -110,8 +115,11 @@ export default function RedditSentiment() {
                   <tr key={r.ticker} className={`border-t border-slate-100 ${on ? "bg-blue-50/50" : ""}`}>
                     <td className="px-2 py-2 tabular-nums text-slate-400">{r.rank}</td>
                     <td className="px-2 py-2">
-                      <span className="font-semibold text-slate-800" title={r.name}>{r.ticker}</span>
-                      {on && <span className="ml-1 text-[11px] font-semibold uppercase text-blue-600">in portafoglio</span>}
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="font-semibold text-slate-800">{r.ticker}</span>
+                        {on && <span className="text-[11px] font-semibold uppercase text-blue-600">in portafoglio</span>}
+                      </div>
+                      {r.name && <div className="text-xs text-slate-400">{r.name}</div>}
                     </td>
                     <td className="px-2 py-2">
                       <div className="flex items-center gap-2">

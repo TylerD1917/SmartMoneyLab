@@ -28,6 +28,9 @@ jobs:
         run: pip install pandas numpy yfinance
 
       - name: Run sentiment pipeline
+        env:
+          # Opzionale: se assente, il sito funziona lo stesso (nessun commento del mese).
+          KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
         run: python scripts/lab/reddit_sentiment.py
 
       - name: Commit updated JSON

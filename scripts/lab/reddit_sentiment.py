@@ -65,6 +65,42 @@ def fetch_tradestie():
     return {r["ticker"]: {"sentiment_score": float(r.get("sentiment_score") or 0),
             "no_of_comments": int(r.get("no_of_comments") or 0), "sentiment": r.get("sentiment", "")} for r in data}
 
+# ---------------------------------------------------------------- COMMENTO KIMI
+def kimi_comment(month_closed, port_ret, bench_ret, kept, added, removed):
+    """Genera un commento breve (2-3 frasi) sul mese appena chiuso via Kimi API.
+    Ritorna None se manca la chiave o in caso di errore (il sito funziona comunque)."""
+    key = os.environ.get("KIMI_API_KEY")
+    if not key:
+        return None
+    import urllib.request
+    base = os.environ.get("KIMI_BASE_URL", "https://api.moonshot.ai/v1").rstrip("/")
+    model = os.environ.get("KIMI_MODEL", "moonshot-v1-8k")
+    diff = (port_ret - bench_ret)
+    verdetto = "ha battuto" if diff > 0 else ("ha perso contro" if diff < 0 else "ha pareggiato con")
+    prompt = (
+        "Sei l'autore di SmartMoneyLab, blog italiano di finanza personale e analisi quantitativa. "
+        "Tono sobrio, serio, niente hype, niente consigli operativi, italiano. Scrivi un commento di 2-3 frasi "
+        "(max ~55 parole) sul mese appena concluso di un esperimento: un portafoglio equipesato dei 5 titoli col "
+        "sentiment più alto su r/wallstreetbets, confrontato con l'S&P 500.\n\n"
+        f"Dati del mese {month_closed}:\n"
+        f"- rendimento portafoglio: {port_ret*100:+.1f}%\n"
+        f"- rendimento S&P 500: {bench_ret*100:+.1f}% (il portafoglio {verdetto} l'indice per {abs(diff)*100:.1f} punti)\n"
+        f"- titoli confermati: {', '.join(kept) or 'nessuno'}\n"
+        f"- nuovi ingressi questo mese: {', '.join(added) or 'nessuno'}\n"
+        f"- usciti: {', '.join(removed) or 'nessuno'}\n\n"
+        "Commenta cosa è cambiato nella squadra e come è andata, senza dare raccomandazioni. Rispondi solo col commento."
+    )
+    body = json.dumps({"model": model, "temperature": 0.4,
+        "messages": [{"role": "user", "content": prompt}]}).encode("utf-8")
+    req = urllib.request.Request(base + "/chat/completions", data=body,
+        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    try:
+        res = json.load(urllib.request.urlopen(req, timeout=60))
+        return res["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        print(f"[kimi] commento non generato: {e}")
+        return None
+
 # ---------------------------------------------------------------- SCORE
 def is_etf(ticker, name):
     if ticker in ETF_TICKERS: return True
@@ -133,6 +169,9 @@ def main():
     history = port.get("history", [])
     last_month = port.get("last_rebalance_month")
     prev_snap = prev.get("_mentions_snapshot", {})
+    prev_navreb = dict(navreb)                         # NAV di partenza del periodo che si sta chiudendo
+    prev_tickers = [h["ticker"] for h in prev_holdings]
+    commento = prev.get("commento")                    # si aggiorna solo al ribilancio
 
     is_rebalance = (not prev_holdings) or (last_month != ym)
 
@@ -173,6 +212,17 @@ def main():
         if not history or history[-1]["month"] != ym:
             history.append({"month": ym, "tickers": new_tickers})
         current = {"as_of": today, "selection": new_tickers, "ranking": ranking}
+        # commento sul mese appena chiuso (solo se c'era già un periodo precedente)
+        if prev_tickers and port.get("last_rebalance_month") and prev_navreb.get("port"):
+            p_ret = cur_port / prev_navreb["port"] - 1
+            b_ret = cur_bench / prev_navreb["bench"] - 1 if prev_navreb.get("bench") else 0.0
+            prev_set, new_set = set(prev_tickers), set(new_tickers)
+            c = kimi_comment(port.get("last_rebalance_month"), p_ret, b_ret,
+                             [t for t in new_tickers if t in prev_set],
+                             [t for t in new_tickers if t not in prev_set],
+                             [t for t in prev_tickers if t not in new_set])
+            if c:
+                commento = c
     else:
         holdings = prev_holdings
         current = prev.get("current", {"as_of": today, "selection": new_tickers, "ranking": []})
@@ -180,6 +230,7 @@ def main():
     out = {"updated": today, "subreddit": SUBREDDIT, "currency": "USD", "benchmark": BENCH_NAME,
         "weighting": "equipesato (20% ciascuno)", "sources": ["ApeWisdom", "Tradestie"],
         "current": current,
+        "commento": commento,
         "portfolio": {"holdings": holdings, "bench_basis": bench_basis, "nav_at_rebalance": navreb,
                       "last_rebalance_month": last_month, "nav": nav, "history": history},
         "_mentions_snapshot": snap}
