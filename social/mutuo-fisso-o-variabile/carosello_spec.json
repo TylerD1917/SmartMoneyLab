@@ -1,0 +1,69 @@
+{
+  "slug": "mutuo-fisso-o-variabile",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Mutuo: meglio", "fisso o variabile?"],
+      "accent_lines": [1],
+      "subtitle": "26 anni di dati BCE e 10.000 simulazioni a 30 anni. La risposta dipende da una cosa sola."
+    },
+    {
+      "type": "number",
+      "kicker": "Sul puro costo, su 30 anni, il variabile costa meno nel:",
+      "number": "66%",
+      "note": "dei casi (risparmio mediano ~34.000€)",
+      "box": ["Il fisso prezza già i rialzi.", "In media parti pagando di più."],
+      "box_accent": [1]
+    },
+    {
+      "type": "number_light",
+      "kicker": "Ma la rata del variabile a un certo punto supera quella fissa nel 74% degli scenari. E la supera di oltre +30% nel:",
+      "number": "32%",
+      "note": "dei casi",
+      "box": ["Costa meno in media,", "ma il rischio è reale."],
+      "box_accent": [1]
+    },
+    {
+      "type": "compare",
+      "kicker": "Con la surroga (gratis dal 2007):",
+      "left": {"num": "57%", "label": "Fisso CON surroga"},
+      "right": {"num": "34%", "label": "Senza surroga"},
+      "punch": ["Tassi giù? Ti riabbassi.", "Tassi su? Stai fermo."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Il fattore", "che decide"],
+      "chart": "public/charts/mutuo-fisso-o-variabile/mc_pfisso_vs_spread.png",
+      "caption": "Più il fisso parte caro del variabile, meno conviene."
+    },
+    {
+      "type": "number",
+      "kicker": "Oggi (luglio 2026) il fisso costa solo lo 0,57% in più del variabile. Con surroga, a questo premio, il fisso vince nel:",
+      "number": "60%",
+      "note": "dei casi",
+      "box": ["Oggi la bilancia pende", "un po' verso il fisso."],
+      "box_accent": [0]
+    },
+    {
+      "type": "bullets",
+      "title": ["La regola", "pratica"],
+      "bullets": [
+        "Fisso che parte basso o quasi come il variabile? Meglio fisso.",
+        "Fisso molto più caro all'inizio? Il variabile parte avanti.",
+        "Scegli il variabile solo se reggi rate anche molto più alte."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Lo studio completo", "sul blog"],
+      "bullets": [
+        "Replay reale 2000-2025 per coorti",
+        "Monte Carlo su 30 anni + surroga",
+        "Dati BCE e ipotesi trasparenti"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
