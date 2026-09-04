@@ -52,6 +52,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
 from matplotlib.ticker import FuncFormatter
@@ -106,6 +107,35 @@ def _format_pct(value: float) -> str:
     return f"{sign}{value:.0f}%"
 
 
+def _pchip_upsample(y, n_out):
+    """Interpola y (valori a passo uniforme) su n_out punti con spline cubica di
+    Hermite MONOTONA (Fritsch-Carlson): curve morbide 'chart-race' senza picchi
+    artificiali fra i punti (niente overshoot su dati finanziari)."""
+    y = np.asarray(y, dtype=float)
+    n = len(y)
+    if n < 3 or n_out <= n:
+        return np.interp(np.linspace(0, n - 1, max(n_out, n)), np.arange(n), y)
+    d = np.diff(y)  # passo unitario -> pendenze dei segmenti = differenze
+    m = np.zeros(n)
+    for k in range(1, n - 1):
+        if d[k - 1] * d[k] <= 0:      # estremo locale -> pendenza 0 (no overshoot)
+            m[k] = 0.0
+        else:                          # media armonica pesata (Fritsch-Carlson, h=1)
+            m[k] = 2.0 / (1.0 / d[k - 1] + 1.0 / d[k])
+    m[0], m[-1] = d[0], d[-1]
+    xd = np.linspace(0, n - 1, n_out)
+    out = np.empty(n_out)
+    for j, xx in enumerate(xd):
+        k = min(int(np.floor(xx)), n - 2)
+        t = xx - k
+        h00 = 2 * t**3 - 3 * t**2 + 1
+        h10 = t**3 - 2 * t**2 + t
+        h01 = -2 * t**3 + 3 * t**2
+        h11 = t**3 - t**2
+        out[j] = h00 * y[k] + h10 * m[k] + h01 * y[k + 1] + h11 * m[k + 1]
+    return out
+
+
 def generate_reel(
     csv_path: str | Path,
     out_path: str | Path,
@@ -118,8 +148,11 @@ def generate_reel(
     initial_capital: float | None = None,
     from_returns: bool = False,
     return_seed_value: float = 1000.0,
-    percentage: bool = False,
+    percentage: bool = True,
     elapsed: bool = False,
+    fps: int | None = 60,
+    smooth: bool = True,
+    upsample: bool = True,
 ) -> Path:
     """
     Genera un reel animato MP4 (o GIF fallback) dal CSV.
@@ -134,6 +167,18 @@ def generate_reel(
       duration_seconds: durata target del reel (default 15s)
       log_scale:        scala log su asse Y (default True, raccomandato per equity)
       initial_capital:  capitale iniziale per il "ticker numerico" (None = lo deduce)
+      fps:              framerate di export (None = FPS globale, 30). Alzarlo a 60
+                        raddoppia i frame e rende il tratto molto piu' continuo.
+      smooth:           modalita' "disegno continuo" (default False = comportamento
+                        storico). Quando True:
+                        - la punta della curva avanza per FRAZIONI di segmento
+                          (interpolazione lineare fra due punti consecutivi) invece
+                          di saltare da un punto al successivo. E' questa la causa
+                          principale dell'effetto "a gradini" quando i frame sono
+                          molti piu' dei punti del CSV (es. 450 frame su 30 punti
+                          annuali = 15 frame fermi per ogni gradino).
+                        - il progresso segue un easing smoothstep p^2*(3-2p):
+                          ingresso morbido, accelerazione centrale, chiusura dolce.
 
     Restituisce il path effettivo del file generato.
     """
@@ -172,6 +217,18 @@ def generate_reel(
         first = df.iloc[0]
         df = df.divide(first).subtract(1).multiply(100)
         log_scale = False
+
+    # ---- Upsampling per curve morbide (look 'chart-race') ---- #
+    # Interpola i punti (spesso mensili) su una griglia fitta con spline monotona:
+    # il tratto risulta continuo e curvo, senza inventare picchi tra i dati reali.
+    if upsample and len(df) >= 3:
+        n_out = max(len(df), 360)
+        xi = np.arange(len(df))
+        xd = np.linspace(0, len(df) - 1, n_out)
+        t_ns = df.index.astype("int64").to_numpy().astype("float64")
+        new_index = pd.to_datetime(np.interp(xd, xi, t_ns).astype("int64"))
+        df = pd.DataFrame({c: _pchip_upsample(df[c].values, n_out) for c in columns},
+                          index=new_index)
 
     # ---- Setup figura ---- #
     fig = plt.figure(figsize=(WIDTH_PX / DPI, HEIGHT_PX / DPI), dpi=DPI,
@@ -251,6 +308,14 @@ def generate_reel(
                       ha="left", va="center")
         end_labels.append(txt)
 
+    # Dot mobile sulla punta di ogni curva (look 'chart-race')
+    dots = []
+    for i in range(len(columns)):
+        dot, = ax.plot([], [], marker="o", markersize=11, color=COLORS[i],
+                       markeredgecolor=BG_COLOR, markeredgewidth=2.0,
+                       linestyle="None", zorder=6)
+        dots.append(dot)
+
     # Legenda statica in basso al grafico
     handles = [plt.Line2D([], [], color=COLORS[i], lw=5, label=labels[i])
                for i in range(len(columns))]
@@ -267,43 +332,84 @@ def generate_reel(
 
     # ---- Animation logic ---- #
     n_points = len(df)
-    n_frames = duration_seconds * FPS
-    # easing: un piccolo "intro" fermo + crescita lineare + "outro" fermo
-    intro_frames = int(FPS * 0.5)
-    outro_frames = int(FPS * 1.5)
+    out_fps = int(fps) if fps else FPS
+    n_frames = duration_seconds * out_fps
+    # easing: un piccolo "intro" fermo + crescita + "outro" fermo
+    intro_frames = int(out_fps * 0.5)
+    outro_frames = int(out_fps * 1.5)
     growth_frames = n_frames - intro_frames - outro_frames
 
-    def points_at_frame(f: int) -> int:
+    # Asse x in unita' numeriche matplotlib: serve per poter interpolare la
+    # posizione della punta della curva fra due punti consecutivi.
+    x_num = mdates.date2num(df.index.to_pydatetime())
+    y_cols = {col: df[col].values.astype(float) for col in columns}
+    t0 = pd.Timestamp(df.index[0])
+
+    def _ease(p: float) -> float:
+        """smoothstep: ingresso e uscita morbidi, centro piu' veloce."""
+        p = min(max(p, 0.0), 1.0)
+        return p * p * (3.0 - 2.0 * p)
+
+    def progress_at_frame(f: int) -> float:
+        """Progresso in [0,1] lungo la serie (frazionario in modalita' smooth)."""
         if f < intro_frames:
-            return 1
+            return 0.0
         if f >= intro_frames + growth_frames:
-            return n_points
-        progress = (f - intro_frames) / growth_frames
-        return max(1, int(progress * n_points))
+            return 1.0
+        raw = (f - intro_frames) / growth_frames
+        return _ease(raw) if smooth else raw
 
     def animate(frame: int):
-        k = points_at_frame(frame)
-        x = df.index[:k]
-        for i, col in enumerate(columns):
-            y = df[col].values[:k]
-            lines[i].set_data(x, y)
-            # Etichetta al punto finale
-            if len(y) > 0:
-                end_labels[i].set_position((x[-1], y[-1]))
-                end_labels[i].set_text(f"  {_y_formatter(y[-1])}")
+        p = progress_at_frame(frame)
+        if smooth:
+            # Posizione frazionaria lungo la serie: i punti interi gia'
+            # "disegnati" + un punto interpolato che scivola sul segmento
+            # corrente. Il tratto avanza in modo continuo anche quando i
+            # frame sono molti piu' dei punti del CSV.
+            pos = p * (n_points - 1)
+            i0 = int(np.floor(pos))
+            i0 = min(max(i0, 0), n_points - 1)
+            frac = pos - i0
+            x_head = x_num[i0]
+            if frac > 0 and i0 < n_points - 1:
+                x_head = x_num[i0] + (x_num[i0 + 1] - x_num[i0]) * frac
+            for i, col in enumerate(columns):
+                yv = y_cols[col]
+                xs = np.append(x_num[: i0 + 1], x_head)
+                y_head = yv[i0]
+                if frac > 0 and i0 < n_points - 1:
+                    y_head = yv[i0] + (yv[i0 + 1] - yv[i0]) * frac
+                ys = np.append(yv[: i0 + 1], y_head)
+                lines[i].set_data(xs, ys)
+                end_labels[i].set_position((x_head, y_head))
+                end_labels[i].set_text(f"  {_y_formatter(y_head)}")
+                dots[i].set_data([x_head], [y_head])
+            head_ts = pd.Timestamp(mdates.num2date(x_head)).tz_localize(None)
+        else:
+            k = max(1, min(n_points, int(p * n_points))) if p < 1 else n_points
+            x = df.index[:k]
+            for i, col in enumerate(columns):
+                y = df[col].values[:k]
+                lines[i].set_data(x, y)
+                # Etichetta al punto finale
+                if len(y) > 0:
+                    end_labels[i].set_position((x[-1], y[-1]))
+                    end_labels[i].set_text(f"  {_y_formatter(y[-1])}")
+                    dots[i].set_data([x[-1]], [y[-1]])
+            head_ts = pd.Timestamp(x[-1])
         # Etichetta temporale: anno di calendario, oppure anni trascorsi
         # dall'inizio (modalita' elapsed, per reel 'forward da evento').
-        if len(x) > 0:
-            if elapsed:
-                yrs = (pd.Timestamp(x[-1]) - pd.Timestamp(x[0])).days / 365.25
-                year_txt.set_text(f"Anno {yrs:.0f}")
-            else:
-                year_txt.set_text(str(pd.Timestamp(x[-1]).year))
-        return lines + end_labels + [year_txt]
+        if elapsed:
+            yrs = (head_ts - t0).days / 365.25
+            year_txt.set_text(f"Anno {yrs:.0f}")
+        else:
+            year_txt.set_text(str(head_ts.year))
+        return lines + end_labels + dots + [year_txt]
 
-    print(f"[reel] Generazione {n_frames} frame ({duration_seconds}s @ {FPS}fps)…")
+    print(f"[reel] Generazione {n_frames} frame ({duration_seconds}s @ {out_fps}fps"
+          f"{', smooth' if smooth else ''})…")
     anim = animation.FuncAnimation(
-        fig, animate, frames=n_frames, interval=1000 / FPS, blit=False,
+        fig, animate, frames=n_frames, interval=1000 / out_fps, blit=False,
     )
 
     # ---- Export ---- #
@@ -319,7 +425,7 @@ def generate_reel(
 
     if out_path.suffix.lower() == ".mp4" and ffmpeg_available:
         writer = animation.FFMpegWriter(
-            fps=FPS, bitrate=4500,
+            fps=out_fps, bitrate=4500,
             metadata={"artist": "SmartMoneyLab", "title": title},
             extra_args=["-pix_fmt", "yuv420p"],  # compat IG
         )
@@ -331,7 +437,7 @@ def generate_reel(
             print("[reel] ffmpeg non trovato, fallback a GIF (file piu' grande)")
             out_path = out_path.with_suffix(".gif")
         print(f"[reel] Export GIF via Pillow -> {out_path}")
-        writer = animation.PillowWriter(fps=FPS)
+        writer = animation.PillowWriter(fps=out_fps)
         anim.save(str(out_path), writer=writer, dpi=DPI,
                   savefig_kwargs=savefig_kwargs)
 
@@ -373,11 +479,28 @@ def main():
                              "--seed (default 1000).")
     parser.add_argument("--seed", type=float, default=1000.0,
                         help="Valore iniziale del NAV cumulato (default 1000)")
+    parser.add_argument("--fps", type=int, default=60,
+                        help="Framerate di export (default 60 = tratto molto fluido).")
+    parser.add_argument("--absolute", action="store_true",
+                        help="Mostra valori assoluti invece della variazione %% dal punto "
+                             "iniziale. DEFAULT: percentuale (standard per i rendimenti).")
+    parser.add_argument("--no-smooth", action="store_true",
+                        help="Disegno 'a gradini' classico. DEFAULT: tratto continuo smooth.")
+    parser.add_argument("--no-upsample", action="store_true",
+                        help="Non infittire i punti con spline. DEFAULT: curve morbide.")
+    parser.add_argument("--smooth", action="store_true",
+                        help="Disegno continuo: la punta della curva avanza per frazioni "
+                             "di segmento e il progresso segue un easing smoothstep. "
+                             "Elimina l'effetto 'a gradini' quando i frame sono molti "
+                             "piu' dei punti del CSV.")
+    parser.add_argument("--out", default=None,
+                        help="Path output esplicito (default social/<slug>/reel_animato.mp4). "
+                             "Utile per generare varianti affiancate senza sovrascrivere.")
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent.parent.parent
     out_dir = repo_root / "social" / args.slug
-    out_path = out_dir / "reel_animato.mp4"
+    out_path = Path(args.out) if args.out else out_dir / "reel_animato.mp4"
 
     generate_reel(
         csv_path=args.csv,
@@ -390,8 +513,11 @@ def main():
         log_scale=not args.no_log,
         from_returns=args.from_returns,
         return_seed_value=args.seed,
-        percentage=args.percentage,
+        percentage=not args.absolute,
         elapsed=args.elapsed,
+        fps=args.fps,
+        smooth=not args.no_smooth,
+        upsample=not args.no_upsample,
     )
 
 
