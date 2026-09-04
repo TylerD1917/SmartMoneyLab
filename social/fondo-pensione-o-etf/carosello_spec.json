@@ -1,0 +1,61 @@
+{
+  "slug": "fondo-pensione-o-etf",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Fondo pensione", "o ETF?"],
+      "accent_lines": [1],
+      "subtitle": "La deduzione conviene sempre? I dati COVIP dicono: dipende dalla tua aliquota."
+    },
+    {
+      "type": "number",
+      "kicker": "I comparti azionari dei fondi pensione rendono (COVIP, 10 anni):",
+      "number": "5%",
+      "note": "contro il ~8% di un ETF globale",
+      "box": ["Il fondo pensione rende meno.", "È il primo mito da sfatare."],
+      "box_accent": [0]
+    },
+    {
+      "type": "compare",
+      "kicker": "A parità di sacrificio, 30 anni:",
+      "left": {"num": "335k", "label": "Fondo pensione"},
+      "right": {"num": "367k", "label": "ETF · aliquota 23%"},
+      "punch": ["Con un reddito medio,", "vince l'ETF."],
+      "punch_accent": [1]
+    },
+    {
+      "type": "number_light",
+      "kicker": "Ma la deduzione cresce con l'aliquota. Il fondo sorpassa da:",
+      "number": "30%",
+      "note": "di aliquota marginale in su",
+      "box": ["Sopra, vince il fondo.", "Sotto, vince l'ETF."],
+      "box_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Serve rendimento", "o aliquota alta"],
+      "chart": "public/charts/fondo-pensione-o-etf/04_heatmap_rendimento_aliquota.png",
+      "caption": "Verde: vince il fondo. Rosso: vince l'ETF."
+    },
+    {
+      "type": "bullets",
+      "title": ["Perché il fondo", "rende meno"],
+      "bullets": [
+        "Non è azionario globale puro: 64-93% in azioni.",
+        "Paga il 20% di tasse ogni anno sui rendimenti.",
+        "La deduzione recupera, ma solo con aliquota alta."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Il confronto completo", "sul blog"],
+      "bullets": [
+        "Simulazione su 30 anni",
+        "Quando conviene ciascuno",
+        "Dati COVIP e ipotesi trasparenti"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

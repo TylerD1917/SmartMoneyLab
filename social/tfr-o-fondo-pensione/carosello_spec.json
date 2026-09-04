@@ -1,0 +1,62 @@
+{
+  "slug": "tfr-o-fondo-pensione",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["TFR in azienda o", "fondo pensione?"],
+      "accent_lines": [1],
+      "subtitle": "Stesso versamento, due destini molto diversi. 30 anni di simulazione con i dati COVIP."
+    },
+    {
+      "type": "compare",
+      "kicker": "Dopo 30 anni, al netto:",
+      "left": {"num": "141k", "label": "nel fondo azionario"},
+      "right": {"num": "81k", "label": "in azienda"},
+      "punch": ["Quasi il doppio.", "Stesso TFR versato."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Stesso TFR,", "due destinazioni"],
+      "chart": "public/charts/tfr-o-fondo-pensione/02_montante.png",
+      "caption": "Comparto e tasse fanno la differenza."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Rendimento medio annuo, ultimi 10 anni (COVIP):",
+      "number": "5%",
+      "note": "azionari, contro il 2,5% del TFR",
+      "box": ["Il doppio ogni anno,", "per dieci anni."],
+      "box_accent": [0]
+    },
+    {
+      "type": "bullets",
+      "title": ["Perché il fondo", "può battere il TFR"],
+      "bullets": [
+        "Rendimento: azionari ~5% l'anno contro il 2,5% del TFR.",
+        "Tasse all'uscita: 15%-9% contro il 23-30% del TFR.",
+        "Il contributo del datore, che lasciando il TFR in azienda perdi."
+      ]
+    },
+    {
+      "type": "bullets",
+      "title": ["Ma attenzione:", "non è per tutti"],
+      "bullets": [
+        "Il comparto azionario oscilla: nel breve può scendere anche molto.",
+        "Meno liquidità: i soldi escono di norma alla pensione.",
+        "Il TFR in azienda resta sensato con orizzonte corto o poca tolleranza al rischio."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Tutti i numeri", "sul blog"],
+      "bullets": [
+        "Simulazione completa su 30 anni",
+        "Le 3 leve fiscali spiegate",
+        "Le novità 2026 del fondo pensione"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

@@ -1,0 +1,350 @@
+{
+  "params": {
+    "L": 200000.0,
+    "anni": 30,
+    "reset_m": 3,
+    "n_sim": 10000,
+    "block": 48,
+    "floor": -0.005
+  },
+  "srcfreq": {
+    "variabile": "mensile",
+    "fisso": "mensile",
+    "deposit": "trimestrale",
+    "euribor3m": "mensile",
+    "long_rate": "mensile",
+    "mro": "trimestrale"
+  },
+  "copertura": {
+    "euribor": [
+      "1994-01-01",
+      "2026-08-01"
+    ],
+    "mir": [
+      "2000-01-01",
+      "2026-07-01"
+    ]
+  },
+  "parte1_replay": {
+    "n_coorti_mesi": 309,
+    "quota_accensioni_fisso_piu_economico_finora": 0.3333333333333333,
+    "coorti": [
+      {
+        "anno": 2000,
+        "n": 12,
+        "mesi": 320,
+        "fixed_rate": 0.0626,
+        "start_var": 0.0478,
+        "int_f": 237336.372,
+        "int_v": 75369.447,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.0848
+      },
+      {
+        "anno": 2001,
+        "n": 12,
+        "mesi": 308,
+        "fixed_rate": 0.0667,
+        "start_var": 0.051,
+        "int_f": 252505.4088,
+        "int_v": 82977.6249,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.1132
+      },
+      {
+        "anno": 2002,
+        "n": 12,
+        "mesi": 296,
+        "fixed_rate": 0.0583,
+        "start_var": 0.0445,
+        "int_f": 211399.3547,
+        "int_v": 87015.5057,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.0019
+      },
+      {
+        "anno": 2003,
+        "n": 12,
+        "mesi": 284,
+        "fixed_rate": 0.0525,
+        "start_var": 0.0385,
+        "int_f": 183114.567,
+        "int_v": 95325.8022,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1215
+      },
+      {
+        "anno": 2004,
+        "n": 12,
+        "mesi": 272,
+        "fixed_rate": 0.0515,
+        "start_var": 0.0354,
+        "int_f": 175098.4227,
+        "int_v": 88577.5922,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1331
+      },
+      {
+        "anno": 2005,
+        "n": 12,
+        "mesi": 260,
+        "fixed_rate": 0.0475,
+        "start_var": 0.0352,
+        "int_f": 155438.0942,
+        "int_v": 81321.7383,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1835
+      },
+      {
+        "anno": 2006,
+        "n": 12,
+        "mesi": 248,
+        "fixed_rate": 0.052,
+        "start_var": 0.0423,
+        "int_f": 167346.6862,
+        "int_v": 70307.434,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1095
+      },
+      {
+        "anno": 2007,
+        "n": 12,
+        "mesi": 236,
+        "fixed_rate": 0.0574,
+        "start_var": 0.0522,
+        "int_f": 180991.7921,
+        "int_v": 56487.747,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.0254
+      },
+      {
+        "anno": 2008,
+        "n": 12,
+        "mesi": 224,
+        "fixed_rate": 0.0583,
+        "start_var": 0.0545,
+        "int_f": 177453.3815,
+        "int_v": 43373.6774,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.0197
+      },
+      {
+        "anno": 2009,
+        "n": 12,
+        "mesi": 212,
+        "fixed_rate": 0.0507,
+        "start_var": 0.0295,
+        "int_f": 145448.8456,
+        "int_v": 62138.6403,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.111
+      },
+      {
+        "anno": 2010,
+        "n": 12,
+        "mesi": 200,
+        "fixed_rate": 0.0448,
+        "start_var": 0.0233,
+        "int_f": 121446.5625,
+        "int_v": 53725.6353,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.0622
+      },
+      {
+        "anno": 2011,
+        "n": 12,
+        "mesi": 188,
+        "fixed_rate": 0.0468,
+        "start_var": 0.0296,
+        "int_f": 121258.9565,
+        "int_v": 51612.984,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": -0.068
+      },
+      {
+        "anno": 2012,
+        "n": 12,
+        "mesi": 176,
+        "fixed_rate": 0.0494,
+        "start_var": 0.037,
+        "int_f": 121967.9854,
+        "int_v": 87444.7821,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1054
+      },
+      {
+        "anno": 2013,
+        "n": 12,
+        "mesi": 164,
+        "fixed_rate": 0.0463,
+        "start_var": 0.034,
+        "int_f": 106891.6975,
+        "int_v": 84677.7324,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1673
+      },
+      {
+        "anno": 2014,
+        "n": 12,
+        "mesi": 152,
+        "fixed_rate": 0.0431,
+        "start_var": 0.0291,
+        "int_f": 92985.7335,
+        "int_v": 69269.8101,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.1607
+      },
+      {
+        "anno": 2015,
+        "n": 12,
+        "mesi": 140,
+        "fixed_rate": 0.0317,
+        "start_var": 0.0221,
+        "int_f": 62185.0749,
+        "int_v": 55929.6113,
+        "quota_fisso_cheaper": 0.0,
+        "peak_over_f": 0.2805
+      },
+      {
+        "anno": 2016,
+        "n": 12,
+        "mesi": 128,
+        "fixed_rate": 0.0245,
+        "start_var": 0.0182,
+        "int_f": 43879.3575,
+        "int_v": 50788.604,
+        "quota_fisso_cheaper": 0.9167,
+        "peak_over_f": 0.4022
+      },
+      {
+        "anno": 2017,
+        "n": 12,
+        "mesi": 116,
+        "fixed_rate": 0.0229,
+        "start_var": 0.0166,
+        "int_f": 37392.7326,
+        "int_v": 47183.4455,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.4359
+      },
+      {
+        "anno": 2018,
+        "n": 12,
+        "mesi": 104,
+        "fixed_rate": 0.0204,
+        "start_var": 0.0153,
+        "int_f": 30056.6343,
+        "int_v": 43208.7098,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.4828
+      },
+      {
+        "anno": 2019,
+        "n": 12,
+        "mesi": 92,
+        "fixed_rate": 0.0182,
+        "start_var": 0.0144,
+        "int_f": 23928.2444,
+        "int_v": 40766.8766,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.543
+      },
+      {
+        "anno": 2020,
+        "n": 12,
+        "mesi": 80,
+        "fixed_rate": 0.0131,
+        "start_var": 0.0136,
+        "int_f": 14861.6061,
+        "int_v": 38986.1751,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.6774
+      },
+      {
+        "anno": 2021,
+        "n": 12,
+        "mesi": 68,
+        "fixed_rate": 0.0138,
+        "start_var": 0.0135,
+        "int_f": 13328.5495,
+        "int_v": 38837.5221,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.7085
+      },
+      {
+        "anno": 2022,
+        "n": 12,
+        "mesi": 56,
+        "fixed_rate": 0.0245,
+        "start_var": 0.0177,
+        "int_f": 19269.2641,
+        "int_v": 33227.245,
+        "quota_fisso_cheaper": 1.0,
+        "peak_over_f": 0.4374
+      },
+      {
+        "anno": 2023,
+        "n": 12,
+        "mesi": 44,
+        "fixed_rate": 0.0405,
+        "start_var": 0.0443,
+        "int_f": 25206.9569,
+        "int_v": 24303.352,
+        "quota_fisso_cheaper": 0.25,
+        "peak_over_f": 0.1128
+      },
+      {
+        "anno": 2024,
+        "n": 12,
+        "mesi": 32,
+        "fixed_rate": 0.0338,
+        "start_var": 0.0463,
+        "int_f": 14729.6782,
+        "int_v": 15294.7039,
+        "quota_fisso_cheaper": 0.8333,
+        "peak_over_f": 0.1621
+      },
+      {
+        "anno": 2025,
+        "n": 9,
+        "mesi": 20,
+        "fixed_rate": 0.0319,
+        "start_var": 0.034,
+        "int_f": 8352.5563,
+        "int_v": 8758.9492,
+        "quota_fisso_cheaper": 0.7778,
+        "peak_over_f": 0.0591
+      }
+    ]
+  },
+  "parte2_montecarlo": {
+    "p_fisso_costa_meno": 0.3352,
+    "mediana_gap_var_meno_fisso_eur": -33701.37757013418,
+    "p_rata_var_supera_fisso": 0.7391,
+    "p_rata_var_oltre_30pct_sopra_fisso": 0.3201,
+    "spread0_pp": {
+      "media": 0.858657,
+      "min": -1.4900000000000004,
+      "max": 2.7399999999999998
+    }
+  },
+  "surroga": {
+    "regola": {
+      "soglia_pp": 0.75,
+      "valuta_ogni_mesi": 12,
+      "fisso_mercato": "Euribor + premio medio storico",
+      "premio_medio_pp": 2.44
+    },
+    "p_fisso_surroga_costa_meno": 0.5728,
+    "mediana_gap_var_meno_surroga_eur": 9310.40554203702,
+    "surroghe_medie_per_mutuo": 1.4815
+  },
+  "oggi": {
+    "mese": "2026-07-01",
+    "fisso_pct": 3.56,
+    "variabile_pct": 2.99,
+    "premio_pp": 0.57,
+    "p_fisso_costa_meno_a_questo_premio": 0.387,
+    "p_fisso_surroga_costa_meno_a_questo_premio": 0.595
+  }
+}

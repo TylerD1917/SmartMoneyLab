@@ -1,0 +1,22 @@
+{
+  "slug": "portafogli-lancio-teaser",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Portafogli", "a confronto"],
+      "accent_lines": [1],
+      "subtitle": "All Weather, Golden Butterfly, 60/40 e i miei: la classifica live, in euro, aggiornata ogni settimana."
+    },
+    {
+      "type": "cta",
+      "title": ["Trova il tuo.", "Proponi il tuo."],
+      "bullets": [
+        "Classifica interattiva, 1-7 anni",
+        "Anche in versione BTP italiani",
+        "Proponi la tua: entra in classifica"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
