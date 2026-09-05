@@ -119,6 +119,13 @@ Cosa dice la storia a questo premio? Senza surroga, il fisso costa meno nel **39
 
 Tradotto: oggi non sei in un momento di premio negativo da "fisso a occhi chiusi", né in un momento di curva ripida da "variabile senza pensarci". Sei nel mezzo, leggermente spostato verso il fisso — soprattutto se dai valore alla certezza della rata e tieni aperta la porta della surroga. Ma resta una scommessa sul percorso della BCE, e nessuno di questi numeri è una previsione.
 
+<div style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 0.75rem;">
+  <strong>Provalo sui tuoi numeri.</strong> Abbiamo trasformato questa analisi in un simulatore interattivo: imposti capitale, durata, tasso fisso e variabile, uno scenario di stress sull'Euribor e la surroga, e vedi rate, interessi totali e chi conviene.
+  <div style="margin-top: 0.75rem;">
+    <a href="/strumenti/simulatore-mutuo-fisso-variabile" style="display: inline-block; background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">Apri il simulatore &rarr;</a>
+  </div>
+</div>
+
 ## Cosa porto a casa
 
 1. **Non esiste una risposta universale.** Fisso e variabile non sono "buono" e "cattivo": sono due scommesse diverse sullo stesso mutuo, e la migliore cambia con le condizioni di partenza.

@@ -1,0 +1,31 @@
+---
+title: "Simulatore mutuo: tasso fisso o variabile?"
+description: "Imposta capitale, durata, tasso fisso e variabile e uno scenario di stress sull'Euribor: vedi rate, interessi totali e chi conviene, con l'opzione surroga. Tassi di partenza aggiornati dalla BCE."
+pubDate: 2026-09-05
+tags: ["mutuo", "tasso-fisso", "tasso-variabile", "surroga", "euribor", "simulatore", "prima-casa"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import MutuoFissoVariabileSimulator from "../../components/interactive/MutuoFissoVariabileSimulator.jsx";
+
+## Cosa fa
+
+Imposti il tuo mutuo — **capitale, durata, tasso fisso e tasso variabile di partenza** — e uno **scenario di stress sull'Euribor** (di quanto si muove e in quanti anni). Lo strumento calcola l'ammortamento francese mese per mese e ti mostra le rate nel tempo, gli interessi totali e chi costa meno. Con il toggle **surroga** aggiungi l'opzione, gratuita in Italia, di rifinanziare il fisso a un tasso più basso quando i tassi scendono.
+
+<MutuoFissoVariabileSimulator client:load />
+
+## Come usarlo
+
+Parti dai tassi reali (precaricati dai dati BCE più recenti) e prova gli scenari: cosa succede se l'Euribor sale di 3 punti in due anni come nel 2022, o se scende? Il punto dell'articolo è che la scelta dipende soprattutto dal **premio iniziale del fisso** (quanto costa in più del variabile all'accensione): con lo strumento puoi verificarlo tu stesso, spostando i due tassi e guardando come cambia il verdetto. Attiva la surroga per vedere quanto pesa la possibilità di rifinanziare il fisso.
+
+## Cosa NON fa (leggere prima)
+
+**Non è una previsione.** È una simulazione deterministica: fissato uno scenario di tassi, ti dice cosa accadrebbe *in quello scenario*. Nessuno conosce il percorso futuro dell'Euribor — per questo l'[articolo di riferimento](/posts/mutuo-fisso-o-variabile) usa migliaia di percorsi simulati per dare le probabilità. Qui puoi esplorare i singoli scenari a mano. Il modello è semplificato: niente costi accessori, imposte o attriti della surroga (tempi, accettazione della banca), che nel confronto tendono comunque a elidersi.
+
+## Fonti e riproducibilità
+
+- Studio completo, replay storico e Monte Carlo: [Mutuo a tasso fisso o variabile?](/posts/mutuo-fisso-o-variabile).
+- Tassi di partenza (fisso e variabile sui nuovi mutui casa in Italia, Euribor 3M) dal [Data Portal della BCE](https://data.ecb.europa.eu/), aggiornati da [`scripts/tools/update_mutuo_rates.py`](https://github.com/TylerD1917/smartmoneylab/blob/main/scripts/tools/update_mutuo_rates.py). Lookup: [`/tools/mutuo-rates.json`](/tools/mutuo-rates.json).

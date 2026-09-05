@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "source": "BCE / ECB Data Portal (data-api.ecb.europa.eu)",
+    "series": {
+      "fisso": "MIR/M.IT.B.A2C.P.R.A.2250.EUR.N",
+      "variabile": "MIR/M.IT.B.A2C.F.R.A.2250.EUR.N",
+      "euribor": "FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA"
+    },
+    "updated": "2026-09-05"
+  },
+  "fisso": {
+    "pct": 3.56,
+    "period": "2026-07"
+  },
+  "variabile": {
+    "pct": 2.99,
+    "period": "2026-07"
+  },
+  "euribor": {
+    "pct": 2.513,
+    "period": "2026-08"
+  },
+  "spread_variabile": 0.477
+}
