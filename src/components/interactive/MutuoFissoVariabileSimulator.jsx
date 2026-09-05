@@ -21,7 +21,22 @@ import {
 } from "recharts";
 
 const LOOKUP_URL = "/tools/mutuo-rates.json";
+const LOOKUP_PROB = "/tools/mutuo-prob.json";
 const NAVY = "#1e3a8a", GOLD = "#f59e0b", GREEN = "#059669", INK = "#0f172a", GREY = "#94a3b8";
+
+// interpolazione lineare (come np.interp) con clamp agli estremi
+function interp(xs, ys, x) {
+  if (!xs || !xs.length) return null;
+  if (x <= xs[0]) return ys[0];
+  if (x >= xs[xs.length - 1]) return ys[ys.length - 1];
+  for (let i = 1; i < xs.length; i++) {
+    if (x <= xs[i]) {
+      const t = (x - xs[i - 1]) / (xs[i] - xs[i - 1]);
+      return ys[i - 1] + t * (ys[i] - ys[i - 1]);
+    }
+  }
+  return ys[ys.length - 1];
+}
 
 // fallback se il JSON non carica
 const FALLBACK = { fisso: 3.56, variabile: 2.99, euribor: 2.51, spread_variabile: 0.48, period: "2026-07" };
@@ -93,8 +108,24 @@ function Card({ label, value, color }) {
   );
 }
 
+function ProbBar({ label, value, color }) {
+  const p = Math.max(0, Math.min(1, value || 0));
+  return (
+    <div style={{ margin: "6px 0" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, marginBottom: 3 }}>
+        <span style={{ color: "#334155" }}>{label}</span>
+        <strong style={{ color }}>{Math.round(p * 100)}%</strong>
+      </div>
+      <div style={{ background: "#eef2f7", borderRadius: 6, height: 10, overflow: "hidden" }}>
+        <div style={{ width: (p * 100) + "%", height: "100%", background: color, borderRadius: 6 }} />
+      </div>
+    </div>
+  );
+}
+
 export default function MutuoFissoVariabileSimulator() {
   const [rates, setRates] = useState(null);
+  const [prob, setProb] = useState(null);
   const [capitale, setCapitale] = useState(200000);
   const [durata, setDurata] = useState(30);
   const [fisso, setFisso] = useState(FALLBACK.fisso);
@@ -111,6 +142,8 @@ export default function MutuoFissoVariabileSimulator() {
         setFisso(f); setVariabile(v);
       })
       .catch(() => setRates({ ...FALLBACK, f: FALLBACK.fisso, v: FALLBACK.variabile, e: FALLBACK.euribor }));
+    fetch(LOOKUP_PROB).then(r => r.ok ? r.json() : Promise.reject())
+      .then(setProb).catch(() => setProb(null));
   }, []);
 
   const sim = useMemo(() => {
@@ -145,6 +178,11 @@ export default function MutuoFissoVariabileSimulator() {
     if (gap > 0) return { t: `In questo scenario col fisso paghi ${eur(gap)} di interessi in meno.`, c: NAVY };
     return { t: `In questo scenario col variabile paghi ${eur(-gap)} di interessi in meno.`, c: GOLD };
   })();
+
+  const premio = fisso - variabile;
+  const pFisso = prob ? interp(prob.premio_pp, prob.p_fisso, premio) : null;
+  const pSurroga = prob ? interp(prob.premio_pp, prob.p_surroga, premio) : null;
+  const premioTxt = (premio >= 0 ? "+" : "") + pct(premio, 2).replace("%", " pp");
 
   return (
     <div className="not-prose" style={{ margin: "2rem 0", border: "1px solid #e2e8f0", borderRadius: 18, overflow: "hidden", fontFamily: "inherit" }}>
@@ -195,12 +233,32 @@ export default function MutuoFissoVariabileSimulator() {
           {sim.S && <Card label={`Interessi fisso + surroga (${sim.S.nSur}×)`} value={eur(sim.S.totInterest)} color={GREEN} />}
         </div>
 
-        {/* Verdetto */}
-        <div style={{ background: "#f1f5f9", borderRadius: 12, padding: "12px 14px", fontWeight: 600, color: verdict.c }}>
-          {verdict.t}
-          {sim.S && sim.S.totInterest < Math.min(sim.F.totInterest, sim.V.totInterest) &&
-            <span style={{ color: GREEN }}> Ma con la surroga il fisso costa meno di entrambi.</span>}
+        {/* Verdetto (un solo scenario) */}
+        <div style={{ background: "#f1f5f9", borderRadius: 12, padding: "12px 14px" }}>
+          <div style={{ fontWeight: 600, color: verdict.c }}>
+            {verdict.t}
+            {sim.S && sim.S.totInterest < Math.min(sim.F.totInterest, sim.V.totInterest) &&
+              <span style={{ color: GREEN }}> Ma con la surroga il fisso costa meno di entrambi.</span>}
+          </div>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
+            Questo è <strong>un solo scenario</strong>, scelto da te. Nessuno conosce il percorso futuro dei tassi: qui sotto, cosa è successo in 26 anni di scenari possibili.
+          </div>
         </div>
+
+        {/* Cosa dice la storia: probabilità dallo studio (stesse cifre dell'articolo) */}
+        {pFisso != null && (
+          <div style={{ border: "1px solid #e2e8f0", borderRadius: 12, padding: "14px 16px" }}>
+            <div style={{ fontWeight: 700, color: NAVY, marginBottom: 2 }}>Cosa dice la storia</div>
+            <div style={{ fontSize: 13, color: "#64748b", marginBottom: 10 }}>
+              Con questo premio del fisso (<strong>{premioTxt}</strong> rispetto al variabile), su 10.000 percorsi dei tassi ricostruiti da 26 anni di dati BCE, ecco in quanti scenari ciascuna strada è costata meno del variabile su 30 anni:
+            </div>
+            <ProbBar label="Fisso, senza surroga" value={pFisso} color={NAVY} />
+            <ProbBar label="Fisso con surroga" value={pSurroga} color={GREEN} />
+            <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 8 }}>
+              Negli scenari restanti costa meno il variabile. La surroga alza la convenienza del fisso perché ne cattura i ribassi tenendo la protezione sui rialzi. Sopra il 50% = il fisso batte il variabile più spesso che no.
+            </div>
+          </div>
+        )}
 
         {/* Grafico rata */}
         <div style={{ width: "100%", height: 320 }}>

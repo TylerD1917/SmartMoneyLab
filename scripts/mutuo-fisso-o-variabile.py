@@ -394,6 +394,16 @@ def main():
     p_fisso_oggi   = float(np.interp(premio_oggi*100, xs, yp)/100)
     p_surroga_oggi = float(np.interp(premio_oggi*100, xs, ysu)/100)
 
+    # esporta la curva probabilità per il simulatore interattivo /strumenti
+    _tools = os.path.join(ROOT, "public", "tools"); os.makedirs(_tools, exist_ok=True)
+    with open(os.path.join(_tools, "mutuo-prob.json"), "w", encoding="utf-8") as _fp:
+        json.dump({"premio_pp": [round(float(x),3) for x in xs],
+                   "p_fisso":   [round(float(y)/100,4) for y in yp],
+                   "p_surroga": [round(float(y)/100,4) for y in ysu],
+                   "oggi_premio_pp": round(premio_oggi*100,2),
+                   "nota": "P(strategia costa meno del variabile) per premio iniziale del fisso (pp); 10.000 percorsi 30y, dati BCE 2000-2026"},
+                  _fp, ensure_ascii=False, indent=2)
+
     chart_context(df)
     chart_cohorts(curves)
     chart_mc_cost(res)
