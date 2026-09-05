@@ -1,0 +1,43 @@
+name: Aggiorna tassi mutuo (simulatore)
+
+# Gira una volta al mese: scarica dall'API BCE gli ultimi tassi fisso, variabile
+# ed Euribor e aggiorna public/tools/mutuo-rates.json (letto dal simulatore).
+# I dati MIR della BCE escono mensilmente, di solito attorno a metà mese.
+on:
+  schedule:
+    - cron: "0 6 14 * *"   # il 14 di ogni mese, 06:00 UTC
+  workflow_dispatch:        # esecuzione manuale (per il primo lancio)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-mutuo-rates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      # Nessuna dipendenza: lo script usa solo la libreria standard.
+      - name: Aggiorna tassi dalla BCE
+        run: python scripts/tools/update_mutuo_rates.py
+
+      - name: Commit updated JSON
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/tools/mutuo-rates.json
+          if git diff --staged --quiet; then
+            echo "Nessuna modifica ai tassi."
+          else
+            git commit -m "chore(tools): aggiorna tassi mutuo BCE $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push
+          fi
