@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-03",
+ "updated": "2026-09-07",
  "subreddit": "wallstreetbets",
  "currency": "USD",
  "benchmark": "S&P 500",
@@ -200,6 +200,7 @@
    }
   ]
  },
+ "commento": null,
  "portfolio": {
   "holdings": [
    {
@@ -239,6 +240,11 @@
     "d": "2026-09-03",
     "port": 100.0,
     "bench": 100.0
+   },
+   {
+    "d": "2026-09-07",
+    "port": 94.3,
+    "bench": 99.62
    }
   ],
   "history": [
