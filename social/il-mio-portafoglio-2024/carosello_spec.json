@@ -1,0 +1,67 @@
+{
+  "slug": "il-mio-portafoglio-2024",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Il mio portafoglio", "reale, alla prova"],
+      "accent_lines": [1],
+      "subtitle": "31 anni di dati, 7 classi, 10.000 scenari simulati. Cosa fa bene — e cosa no, detto onestamente."
+    },
+    {
+      "type": "number",
+      "kicker": "10.000€ investiti nel 1995 sono diventati:",
+      "number": "24×",
+      "note": "tanto: 244.706€ in 31 anni",
+      "box": ["Come l'S&P 500.", "Il doppio dell'indice mondiale."],
+      "box_accent": [1]
+    },
+    {
+      "type": "chart",
+      "title": ["31 anni,", "10.000€ al lavoro"],
+      "chart": "public/charts/portafoglio-personale-backtest/02_equity_lump.png",
+      "caption": "Portafoglio e S&P quasi insieme in cima."
+    },
+    {
+      "type": "compare",
+      "kicker": "Il decennio peggiore dei 31 (dal 1999):",
+      "left": {"num": "+3,1", "label": "Portafoglio · % annuo"},
+      "right": {"num": "−3,4", "label": "S&P 500 · % annuo"},
+      "punch": ["L'unico a restare", "in positivo."],
+      "punch_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Lo scenario", "peggiore"],
+      "chart": "public/charts/portafoglio-personale-backtest/07_worst_windows.png",
+      "caption": "A 10 anni, l'unico a restare in positivo."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Su ogni decennio dei 31, il portafoglio batte l'MSCI World nel:",
+      "number": "98%",
+      "note": "dei casi (e l'ACWI nel 100%)",
+      "box": ["Contro l'S&P, invece,", "è quasi testa o croce."],
+      "box_accent": [1]
+    },
+    {
+      "type": "bullets",
+      "title": ["Perché", "tiene botta"],
+      "bullets": [
+        "La leadership dei mercati ruota: pesi spalmati sui protagonisti, ribilancio ogni anno.",
+        "Niente bond: la difesa è oro + energia, che reggono quando Borsa e inflazione mordono.",
+        "Europa in versione momentum: +2 punti l'anno sull'indice classico dal 1994."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Lo studio completo", "sul blog"],
+      "bullets": [
+        "31 anni di backtest su 7 classi",
+        "Finestre mobili, caso peggiore, Monte Carlo",
+        "Dati e codice trasparenti"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

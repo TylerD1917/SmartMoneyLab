@@ -1,45 +1,40 @@
-# Caption Instagram (carosello) — Il mio portafoglio nel 2024
+# Caption Instagram — Il mio portafoglio reale (revisione 2026)
 
 **Account**: @smartmoneylab_it
-**Asset**: `instagram_carousel.md`
-**Lunghezza target**: ~2100 caratteri
+**Asset**: carosello 8 slide
+**Lunghezza target**: ~2000 caratteri
 
 ---
 
 ## Caption proposta
 
-Inauguro una nuova rubrica del blog: "test di portafogli reali". Il primo soggetto è il mio. 13 asset, equity-only, allocazione target che ho disegnato a novembre 2024 per intercettare cinque-dieci anni di trend di mercato. L'ho messo sotto la stessa lente con cui ho fatto a pezzi la strategia LEAPS e gli ETF a leva 3x negli articoli precedenti — accettando in anticipo l'esito.
+Un anno fa avevo testato il mio portafoglio: 13 asset, molti di nicchia, backtestabili solo dal 2003. L'ho semplificato in 7 classi ad ampia storia e l'ho rimesso alla prova su 31 anni (1995-2026): bolla dot-com, 2008, decennio perso di Europa ed emergenti, COVID, 2022. Ecco cosa dicono i numeri, limiti compresi.
 
-22 anni di backtest (2003-2025) + simulazione Monte Carlo a 10.000 traiettorie su orizzonti 10/20/30 anni. Tre risultati centrali:
+1. Contro l'S&P 500 è un pareggio, non una vittoria. 10,83% annuo contro 10,69%, con un drawdown massimo più basso ma volatilità un filo più alta. Lo dico subito perché è la parte scomoda: chi vuole "battere l'America" con la diversificazione geografica, su questi 31 anni, resta deluso. L'S&P è stato il benchmark più duro. Il portafoglio ci arriva alla pari, prendendosi meno rischio nei crolli.
 
-• Sul backtest 22 anni il portafoglio batte i benchmark di una distanza significativa. CAGR 14,30% contro 11,36% dell'S&P 500 TR e 9,45% del MSCI World TR. Su 10.000 € investiti in lump sum nel 2003, alla fine del 2025 il portafoglio chiude a 204.776 €, l'S&P a 113.674 €, il MSCI World a 76.771 €. Il PAC da 200 €/mese (54.400 € versati) finisce a 396.541 €, contro 273.178 € dell'S&P e 199.526 € del World.
+2. Il confronto giusto, però, lo vince netto. Un portafoglio diversificato nel mondo va confrontato con un indice mondiale: contro MSCI World e ACWI il vantaggio è di +2,4 e +2,6 punti di rendimento all'anno. Su 10.000€, chiude a 244.706€ contro i ~123.000€ del World: il doppio, con meno drawdown.
 
-• Non è leva, è diversificazione che funziona. Diversamente dalla strategia LEAPS testata nell'articolo precedente, qui il drawdown massimo è leggermente migliore dei benchmark (-49,5% vs -50,8%) nonostante una volatilità più alta di 2,8 punti. Il Calmar (CAGR/|MDD|) del portafoglio è 0,289 contro 0,224 dell'S&P. Win rate sui rolling 10y: 94% vs S&P, 100% vs MSCI World. Sui rolling 15y: 100% contro entrambi.
+3. La parte che sorprende di più è lo scenario peggiore. Nel decennio peggiore dei 31 — chi è entrato nel 1999, a un passo dalla bolla — il portafoglio ha reso +3,1% all'anno: l'unico dei quattro a non perdere (S&P −3,4%, World −2,5%, ACWI −1,3%). Attenzione: non vuol dire che non crolli. Il drawdown resta pieno (−48%, è tutto azionario). Ciò che oro + energia e la diversificazione comprano non è l'assenza del crollo, ma un recupero più rapido per chi resta investito 5-10 anni.
 
-• Monte Carlo a 20 anni: 71% di probabilità di battere l'S&P, 82% di battere il MSCI World. Mediana del NAV finale a 20 anni partendo da 10.000 €: portafoglio 147.630 €, S&P 84.769 €, World 60.444 €. Coda destra (p95) del portafoglio 696.748 €, contro 239.679 € dell'S&P. Coda sinistra (p5) 40.571 € contro 28.784 € dell'S&P. L'asimmetria del payoff è favorevole sia nelle code basse che in quelle alte.
+4. Perché tiene botta: la leadership dei mercati ruota (pesi spalmati, ribilancio annuale), la difesa è fatta di attivi reali (oro + energia) invece che di obbligazioni, e per l'Europa uso la versione momentum, che dal 1994 ha reso ~2 punti l'anno in più dell'indice classico.
 
-Il bias di selezione retrospettiva è enorme e dichiarato: ho disegnato questo portafoglio nel 2024 conoscendo i trend che hanno premiato gli ultimi 22 anni. Il backtest dimostra "se i prossimi 22 anni assomigliano agli ultimi 22, vinci". Non dimostra "vincerai i prossimi 22 anni".
-
-Analisi completa, codice Python, caveat metodologici e Monte Carlo dettagliato sul blog → link in bio.
+Il limite resta, ma più leggero: il portafoglio è disegnato oggi, conoscendo la storia. Il fatto stesso che non stravinca l'S&P è il segnale che non è sovra-ottimizzato. Studio completo, metodo e codice sul blog. Link in bio.
 
 —
 SmartMoneyLab — Finanza personale e analisi quantitativa.
-Disclaimer: contenuto informativo, non consulenza finanziaria.
+Disclaimer: è il mio portafoglio reale, non un consiglio. Backtest con ipotesi dichiarate, non previsioni.
 
 ---
 
-## Hashtag (primo commento, 15 mix di volumi)
+## Hashtag (15 — primo commento, mix di volumi)
 
-#portafoglio #investimenti #assetallocation #PAC #montecarlo #investireinitalia #ETF #investimentiitalia #finanzapersonale #educazionefinanziaria #azionari #sp500 #MSCIWorld #investitoreretail #culturafinanziaria
+#portafoglio #etf #investimenti #finanzapersonale #backtest #assetallocation #montecarlo #azionario #oro #mercatiemergenti #nasdaq #diversificazione #educazionefinanziaria #culturafinanziaria #investireinitalia
 
 ---
 
 ## Note operative
 
-- Hashtag in primo commento, non in caption.
-- Aggiornare temporaneamente il "link in bio" col link diretto al post per i 7-10 giorni post-pubblicazione.
-- Tono: trasparenza piena dichiarata (è il portafoglio di Tyler). Niente "ho scoperto la formula magica", niente "comprate questi 13 ETF". L'articolo è un esperimento di rigore aperto al pubblico, lo spirito della caption deve riflettere questo.
-- Risposte ai commenti probabili:
-  - "Ma è il tuo portafoglio, sei di parte!" → "Esatto, e l'ho dichiarato in apertura. Lo scopo è proprio metterlo sotto la stessa lente con cui critico gli altri. Se i prossimi 5 anni sotto-performerà, lo scriverò sul blog senza filtri."
-  - "Posso copiare la composizione?" → "Sconsigliato. È un'allocazione tematica con drawdown attesi del -50%. Solo se tolleri quel rischio e con orizzonte minimo 10 anni — sotto i 10 il win rate vs S&P è solo del 55%."
-  - "I costi reali quanto incidono?" → "Circa 70-80 bps annui (TER + spread) + 30-40 bps di fiscalità italiana. L'outperformance netta resta significativa ma non più drammatica (+2pp circa invece di +2,9)."
+- Hashtag nel primo commento.
+- Gancio per l'engagement: l'onestà del punto 1 ("non batte l'S&P, lo pareggia") e la slide del caso peggiore (+3,1% vs −3,4%). La slide-confronto e la slide "98%" sono le migliori come anteprima.
+- Caveat pronto nei commenti: il drawdown resta −48% (è equity-only); la protezione è sul risultato a 5-10 anni, non sull'evitare il crollo. Due serie (Nasdaq, energia) sono a prezzo + dividendo figurato dichiarato. Bias di selezione retrospettiva dichiarato.
+- Commento prevedibile "ma allora conviene solo l'S&P": no — l'S&P è un singolo indice-Paese concentrato; il portafoglio pareggia il rendimento con meno rischio di coda e batte l'indice mondiale, che è il confronto corretto.

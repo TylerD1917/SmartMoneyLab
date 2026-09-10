@@ -1,287 +1,194 @@
 ---
-title: "Il mio portafoglio nel 2024: che ritorno possiamo aspettarci? 22 anni di backtest e Monte Carlo"
-description: "Backtest su 22 anni del mio portafoglio reale (13 asset) contro S&P 500 e MSCI World, più Monte Carlo a 10/20/30 anni. CAGR +2,9pp sopra S&P, ma c'è un bias del backtest da dichiarare."
+title: "Il mio portafoglio reale: 31 anni di backtest e Monte Carlo (revisione 2026)"
+description: "Ho semplificato il mio portafoglio in 7 classi ad ampia storia e l'ho testato su 31 anni (1995-2026). Eguaglia l'S&P 500 con meno rischio, batte MSCI World e ACWI nel 93-100% degli scenari e nella peggiore finestra di 10 anni resta l'unico in positivo. Con il caveat del bias, dichiarato."
 pubDate: 2026-06-13
-tags: ["portafoglio", "backtest", "monte-carlo", "rolling-windows", "pac", "asset-allocation", "etf"]
+updatedDate: 2026-09-09
+tags: ["portafoglio", "backtest", "monte-carlo", "rolling-windows", "pac", "asset-allocation", "momentum", "mean-reversion"]
 author: "SmartMoneyLab"
 simulationSlug: "portafoglio-personale-backtest"
+seoImage: "/charts/portafoglio-personale-backtest/02_equity_lump.png"
 draft: false
+faq:
+  - q: "Questo portafoglio batte l'S&P 500?"
+    a: |-
+      No, e non è il suo scopo. Su 31 anni (1995-2026) lo eguaglia: CAGR 10,83% contro 10,69%, con un drawdown massimo migliore (−48,4% contro −50,8%) ma una volatilità leggermente più alta. Il confronto giusto per un portafoglio diversificato a livello globale sono MSCI World e ACWI, e lì il vantaggio è netto: +2,4 e +2,6 punti di CAGR all'anno, con drawdown più basso. Nel Monte Carlo a 20 anni il portafoglio batte il World nel 98% degli scenari e l'ACWI nel 100%, mentre contro l'S&P 500 resta un sostanziale pareggio (55%).
+  - q: "Che rendimento posso aspettarmi da questo portafoglio?"
+    a: |-
+      Nessuno lo sa: il passato non è una garanzia. Come stima, la simulazione Monte Carlo (10.000 traiettorie bootstrap sui rendimenti storici) dà, partendo da 10.000 €, una mediana di circa 78.000 € a 20 anni e 220.000 € a 30 anni, con un intervallo molto ampio: a 20 anni dal 5° al 95° percentile si va da ~23.000 € a ~257.000 €. Sono ipotesi statistiche sotto l'assunzione che i prossimi decenni assomiglino statisticamente agli ultimi 31 anni, non previsioni.
+  - q: "E se entro nel momento peggiore?"
+    a: |-
+      È la prova più severa, e il portafoglio la supera bene. Guardando tutte le finestre mobili dei 31 anni, la *peggiore* finestra di 10 anni ha comunque reso +3,1% all'anno per il portafoglio — l'unico dei quattro a non perdere (S&P −3,4%, World −2,5%, ACWI −1,3%). Sulla peggiore finestra di 5 anni fa −2,3% contro il −5/−7% dei benchmark, e il suo 5° percentile resta positivo. Un caveat però: questo *non* vuol dire che non crolli. Il drawdown massimo resta intorno al −48%, come per qualsiasi portafoglio azionario; ciò che la diversificazione e la sleeve oro+energia comprano è un recupero più rapido, cioè un risultato finale meno rovinato per chi resta investito 5-10 anni.
+  - q: "Perché Europa Momentum invece dell'Europa classica?"
+    a: |-
+      Perché sui dati la versione momentum dell'indice europeo ha reso di più e con un profilo di rischio migliore: dal 1994 al 2026 la MSCI Europe Momentum ha fatto circa l'11,0% annuo contro il 9,1% della MSCI Europe classica, con Sharpe e Sortino superiori — e proprio in un periodo, il 2000-2020, che per l'azionario europeo è stato difficile e laterale. Il momentum non è una scommessa esotica: è un fattore documentato da decenni di letteratura accademica.
+  - q: "Perché il portafoglio non ha obbligazioni?"
+    a: |-
+      È una scelta legata all'orizzonte. Su 20-30 anni l'effetto del compounding sull'azionario tende a dominare il beneficio di stabilizzazione delle obbligazioni. La stabilità nei crolli qui è affidata a una sleeve difensiva di attivi reali — oro ed energia — che storicamente proteggono nei regimi di inflazione e di stress dei mercati, proprio quando l'azionario soffre. Ne parlo più a fondo nell'analisi sul senso delle obbligazioni in portafoglio.
+  - q: "Cos'è la 'sleeve difensiva' di oro ed energia?"
+    a: |-
+      È il 17% del portafoglio (8% oro + 9% energia): due attivi reali che tendono a muoversi diversamente dall'azionario tradizionale e a difendere nei regimi in cui questo va peggio — inflazione, shock geopolitici, mercati laterali. Costano qualcosa negli anni di corsa dei mercati (non partecipano al rialzo tecnologico), ma sono ciò che, nei numeri, compra al portafoglio il drawdown più basso di tutti i benchmark.
+  - q: "Qual è il limite principale di questo backtest?"
+    a: |-
+      Il bias di selezione retrospettiva: il portafoglio è disegnato oggi, conoscendo la storia. È molto più leggero che in passato, perché ora usa classi ampie e non settori di nicchia scelti perché hanno già vinto — e il fatto stesso che non stravinca l'S&P 500 è un segnale che non è sovra-ottimizzato. Ma resta: il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà". Secondariamente, due serie (Nasdaq ed Energia) sono a prezzo e vi ho aggiunto un dividendo figurato dichiarato.
 ---
+
+> **Disclaimer.** Questo è il mio portafoglio reale, non un consiglio. Le cifre sono backtest e simulazioni con ipotesi dichiarate, non previsioni. Nessun rendimento passato garantisce quelli futuri.
 
 ## In breve
 
-Inauguro una nuova famiglia editoriale del blog — "test di portafogli reali". Il primo soggetto è il mio: 13 asset (S&P, Nasdaq, MSCI World, EM, Asia, Europa, oro, small cap, healthcare, energia tradizionale + clean + nucleare, Bitcoin + tematici tech) con allocazione target che ho disegnato a novembre 2024 per intercettare cinque-dieci anni di trend di mercato. Capitale iniziale 10.000 € o, in alternativa, PAC da 200 €/mese. L'ho testato su 22 anni di dati storici (aprile 2003 – dicembre 2025) e proiettato a 10, 20 e 30 anni con una simulazione Monte Carlo a 10.000 traiettorie. I numeri principali in apertura:
+Un anno fa ho pubblicato il backtest del mio portafoglio: 13 asset, molti di nicchia, testabili solo dal 2003. Da allora l'ho **semplificato** in **7 classi ad ampia storia**, e questo mi permette di testarlo su una finestra molto più lunga e severa — **31 anni, dal luglio 1995 al luglio 2026** — che comprende la bolla dot-com e il suo crollo, la crisi del 2008, il decennio perso di Europa ed emergenti, il boom e il crollo dell'energia, il COVID e l'orso del 2022. L'allocazione target è: **Azionario USA 20% · Mercati Emergenti 20% · Nasdaq/Tech 25% · Smallcap 10% · Europa Momentum 8% · Oro 8% · Energia 9%**. Equity-only, ribilanciata una volta l'anno. I numeri principali:
 
-1. **Sul backtest lungo (22 anni) il portafoglio batte i benchmark di una distanza significativa**. CAGR del portafoglio 14,30% contro 11,36% dell'S&P 500 TR e 9,45% del MSCI World TR. Su 10.000 € investiti in lump sum nel 2003, alla fine del 2025 il portafoglio chiude a **204.776 €**, l'S&P a 113.674 €, il MSCI World a 76.771 €. Il PAC da 200 €/mese (54.400 € versati in tutto) finisce a **396.541 €** per il portafoglio, 273.178 € per l'S&P, 199.526 € per il MSCI World.
+1. **Contro l'S&P 500 è un pareggio, non una vittoria.** CAGR 10,83% contro 10,69%, con un drawdown massimo *migliore* (−48,4% contro −50,8%) ma volatilità un filo più alta. Su 10.000 € investiti nel 1995, il portafoglio chiude a **244.706 €**, l'S&P a 235.053 €. È importante dirlo subito: questo portafoglio **non pretende di battere l'S&P 500**, il benchmark più difficile di questi 31 anni. Lo eguaglia, prendendosi meno rischio nei crolli.
 
-2. **Non è leva, è diversificazione che funziona**. A differenza della strategia LEAPS che ho testato [nell'articolo precedente](/posts/strategia-leaps-vs-buy-and-hold), dove la "vittoria" sul CAGR era pagata da una proporzionale punizione sul drawdown (Calmar identici), qui il drawdown massimo del portafoglio è **leggermente migliore** dei benchmark (-49,5% contro -50,8%) nonostante una volatilità più alta di 2,8 punti. Il Calmar (CAGR/|MDD|) del portafoglio è 0,289 contro 0,224 dell'S&P e 0,186 del MSCI World. C'è alfa genuino, non solo leva.
+2. **Contro MSCI World e ACWI, invece, vince nettamente.** Ed è il confronto giusto per un portafoglio diversificato geograficamente. CAGR 8,42% del World e 8,20% dell'ACWI IMI: il portafoglio fa **+2,4 e +2,6 punti all'anno**, con anche un drawdown più basso (−48% contro −54% e −55%). Su 10.000 €, chiude a 244.706 € contro i 123.386 € del World e i 115.757 € dell'ACWI: **il doppio**.
 
-3. **Il Monte Carlo a 20 anni dice 71% di probabilità di battere l'S&P, 82% di battere il MSCI World**. Mediana del NAV finale a 20 anni partendo da 10.000 €: portafoglio **147.630 €**, S&P 84.769 €, MSCI World 60.444 €. Coda destra (p95) del portafoglio: 696.748 €, contro 239.679 € dell'S&P. Coda sinistra (p5): 40.571 € contro 28.784 € dell'S&P. L'asimmetria del payoff è favorevole sia nella coda sinistra che nella coda destra.
+3. **Sulle finestre mobili, il pattern è coerente.** Su tutte le finestre di 10 anni dal 1995, il portafoglio batte il World nel **98%** dei casi e l'ACWI nel **100%**; contro l'S&P 500 vince nel 53% (in sostanza testa o croce, che sale al 64% sulle finestre di 15 anni). Non batte quasi mai l'S&P, batte quasi sempre il resto del mondo.
 
-4. **Il caveat metodologico è enorme e va sopra a tutto**. Il portafoglio è stato disegnato nel 2024 conoscendo già i trend che hanno premiato gli ultimi 22 anni (super-cycle tech, boom EM dei primi 2000, oro come bene rifugio, healthcare come settore difensivo). Il backtest dimostra "se i prossimi 22 anni assomigliano agli ultimi 22, vinci". Non dimostra "vincerai i prossimi 22 anni". È una **scommessa strutturata sul fatto che il regime regga**, non una garanzia.
+4. **Nello scenario peggiore, la diversificazione protegge davvero.** È la parte che sorprende di più. Sulla *peggiore* finestra di 10 anni dei 31 (chi è entrato nel marzo 1999, a un passo dallo scoppio della bolla dot-com) il portafoglio ha comunque reso **+3,1% all'anno**: l'unico dei quattro a non aver perso. Nello stesso decennio l'S&P ha fatto −3,4% annuo, il World −2,5%, l'ACWI −1,3%. E sulla peggiore finestra di 5 anni fa **−2,3%** contro il −5/−7% dei benchmark. Attenzione: il crollo *dentro* la finestra resta pieno (−48%, è equity-only); a essere protetto è il risultato di chi resta investito 5-10 anni.
 
-Tre parti nell'articolo: presentazione del portafoglio (cosa c'è e perché), backtest sui dati reali (cosa è successo dal 2003), simulazione Monte Carlo (cosa potremmo aspettarci dai prossimi 20 anni). La pipeline metodologica di SmartMoneyLab (rolling windows, total return, lordo come baseline) è sempre quella.
+5. **Il Monte Carlo prospettico dice la stessa cosa.** Su 10.000 traiettorie a 20 anni, la mediana del portafoglio partendo da 10.000 € è **78.407 €** (contro 49.641 € del World e 47.796 € dell'ACWI), e batte il World nel **98%** e l'ACWI nel **100%** degli scenari. Contro l'S&P resta un pareggio (55%).
+
+6. **Il caveat è più leggero di prima, ma c'è.** Il portafoglio è disegnato oggi conoscendo la storia. Ora però usa classi ampie e non settori di nicchia scelti perché hanno già vinto — e proprio il fatto che non stravinca l'S&P è la prova che non è sovra-ottimizzato. Il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà".
+
+Come sempre nella rubrica dei portafogli reali: niente verdetto secco, niente framework a punteggio. Espongo i numeri, dichiaro i limiti, il lettore decide.
 
 ## Una premessa di trasparenza
 
-Questo è il **mio portafoglio reale**. Ho cominciato a costruirlo il 7 novembre 2024. Il PAC mensile è di 200 €. La composizione che vedi qui sotto è quella target dichiarata; nella pratica i pesi driftano leggermente in base ai movimenti di mercato fra un versamento e l'altro, e periodicamente li riporto a target con il versamento successivo (il "rebalancing implicito" del PAC).
+Questo è il **mio portafoglio reale**, nella sua versione evoluta. L'ho semplificato rispetto a un anno fa per due ragioni: la prima è pratica (meno strumenti, meno costi, meno manutenzione); la seconda è intellettuale. Un portafoglio fatto di classi ampie e con storia lunga si può **falsificare meglio**: testandolo su 31 anni invece che su 22, e su regimi molto diversi tra loro, il rischio di raccontarmi una favola cala parecchio. Se un'allocazione regge la bolla dot-com, il 2008, il decennio perso europeo e il 2022, è un'evidenza più solida di una che "funziona" solo sull'unico ciclo toro che le è stato cucito addosso.
 
-Non sto presentando questo articolo come consiglio. Sto presentando un esperimento di trasparenza: prendo il mio portafoglio reale, lo metto sotto la stessa lente con cui ho fatto a pezzi la strategia LEAPS e gli ETF a leva 3x negli articoli precedenti della serie, e accetto in anticipo l'esito — qualunque esso sia. Il bias del fatto che sono io a giudicare il portafoglio che io stesso ho costruito esiste, lo dichiaro, e lo prendo in carico nella sezione dei limiti.
+Resta il bias di fondo, e lo prendo in carico: sono io a giudicare il portafoglio che io stesso ho costruito, oggi, conoscendo la storia. Ne parlo nei limiti. Ma anticipo un dettaglio che conta: se avessi sovra-ottimizzato, avrei "vinto" contro tutti. Invece contro l'S&P 500 pareggio. È il tipo di risultato che ci si aspetta da una scommessa strutturale onesta, non da un backtest torturato fino alla confessione.
 
-Inauguro così una nuova famiglia editoriale del blog: **test di portafogli reali**. Il primo soggetto sono io. Sarò felice di testare anche portafogli di lettori che me li manderanno (anonimi o nominati, come preferiscono). La distinzione editoriale con la serie "Strategie per battere il mercato?" è netta: lì confrontiamo strategie attive contro un benchmark passivo applicando un framework standardizzato; qui osserviamo cosa è successo, e cosa potrebbe succedere, a un'allocazione concreta. Niente verdict, niente framework 6+1, chiusura aperta — i numeri parlano, il lettore decide.
+## Parte 1 — Cosa c'è nel portafoglio, e perché
 
-## Parte 1 — Cosa c'è nel portafoglio
+L'allocazione target, con la serie storica usata per ciascuna classe:
 
-L'allocazione target è la seguente:
-
-| Asset | Peso | ETF UCITS reale nel portafoglio (Borsa Italiana / XETRA) |
+| Sleeve | Peso | Serie storica (proxy) |
 |---|---|---|
-| Azionario USA | 16% | Amundi IS S&P 500 Swap (A500) |
-| Nasdaq 100 | 16% | Amundi Core Nasdaq-100 Swap (LYMS) |
-| Mercati Emergenti | 12% | Xtrackers MSCI EM (XMME) |
-| Azionario Globale | 8% | iShares Core MSCI World (SWDA) |
-| Healthcare | 7% | Xtrackers MSCI World Health Care (XDWH) |
-| Small Cap | 7% | iShares MSCI World Small Cap ESG (CBUG) |
-| Asia ex Japan | 7% | Amundi IS MSCI EM Asia (AASI) |
-| Oro | 7% | iShares Physical Gold ETC (PPFB) |
-| Europa | 6% | Xtrackers MSCI Europe (XMEU) |
-| Bitcoin + Tematici Tech | 5% | Fidelity Physical Bitcoin (FBTC, 2%) + Amundi MSCI Disruptive Tech (UNIC, 2%) + iShares Automation & Robotics (RBOT, 1%) |
-| Energia tradizionale | 3% | Xtrackers MSCI World Energy (XDW0) |
-| Clean Energy | 3% | Fineco AM MarketVector Clean Energy (EMOVE) |
-| Nucleare | 3% | VanEck Uranium and Nuclear (NUCL) |
+| Azionario USA | 20% | S&P 500 Total Return (dal 1993) |
+| Mercati Emergenti | 20% | MSCI Emerging Markets TR (dal 1987) |
+| Nasdaq / Tech | 25% | Nasdaq Composite + dividendo figurato 0,75%/anno |
+| Smallcap | 10% | Russell 2000 Total Return (dal 1995) |
+| Europa Momentum | 8% | MSCI Europe Momentum TR (dal 1994) |
+| Oro | 8% | Oro fisico, prezzo LBMA (dal 1985) |
+| Energia | 9% | S&P 500 Energy + dividendo figurato 2,9%/anno |
 | **Totale** | **100%** | |
 
-Visivamente:
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/01_composizione_donut.png" alt="Grafico a ciambella dell'allocazione target: Nasdaq/Tech 25%, USA 20%, Mercati Emergenti 20%, Smallcap 10%, Energia 9%, Oro 8%, Europa Momentum 8%." />
+  <figcaption>Sette classi, tutte ad ampia storia. Il portafoglio è equity-only e viene ribilanciato a target una volta l'anno.</figcaption>
+</figure>
 
-![Composizione target del portafoglio](/charts/portafoglio-personale-backtest/01_composizione_donut.png)
+### La logica: mean reversion ciclica
 
-### Lettura per macro-area
+L'idea che tiene insieme il portafoglio è semplice: **la leadership dei mercati ruota**. Ci sono grandi cicli in cui un settore o un'area geografica domina — gli USA e la tecnologia negli anni '90 e dal 2010, gli emergenti nei primi anni 2000, l'energia nei periodi di inflazione — e poi il testimone passa. Chi concentra tutto sul vincitore dell'ultimo ciclo rischia di comprarlo proprio prima che il ciclo giri. Questo portafoglio fa la scommessa opposta: **spalma i pesi sui protagonisti della rotazione**, e li ribilancia ogni anno, così vende meccanicamente un po' di ciò che è corso e compra un po' di ciò che è rimasto indietro.
 
-Per cogliere la struttura conviene leggerla per macro-area invece che per singolo bucket:
+Letta per blocchi:
 
-- **Azionario mondiale broad** (USA + Globale + Europa) = **30%**. È la base passiva del portafoglio.
-- **Tematico tech e disruption** (Nasdaq + Bitcoin + Bets) = **21%**. È la scommessa concentrata sui trend di lunga durata sull'innovazione.
-- **Geografia emergente** (Mercati Emergenti + Asia ex Japan) = **19%**. È la scommessa demografica e sul rebalance economico mondiale verso est.
-- **Settoriale difensivo o ad asimmetria favorevole** (Healthcare 7% + Small Cap 7% + Oro 7%) = **21%**. Healthcare ha bassa correlazione coi cicli, small cap è dove storicamente si trova il premio per la dimensione, oro è il bene rifugio del decennio attuale.
-- **Energia** (tradizionale + clean + nucleare) = **9%**. Tre sotto-settori bilanciati per non scommettere su una transizione energetica "vinta" da una singola tecnologia.
+- **Motore azionario di base** (USA 20%): l'ancora, il mercato più efficiente e profondo.
+- **Cuore aggressivo** (Nasdaq/Tech 25%): la scommessa sulla tecnologia come motore di lungo periodo. È la fetta più grande, ed è ciò che dà al portafoglio il suo rendimento — e la sua volatilità.
+- **Geografia in rotazione** (Emergenti 20% + Europa Momentum 8% = 28%): la scommessa sulla mean reversion geografica, cioè che le aree oggi indietro rispetto agli USA non lo restino per sempre.
+- **Premio dimensionale** (Smallcap 10%): dove storicamente si è trovato il premio per la piccola capitalizzazione.
+- **Sleeve difensiva reale** (Oro 8% + Energia 9% = 17%): due attivi reali che difendono proprio quando l'azionario soffre.
 
-Sommando i blocchi: 30 di base + 21 di tematico + 19 di geografia + 21 di settoriale + 9 di energia = 100%. È un portafoglio **equity-only** (niente obbligazioni, niente liquidità) costruito su un orizzonte di 10-20+ anni e con un PAC come strumento di entrata. Sulla scelta di non includere obbligazioni, il ragionamento è coerente con [l'articolo sul senso delle obbligazioni nel portafoglio](/posts/ha-senso-obbligazioni-portafoglio): nell'orizzonte temporale di un investitore retail di 35-40 anni, l'effetto compounding sull'equity tende a dominare il beneficio della stabilizzazione obbligazionaria.
+### La sleeve difensiva: oro ed energia
 
-### Il problema della storicità
+Molti portafogli mettono le obbligazioni come cuscinetto. Qui il cuscinetto sono **attivi reali**. La ragione è che i due grandi nemici di un portafoglio azionario di lungo periodo non sono solo i crolli di Borsa, ma l'**inflazione** e i regimi di **stress geopolitico** — ed è lì che oro ed energia storicamente brillano, mentre le obbligazioni a tasso fisso soffrono. Non è teoria: è ciò che, nei numeri della Parte 2, dà al portafoglio il drawdown più basso di tutti i benchmark, S&P 500 incluso.
 
-Ogni asset del portafoglio ha un ETF UCITS reale che lo replica, ma quasi tutti questi ETF sono troppo giovani per un backtest serio. A500 esiste dal 2017, LYMS dal 2018, CBUG dal 2023, FBTC dal 2022, NUCL dal 2023, EMOVE è ancora più recente. Per fare un test su orizzonti decennali serve passare a **proxy a lungo storico** sugli stessi indici sottostanti — indici S&P, MSCI ed ETF americani con storia che parte dai primi anni 2000.
+### Perché la versione "Momentum" per l'Europa
 
-Il proxy storico usato per ogni asset, con la sua data di partenza:
+Per l'Europa non uso l'indice classico ma la sua versione **momentum**. Non è un vezzo: un confronto diretto delle due serie storiche mostra una netta superiorità della momentum. Dal 1994 al 2026 la MSCI Europe Momentum ha reso circa l'**11,0% annuo** contro il **9,1%** della MSCI Europe classica, con Sharpe e Sortino migliori — e proprio in un periodo, il 2000-2020, che per l'azionario europeo è stato difficile, laterale e ricco di crisi. Il momentum è uno dei fattori più documentati della letteratura finanziaria: qui lo uso come si deve, cioè applicato in modo sistematico da un indice, non a mano.
 
-![Storicità degli asset](/charts/portafoglio-personale-backtest/02_storicita_asset.png)
+### Una nota su metodo e dati
 
-Periodo comune in cui tutti i 13 asset hanno un proxy disponibile: **dal 30 aprile 2003 al 31 dicembre 2025**, 22 anni e 8 mesi, 272 osservazioni mensili. Quello sotto i 22 anni va riempito con backfill da proxy ancora più antichi (per esempio: per il bucket "Bitcoin + Bets" usiamo Nasdaq 100 prima del 2014, dato che Bitcoin esisteva ma con dati di qualità solo da metà 2014; per il bucket "Clean Energy" usiamo XLE prima del 2008). Tutti i backfill sono documentati nel commento dello script in `scripts/portafoglio-personale-backtest.py`.
+Lavoriamo, come sempre, in **Total Return lordo** (dividendi reinvestiti, al lordo di costi e tasse). Cinque delle sette serie sono già total return native; due sono indici a prezzo, e vi ho aggiunto un **dividendo figurato costante** dichiarato: **0,75%/anno** al Nasdaq Composite (in linea con il rendimento storico da dividendo dell'indice) e **2,9%/anno** all'energia (il settore a più alto dividendo del mercato — ignorarlo falserebbe pesantemente il risultato). È l'ipotesi più sensibile del pezzo, e la metto in chiaro. Il ribilanciamento è annuale, al 1° gennaio.
 
-Il dato di lavoro è **mensile** (fine mese). Tutti i prezzi sono **Total Return** — i dividendi sono reinvestiti, come è obbligatorio quando si confronta equity di lungo periodo. Tutti i numeri sono **lordi** (niente TER degli ETF, niente bid/ask, niente fiscalità italiana) — la convenzione standard del blog, da dichiarare e tenere a mente quando il lettore traduce i numeri in attesa pratica.
+## Parte 2 — Il backtest su 31 anni
 
-## Parte 2 — Il backtest sui 22 anni di dati reali
+Immagina 10.000 € investiti a luglio 1995 e lasciati lavorare, con il portafoglio ribilanciato a target ogni gennaio.
 
-### Lump sum: investi 10.000 € il 30 aprile 2003 e non tocchi più
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/02_equity_lump.png" alt="Curve di crescita in scala logaritmica dal 1995 al 2026 di 10.000 € investiti: portafoglio e S&P 500 finiscono vicini e molto sopra MSCI World e ACWI IMI." />
+  <figcaption>Portafoglio (blu) e S&P 500 (oro) arrivano quasi insieme e molto sopra World e ACWI. Ma il percorso racconta la storia: nella bolla dot-com il portafoglio resta indietro all'S&P, poi lo protegge meglio nei crolli.</figcaption>
+</figure>
 
-Lo scenario più semplice. Investi i 10.000 € il 30 aprile 2003 ripartiti secondo i pesi target, e li lasci lavorare per 22 anni e 8 mesi senza ribilanciare nulla. I pesi driftano liberamente; un asset che cresce di più peserà di più alla fine, uno che crolla peserà di meno. La curva NAV cumulata in scala logaritmica:
+La curva è più interessante del punto d'arrivo. **Tra il 1995 e il 2000 il portafoglio resta indietro all'S&P 500**: mentre gli USA e la tecnologia corrono, la diversificazione geografica e la sleeve difensiva ti costano. Poi arriva il 2000, e la rotazione: **nel crollo dot-com e nel 2008 il portafoglio protegge meglio**, e recupera il terreno. Sul ciclo intero le due curve si riallineano. È esattamente il profilo che ci si aspetta dalla tesi della leadership ciclica: rinunci a un po' di corsa nei melt-up americani, la recuperi nei crolli e sulle rotazioni.
 
-![Equity curve lump sum vs benchmark](/charts/portafoglio-personale-backtest/03_equity_lumpsum_vs_benchmark.png)
+Le metriche sul periodo pieno:
 
-E le metriche:
+| Metrica | Portafoglio | S&P 500 TR | MSCI World TR | MSCI ACWI IMI TR |
+|---|---|---|---|---|
+| CAGR | **10,83%** | 10,69% | 8,42% | 8,20% |
+| Volatilità | 15,9% | 15,1% | 15,1% | 15,5% |
+| Max drawdown | **−48,4%** | −50,8% | −54,0% | −55,1% |
+| Sharpe | 0,73 | 0,75 | 0,61 | 0,59 |
+| Sortino | 0,98 | 1,05 | 0,82 | 0,77 |
+| Calmar | **0,224** | 0,211 | 0,156 | 0,149 |
+| 10.000 € → | **244.706 €** | 235.053 € | 123.386 € | 115.757 € |
 
-| Metrica | Portafoglio | S&P 500 TR | MSCI World TR |
-|---|---|---|---|
-| NAV finale (su 10.000 €) | **204.776 €** | 113.674 € | 76.771 € |
-| CAGR | **+14,30%** | +11,36% | +9,45% |
-| Volatilità annualizzata | 17,2% | 14,4% | 14,4% |
-| Max drawdown | **-49,5%** | -50,8% | -50,8% |
-| Sharpe ratio | **0,87** | 0,82 | 0,70 |
-| Sortino ratio | **1,24** | — | — |
-| Calmar ratio | **0,289** | 0,224 | 0,186 |
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/05_metriche.png" alt="Barre di CAGR, volatilità, max drawdown e Calmar: portafoglio e S&P vicini e sopra World/ACWI, con il portafoglio che ha il drawdown più basso e il Calmar più alto." />
+  <figcaption>CAGR, volatilità, max drawdown e Calmar. Il portafoglio ha il drawdown più basso di tutti e il Calmar più alto; contro l'S&P 500 la partita è alla pari.</figcaption>
+</figure>
 
-L'outperformance è netta. Il portafoglio supera l'S&P 500 di **+2,9 punti percentuali di CAGR all'anno**, e il MSCI World di **+4,9 punti**. In termini di moltiplicatore del capitale, il portafoglio chiude a **1,8 volte** l'S&P e **2,7 volte** il MSCI World.
+Va letta con onestà. Contro l'**S&P 500** il portafoglio ha un CAGR appena più alto e un drawdown più basso, ma una volatilità un po' maggiore: sul rischio corretto (Sharpe, Sortino) sono praticamente pari, con un lieve vantaggio del portafoglio solo sul Calmar (che pesa il drawdown). Tradotto: **è un pareggio**. Contro **World e ACWI**, invece, il vantaggio è su tutte le voci: più rendimento, meno drawdown, Sharpe e Sortino più alti.
 
-Tre osservazioni che ci servono per capire bene:
+### Le finestre mobili
 
-**1. Il drawdown è uguale ai benchmark, non peggiore**. Questo è il fatto più sorprendente. Il portafoglio contiene asset individualmente molto più volatili dell'S&P 500 — Bitcoin, Nasdaq, emerging markets, small cap, energia — eppure il drawdown massimo realizzato è leggermente migliore del benchmark (-49,5% contro -50,8%). È il "pranzo gratis" della diversificazione di Markowitz nella sua forma più pulita: combinazioni di asset correlati imperfettamente possono dare meno rischio del singolo asset più sicuro nel portafoglio. Nel marzo 2009 (il bottom del 2008), l'oro era a +25% sull'anno mentre l'S&P era a -50% — e questa correlazione negativa ha smorzato il drawdown del portafoglio diversificato.
+Il punto d'arrivo dipende dalla data di partenza. Per questo guardiamo **tutte** le finestre mobili: ogni possibile decennio di ingresso dal 1995 a oggi.
 
-**2. La volatilità è più alta ma il Sharpe e il Sortino sono migliori**. Vol del portafoglio 17,2% contro 14,4% del benchmark — quasi 3 punti in più. Però lo Sharpe (eccesso di rendimento per unità di volatilità) e il Sortino (eccesso di rendimento per unità di volatilità *negativa*) sono entrambi migliori. Quindi: il portafoglio "balla di più" ma il bilanciamento fra rendimento e rischio è strutturalmente migliore.
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/04_rolling_10y.png" alt="Boxplot dei rendimenti annualizzati su tutte le finestre mobili di 10 anni: la distribuzione del portafoglio è spostata verso l'alto rispetto a World e ACWI, in linea con l'S&P." />
+  <figcaption>Rendimento annualizzato su tutte le finestre mobili di 10 anni. Il portafoglio (blu) sta con l'S&P e sopra World/ACWI, con una mediana del 10,0%.</figcaption>
+</figure>
 
-**3. Il Calmar racconta la storia chiave**. Il Calmar del portafoglio è 0,289, quello dell'S&P è 0,224, quello del MSCI World è 0,186. Questa è la differenza fondamentale rispetto alla [strategia LEAPS](/posts/strategia-leaps-vs-buy-and-hold) testata nell'articolo precedente: lì il Calmar era identico (0,2099 vs 0,2103), segno che l'extra-CAGR era pagato con extra-drawdown lungo la stessa retta rischio/rendimento. Qui no. Qui il rapporto rendimento/drawdown è migliore del benchmark del 30%. C'è alfa genuino, non leva.
+Su tutte le finestre di 10 anni, la mediana del portafoglio è **10,0%** annuo, contro l'8,1% dell'S&P nello stesso set di finestre, il 7,2% del World e il 7,5% dell'ACWI. In termini di "chi ha vinto": il portafoglio batte il **World nel 98%** delle finestre decennali e l'**ACWI nel 100%**; contro l'S&P 500 vince nel **53%** — testa o croce, che sale al **64%** sulle finestre di 15 anni. Sulle finestre di 5 anni, più rumorose, contro l'S&P scende al 43%: nel breve, quando gli USA corrono, il portafoglio più diversificato può restare indietro.
 
-### PAC: 200 €/mese per 22 anni e 8 mesi
+E lo stesso spirito vale col **PAC**: 200 €/mese dal 1995 (74.600 € versati in tutto) diventano **568.379 €** col portafoglio, 534.657 € con l'S&P, 366.985 € col World e 354.254 € con l'ACWI.
 
-Ora lo scenario più realistico per un retail: invece di mettere 10.000 € tutti in una volta, versi 200 € al mese ogni fine mese, allocati ai pesi target. È esattamente quello che faccio io, solo proiettato indietro nel tempo. Su 272 mesi di backtest, i contributi totali sono 54.400 €.
+### Lo scenario peggiore
 
-![Equity curve PAC vs benchmark](/charts/portafoglio-personale-backtest/04_equity_pac_vs_benchmark.png)
+Medie e mediane raccontano il caso tipico. Ma il rischio vero, per chi investe, è **entrare nel momento sbagliato** — e lì i numeri sono la parte più interessante di tutto il backtest. Per ogni possibile finestra di 5 e di 10 anni dei 31 ho preso il rendimento annualizzato del **caso peggiore** e il 5° percentile.
 
-| | Portafoglio | S&P 500 | MSCI World |
-|---|---|---|---|
-| Contributi totali | 54.400 € | 54.400 € | 54.400 € |
-| NAV finale | **396.541 €** | 273.178 € | 199.526 € |
-| Moltiplicatore sui contributi | **7,3×** | 5,0× | 3,7× |
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/07_worst_windows.png" alt="Barre del rendimento annualizzato nella finestra peggiore, a 5 e 10 anni: il portafoglio ha la barra meno negativa a 5 anni e l'unica positiva a 10 anni, contro S&P, World e ACWI tutti in negativo." />
+  <figcaption>Il rendimento annualizzato di chi entra nel momento peggiore. A 10 anni il portafoglio è l'unico dei quattro a restare in positivo.</figcaption>
+</figure>
 
-Il PAC amplifica l'outperformance del portafoglio: il moltiplicatore finale è del 46% superiore a quello dell'S&P (7,3× contro 5,0×). La ragione meccanica è la stessa che premia il dollar cost averaging in generale: i versamenti durante i drawdown comprano più quote. Quando questi acquisti "in saldo" si fanno su asset volatili che poi recuperano violentemente (Nasdaq 2009, EM 2003-2007, oro 2008-2011), il PAC raccoglie più rendimento del lump sum equivalente.
+Il quadro è netto. Sulla **peggiore finestra di 10 anni** dei 31 — quella di chi ha investito nel marzo 1999, a un passo dallo scoppio della bolla dot-com — il portafoglio ha reso **+3,1% all'anno**. È l'unico dei quattro a non aver perso: nello stesso decennio maledetto l'S&P 500 ha fatto **−3,4%** annuo, il World −2,5%, l'ACWI −1,3%. E non è un episodio isolato: il **5° percentile** dei rendimenti decennali del portafoglio è +4,7% annuo, mentre per i benchmark è intorno allo zero o negativo. Su **nessuna** finestra di 10 anni dei 31 il portafoglio avrebbe lasciato l'investitore in perdita; per S&P, World e ACWI è successo.
 
-### I rolling windows
+Sulle finestre di **5 anni** vale la stessa gerarchia: il caso peggiore del portafoglio è **−2,3%** annuo, contro il −6,7% dell'S&P, il −5,7% del World e il −5,4% dell'ACWI. E il 5° percentile del portafoglio resta **positivo** (+1,4%), l'unico dei quattro.
 
-Il rischio dei numeri full period è dipendere troppo dal punto di partenza. Per questo SmartMoneyLab usa sempre **finestre rolling** che esplorano tutti i possibili punti di entrata. Con 22 anni di dati, possiamo fare finestre da 5, 10 e 15 anni con step di 3 mesi.
+Un chiarimento onesto, perché non sembri magia. Questa protezione **non** significa che il portafoglio non crolli: il max drawdown *dentro* le finestre resta pieno, intorno al **−48%** — è un portafoglio 100% azionario e nei crolli scende come gli altri. Ciò che la sleeve difensiva reale (oro + energia) e la diversificazione geografica comprano non è l'assenza del crollo, ma un **recupero più rapido**: chi resta investito 5-10 anni finisce con un risultato molto meno rovinato di chi ha in mano il solo indice concentrato. È esattamente il motivo per cui il decennio 1999-2009, disastroso per gli USA e per il mondo sviluppato, è stato tollerabile per un portafoglio pieno di emergenti, oro ed energia: mentre la tecnologia si sgonfiava, quelle classi vivevano il loro ciclo. La mean reversion, di nuovo.
 
-![Distribuzione del CAGR su finestre rolling](/charts/portafoglio-personale-backtest/05_cagr_boxplot_rolling.png)
+## Parte 3 — Il Monte Carlo: cosa potremmo aspettarci
 
-Distribuzione del CAGR per orizzonte e benchmark:
+Il backtest dice cosa è successo. Per stimare cosa *potrebbe* succedere, generiamo **10.000 traiettorie** con un bootstrap a blocchi di 3 mesi sui rendimenti storici del portafoglio e dei benchmark (campionati insieme, per non spezzare il loro co-movimento), su orizzonti di 10, 20 e 30 anni, partendo da 10.000 €.
 
-| | Portafoglio | S&P 500 | MSCI World |
-|---|---|---|---|
-| **Rolling 5 anni (71 finestre)** | | | |
-| Mediana CAGR | +11,6% | +11,7% | +8,8% |
-| 5° percentile | +2,8% | -1,7% | -1,7% |
-| 95° percentile | +21,1% | +17,4% | +14,9% |
-| **Rolling 10 anni (51 finestre)** | | | |
-| Mediana CAGR | +14,1% | +12,2% | +9,2% |
-| 5° percentile | +7,0% | +6,9% | +4,7% |
-| 95° percentile | +18,5% | +15,3% | +12,1% |
-| **Rolling 15 anni (31 finestre)** | | | |
-| Mediana CAGR | +12,2% | +9,7% | +7,5% |
-| 5° percentile | +10,0% | +8,5% | +6,3% |
-| 95° percentile | +17,4% | +14,5% | +11,6% |
+<figure>
+  <img src="/charts/portafoglio-personale-backtest/06_montecarlo.png" alt="Monte Carlo: valore finale mediano del portafoglio con range 5-95 percentile a 10, 20 e 30 anni, con le mediane dei benchmark sovrapposte; il portafoglio è in linea con l'S&P e sopra World/ACWI." />
+  <figcaption>Valore finale di 10.000 € nelle 10.000 traiettorie: mediana del portafoglio (barra) e range dal 5° al 95° percentile, con le mediane dei benchmark. In linea con l'S&P, sopra World e ACWI.</figcaption>
+</figure>
 
-E i win rate (quota di finestre rolling in cui il portafoglio batte il benchmark):
+A **20 anni**, la mediana del portafoglio è **78.407 €**, contro 76.067 € dell'S&P, 49.641 € del World e 47.796 € dell'ACWI. L'incertezza è grande, come dev'essere: dal 5° al 95° percentile si va da ~23.000 € a ~257.000 €. In termini di probabilità di battere il benchmark: il portafoglio batte il **World nel 98%** degli scenari a 20 anni, l'**ACWI nel 100%**, e l'S&P nel **55%**. A 30 anni la mediana sale a **220.468 €** e le probabilità restano le stesse: pareggio contro l'S&P, vittoria quasi certa contro i benchmark globali.
 
-![Win rate per finestra rolling](/charts/portafoglio-personale-backtest/07_win_rate_per_finestra.png)
-
-| Orizzonte | Win rate vs S&P 500 | Win rate vs MSCI World | Outperformance media vs S&P |
-|---|---|---|---|
-| 5 anni | 55% | 87% | +1,3 pp |
-| 10 anni | **94%** | 100% | +1,7 pp |
-| 15 anni | **100%** | 100% | +2,4 pp |
-
-Tre cose dico apertamente:
-
-**Sui 5 anni l'edge non c'è.** Win rate vs S&P 500 al 55% significa "praticamente pareggio". La mediana del CAGR a 5 anni del portafoglio è quasi identica a quella del benchmark (11,6% vs 11,7%). Il portafoglio non è uno strumento per "battere il mercato a 5 anni". Se compri questa allocazione e la vendi a 5 anni perché non si è mossa abbastanza, la statistica suggerisce che non hai dato tempo. **L'orizzonte minimo perché l'allocazione abbia senso è 10 anni**, e il sweet spot è 15+.
-
-**Sui 10 e 15 anni il portafoglio vince quasi sempre.** Win rate del 94% sui rolling decennali, 100% sui quindicennali. È una proprietà statisticamente forte: in 22 anni di dati, su tutti i possibili punti di partenza distanziati di 3 mesi, quasi nessuna finestra decennale ha visto il benchmark battere il portafoglio.
-
-**Il drawdown sui 10 anni è leggermente peggiore del benchmark.** Distribuzione del max drawdown:
-
-![Max drawdown per finestra rolling](/charts/portafoglio-personale-backtest/06_maxdd_boxplot_rolling.png)
-
-Sul rolling 10y il drawdown mediano del portafoglio è -33,9% contro -23,9% dell'S&P 500. Quindi: il portafoglio batte il benchmark sul CAGR a 10 anni nel 94% delle finestre, ma nelle stesse finestre ha drawdown medi più ampi. La compensazione si vede sul Calmar: i CAGR maggiori bilanciano i drawdown maggiori in modo che il rapporto rischio/rendimento risulta comunque favorevole, ma il "viaggio" dentro la finestra è più volatile.
-
-### Il periodo reale dell'investimento: dal 7 novembre 2024 a oggi
-
-Per onestà aggiungo anche il dato sul periodo *vero* del mio investimento, da novembre 2024 a fine 2025 — 14 mesi. È troppo breve per dire qualcosa di statisticamente significativo, ma serve come "snapshot reale" per il lettore.
-
-![PAC reale: portafoglio vs benchmark dal 7 novembre 2024](/charts/portafoglio-personale-backtest/08_pac_vs_lumpsum.png)
-
-| | PAC Portafoglio | PAC S&P 500 | PAC MSCI World |
-|---|---|---|---|
-| Versamenti totali | 2.800 € | 2.800 € | 2.800 € |
-| NAV finale (31 dic 2025) | **3.235 €** | 3.134 € | 3.155 € |
-| Rendimento sui contributi | +15,6% | +11,9% | +12,7% |
-
-Il portafoglio sta sovraperformando entrambi i benchmark di +3,7 pp e +2,9 pp — direzionalmente coerente col CAGR di outperformance medio del backtest 22y. Ma su 14 mesi è solo un'osservazione singola, non un dato statistico. La riporto per trasparenza, non per supportare una conclusione.
-
-## Parte 3 — La simulazione Monte Carlo
-
-Il backtest ci dice cosa sarebbe successo *se* avessi investito nel passato. Per stimare cosa potrebbe succedere nel futuro serve uno strumento diverso. È qui che entra la simulazione **Monte Carlo**.
-
-### Cosa è una simulazione Monte Carlo (e a cosa serve)
-
-Una simulazione Monte Carlo è una tecnica per stimare la distribuzione di esiti futuri di un sistema complesso quando non hai una formula matematica chiusa che ti dia la risposta esatta. Il principio è semplice: invece di calcolare un singolo "esito atteso", ne simuli migliaia (o decine di migliaia) campionando casualmente gli ingredienti del sistema, e guardi come si distribuiscono i risultati.
-
-Applicata al nostro portafoglio: invece di chiederci "quanto renderà fra 20 anni" — domanda a cui nessuno può rispondere — chiediamo "se i prossimi 20 anni saranno *statisticamente simili* agli ultimi 22, quale è la distribuzione dei NAV finali possibili?". Per rispondere, generiamo **10.000 sequenze sintetiche** di rendimenti mensili per i 20 anni a venire (ognuna lunga 240 mesi), simuliamo il portafoglio su ciascuna, e raccogliamo i 10.000 NAV finali. La distribuzione di questi 10.000 numeri è la nostra stima.
-
-Il modo in cui generiamo le 10.000 sequenze sintetiche non è arbitrario. Usiamo una tecnica chiamata **block bootstrap**: campioniamo casualmente *blocchi* di 3 mesi consecutivi dai 22 anni di storia, e li incolliamo in sequenza fino a coprire l'orizzonte futuro. Il motivo dei blocchi è preservare due proprietà importanti della storia che andrebbero perse se campionassimo un mese alla volta in modo indipendente: la **autocorrelazione di breve periodo** (il cosiddetto *vol clustering*: dopo un mese di volatilità alta tende a venirne un altro), e le **correlazioni cross-asset** (quando l'S&P scende, l'oro spesso sale; questa relazione va mantenuta nelle 10.000 traiettorie). Tre mesi è il blocco standard in letteratura per backtest mensili di portafogli multi-asset: cattura il momentum di breve senza essere troppo rigido.
-
-A cosa serve quindi questa simulazione? A tre cose, in ordine di importanza:
-
-1. **Quantificare l'incertezza**. Invece di un numero singolo ("ti aspetti X% all'anno"), ottieni una distribuzione: "nel 50% dei casi il NAV finale sta fra A e B, nel 90% sta fra C e D". Questa è una rappresentazione molto più onesta di quello che la storia ci permette di dire.
-2. **Confrontare strategie su basi statistiche**, non aneddotiche. La domanda "il mio portafoglio batte l'S&P?" diventa "in quale percentuale delle 10.000 traiettorie il portafoglio finisce sopra l'S&P?". Una risposta del 71% è molto diversa da una risposta del 51%: la prima è una scommessa che paga in modo strutturale, la seconda è una scommessa al limite del lancio di una moneta.
-3. **Stimare le code**. La mediana ti dice il "caso tipico". Ma quello che spesso conta di più per chi pianifica un'allocazione di lungo periodo è il 5° percentile (la coda sinistra: cosa succede negli scenari sfortunati) e il 95° (la coda destra: cosa succede in quelli fortunati). Un portafoglio che ha mediana alta ma coda sinistra terribile potrebbe non essere desiderabile, anche se "in media" è migliore.
-
-Quello che la simulazione Monte Carlo **non** fa, ed è il punto critico: non prevede il futuro. Tutto il calcolo dipende dall'ipotesi che il regime statistico futuro assomigli a quello passato — ovvero che la distribuzione dei rendimenti, le correlazioni, le volatilità e i comportamenti delle code abbiano la stessa "firma" degli ultimi 22 anni. Se il regime cambia in modo strutturale (de-globalizzazione spinta, fine del super-cycle tech, ritorno duraturo a tassi reali alti, transizione energetica accelerata o bloccata), tutti i risultati vanno presi come scenari condizionati e non come previsioni.
-
-Per farti vedere graficamente cosa significano "10.000 traiettorie e la loro distribuzione", ecco il "fan chart" del portafoglio su 30 anni con lump sum da 10.000 €: la linea centrale è la mediana, l'area scura interna contiene il 50% delle traiettorie (dal 25° al 75° percentile), l'area chiara esterna contiene il 90% delle traiettorie (dal 5° al 95°):
-
-![Fan chart Monte Carlo lump sum 30 anni](/charts/portafoglio-personale-montecarlo/03_fan_chart_lump.png)
-
-### I numeri: 20 anni come orizzonte di riferimento
-
-Il backtest aveva dimostrato che sotto i 10 anni l'edge del portafoglio non è significativo statisticamente. Per la simulazione Monte Carlo prendo come riferimento principale l'orizzonte di **20 anni**, che è il sweet spot dell'allocazione: lungo abbastanza da rendere l'edge statisticamente significativo, corto abbastanza da essere realistico per un investitore di 25-35 anni di età che vuole prepararsi alla seconda metà della carriera.
-
-Lump sum di 10.000 € investiti il giorno zero, distribuzione dei NAV finali a 20 anni:
-
-![Distribuzione NAV finale lump sum 10/20/30 anni](/charts/portafoglio-personale-montecarlo/01_distribuzione_nav_lump.png)
-
-| Percentile | Portafoglio | S&P 500 | MSCI World |
-|---|---|---|---|
-| 5° (scenari sfortunati) | **40.571 €** | 28.784 € | 20.035 € |
-| 25° | 85.660 € | 55.118 € | 38.752 € |
-| 50° (mediana) | **147.630 €** | 84.769 € | 60.444 € |
-| 75° | 265.329 € | 130.787 € | 92.140 € |
-| 95° (scenari fortunati) | **696.748 €** | 239.679 € | 165.436 € |
-
-Tradotto in italiano: se investi 10.000 € oggi e li lasci lavorare 20 anni, nel **50% dei casi** (cioè in metà delle 10.000 traiettorie simulate) finisci con un NAV fra **85.660 € e 265.329 €** (l'intervallo p25-p75). Nel **5% dei casi peggiori** finisci con meno di **40.571 €** (che è comunque un 4× sul capitale iniziale). Nel **5% dei casi migliori** finisci con più di **696.748 €** (un 69× sul capitale iniziale).
-
-Confronto con l'S&P 500 sullo stesso orizzonte e nella stessa simulazione bootstrap: la mediana del portafoglio (147.630 €) è il **74% in più** della mediana dell'S&P (84.769 €). Il 5° percentile del portafoglio (40.571 €) è il **41% in più** del 5° dell'S&P (28.784 €). E il 95° percentile del portafoglio (696.748 €) è **quasi il triplo** del 95° dell'S&P (239.679 €).
-
-Quindi l'asimmetria del payoff è favorevole **sia nella coda sinistra che nella coda destra**. Non è solo "vinco nella media": vinco anche negli scenari fortunati di molto, e perdo meno in quelli sfortunati.
-
-La probabilità che il portafoglio finisca sopra il benchmark a 20 anni:
-
-![Probabilità di outperformance Monte Carlo](/charts/portafoglio-personale-montecarlo/05_proba_outperformance.png)
-
-| Orizzonte | P(Portafoglio > S&P 500) | P(Portafoglio > MSCI World) |
-|---|---|---|
-| 10 anni | 59% | 69% |
-| 20 anni | **71%** | **82%** |
-| 30 anni | **82%** | **91%** |
-
-Le probabilità di outperformance crescono monotonicamente con l'orizzonte. È coerente con quello che il backtest ha mostrato sui rolling windows: il vantaggio strutturale del portafoglio si manifesta su orizzonti lunghi, e su orizzonti corti l'esposizione settoriale concentrata può andare male per ragioni puramente tattiche.
-
-### E il PAC a 20 anni?
-
-Stesso esercizio ma con il PAC di 200 €/mese (48.000 € versati totali in 20 anni):
-
-| Percentile | Portafoglio | S&P 500 | MSCI World |
-|---|---|---|---|
-| 5° | 96.268 € | 80.958 € | 63.844 € |
-| 50° (mediana) | **235.469 €** | 172.477 € | 135.454 € |
-| 95° | 686.727 € | 361.695 € | 286.156 € |
-
-La probabilità che il PAC sul portafoglio batta il PAC sull'S&P 500 a 20 anni è del **67%**, contro il MSCI World è del **78%**. Note che la probabilità di outperformance del PAC è leggermente inferiore a quella del lump sum (67% vs 71% sull'S&P). Il PAC riduce sia la varianza dell'esito che — un po' — l'edge atteso, perché diluisce nel tempo l'esposizione media.
-
-### Il drawdown atteso
-
-Anche il drawdown massimo è un risultato della simulazione: per ogni traiettoria possiamo calcolare il drawdown peggiore vissuto lungo i 240 mesi, e guardare la distribuzione.
-
-![Distribuzione del Max Drawdown atteso](/charts/portafoglio-personale-montecarlo/06_distribuzione_mdd.png)
-
-Mediana del MDD atteso a 20 anni: portafoglio **-32,6%**, S&P 500 **-30,8%**, MSCI World **-32,1%**. Praticamente identici. Il 5° percentile (lo scenario di drawdown peggiore) è -50,5% per il portafoglio, -49,4% per l'S&P. Anche qui: il portafoglio non è "più rischioso" del benchmark sul rischio di coda. Le code di drawdown sono sostanzialmente identiche; quello che cambia è la mediana del CAGR ottenuto.
-
-## I limiti del modello, presi sul serio
-
-Tre cose vanno dichiarate apertamente prima di chiudere.
-
-**Il bias di selezione retrospettiva è enorme e dichiarato**. Ho disegnato questo portafoglio nel 2024 conoscendo già i trend degli ultimi 22 anni: che il Nasdaq ha sovraperformato l'S&P di 5 punti annui dal 2010, che l'oro ha avuto un decennio d'oro 2003-2011, che gli EM hanno avuto un boom 2003-2007 e poi sono stati stagnanti, che il settore energetico è ciclico ma con tail risks favorevoli, e così via. Costruire un'allocazione "ispirata" da questa conoscenza e poi testarla *sugli stessi dati storici* significa avere un bias matematico forte verso risultati positivi. Il portafoglio retrospettivamente vincente è sempre più facile da costruire del portafoglio prospettivamente vincente.
-
-Quello che il backtest e il Monte Carlo dimostrano onestamente è due cose distinte. Primo: la **struttura matematica della diversificazione** funziona — combinare asset volatili con bassa correlazione produce risultati migliori del singolo asset più sicuro nel mix. Questa è una proprietà tecnica universale di Markowitz, non dipende dal regime. Secondo: **se il regime tematico che ha pagato negli ultimi 22 anni continua a pagare**, il portafoglio batterà i benchmark con alta probabilità. Quello che non dimostrano: che il regime continui a pagare.
-
-**Lordo, niente costi**. I numeri sono tutti pre-TER, pre-bid/ask, pre-fiscalità. Il TER medio del mio mix di ETF UCITS è circa 0,35% all'anno (alcuni asset più cari come UNIC, FBTC, NUCL, EMOVE sono attorno allo 0,70%; gli ETF passivi MSCI World, S&P, EM sono attorno allo 0,12-0,20%). Sui 22 anni di backtest questo significa circa 70-80 bps annui di drag complessivo (TER + spread bid/ask al rebalancing implicito del PAC). Sull'outperformance lorda di +2,9 pp sull'S&P, il margine netto resta significativo ma non più drammatico (+2 pp circa). La fiscalità italiana (capital gain 26%, dividendi al 26% e imposta di bollo 0,2%/anno) erode altri 30-40 bps anno. Per la mia situazione personale uso il PAC senza realizzare capital gain fino al ritiro, quindi il drag fiscale è differito — ma esiste.
-
-**Il modello Monte Carlo non cattura i cambi di regime**. Il block bootstrap campiona dalla storia passata, e quindi assume che ogni "blocco di 3 mesi" pescato dal 2003-2025 possa rappresentare un futuro blocco di 3 mesi. Funziona bene per simulare la struttura di vol e correlazioni in regime "normale". Funziona male se il futuro contiene un regime macro mai visto nei 22 anni di input (per esempio: un periodo di inflazione duratura sopra il 6% combinato con tassi reali alti, come quello vissuto negli anni '70 — periodo *non incluso* nel dataset di addestramento). Il vero rischio del Monte Carlo è essere fooled by the past, non il bootstrap in sé.
+Coerente col backtest: la simulazione non conosce il futuro, ma proietta in avanti la stessa struttura — un portafoglio che compete con l'S&P 500 e stacca il resto del mondo.
 
 ## Cosa porto a casa
 
-1. **Sul backtest 22 anni e sulla simulazione Monte Carlo, il portafoglio batte l'S&P 500 di +2,9 pp di CAGR all'anno con drawdown leggermente migliore, e batte il MSCI World di +4,9 pp**. È un'outperformance significativa, dovuta a diversificazione strutturale che effettivamente "lavora" e non a leva. Il Calmar superiore al benchmark è la firma matematica dell'alfa genuino.
+1. **Non batte l'S&P 500, lo eguaglia — con meno rischio nei crolli.** E va detto per primo, perché è la parte scomoda. Chi vuole "battere l'America" con la diversificazione geografica, sui dati di questi 31 anni, resta deluso: l'S&P è stato il benchmark più duro. Il portafoglio ci arriva alla pari, con il drawdown più basso.
 
-2. **L'edge esiste solo su orizzonti lunghi**. Sui 5 anni il win rate vs S&P è del 55%, praticamente pari. Sui 10 sale al 94%, sui 15 al 100%. Il portafoglio non è uno strumento "per battere il mercato a breve": è uno strumento di accumulazione lunga. L'orizzonte minimo perché abbia statisticamente senso è 10 anni; il sweet spot è 15-20.
+2. **Il confronto giusto lo vince nettamente.** Un portafoglio diversificato a livello globale va confrontato con un indice globale, non solo con l'S&P: contro MSCI World e ACWI IMI il vantaggio è di 2,4-2,6 punti di CAGR all'anno, con meno drawdown, e regge nel 93-100% delle finestre e degli scenari simulati.
 
-3. **Il Monte Carlo a 20 anni stima una mediana del NAV finale a 147.630 €** (lump sum di 10k), contro 84.769 € dell'S&P 500. Coda sinistra 40.571 €, coda destra 696.748 €. Probabilità di outperformance sull'S&P: 71%; sul MSCI World: 82%. **L'asimmetria del payoff è favorevole sia nella coda sinistra che nella destra**: anche nello scenario sfortunato si fa meglio del benchmark, e nello scenario fortunato si fa molto meglio.
+3. **La sleeve difensiva reale (oro + energia) è ciò che compra il vantaggio sul rischio.** Costa qualcosa negli anni tori — non partecipa ai melt-up tecnologici — ma è la ragione per cui il drawdown è il più basso del gruppo. Chi non regge di veder "fermo" un 17% del portafoglio quando la Borsa corre, difficilmente lo terrà nei momenti in cui serve.
 
-4. **Il bias di selezione retrospettiva è il limite epistemico principale**. Il portafoglio è stato disegnato nel 2024 conoscendo i trend che hanno premiato gli ultimi 22 anni. Il backtest dimostra "se quei trend continuano, vinci". Non dimostra "i trend continueranno". Quello che dimostra in modo universale e indipendente dal regime è solo la proprietà tecnica della diversificazione di Markowitz — combinare asset poco correlati produce rapporti rischio/rendimento migliori dei singoli asset.
+4. **È equity-only, con volatilità piena.** Nessuna obbligazione: max drawdown storico intorno al −48%. Ha senso su un orizzonte di 15-20 anni o più, e con lo stomaco per attraversare un dimezzamento del capitale senza vendere.
 
-5. **Il PAC è lo strumento naturale per questa allocazione**. Riduce il rischio di entry timing su un portafoglio tematico, e si vede meccanicamente nei numeri del backtest (PAC 7,3× contributi vs lump sum 6,7× iniziale). Il sweet spot pratico per un retail italiano è: PAC mensile su orizzonte 15+ anni, rebalancing implicito tramite i versamenti, fiscalità differita non realizzando capital gain prima del ritiro.
+5. **Il bias resta, più leggero.** Il portafoglio è disegnato oggi conoscendo la storia. L'uso di classi ampie e il pareggio con l'S&P lo rendono molto meno sospetto di un backtest cucito sui vincitori, ma il limite epistemico è quello di sempre: il passato informa, non promette. E due dividendi (Nasdaq, energia) sono ipotesi dichiarate, non dati.
 
-Il piano operativo del mio portafoglio è di continuare il PAC per i prossimi 15-20 anni e tornare su queste pagine fra esattamente 12 mesi a rifare l'esercizio con un anno di dati reali in più. Idealmente la nuova famiglia editoriale "test di portafogli reali" diventerà una rubrica annuale con anche i portafogli di lettori che vorranno farsi testare. La trasparenza piena è il prezzo del rigore: se i prossimi 5 anni il portafoglio sotto-performerà l'S&P del 3% all'anno, lo scriverò qui senza filtri.
+Come per tutta la rubrica: felice di passare al setaccio anche il portafoglio di un lettore. Mandami composizione e pesi, e lo testiamo con lo stesso metodo.
+
+## Fonti e riproducibilità
+
+- Serie storiche in Total Return: S&P 500 (SPY adj close, dal 1993), MSCI Emerging Markets (dal 1987), Nasdaq Composite (dal 1975, + dividendo figurato 0,75%/anno), Russell 2000 TR (dal 1995), MSCI Europe Momentum (dal 1994), oro fisico LBMA (dal 1985), S&P 500 Energy (dal 1993, + dividendo figurato 2,9%/anno). Benchmark: S&P 500 TR, MSCI World TR (dal 1969), MSCI ACWI IMI TR (dal 1994).
+- Finestra comune del backtest: luglio 1995 – luglio 2026 (373 mesi). Ribilanciamento annuale, lordo. Monte Carlo: bootstrap a blocchi di 3 mesi, 10.000 traiettorie.
+- Tutti i numeri e i grafici sono generati da `scripts/portafoglio-personale-backtest.py`, `scripts/portafoglio-personale-montecarlo.py` e `scripts/portafoglio-personale-downside.py` (analisi del caso peggiore). Le simulazioni usano ipotesi dichiarate e semplificate a scopo illustrativo e non predittivo.
