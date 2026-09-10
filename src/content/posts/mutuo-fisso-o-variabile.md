@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "Mutuo a tasso fisso o variabile? Dipende da una cosa sola (2026)"
 description: "Meglio il mutuo a tasso fisso o variabile? Studio su 26 anni di dati BCE e Monte Carlo a 30 anni: il variabile costa meno in 2 casi su 3, ma la surroga ribalta tutto. Quello che decide è il premio iniziale del fisso."
 pubDate: 2026-09-04

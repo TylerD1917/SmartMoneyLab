@@ -12,6 +12,8 @@ export async function GET(context) {
 
   // Slug delle serie presenti negli articoli (per le pagine /serie/[series])
   const seriesSlugs = [...new Set(posts.map((p) => p.data.series).filter(Boolean))];
+  // Slug delle categorie presenti (per le pagine /categoria/[category])
+  const categorySlugs = [...new Set(posts.map((p) => p.data.category).filter(Boolean))];
 
   const entries = [];
   const add = (path, date) =>
@@ -30,6 +32,8 @@ export async function GET(context) {
   for (const t of tools) add(`strumenti/${t.slug}/`, iso(t.data.updatedDate ?? t.data.pubDate));
   // Serie
   for (const s of seriesSlugs) add(`serie/${s}/`, undefined);
+  // Categorie
+  for (const c of categorySlugs) add(`categoria/${c}/`, undefined);
 
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n` +

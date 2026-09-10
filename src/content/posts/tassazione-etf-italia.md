@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "Come sono tassati gli ETF in Italia? La guida completa (2026)"
 description: "Tassazione ETF in Italia: aliquota 26%, quota titoli di Stato al 12,5%, imposta di bollo, accumulazione vs distribuzione e la regola sulle minusvalenze che quasi tutti sbagliano."
 pubDate: 2026-08-21

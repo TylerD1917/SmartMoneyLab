@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Ha ancora senso inserire obbligazioni in portafoglio?"
 description: "Tre portafogli a confronto (100% azionario, 60/40, 40/60) su 25 anni di dati S&P 500 e Treasury 10Y, in finestre rolling a 5 e 10 anni. La risposta dipende da una variabile che quasi nessuno ti chiede."
 pubDate: 2026-04-28

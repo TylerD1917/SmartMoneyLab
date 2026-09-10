@@ -1,4 +1,5 @@
 ---
+category: "strategie"
 title: "La leva 2x raddoppia il rendimento del mercato? La 3x lo triplica?"
 description: "Tre portafogli buy & hold sull'S&P 500 con leva 1x, 2x e 3x daily, su 50 anni di dati. Il volatility drag, i costi reali calibrati su un ETF vero (ProShares SSO), e il prezzo che paghi per voler 'amplificare' il mercato."
 pubDate: 2026-05-01

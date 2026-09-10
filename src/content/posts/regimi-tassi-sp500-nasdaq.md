@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Regimi di tassi Fed e mercati azionari USA (1971-2026)"
 description: "55 anni di dati sul rapporto tra tassi Fed e rendimenti di S&P 500 e NASDAQ. Analisi contemporanea e forward, tre definizioni di regime, event study sui pivot Fed."
 pubDate: 2026-07-12

@@ -1,4 +1,5 @@
 ---
+category: "strategie"
 title: "Una strategia LEAPS batte il mercato? 50 anni di dati sull'S&P 500"
 description: "70% in call LEAPS sull'S&P 500 (strike 85%, maturity 2 anni, roll annuale) + 30% Treasury 10y, contro buy & hold puro. Su 49 anni il LEAPS vince il 100% delle finestre 20y — ma il Calmar è identico. Leva, non alfa."
 pubDate: 2026-06-11

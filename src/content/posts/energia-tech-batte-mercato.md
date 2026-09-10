@@ -1,4 +1,5 @@
 ---
+category: "strategie"
 title: "Mix Nasdaq + Energia batte il mercato? Test su 26 anni di QQQ 70 / XLE 30"
 description: "Una strategia trovata su X: 70% Nasdaq + 30% Energy USA, buy & hold. Test su 26 anni di dati daily contro l'S&P 500 con il framework SmartMoneyLab a 6+1 metriche. Verdict, scorecard, trade-off."
 pubDate: 2026-05-05

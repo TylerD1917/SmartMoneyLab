@@ -1,8 +1,8 @@
 ---
-title: "Il mio portafoglio reale: 31 anni di backtest e Monte Carlo (revisione 2026)"
-description: "Ho semplificato il mio portafoglio in 7 classi ad ampia storia e l'ho testato su 31 anni (1995-2026). Eguaglia l'S&P 500 con meno rischio, batte MSCI World e ACWI nel 93-100% degli scenari e nella peggiore finestra di 10 anni resta l'unico in positivo. Con il caveat del bias, dichiarato."
-pubDate: 2026-06-13
-updatedDate: 2026-09-09
+category: "strategie"
+title: "Il mio portafoglio reale: 31 anni di backtest e Monte Carlo"
+description: "Il mio portafoglio reale in 7 classi ad ampia storia, testato su 31 anni (1995-2026): eguaglia l'S&P 500 con meno rischio, batte MSCI World e ACWI, e nel peggior decennio resta l'unico in positivo."
+pubDate: 2026-09-09
 tags: ["portafoglio", "backtest", "monte-carlo", "rolling-windows", "pac", "asset-allocation", "momentum", "mean-reversion"]
 author: "SmartMoneyLab"
 simulationSlug: "portafoglio-personale-backtest"
@@ -29,14 +29,14 @@ faq:
       È il 17% del portafoglio (8% oro + 9% energia): due attivi reali che tendono a muoversi diversamente dall'azionario tradizionale e a difendere nei regimi in cui questo va peggio — inflazione, shock geopolitici, mercati laterali. Costano qualcosa negli anni di corsa dei mercati (non partecipano al rialzo tecnologico), ma sono ciò che, nei numeri, compra al portafoglio il drawdown più basso di tutti i benchmark.
   - q: "Qual è il limite principale di questo backtest?"
     a: |-
-      Il bias di selezione retrospettiva: il portafoglio è disegnato oggi, conoscendo la storia. È molto più leggero che in passato, perché ora usa classi ampie e non settori di nicchia scelti perché hanno già vinto — e il fatto stesso che non stravinca l'S&P 500 è un segnale che non è sovra-ottimizzato. Ma resta: il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà". Secondariamente, due serie (Nasdaq ed Energia) sono a prezzo e vi ho aggiunto un dividendo figurato dichiarato.
+      Il bias di selezione retrospettiva: il portafoglio è disegnato conoscendo la storia. Usa però classi ampie e non settori di nicchia scelti perché hanno già vinto — e il fatto stesso che non stravinca l'S&P 500 è un segnale che non è sovra-ottimizzato. Ma resta: il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà". Secondariamente, due serie (Nasdaq ed Energia) sono a prezzo e vi ho aggiunto un dividendo figurato dichiarato.
 ---
 
 > **Disclaimer.** Questo è il mio portafoglio reale, non un consiglio. Le cifre sono backtest e simulazioni con ipotesi dichiarate, non previsioni. Nessun rendimento passato garantisce quelli futuri.
 
 ## In breve
 
-Un anno fa ho pubblicato il backtest del mio portafoglio: 13 asset, molti di nicchia, testabili solo dal 2003. Da allora l'ho **semplificato** in **7 classi ad ampia storia**, e questo mi permette di testarlo su una finestra molto più lunga e severa — **31 anni, dal luglio 1995 al luglio 2026** — che comprende la bolla dot-com e il suo crollo, la crisi del 2008, il decennio perso di Europa ed emergenti, il boom e il crollo dell'energia, il COVID e l'orso del 2022. L'allocazione target è: **Azionario USA 20% · Mercati Emergenti 20% · Nasdaq/Tech 25% · Smallcap 10% · Europa Momentum 8% · Oro 8% · Energia 9%**. Equity-only, ribilanciata una volta l'anno. I numeri principali:
+Questo è il portafoglio reale con cui gestisco la mia componente azionaria di lungo periodo: **7 classi ad ampia storia**, scelte anche perché mi permettono di testarlo su una finestra lunga e severa — **31 anni, dal luglio 1995 al luglio 2026** — che comprende la bolla dot-com e il suo crollo, la crisi del 2008, il decennio perso di Europa ed emergenti, il boom e il crollo dell'energia, il COVID e l'orso del 2022. L'allocazione target è: **Azionario USA 20% · Mercati Emergenti 20% · Nasdaq/Tech 25% · Smallcap 10% · Europa Momentum 8% · Oro 8% · Energia 9%**. Equity-only, ribilanciata una volta l'anno. I numeri principali:
 
 1. **Contro l'S&P 500 è un pareggio, non una vittoria.** CAGR 10,83% contro 10,69%, con un drawdown massimo *migliore* (−48,4% contro −50,8%) ma volatilità un filo più alta. Su 10.000 € investiti nel 1995, il portafoglio chiude a **244.706 €**, l'S&P a 235.053 €. È importante dirlo subito: questo portafoglio **non pretende di battere l'S&P 500**, il benchmark più difficile di questi 31 anni. Lo eguaglia, prendendosi meno rischio nei crolli.
 
@@ -48,13 +48,13 @@ Un anno fa ho pubblicato il backtest del mio portafoglio: 13 asset, molti di nic
 
 5. **Il Monte Carlo prospettico dice la stessa cosa.** Su 10.000 traiettorie a 20 anni, la mediana del portafoglio partendo da 10.000 € è **78.407 €** (contro 49.641 € del World e 47.796 € dell'ACWI), e batte il World nel **98%** e l'ACWI nel **100%** degli scenari. Contro l'S&P resta un pareggio (55%).
 
-6. **Il caveat è più leggero di prima, ma c'è.** Il portafoglio è disegnato oggi conoscendo la storia. Ora però usa classi ampie e non settori di nicchia scelti perché hanno già vinto — e proprio il fatto che non stravinca l'S&P è la prova che non è sovra-ottimizzato. Il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà".
+6. **Il caveat, che dichiaro apertamente.** Il portafoglio è disegnato conoscendo la storia. Usa però classi ampie e non settori di nicchia scelti perché hanno già vinto — e proprio il fatto che non stravinca l'S&P è la prova che non è sovra-ottimizzato. Il backtest dimostra "se i prossimi 31 anni assomigliano agli ultimi 31, funziona", non "funzionerà".
 
 Come sempre nella rubrica dei portafogli reali: niente verdetto secco, niente framework a punteggio. Espongo i numeri, dichiaro i limiti, il lettore decide.
 
 ## Una premessa di trasparenza
 
-Questo è il **mio portafoglio reale**, nella sua versione evoluta. L'ho semplificato rispetto a un anno fa per due ragioni: la prima è pratica (meno strumenti, meno costi, meno manutenzione); la seconda è intellettuale. Un portafoglio fatto di classi ampie e con storia lunga si può **falsificare meglio**: testandolo su 31 anni invece che su 22, e su regimi molto diversi tra loro, il rischio di raccontarmi una favola cala parecchio. Se un'allocazione regge la bolla dot-com, il 2008, il decennio perso europeo e il 2022, è un'evidenza più solida di una che "funziona" solo sull'unico ciclo toro che le è stato cucito addosso.
+Questo è il **mio portafoglio reale**. È fatto di classi ampie e con storia lunga per due ragioni: la prima è pratica (pochi strumenti, pochi costi, poca manutenzione); la seconda è intellettuale. Un portafoglio così si può **falsificare meglio**: testandolo su 31 anni, e su regimi molto diversi tra loro, il rischio di raccontarmi una favola cala parecchio. Se un'allocazione regge la bolla dot-com, il 2008, il decennio perso europeo e il 2022, è un'evidenza più solida di una che "funziona" solo sull'unico ciclo toro che le è stato cucito addosso.
 
 Resta il bias di fondo, e lo prendo in carico: sono io a giudicare il portafoglio che io stesso ho costruito, oggi, conoscendo la storia. Ne parlo nei limiti. Ma anticipo un dettaglio che conta: se avessi sovra-ottimizzato, avrei "vinto" contro tutti. Invece contro l'S&P 500 pareggio. È il tipo di risultato che ci si aspetta da una scommessa strutturale onesta, non da un backtest torturato fino alla confessione.
 
@@ -183,7 +183,7 @@ Coerente col backtest: la simulazione non conosce il futuro, ma proietta in avan
 
 4. **È equity-only, con volatilità piena.** Nessuna obbligazione: max drawdown storico intorno al −48%. Ha senso su un orizzonte di 15-20 anni o più, e con lo stomaco per attraversare un dimezzamento del capitale senza vendere.
 
-5. **Il bias resta, più leggero.** Il portafoglio è disegnato oggi conoscendo la storia. L'uso di classi ampie e il pareggio con l'S&P lo rendono molto meno sospetto di un backtest cucito sui vincitori, ma il limite epistemico è quello di sempre: il passato informa, non promette. E due dividendi (Nasdaq, energia) sono ipotesi dichiarate, non dati.
+5. **Il bias resta, e lo dichiaro.** Il portafoglio è disegnato conoscendo la storia. L'uso di classi ampie e il pareggio con l'S&P lo rendono molto meno sospetto di un backtest cucito sui vincitori, ma il limite epistemico è quello di sempre: il passato informa, non promette. E due dividendi (Nasdaq, energia) sono ipotesi dichiarate, non dati.
 
 Come per tutta la rubrica: felice di passare al setaccio anche il portafoglio di un lettore. Mandami composizione e pesi, e lo testiamo con lo stesso metodo.
 

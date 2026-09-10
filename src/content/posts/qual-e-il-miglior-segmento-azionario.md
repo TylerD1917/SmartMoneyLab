@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Qual è il miglior segmento del mercato azionario? Il dato che disinnesca il bias pro-USA"
 description: "Otto segmenti azionari (MSCI World, USA, Europe, Japan, EM, Small Cap, NASDAQ) su 25 anni: chi vince davvero, perché 'USA' è recency bias, perché Europe e Japan non hanno mai vinto una finestra 10y."
 pubDate: 2026-05-02

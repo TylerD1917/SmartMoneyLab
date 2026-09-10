@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Lo Shiller CAPE predice i rendimenti del mercato? 145 anni di dati"
 description: "Il CAPE di Shiller predice davvero i rendimenti dell'S&P 500 a 5, 10 e 20 anni? Analisi 1881-2026, reale e nominale, con il caveat che nessuno racconta: comprare caro non ti rovina, ti dimezza."
 pubDate: 2026-07-16

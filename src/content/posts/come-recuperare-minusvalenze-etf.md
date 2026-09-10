@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "Come recuperare le minusvalenze da ETF: la guida pratica (2026)"
 description: "Minusvalenze da ETF: cosa puoi comprare per compensarle (ETC, azioni, certificati), entro quando scadono e quanto investire. Un caso reale da 900,22€ su Fineco, con i conti."
 pubDate: 2026-08-23

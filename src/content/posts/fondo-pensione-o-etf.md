@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "Fondo pensione o ETF? Dipende dalla tua aliquota (2026)"
 description: "Conviene il fondo pensione o un ETF? Confronto su 30 anni a parità di esborso netto, coi rendimenti reali COVIP: vince il fondo solo da circa il 30% di aliquota in su."
 pubDate: 2026-08-27

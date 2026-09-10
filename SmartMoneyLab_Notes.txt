@@ -1,0 +1,12 @@
+SmartMoneyLab_Notes: appunti per lo sviluppo futuro del sito.
+Legenda: 
+(Idee_articoli): idee per nuovi articoli
+(Idee_implementeazioni): idee per nuove features del sito, nuove sezioni, nuovi strumenti, nuove tipologie di contenuti. 
+(Risorse): risorse a diposizione che potrebbero essere utilizzare per far crescere il sito in qualsiasi modo. 
+Notes:
+Meglio obbligazioni o ETF obbligazionari? (Idee_articoli)
+Pac che va in leva 2x solo quando sei sotto la media mobile a 200g (Idee_articoli)
+API di tastytrade (ho accout tastytrade) per dati live su titoli, etf, opzioni ecc (Risorse)
+Usare OpenSeo (Github) per audit SEO del sito (Risorse)
+Integrare stabilmente connettori e competenze utili nel progetto. (Risorse)
+Investo in obbligazioni solo quando i tassi sono 2.5x rispetto alla loro media mobile a 10 anni o alla loro media storica. Ha senso? (Idee_articoli)

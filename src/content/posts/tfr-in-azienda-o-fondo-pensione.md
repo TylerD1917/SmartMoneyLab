@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "TFR in azienda o fondo pensione? Cosa dicono i numeri (2026)"
 description: "TFR in azienda o fondo pensione: rendimenti a confronto (COVIP), le tre leve fiscali che ribaltano la scelta, le novità 2026 e una simulazione su 30 anni con i numeri veri."
 pubDate: 2026-08-26

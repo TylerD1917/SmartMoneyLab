@@ -1,4 +1,4 @@
-# Caption Instagram — Il mio portafoglio reale (revisione 2026)
+# Caption Instagram — Il mio portafoglio reale
 
 **Account**: @smartmoneylab_it
 **Asset**: carosello 8 slide
@@ -8,7 +8,7 @@
 
 ## Caption proposta
 
-Un anno fa avevo testato il mio portafoglio: 13 asset, molti di nicchia, backtestabili solo dal 2003. L'ho semplificato in 7 classi ad ampia storia e l'ho rimesso alla prova su 31 anni (1995-2026): bolla dot-com, 2008, decennio perso di Europa ed emergenti, COVID, 2022. Ecco cosa dicono i numeri, limiti compresi.
+Questo è il mio portafoglio reale, la parte azionaria che gestisco sul lungo periodo: 7 classi ad ampia storia, messe alla prova su 31 anni (1995-2026) — bolla dot-com, 2008, decennio perso di Europa ed emergenti, COVID, 2022. Ecco cosa dicono i numeri, limiti compresi.
 
 1. Contro l'S&P 500 è un pareggio, non una vittoria. 10,83% annuo contro 10,69%, con un drawdown massimo più basso ma volatilità un filo più alta. Lo dico subito perché è la parte scomoda: chi vuole "battere l'America" con la diversificazione geografica, su questi 31 anni, resta deluso. L'S&P è stato il benchmark più duro. Il portafoglio ci arriva alla pari, prendendosi meno rischio nei crolli.
 

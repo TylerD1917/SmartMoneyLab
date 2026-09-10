@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Ha senso inserire oro in portafoglio?"
 description: "Quattro portafogli buy & hold a confronto (100% azionario, 90/10, 75/25, 50/50 oro) su 50 anni di dati S&P 500 e LBMA Gold. Cosa dicono i numeri sull'asset più chiacchierato della finanza retail."
 pubDate: 2026-04-29

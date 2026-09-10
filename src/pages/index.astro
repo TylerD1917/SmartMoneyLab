@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getSeriesMeta } from "../data/series";
+import { CATEGORIES, CATEGORY_ORDER, getCategoryMeta } from "../data/categories";
 
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
 const posts = allPosts.sort(
@@ -19,6 +20,21 @@ const verdictMap = {
   parziale: { label: "Parziale", color: "amber" },
   "non-vince": { label: "Non vince", color: "rose" },
 } as const;
+
+// Chip di filtro: "Tutti" attivo di default (server-render). Le classi attive e
+// inattive sono elencate qui come stringhe letterali così che Tailwind le
+// generi; lo script client le scambia al clic.
+const chipBase =
+  "cat-chip inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium transition-colors";
+const chipActive =
+  "border-blue-900 bg-blue-900 text-white dark:border-blue-400 dark:bg-blue-400 dark:text-slate-900";
+const chipInactive =
+  "border-slate-300 text-slate-600 hover:border-blue-900 hover:text-blue-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-400 dark:hover:text-blue-400";
+
+// Solo le categorie che hanno almeno un articolo pubblicato.
+const usedCategories = CATEGORY_ORDER.filter((slug) =>
+  posts.some((p) => p.data.category === slug)
+);
 ---
 <BaseLayout
   title="SmartMoneyLab"
@@ -39,30 +55,54 @@ const verdictMap = {
   </section>
 
   <section aria-labelledby="latest-posts">
-    <div class="mb-6 flex items-baseline justify-between">
+    <div class="mb-4 flex items-baseline justify-between">
       <h2 id="latest-posts" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
         Ultimi articoli
       </h2>
-      <span class="text-xs text-slate-400 dark:text-slate-500">{posts.length} {posts.length === 1 ? "post" : "post"}</span>
+      <span id="post-count" class="text-xs text-slate-400 dark:text-slate-500">
+        {posts.length} articoli
+      </span>
     </div>
+
+    {usedCategories.length > 0 && (
+      <div
+        class="mb-6 flex flex-wrap gap-2"
+        role="group"
+        aria-label="Filtra per categoria"
+      >
+        <a href="/" data-cat-chip="" class:list={[chipBase, chipActive]}>Tutti</a>
+        {usedCategories.map((slug) => (
+          <a
+            href={`/categoria/${slug}`}
+            data-cat-chip={slug}
+            class:list={[chipBase, chipInactive]}
+          >
+            {CATEGORIES[slug].shortLabel}
+          </a>
+        ))}
+      </div>
+    )}
 
     {posts.length === 0 ? (
       <p class="text-slate-500 dark:text-slate-400">Nessun articolo pubblicato. Stay tuned.</p>
     ) : (
-      <ul class="divide-y divide-slate-200 dark:divide-slate-800">
+      <ul id="post-list" class="divide-y divide-slate-200 dark:divide-slate-800">
         {posts.map((post) => {
           const seriesMeta = getSeriesMeta(post.data.series);
+          const catMeta = getCategoryMeta(post.data.category);
           const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
           return (
-            <li class="py-5">
-              <a
-                href={`/posts/${post.slug}`}
-                class="group block"
-              >
+            <li class="py-5" data-category-item data-category={post.data.category ?? ""}>
+              <a href={`/posts/${post.slug}`} class="group block">
                 <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
                   <time datetime={post.data.pubDate.toISOString()}>
                     {fmt.format(post.data.pubDate)}
                   </time>
+                  {catMeta && (
+                    <span class="rounded-md bg-slate-100 px-1.5 py-0.5 font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                      {catMeta.shortLabel}
+                    </span>
+                  )}
                   {seriesMeta && (
                     <span class="rounded-md bg-blue-900/10 px-1.5 py-0.5 font-medium text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
                       Serie · {seriesMeta.shortLabel}
@@ -96,5 +136,60 @@ const verdictMap = {
         })}
       </ul>
     )}
+
+    <p id="empty-filter" hidden class="py-8 text-slate-500 dark:text-slate-400">
+      Nessun articolo in questa categoria.
+    </p>
   </section>
 </BaseLayout>
+
+<script>
+  // Filtro categorie client-side, progressivo: i chip sono <a> verso le pagine
+  // /categoria/<slug> (funzionano anche senza JS); qui li trasformiamo in filtro
+  // in-place sulla stessa home, sincronizzato con ?cat= nell'URL.
+  const VALID = ["strategie", "approfondimenti", "finanza-personale"];
+  const ACTIVE =
+    "border-blue-900 bg-blue-900 text-white dark:border-blue-400 dark:bg-blue-400 dark:text-slate-900".split(" ");
+  const INACTIVE =
+    "border-slate-300 text-slate-600 hover:border-blue-900 hover:text-blue-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-400 dark:hover:text-blue-400".split(" ");
+
+  const chips = Array.from(document.querySelectorAll("[data-cat-chip]"));
+  const items = Array.from(document.querySelectorAll("[data-category-item]"));
+  const countEl = document.getElementById("post-count");
+  const emptyEl = document.getElementById("empty-filter");
+
+  function catFromUrl() {
+    const p = new URLSearchParams(location.search).get("cat") || "";
+    return VALID.includes(p) ? p : "";
+  }
+
+  function apply(cat) {
+    let n = 0;
+    items.forEach((li) => {
+      const match = !cat || li.dataset.category === cat;
+      li.hidden = !match;
+      if (match) n++;
+    });
+    chips.forEach((c) => {
+      const active = (c.dataset.catChip || "") === (cat || "");
+      c.classList.remove(...(active ? INACTIVE : ACTIVE));
+      c.classList.add(...(active ? ACTIVE : INACTIVE));
+      if (active) c.setAttribute("aria-current", "true");
+      else c.removeAttribute("aria-current");
+    });
+    if (countEl) countEl.textContent = n + " " + (n === 1 ? "articolo" : "articoli");
+    if (emptyEl) emptyEl.hidden = n !== 0;
+  }
+
+  chips.forEach((c) => {
+    c.addEventListener("click", (e) => {
+      e.preventDefault();
+      const cat = c.dataset.catChip || "";
+      apply(cat);
+      history.pushState({ cat }, "", cat ? "/?cat=" + cat : "/");
+    });
+  });
+
+  window.addEventListener("popstate", () => apply(catFromUrl()));
+  apply(catFromUrl());
+</script>

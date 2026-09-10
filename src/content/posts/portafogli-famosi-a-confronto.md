@@ -1,4 +1,5 @@
 ---
+category: "strategie"
 title: "Portafogli a confronto: All Weather, Golden Butterfly, 60/40 e i miei"
 description: "Confronto tra portafogli famosi (All Weather, Golden Butterfly, 60/40, 90/10 Buffett) e i miei, in euro e aggiornato ogni settimana. Trova il tuo e proponilo per entrare in classifica."
 pubDate: 2026-09-02

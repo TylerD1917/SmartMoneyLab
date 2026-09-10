@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Il rame (Dr. Copper) anticipa i crolli di Borsa? 34 anni di dati"
 description: "Si dice che quando il prezzo del rame crolla, il mercato azionario stia per crollare. L'ho verificato sull'S&P 500 dal 1992 al 2026: il mito regge quasi solo sul 2008."
 pubDate: 2026-08-10

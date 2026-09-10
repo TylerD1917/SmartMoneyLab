@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "La diversificazione è un'illusione? Correlazioni tra 31 asset class su 20 anni"
 description: "Uno studio sulle correlazioni tra 31 asset class in dollari (2006-2026): l'azionario globale è quasi un unico trade, i veri diversificatori sono pochi, e nei crolli spariscono."
 pubDate: 2026-08-06

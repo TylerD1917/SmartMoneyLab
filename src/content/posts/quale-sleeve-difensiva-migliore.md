@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Quale settore difensivo aggiungere a un portafoglio azionario? 27 anni di dati, 5 candidati, un vincitore chiaro"
 description: "5 settori difensivi contro l'S&P 500 su 27 anni di dati. Utilities vince su ogni criterio. Quality è un paradosso: il retail la considera difensiva ma i dati la smentiscono."
 pubDate: 2026-06-15

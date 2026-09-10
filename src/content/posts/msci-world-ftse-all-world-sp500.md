@@ -1,4 +1,5 @@
 ---
+category: "finanza-personale"
 title: "MSCI World, FTSE All-World o S&P 500: quale ETF conviene? (2026)"
 description: "MSCI World (SWDA), FTSE All-World (VWCE) o S&P 500 (CSPX): quale ETF scegliere? Rendimenti a 25 anni, costi, tasse in Italia e la verità: sono molto più simili di quanto sembri."
 pubDate: 2026-08-16

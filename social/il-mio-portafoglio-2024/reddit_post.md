@@ -8,7 +8,7 @@
 
 ## Titolo (scegline uno)
 
-- Ho semplificato il mio portafoglio in 7 classi e l'ho testato su 31 anni: pareggia l'S&P 500 (non lo batte) ma stacca l'MSCI World, e nel decennio peggiore è l'unico rimasto in positivo
+- Ho testato il mio portafoglio reale (7 classi) su 31 anni: pareggia l'S&P 500 (non lo batte) ma stacca l'MSCI World, e nel decennio peggiore è l'unico rimasto in positivo
 - 31 anni di backtest sul mio portafoglio reale: la diversificazione geografica non batte l'America, ma protegge il caso peggiore molto meglio degli indici
 
 ---
@@ -17,7 +17,7 @@
 
 Premessa: è il mio portafoglio reale, lo faccio per curiosità e per falsificarlo, dati e codice open, linko in fondo.
 
-Un anno fa avevo pubblicato il backtest del mio portafoglio, ma era fatto di 13 asset con molte serie corte (testabile solo dal 2003). L'ho semplificato in 7 classi ad ampia storia, così da testarlo su una finestra più lunga e severa: **luglio 1995 – luglio 2026, 31 anni**, che include dot-com, 2008, il decennio perso di Europa ed emergenti, il 2022.
+Il mio portafoglio reale è fatto di 7 classi ad ampia storia: una scelta che, oltre a tenere pochi strumenti, mi permette di testarlo su una finestra lunga e severa — **luglio 1995 – luglio 2026, 31 anni**, che include dot-com, 2008, il decennio perso di Europa ed emergenti, il 2022.
 
 Allocazione: **USA 20% · Emergenti 20% · Nasdaq/Tech 25% · Smallcap 10% · Europa Momentum 8% · Oro 8% · Energia 9%**. Equity-only, ribilanciata a target ogni gennaio. Total return lordo; due serie a prezzo (Nasdaq, energia) con dividendo figurato dichiarato.
 

@@ -1,4 +1,5 @@
 ---
+category: "approfondimenti"
 title: "Il CAPE funziona anche fuori dagli USA? 24 mercati, 25 anni di dati"
 description: "Il CAPE predice i rendimenti dei mercati non-USA (Europa, Giappone, emergenti)? Sì, ma solo confrontando ogni mercato con la propria storia, non con gli altri. E comprare i più economici perde contro l'indice."
 pubDate: 2026-08-09

@@ -1,0 +1,109 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { CATEGORIES, getCategoryMeta } from "../../data/categories";
+import { getSeriesMeta } from "../../data/series";
+
+export async function getStaticPaths() {
+  return Object.keys(CATEGORIES).map((slug) => ({
+    params: { category: slug },
+  }));
+}
+
+const { category } = Astro.params;
+const meta = getCategoryMeta(category);
+if (!meta) {
+  throw new Error(`Category '${category}' not found in registry`);
+}
+
+const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+const categoryPosts = allPosts
+  .filter((p) => p.data.category === category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const fmt = new Intl.DateTimeFormat("it-IT", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+
+const verdictMap = {
+  vince: { label: "Vince", color: "emerald" },
+  parziale: { label: "Parziale", color: "amber" },
+  "non-vince": { label: "Non vince", color: "rose" },
+} as const;
+---
+<BaseLayout title={`${meta.title} · SmartMoneyLab`} description={meta.description}>
+  <section class="mb-12">
+    <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-900/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
+      Categoria
+    </div>
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
+      {meta.title}
+    </h1>
+    <p class="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-300">
+      {meta.description}
+    </p>
+    <p class="mt-4 text-sm">
+      <a href="/" class="text-blue-900 hover:underline dark:text-blue-400">← Tutti gli articoli</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="category-posts">
+    <div class="mb-6 flex items-baseline justify-between">
+      <h2 id="category-posts" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        Articoli della categoria
+      </h2>
+      <span class="text-xs text-slate-400 dark:text-slate-500">
+        {categoryPosts.length} {categoryPosts.length === 1 ? "articolo" : "articoli"}
+      </span>
+    </div>
+
+    {categoryPosts.length === 0 ? (
+      <p class="text-slate-500 dark:text-slate-400">
+        Nessun articolo in questa categoria. Stay tuned.
+      </p>
+    ) : (
+      <ul class="divide-y divide-slate-200 dark:divide-slate-800">
+        {categoryPosts.map((post) => {
+          const seriesMeta = getSeriesMeta(post.data.series);
+          const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
+          return (
+            <li class="py-5">
+              <a href={`/posts/${post.slug}`} class="group block">
+                <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {fmt.format(post.data.pubDate)}
+                  </time>
+                  {seriesMeta && (
+                    <span class="rounded-md bg-blue-900/10 px-1.5 py-0.5 font-medium text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
+                      Serie · {seriesMeta.shortLabel}
+                    </span>
+                  )}
+                  {v && (
+                    <span
+                      class:list={[
+                        "rounded-md px-1.5 py-0.5 font-semibold uppercase tracking-wider",
+                        v.color === "emerald" && "bg-emerald-100 text-emerald-900 dark:bg-emerald-400/10 dark:text-emerald-400",
+                        v.color === "amber" && "bg-amber-100 text-amber-900 dark:bg-amber-400/10 dark:text-amber-400",
+                        v.color === "rose" && "bg-rose-100 text-rose-900 dark:bg-rose-400/10 dark:text-rose-400",
+                      ]}
+                    >
+                      {v.label}
+                    </span>
+                  )}
+                </div>
+                <h3 class="mt-1 text-xl font-medium text-slate-900 group-hover:text-blue-900 dark:text-slate-50 dark:group-hover:text-blue-400">
+                  {post.data.title}
+                </h3>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  {post.data.description}
+                </p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )}
+  </section>
+</BaseLayout>

@@ -1,4 +1,5 @@
 ---
+category: "strategie"
 title: "Nasdaq a leva 2x con copertura in opzioni: batte il mercato? 50 anni di dati"
 description: "Una strategia a leva 2x sul Nasdaq con copertura tattica in put batte il mercato su 50 anni: Sharpe, Calmar e rendimento più alti. Ma a prezzo di drawdown fino al −94%."
 pubDate: 2026-08-11
