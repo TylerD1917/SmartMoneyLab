@@ -29,7 +29,7 @@ PORTAFOGLI=[
  ("goldenbutterfly-eur","Golden Butterfly","BTP (€/IT)","classico",{"WORLD":.20,"SMALLCAP":.20,"EU_30Y":.20,"EU_3Y":.20,"GOLD":.20}),
  ("9010-buffett","90/10 Buffett","","classico",{"SP500":.90,"US_2Y":.10}),
  ("nasdaq-energy","Nasdaq + Energy","","autore",{"NASDAQ":.80,"ENERGY":.15,"GOLD":.05}),
- ("allweather-aggressive","All Weather Aggressive","SmartMoneyLab","autore",{"NASDAQ":.25,"EM":.20,"WORLD":.25,"GOLD":.10,"SMALLCAP":.10,"BTC":.05,"HEALTH":.05}),
+ ("allweather-aggressive","All Weather Aggressive","SmartMoneyLab","autore",{"NASDAQ":.25,"EM":.20,"WORLD":.25,"GOLD":.10,"SMALLCAP":.10,"BTC":.05,"ENERGY":.05}),
  ("effective-leverage","Effective Leverage","SmartMoneyLab","autore",{"ALLWORLD":.75,"WORLD2X":.25}),
 ]
 

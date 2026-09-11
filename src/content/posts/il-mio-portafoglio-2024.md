@@ -74,7 +74,7 @@ L'allocazione target, con la serie storica usata per ciascuna classe:
 | **Totale** | **100%** | |
 
 <figure>
-  <img src="/charts/portafoglio-personale-backtest/01_composizione_donut.png" alt="Grafico a ciambella dell'allocazione target: Nasdaq/Tech 25%, USA 20%, Mercati Emergenti 20%, Smallcap 10%, Energia 9%, Oro 8%, Europa Momentum 8%." />
+  <img src="/charts/portafoglio-personale-backtest/01_composizione_donut.png?v=2" alt="Grafico a ciambella dell'allocazione target: Nasdaq/Tech 25%, USA 20%, Mercati Emergenti 20%, Smallcap 10%, Energia 9%, Oro 8%, Europa Momentum 8%." />
   <figcaption>Sette classi, tutte ad ampia storia. Il portafoglio è equity-only e viene ribilanciato a target una volta l'anno.</figcaption>
 </figure>
 

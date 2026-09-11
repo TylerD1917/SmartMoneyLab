@@ -1,0 +1,66 @@
+{
+  "slug": "etf-obbligazionari-o-obbligazioni",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["ETF obbligazionari", "o obbligazioni?"],
+      "accent_lines": [1],
+      "subtitle": "A parità di duration, un ETF o le singole obbligazioni tenute a scadenza rendono uguale? 64 anni di dati."
+    },
+    {
+      "type": "bullets",
+      "title": ["Non sono", "la stessa cosa"],
+      "bullets": [
+        "L'ETF tiene la duration COSTANTE: è esposizione ai tassi permanente, nel bene e nel male.",
+        "Il titolo singolo la lascia sciogliere verso zero: se lo tieni a scadenza, blocchi il rendimento.",
+        "'Stessa duration' e 'tenuto a scadenza' non stanno insieme più di un istante."
+      ]
+    },
+    {
+      "type": "chart",
+      "title": ["A duration uguale,", "chi rende di più?"],
+      "chart": "public/charts/etf-obbligazionari-o-obbligazioni/02_distribuzione_diff.png",
+      "caption": "L'ETF: +0,6% l'anno (10a), +0,7% (20a)."
+    },
+    {
+      "type": "chart",
+      "title": ["Il tranello", "della duration"],
+      "chart": "public/charts/etf-obbligazionari-o-obbligazioni/03_contrasto_duration.png",
+      "caption": "Col 10Y sembra +1%. Un terzo è duration."
+    },
+    {
+      "type": "chart",
+      "title": ["Chi vince?", "Dipende dai tassi"],
+      "chart": "public/charts/etf-obbligazionari-o-obbligazioni/04_regimi.png",
+      "caption": "In salita vince la scadenza, in calo l'ETF."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Compri l'ETF nel momento peggiore, poco prima di una lunga risalita dei tassi: nel caso storico più sfortunato a 10 anni hai fatto",
+      "number": "−29%",
+      "note": "sul montante, vs chi teneva a scadenza",
+      "box": ["Al contrario, chi compra sul picco", "lascia fino a +44% (a 20 anni)."],
+      "box_accent": [1]
+    },
+    {
+      "type": "bullets",
+      "title": ["La vera", "scelta"],
+      "bullets": [
+        "Titolo (o BTP) a scadenza: CERTEZZA. Sai quanto e quando incassi.",
+        "ETF: ESPOSIZIONE costante, diversificazione, comodità — ma il prezzo oscilla sempre e c'è un piccolo TER.",
+        "Nessuno dei due è 'meglio': dipende dal tuo orizzonte e da cosa faranno i tassi."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["Lo studio completo", "sul blog"],
+      "bullets": [
+        "64 anni di Treasury, a parità di duration",
+        "Il caso peggiore da entrambi i lati",
+        "Dati e codice trasparenti"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

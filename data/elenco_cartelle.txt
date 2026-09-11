@@ -1,0 +1,23 @@
+Altri_indici
+Bonds
+cache
+cape_snapshots
+Correlazioni
+Emerging_markets
+Fondi pensione ita
+Gold
+Indici_Eurozona
+Indici_singolo_paese
+Materie_prime
+Msci_ACWI_FTSE_all_world
+Msci_world
+mutuo-fisso-o-variabile
+Nasdaq
+processed
+raw
+Settoriali
+Shiller_PE
+Single_stocks
+Smallcaps
+Sp500
+Valute
