@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-07",
+ "updated": "2026-09-14",
  "subreddit": "wallstreetbets",
  "currency": "USD",
  "benchmark": "S&P 500",
@@ -245,6 +245,11 @@
     "d": "2026-09-07",
     "port": 94.3,
     "bench": 99.62
+   },
+   {
+    "d": "2026-09-14",
+    "port": 91.39,
+    "bench": 98.83
    }
   ],
   "history": [
