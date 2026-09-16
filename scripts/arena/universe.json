@@ -1,0 +1,1653 @@
+{
+ "_note": "Universo AI Arena v1 — US-listed (titoli esteri via ADR in USD). Niente ETF a leva/inversi. Ticker formato yfinance (BRK-B). Nomi dei titoli US riempiti da build_packet.",
+ "_version": "v1-2026-09-16c",
+ "_todo": "large_cap_us = proposta ≈S&P100 da validare/sostituire. Samsung escluso (no ADR USA liquida).",
+ "count": 273,
+ "by_class": {
+  "equity_etf": 99,
+  "commodity": 20,
+  "crypto": 4,
+  "fixed_income": 14,
+  "stock": 136
+ },
+ "instruments": [
+  {
+   "ticker": "IVV",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P 500 ETF"
+  },
+  {
+   "ticker": "QQQ",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Invesco QQQ Trust Series I"
+  },
+  {
+   "ticker": "IWM",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Russell 2000 ETF"
+  },
+  {
+   "ticker": "IWB",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Russell 1000 ETF"
+  },
+  {
+   "ticker": "ITOT",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Total U.S. Stock Market ETF"
+  },
+  {
+   "ticker": "RSP",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Invesco S&P 500 Equal Weight ETF"
+  },
+  {
+   "ticker": "SCHX",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Schwab U.S. Large-Cap ETF"
+  },
+  {
+   "ticker": "SCHB",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Schwab U.S. Broad Market ETF"
+  },
+  {
+   "ticker": "IJH",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Mid-Cap ETF"
+  },
+  {
+   "ticker": "IJR",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Small Cap ETF"
+  },
+  {
+   "ticker": "IWF",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 1000 Growth ETF"
+  },
+  {
+   "ticker": "IWD",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 1000 Value ETF"
+  },
+  {
+   "ticker": "IVW",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares S&P 500 Growth ETF"
+  },
+  {
+   "ticker": "IVE",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares S&P 500 Value ETF"
+  },
+  {
+   "ticker": "SCHG",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "Schwab U.S. Large-Cap Growth ETF"
+  },
+  {
+   "ticker": "SCHV",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "Schwab U.S. Large-Cap Value ETF"
+  },
+  {
+   "ticker": "IWO",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 2000 Growth ETF"
+  },
+  {
+   "ticker": "IWN",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 2000 Value ETF"
+  },
+  {
+   "ticker": "IWP",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Mid-Cap Growth ETF"
+  },
+  {
+   "ticker": "IWS",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Mid-Cap Value ETF"
+  },
+  {
+   "ticker": "IWY",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Top 200 Growth ETF"
+  },
+  {
+   "ticker": "IWX",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Top 200 Value ETF"
+  },
+  {
+   "ticker": "MTUM",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Momentum Factor ETF"
+  },
+  {
+   "ticker": "VLUE",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Value Factor ETF"
+  },
+  {
+   "ticker": "QUAL",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Quality Factor ETF"
+  },
+  {
+   "ticker": "USMV",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Min Vol Factor ETF"
+  },
+  {
+   "ticker": "SPHQ",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Quality ETF"
+  },
+  {
+   "ticker": "SPLV",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Low Volatility ETF"
+  },
+  {
+   "ticker": "SPMO",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Momentum ETF"
+  },
+  {
+   "ticker": "MOAT",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "VanEck Morningstar Wide Moat ETF"
+  },
+  {
+   "ticker": "GARP",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Quality GARP ETF"
+  },
+  {
+   "ticker": "FTEC",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Information Technology Index ETF"
+  },
+  {
+   "ticker": "FNCL",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Financials Index ETF"
+  },
+  {
+   "ticker": "FENY",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Energy Index ETF"
+  },
+  {
+   "ticker": "FHLC",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Health Care Index ETF"
+  },
+  {
+   "ticker": "FIDU",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Industrial Index ETF"
+  },
+  {
+   "ticker": "FDIS",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Consumer Discretionary Index ETF"
+  },
+  {
+   "ticker": "FSTA",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Consumer Staples Index ETF"
+  },
+  {
+   "ticker": "FUTY",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Utilities Index ETF"
+  },
+  {
+   "ticker": "FMAT",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Materials Index ETF"
+  },
+  {
+   "ticker": "FREL",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Real Estate Index ETF"
+  },
+  {
+   "ticker": "FCOM",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Communication Services Index ETF"
+  },
+  {
+   "ticker": "IXN",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Tech ETF"
+  },
+  {
+   "ticker": "IXC",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Energy ETF"
+  },
+  {
+   "ticker": "IXJ",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Healthcare ETF"
+  },
+  {
+   "ticker": "IXG",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Financials ETF"
+  },
+  {
+   "ticker": "SMH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Semiconductor ETF"
+  },
+  {
+   "ticker": "IBB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Biotechnology ETF"
+  },
+  {
+   "ticker": "IHI",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Medical Devices ETF"
+  },
+  {
+   "ticker": "IHF",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Healthcare Providers ETF"
+  },
+  {
+   "ticker": "ITA",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Aerospace & Defense ETF"
+  },
+  {
+   "ticker": "IGV",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Expanded Tech-Software Sector ETF"
+  },
+  {
+   "ticker": "FDN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust Dow Jones Internet Index Fund"
+  },
+  {
+   "ticker": "SKYY",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust Cloud Computing ETF"
+  },
+  {
+   "ticker": "CIBR",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust NASDAQ Cybersecurity ETF"
+  },
+  {
+   "ticker": "GDX",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Gold Miners ETF"
+  },
+  {
+   "ticker": "OIH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Oil Services ETF"
+  },
+  {
+   "ticker": "TAN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco Solar ETF"
+  },
+  {
+   "ticker": "ICLN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Global Clean Energy ETF"
+  },
+  {
+   "ticker": "MOO",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Agribusiness ETF"
+  },
+  {
+   "ticker": "PHO",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco Water Resources ETF"
+  },
+  {
+   "ticker": "KBWB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco KBW Bank ETF"
+  },
+  {
+   "ticker": "RTH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Retail ETF"
+  },
+  {
+   "ticker": "NLR",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Uranium and Nuclear ETF"
+  },
+  {
+   "ticker": "IBOT",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Vaneck Robotics ETF"
+  },
+  {
+   "ticker": "ICOP",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Copper and Metals Mining ETF"
+  },
+  {
+   "ticker": "IFRA",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Infrastructure ETF"
+  },
+  {
+   "ticker": "ITB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Home Construction ETF"
+  },
+  {
+   "ticker": "IYT",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares US Transportation ETF"
+  },
+  {
+   "ticker": "IGF",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Global Infrastructure ETF"
+  },
+  {
+   "ticker": "EFA",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI EAFE ETF"
+  },
+  {
+   "ticker": "IEUR",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares Core MSCI Europe ETF"
+  },
+  {
+   "ticker": "EWJ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Japan ETF"
+  },
+  {
+   "ticker": "EWG",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Germany ETF"
+  },
+  {
+   "ticker": "EWU",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI United Kingdom ETF"
+  },
+  {
+   "ticker": "EWQ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI France ETF"
+  },
+  {
+   "ticker": "EWC",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Canada ETF"
+  },
+  {
+   "ticker": "EWA",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Australia ETF"
+  },
+  {
+   "ticker": "EWL",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Switzerland ETF"
+  },
+  {
+   "ticker": "EWI",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Italy ETF"
+  },
+  {
+   "ticker": "EWP",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Spain ETF"
+  },
+  {
+   "ticker": "FEZ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "State Street SPDR EURO STOXX 50 ETF"
+  },
+  {
+   "ticker": "EWH",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Hong Kong ETF"
+  },
+  {
+   "ticker": "IEMG",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares Core MSCI Emerging Markets ETF"
+  },
+  {
+   "ticker": "EWZ",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Brazil ETF"
+  },
+  {
+   "ticker": "MCHI",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI China ETF"
+  },
+  {
+   "ticker": "INDA",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI India ETF"
+  },
+  {
+   "ticker": "EWT",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Taiwan ETF"
+  },
+  {
+   "ticker": "EWY",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI South Korea ETF"
+  },
+  {
+   "ticker": "EWW",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Mexico ETF"
+  },
+  {
+   "ticker": "EZA",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI South Africa ETF"
+  },
+  {
+   "ticker": "AAXJ",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI All Country Asia ex Japan ETF"
+  },
+  {
+   "ticker": "ILF",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares Latin America 40 ETF"
+  },
+  {
+   "ticker": "EPP",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Pacific ex-Japan ETF"
+  },
+  {
+   "ticker": "ACWI",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares MSCI ACWI ETF"
+  },
+  {
+   "ticker": "URTH",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares MSCI World ETF"
+  },
+  {
+   "ticker": "IXUS",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares Core MSCI Total International Stock ETF"
+  },
+  {
+   "ticker": "USRT",
+   "class": "equity_etf",
+   "group": "real_estate",
+   "name": "iShares Core U.S. REIT ETF"
+  },
+  {
+   "ticker": "REET",
+   "class": "equity_etf",
+   "group": "real_estate",
+   "name": "iShares Global REIT ETF"
+  },
+  {
+   "ticker": "GLD",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "SPDR Gold Shares"
+  },
+  {
+   "ticker": "SLV",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "iShares Silver Trust"
+  },
+  {
+   "ticker": "PPLT",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Platinum Shares ETF"
+  },
+  {
+   "ticker": "PALL",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Palladium Shares ETF"
+  },
+  {
+   "ticker": "GLTR",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Precious Metals Basket Shares ETF"
+  },
+  {
+   "ticker": "DBC",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Commodity Index Tracking Fund"
+  },
+  {
+   "ticker": "PDBC",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF"
+  },
+  {
+   "ticker": "GSG",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "iShares S&P GSCI Commodity Indexed Trust"
+  },
+  {
+   "ticker": "DBA",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Agriculture Fund"
+  },
+  {
+   "ticker": "CORN",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Corn Fund"
+  },
+  {
+   "ticker": "WEAT",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Wheat Fund"
+  },
+  {
+   "ticker": "SOYB",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Soybean Fund"
+  },
+  {
+   "ticker": "CANE",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Sugar Fund"
+  },
+  {
+   "ticker": "USO",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Oil Fund LP"
+  },
+  {
+   "ticker": "BNO",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Brent Oil Fund LP"
+  },
+  {
+   "ticker": "UNG",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Natural Gas Fund LP"
+  },
+  {
+   "ticker": "DBB",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Base Metals Fund"
+  },
+  {
+   "ticker": "CPER",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Copper Index Fund"
+  },
+  {
+   "ticker": "UX",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Roundhill Uranium ETF"
+  },
+  {
+   "ticker": "KRBN",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "KraneShares Global Carbon Strategy ETF"
+  },
+  {
+   "ticker": "IBIT",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "iShares Bitcoin Trust ETF"
+  },
+  {
+   "ticker": "ETHA",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "iShares Ethereum Trust ETF"
+  },
+  {
+   "ticker": "VSOL",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "VanEck Solana ETF"
+  },
+  {
+   "ticker": "XRPR",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "REX-Osprey XRP ETF"
+  },
+  {
+   "ticker": "BND",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total Bond Market ETF"
+  },
+  {
+   "ticker": "BNDW",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total World Bond ETF"
+  },
+  {
+   "ticker": "BNDX",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total International Bond ETF"
+  },
+  {
+   "ticker": "VGSH",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Short-Term Treasury ETF"
+  },
+  {
+   "ticker": "VGIT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Intermediate-Term Treasury ETF"
+  },
+  {
+   "ticker": "VGLT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Long-Term Treasury ETF"
+  },
+  {
+   "ticker": "EDV",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Extended Duration Treasury ETF"
+  },
+  {
+   "ticker": "VBIL",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard 0-3 Month Treasury Bill ETF"
+  },
+  {
+   "ticker": "VTP",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total Inflation-Protected Securities ETF"
+  },
+  {
+   "ticker": "USFR",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "WisdomTree Floating Rate Treasury Fund"
+  },
+  {
+   "ticker": "VCIT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Intermediate-Term Corporate Bond ETF"
+  },
+  {
+   "ticker": "VCLT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Long-Term Corporate Bond ETF"
+  },
+  {
+   "ticker": "VWOB",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Emerging Markets Government Bond ETF"
+  },
+  {
+   "ticker": "HYLB",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Xtrackers USD High Yield Corporate Bond ETF"
+  },
+  {
+   "ticker": "AAPL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MSFT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "NVDA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "AMZN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "GOOGL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "META",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "TSLA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BRK-B",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "AVGO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "JPM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "LLY",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "V",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "UNH",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "XOM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "COST",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "HD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "JNJ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "WMT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "NFLX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BAC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ORCL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ABBV",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CVX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "KO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MRK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CRM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "AMD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PEP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "TMO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "LIN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ADBE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MCD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CSCO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ACN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "WFC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ABT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "DHR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "TXN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "INTC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "INTU",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "VZ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "QCOM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "IBM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CAT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "GE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "NOW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "DIS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "AMGN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "NEE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "RTX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "GS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "UNP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "HON",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "LOW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "SPGI",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ISRG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BKNG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "AXP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PFE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "T",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "COP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BLK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ELV",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "SYK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "VRTX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "C",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MDT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PLD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "TJX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "ADP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "GILD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MDLZ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CB",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MMC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "DE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "LMT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "SBUX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BMY",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "SCHW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CI",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "SO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "MO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "DUK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "USB",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CVS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "TGT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PGR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "FDX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "BDX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "GM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "CL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "EMR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": ""
+  },
+  {
+   "ticker": "PLTR",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "COIN",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "MSTR",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "UBER",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "ABNB",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "SHOP",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "SNOW",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "CRWD",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "PANW",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "MRVL",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "MU",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "ARM",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "SMCI",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "DELL",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "HOOD",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "SOFI",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "RBLX",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "NET",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": ""
+  },
+  {
+   "ticker": "TSM",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Taiwan Semiconductor (ADR)"
+  },
+  {
+   "ticker": "ASML",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "ASML (ADR)"
+  },
+  {
+   "ticker": "SAP",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "SAP (ADR)"
+  },
+  {
+   "ticker": "SONY",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Sony (ADR)"
+  },
+  {
+   "ticker": "NVO",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Novo Nordisk (ADR)"
+  },
+  {
+   "ticker": "AZN",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "AstraZeneca (ADR)"
+  },
+  {
+   "ticker": "NVS",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Novartis (ADR)"
+  },
+  {
+   "ticker": "SHEL",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Shell (ADR)"
+  },
+  {
+   "ticker": "TTE",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "TotalEnergies (ADR)"
+  },
+  {
+   "ticker": "RIO",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Rio Tinto (ADR)"
+  },
+  {
+   "ticker": "BHP",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "BHP (ADR)"
+  },
+  {
+   "ticker": "UL",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Unilever (ADR)"
+  },
+  {
+   "ticker": "UBS",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "UBS Group"
+  },
+  {
+   "ticker": "HSBC",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "HSBC (ADR)"
+  },
+  {
+   "ticker": "SAN",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Banco Santander (ADR)"
+  },
+  {
+   "ticker": "DB",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Deutsche Bank"
+  },
+  {
+   "ticker": "ING",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "ING Groep (ADR)"
+  },
+  {
+   "ticker": "TM",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Toyota (ADR)"
+  },
+  {
+   "ticker": "MUFG",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Mitsubishi UFJ (ADR)"
+  },
+  {
+   "ticker": "BABA",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Alibaba (ADR)"
+  },
+  {
+   "ticker": "MELI",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "MercadoLibre"
+  }
+ ]
+}
