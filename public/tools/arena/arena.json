@@ -1,0 +1,159 @@
+{
+ "as_of": "2026-09-17",
+ "updated": "2026-09-17T09:45:25.465667",
+ "rules": {
+  "capital": 100000,
+  "max_positions": 10,
+  "gross_cap": 1.0,
+  "cadence_days": 14,
+  "costs": {
+   "commission": 0.0005,
+   "spread": 0.0005,
+   "short_borrow_annual": 0.003
+  },
+  "benchmarks": [
+   "ACWI",
+   "SP500"
+  ]
+ },
+ "leaderboard": [
+  {
+   "id": "gpt",
+   "type": "model",
+   "nav": 100000.0,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "gemini",
+   "type": "model",
+   "nav": 100000.0,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "claude",
+   "type": "model",
+   "nav": 100000.0,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "kimi",
+   "type": "model",
+   "nav": 100000.0,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "random",
+   "type": "control",
+   "nav": 99896.55,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "ACWI",
+   "type": "benchmark",
+   "nav": 100000,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "SP500",
+   "type": "benchmark",
+   "nav": 100000,
+   "ret_total": 0.0,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  }
+ ],
+ "positions": {
+  "gpt": {
+   "cash": 100000.0,
+   "equity": 100000.0,
+   "positions": []
+  },
+  "gemini": {
+   "cash": 100000.0,
+   "equity": 100000.0,
+   "positions": []
+  },
+  "claude": {
+   "cash": 100000.0,
+   "equity": 100000.0,
+   "positions": []
+  },
+  "kimi": {
+   "cash": 100000.0,
+   "equity": 100000.0,
+   "positions": []
+  }
+ },
+ "decisions": {
+  "gpt": {
+   "rationale": "(errore API: HTTP Error 400: Bad Request)",
+   "orders": []
+  },
+  "gemini": {
+   "rationale": "(errore API: HTTP Error 404: Not Found)",
+   "orders": []
+  },
+  "claude": {
+   "rationale": "(errore API: HTTP Error 401: Unauthorized)",
+   "orders": []
+  },
+  "kimi": {
+   "rationale": "(errore API: HTTP Error 400: Bad Request)",
+   "orders": []
+  }
+ },
+ "nav": {
+  "gpt": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ],
+  "gemini": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ],
+  "claude": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ],
+  "kimi": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ],
+  "random": [
+   [
+    "2026-09-17",
+    99896.55
+   ]
+  ],
+  "ACWI": [],
+  "SP500": []
+ },
+ "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."
+}
