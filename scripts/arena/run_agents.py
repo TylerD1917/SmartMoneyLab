@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Interroga ogni modello con lo STESSO pacchetto + il suo portafoglio + la sua MEMORIA, salva le decisioni.
 Senza chiave API il modello va in modalita' STUB (nessuna operazione) cosi' la pipeline gira comunque."""
-import os, sys, json, re, glob, urllib.request, datetime as dt
+import os, sys, json, re, glob, urllib.request, urllib.error, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import arena_core as ac
 
@@ -86,31 +86,37 @@ def build_user(packet, pf, prices, memory):
 # ---------------- adapters (HTTP) ----------------
 def _post(url, headers, body, timeout=120):
     req = urllib.request.Request(url, data=json.dumps(body).encode(), headers=headers, method="POST")
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read())
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        try: detail = e.read().decode("utf-8", "replace")[:600]
+        except Exception: detail = ""
+        raise RuntimeError(f"HTTP {e.code}: {detail}") from None
 
-def call_model(provider, model, key, system, user, temp):
+def call_model(provider, model, key, system, user):
+    # niente 'temperature': i modelli flagship 2026 (OpenAI GPT-5.x, Kimi K3) la rifiutano (400).
     if provider in ("openai", "moonshot"):
         base = "https://api.openai.com/v1" if provider == "openai" else "https://api.moonshot.ai/v1"
         d = _post(f"{base}/chat/completions",
                   {"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-                  {"model": model, "temperature": temp,
+                  {"model": model,
                    "messages": [{"role": "system", "content": system},
                                 {"role": "user", "content": user}]})
         return d["choices"][0]["message"]["content"]
     if provider == "anthropic":
         d = _post("https://api.anthropic.com/v1/messages",
                   {"x-api-key": key, "anthropic-version": "2023-06-01", "Content-Type": "application/json"},
-                  {"model": model, "max_tokens": 2000, "temperature": temp, "system": system,
+                  {"model": model, "max_tokens": 3000, "system": system,
                    "messages": [{"role": "user", "content": user}]})
-        return d["content"][0]["text"]
+        return "".join(b.get("text", "") for b in d.get("content", []) if isinstance(b, dict))
     if provider == "google":
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
         d = _post(url, {"Content-Type": "application/json"},
                   {"systemInstruction": {"parts": [{"text": system}]},
-                   "contents": [{"parts": [{"text": user}]}],
-                   "generationConfig": {"temperature": temp}})
-        return d["candidates"][0]["content"]["parts"][0]["text"]
+                   "contents": [{"parts": [{"text": user}]}]})
+        parts = d["candidates"][0]["content"].get("parts", [])
+        return "".join(p.get("text", "") for p in parts if isinstance(p, dict))
     raise ValueError(f"provider sconosciuto: {provider}")
 
 # ---------------- parse ----------------
@@ -150,7 +156,7 @@ def run(cfg):
             raw = "STUB"
         else:
             try:
-                raw = call_model(m["provider"], m["model"], key, SYSTEM, user, cfg["temperature"])
+                raw = call_model(m["provider"], m["model"], key, SYSTEM, user)
                 decision = parse_decision(raw)
             except Exception as e:
                 decision = {"rationale": f"(errore API: {e})", "orders": []}; raw = str(e)
