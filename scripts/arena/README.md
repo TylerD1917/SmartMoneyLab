@@ -27,7 +27,7 @@ python scripts/arena/run_period.py weekly      # forza solo mark-to-market + pub
 altrimenti solo **mark** settimanale. Così basta un unico cron settimanale.
 
 ## Flusso di un periodo di decisione
-1. `build_packet.py` → dati yfinance (prezzi, rendimenti, 52w, PE/yield), macro, digest notizie → `state/packets/packet_<date>.json`.
+1. `build_packet.py` → dati yfinance (prezzi, rendimenti, 52w, PE/yield), macro, digest notizie (RSS curati + yfinance) → `state/packets/packet_<date>.json`.
 2. `run_agents.py` → per ogni modello: prompt (pacchetto + suo portafoglio) → chiamata API → JSON decisione validato → `state/decisions/`, transcript in `state/transcripts/`.
 3. `settle.py` → applica le decisioni ai prezzi del pacchetto, addebita costi (commissione+spread; prestito short), aggiorna `state/portfolio_<id>.json`, registra la NAV. Include il **portafoglio di controllo casuale**.
 4. `publish.py` → `public/tools/arena/arena.json` (classifica, posizioni, NAV, decisioni, benchmark ACWI+S&P 500).
@@ -63,3 +63,12 @@ linea nel tempo e le sue tesi sono pubblicate in /lab.
 ## Modelli pinnati (settembre 2026)
 gpt = gpt-5.6-sol (OpenAI) · gemini = gemini-3.1-pro (Google) · claude = claude-opus-5 (Anthropic) ·
 kimi = kimi-k3 (Moonshot). Cambiando un modello, aggiorna qui la data e la stringa.
+
+## Notizie (fonti)
+Il pacchetto include fino a `news.max_headlines` (40) titoli, presi da **feed RSS curati** definiti in
+`config.json` (BBC, Guardian, Al Jazeera, CNBC, Investing.com, Fed, BCE) piu' le news yfinance taggate ai
+megacap. Categorie: economia, mercati, banche centrali, geopolitica. Solo titolo + breve sommario + fonte +
+data + link (niente corpo, per copyright). Parser RSS/Atom in `build_packet.py` con sola stdlib: un feed
+irraggiungibile viene saltato e stampato come "KO", quindi il primo run mostra i conteggi per-feed e si
+potano/aggiustano le fonti morte modificando `config.json`. Le news sono identiche per tutti i modelli e
+archiviate nel packet (riproducibili).

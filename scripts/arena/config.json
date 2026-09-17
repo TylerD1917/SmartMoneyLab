@@ -32,7 +32,20 @@
   "state_dir": "scripts/arena/state",
   "public_dir": "public/tools/arena",
   "news": {
-    "provider": "yfinance",
-    "max_headlines": 25
+    "max_headlines": 40,
+    "per_feed": 6,
+    "yfinance_seeds": ["AAPL", "MSFT", "NVDA", "AMZN", "JPM", "XOM", "IVV", "QQQ"],
+    "feeds": [
+      {"name": "BBC World",         "url": "https://feeds.bbci.co.uk/news/world/rss.xml",           "cat": "geopolitica"},
+      {"name": "BBC Business",      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",        "cat": "economia"},
+      {"name": "Guardian World",    "url": "https://www.theguardian.com/world/rss",                 "cat": "geopolitica"},
+      {"name": "Guardian Economy",  "url": "https://www.theguardian.com/business/economics/rss",    "cat": "economia"},
+      {"name": "Al Jazeera",        "url": "https://www.aljazeera.com/xml/rss/all.xml",             "cat": "geopolitica"},
+      {"name": "CNBC Economy",      "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html",  "cat": "economia"},
+      {"name": "CNBC Markets",      "url": "https://www.cnbc.com/id/15839135/device/rss/rss.html",  "cat": "mercati"},
+      {"name": "Investing.com",     "url": "https://www.investing.com/rss/news.rss",                "cat": "mercati"},
+      {"name": "Fed press",         "url": "https://www.federalreserve.gov/feeds/press_all.xml",    "cat": "banche centrali"},
+      {"name": "ECB press",         "url": "https://www.ecb.europa.eu/rss/press.xml",               "cat": "banche centrali"}
+    ]
   }
 }

@@ -139,3 +139,11 @@ Obiettivo: coerenza nel tempo e serieta' dell'esperimento.
   mosse) + curva NAV. Ricostruita da `state/decisions/` + NAV, nessuno store dedicato.
 - Il prompt impone di restare coerenti con le tesi passate e di dichiarare esplicitamente i cambi di rotta.
 - Le tesi/rationale sono gia' pubblicate in `arena.json` -> /lab (trasparenza pre-registrata).
+
+## Notizie (v1)
+- Fonti: feed RSS curati in `config.json` (economia, mercati, banche centrali, geopolitica) + yfinance megacap.
+- Volume: fino a 40 titoli, max `per_feed` per fonte, deduplicati per titolo, ordinati per data.
+- Contenuto: titolo + sommario breve + fonte + data + link (no full-text, copyright).
+- Robustezza: parser RSS/Atom stdlib; feed KO saltati e loggati; conteggi per-feed a ogni run.
+- Equita': news costruite una volta e incluse nel packet identico per tutti; archiviate = riproducibili.
+- Upgrade possibili: digest macro sintetico via modello; API news dedicata; pesatura per rilevanza.

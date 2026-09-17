@@ -74,10 +74,13 @@ def agent_memory(cfg, mid):
 def build_user(packet, pf, prices, memory):
     m = packet["macro"]
     macro = " ".join(f"{k} {v.get('last')}({v.get('ret_1w')})" for k, v in m.items())
-    news = "\n".join(f'- [{n["date"]}] {n["source"]}: {n["title"]}' for n in packet["news"][:25])
+    def _news_line(n):
+        base = f'- [{n.get("date")}] ({n.get("cat","")}) {n.get("source","")}: {n.get("title","")}'
+        return base + (f' - {n["summary"]}' if n.get("summary") else "")
+    news = "\n".join(_news_line(n) for n in packet.get("news", []))
     return (f"AS-OF: {packet['as_of']}\n\nMACRO: {macro}\n\n"
             f"UNIVERSO (ticker|gruppo|prezzo|rend 1w/1m/3m/12m|PE|div yield):\n{compact_instruments(packet)}\n\n"
-            f"NOTIZIE:\n{news}\n\n{memory}\n\nIL TUO PORTAFOGLIO ORA:\n{portfolio_view(pf, prices)}\n\n"
+            f"NOTIZIE (data|categoria|fonte|titolo|sommario):\n{news}\n\n{memory}\n\nIL TUO PORTAFOGLIO ORA:\n{portfolio_view(pf, prices)}\n\n"
             "Decidi le mosse per questo periodo, restando coerente con la tua memoria. Restituisci SOLO il JSON.")
 
 # ---------------- adapters (HTTP) ----------------
