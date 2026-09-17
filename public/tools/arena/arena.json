@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-17T10:55:29.079550",
+ "updated": "2026-09-17T17:05:25.600075",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -18,51 +18,6 @@
  },
  "leaderboard": [
   {
-   "id": "gpt",
-   "type": "model",
-   "nav": 99904.71,
-   "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "gemini",
-   "type": "model",
-   "nav": 99900.0,
-   "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "claude",
-   "type": "model",
-   "nav": 99916.71,
-   "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "kimi",
-   "type": "model",
-   "nav": 99901.27,
-   "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "random",
-   "type": "control",
-   "nav": 99896.55,
-   "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
    "id": "ACWI",
    "type": "benchmark",
    "nav": 100000,
@@ -79,6 +34,51 @@
    "vol_ann": null,
    "max_dd": 0.0,
    "sharpe": null
+  },
+  {
+   "id": "claude",
+   "type": "model",
+   "nav": 99916.71,
+   "ret_total": -0.0008,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "gpt",
+   "type": "model",
+   "nav": 99904.71,
+   "ret_total": -0.001,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "gemini",
+   "type": "model",
+   "nav": 99900.0,
+   "ret_total": -0.001,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "kimi",
+   "type": "model",
+   "nav": 99901.27,
+   "ret_total": -0.001,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
+   "id": "random",
+   "type": "control",
+   "nav": 99896.55,
+   "ret_total": -0.001,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
   }
  ],
  "positions": {
@@ -91,56 +91,64 @@
      "qty": 495.15,
      "px": 50.49,
      "weight": 0.2502,
-     "side": "long"
+     "side": "long",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "BRK-B",
      "qty": 28.86,
      "px": 519.8,
      "weight": 0.1501,
-     "side": "long"
+     "side": "long",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "IWD",
      "qty": 47.78,
      "px": 251.16,
      "weight": 0.1201,
-     "side": "long"
+     "side": "long",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "SHEL",
      "qty": 104.49,
      "px": 95.7,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Shell (ADR)"
     },
     {
      "ticker": "CB",
      "qty": 29.28,
      "px": 341.53,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Chubb"
     },
     {
      "ticker": "ACN",
      "qty": 52.73,
      "px": 189.64,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Accenture"
     },
     {
      "ticker": "GOOGL",
      "qty": 23.33,
      "px": 342.87,
      "weight": 0.0801,
-     "side": "long"
+     "side": "long",
+     "name": "Alphabet (Google)"
     },
     {
      "ticker": "TSLA",
      "qty": -13.96,
      "px": 358.08,
      "weight": -0.05,
-     "side": "short"
+     "side": "short",
+     "name": "Tesla"
     }
    ]
   },
@@ -153,70 +161,80 @@
      "qty": 61.23,
      "px": 163.32,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "ExxonMobil"
     },
     {
      "ticker": "JPM",
      "qty": 28.66,
      "px": 348.92,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "JPMorgan Chase"
     },
     {
      "ticker": "BRK-B",
      "qty": 19.24,
      "px": 519.8,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "MSFT",
      "qty": 20.4,
      "px": 490.3,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Microsoft"
     },
     {
      "ticker": "NVDA",
      "qty": 46.75,
      "px": 213.9,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "NVIDIA"
     },
     {
      "ticker": "AVGO",
      "qty": 29.45,
      "px": 339.51,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Broadcom"
     },
     {
      "ticker": "META",
      "qty": 14.85,
      "px": 673.31,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Meta Platforms"
     },
     {
      "ticker": "LLY",
      "qty": 8.79,
      "px": 1137.82,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Eli Lilly"
     },
     {
      "ticker": "LMT",
      "qty": 18.61,
      "px": 537.25,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Lockheed Martin"
     },
     {
      "ticker": "GLD",
      "qty": 25.53,
      "px": 391.74,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "SPDR Gold Shares"
     }
    ]
   },
@@ -229,70 +247,80 @@
      "qty": 338.7,
      "px": 35.43,
      "weight": 0.1201,
-     "side": "long"
+     "side": "long",
+     "name": "Fidelity MSCI Energy Index ETF"
     },
     {
      "ticker": "DBC",
      "qty": 241.25,
      "px": 33.16,
      "weight": 0.0801,
-     "side": "long"
+     "side": "long",
+     "name": "Invesco DB Commodity Index Tracking Fund"
     },
     {
      "ticker": "USFR",
      "qty": 198.06,
      "px": 50.49,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "IWD",
      "qty": 39.82,
      "px": 251.16,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "BRK-B",
      "qty": 17.31,
      "px": 519.8,
      "weight": 0.0901,
-     "side": "long"
+     "side": "long",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "CB",
      "qty": 20.5,
      "px": 341.53,
      "weight": 0.0701,
-     "side": "long"
+     "side": "long",
+     "name": "Chubb"
     },
     {
      "ticker": "BMY",
      "qty": 110.06,
      "px": 63.6,
      "weight": 0.0701,
-     "side": "long"
+     "side": "long",
+     "name": "Bristol-Myers Squibb"
     },
     {
      "ticker": "GLD",
      "qty": 17.87,
      "px": 391.74,
      "weight": 0.0701,
-     "side": "long"
+     "side": "long",
+     "name": "SPDR Gold Shares"
     },
     {
      "ticker": "EDV",
      "qty": 134.88,
      "px": 59.31,
      "weight": 0.0801,
-     "side": "long"
+     "side": "long",
+     "name": "Vanguard Extended Duration Treasury ETF"
     },
     {
      "ticker": "ARM",
      "qty": -20.49,
      "px": 243.98,
      "weight": -0.05,
-     "side": "short"
+     "side": "short",
+     "name": "Arm Holdings"
     }
    ]
   },
@@ -305,70 +333,80 @@
      "qty": 338.7,
      "px": 35.43,
      "weight": 0.1201,
-     "side": "long"
+     "side": "long",
+     "name": "Fidelity MSCI Energy Index ETF"
     },
     {
      "ticker": "DBC",
      "qty": 301.57,
      "px": 33.16,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Invesco DB Commodity Index Tracking Fund"
     },
     {
      "ticker": "IWD",
      "qty": 47.78,
      "px": 251.16,
      "weight": 0.1201,
-     "side": "long"
+     "side": "long",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "FHLC",
      "qty": 123.0,
      "px": 81.3,
      "weight": 0.1001,
-     "side": "long"
+     "side": "long",
+     "name": "Fidelity MSCI Health Care Index ETF"
     },
     {
      "ticker": "CIBR",
      "qty": 79.76,
      "px": 100.3,
      "weight": 0.0801,
-     "side": "long"
+     "side": "long",
+     "name": "First Trust NASDAQ Cybersecurity ETF"
     },
     {
      "ticker": "USFR",
      "qty": 297.09,
      "px": 50.49,
      "weight": 0.1501,
-     "side": "long"
+     "side": "long",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "SMH",
      "qty": -14.66,
      "px": 545.56,
      "weight": -0.0801,
-     "side": "short"
+     "side": "short",
+     "name": "VanEck Semiconductor ETF"
     },
     {
      "ticker": "VGLT",
      "qty": -154.17,
      "px": 51.89,
      "weight": -0.0801,
-     "side": "short"
+     "side": "short",
+     "name": "Vanguard Long-Term Treasury ETF"
     },
     {
      "ticker": "IWM",
      "qty": -24.65,
      "px": 283.92,
      "weight": -0.0701,
-     "side": "short"
+     "side": "short",
+     "name": "iShares Russell 2000 ETF"
     },
     {
      "ticker": "ITB",
      "qty": -79.44,
      "px": 88.12,
      "weight": -0.0701,
-     "side": "short"
+     "side": "short",
+     "name": "iShares U.S. Home Construction ETF"
     }
    ]
   }
@@ -382,56 +420,64 @@
      "action": "open",
      "side": "long",
      "target_weight": 0.25,
-     "thesis": "La duration minima limita il rischio tassi dopo il rialzo Fed, offrendo nel contempo un rendimento del 3,75%. Il peso elevato stabilizza il portafoglio e conserva capacità di acquisto."
+     "thesis": "La duration minima limita il rischio tassi dopo il rialzo Fed, offrendo nel contempo un rendimento del 3,75%. Il peso elevato stabilizza il portafoglio e conserva capacità di acquisto.",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "BRK-B",
      "action": "open",
      "side": "long",
      "target_weight": 0.15,
-     "thesis": "Valutazione contenuta a 13,1 volte gli utili, attività diversificate e ampia liquidità offrono qualità difensiva. Il 15% ne fa il principale pilastro azionario senza concentrazione eccessiva."
+     "thesis": "Valutazione contenuta a 13,1 volte gli utili, attività diversificate e ampia liquidità offrono qualità difensiva. Il 15% ne fa il principale pilastro azionario senza concentrazione eccessiva.",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "IWD",
      "action": "open",
      "side": "long",
      "target_weight": 0.12,
-     "thesis": "Il value statunitense tratta a multipli inferiori al mercato e ha mostrato migliore tenuta del growth. Il peso fornisce diversificazione ampia in un regime di tassi elevati."
+     "thesis": "Il value statunitense tratta a multipli inferiori al mercato e ha mostrato migliore tenuta del growth. Il peso fornisce diversificazione ampia in un regime di tassi elevati.",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "SHEL",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Con petrolio sopra 100, Shell beneficia di robusti flussi di cassa ma quota ancora a 10,9 volte gli utili con dividendo del 3,16%. Limito il peso perché il greggio ha già corso molto."
+     "thesis": "Con petrolio sopra 100, Shell beneficia di robusti flussi di cassa ma quota ancora a 10,9 volte gli utili con dividendo del 3,16%. Limito il peso perché il greggio ha già corso molto.",
+     "name": "Shell (ADR)"
     },
     {
      "ticker": "CB",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Chubb combina multiplo di 12,1, disciplina assicurativa e beneficio dai maggiori rendimenti sul portafoglio obbligazionario. È una componente difensiva poco correlata alla tecnologia."
+     "thesis": "Chubb combina multiplo di 12,1, disciplina assicurativa e beneficio dai maggiori rendimenti sul portafoglio obbligazionario. È una componente difensiva poco correlata alla tecnologia.",
+     "name": "Chubb"
     },
     {
      "ticker": "ACN",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Il PE di 15,1 e il rendimento del 3,44% offrono un ingresso ragionevole dopo la forte debolezza annuale. Il recente recupero segnala stabilizzazione senza una valutazione da euforia AI."
+     "thesis": "Il PE di 15,1 e il rendimento del 3,44% offrono un ingresso ragionevole dopo la forte debolezza annuale. Il recente recupero segnala stabilizzazione senza una valutazione da euforia AI.",
+     "name": "Accenture"
     },
     {
      "ticker": "GOOGL",
      "action": "open",
      "side": "long",
      "target_weight": 0.08,
-     "thesis": "A 17,2 volte gli utili offre esposizione AI e digitale con valutazione molto inferiore ai leader speculativi. Il peso moderato considera rischi regolatori e di investimento."
+     "thesis": "A 17,2 volte gli utili offre esposizione AI e digitale con valutazione molto inferiore ai leader speculativi. Il peso moderato considera rischi regolatori e di investimento.",
+     "name": "Alphabet (Google)"
     },
     {
      "ticker": "TSLA",
      "action": "open",
      "side": "short",
      "target_weight": 0.05,
-     "thesis": "Il multiplo di 334,7 incorpora aspettative eccezionali mentre NHTSA richiede prove sulla legalità del Cybercab. Una posizione piccola copre il rischio di compressione dei multipli growth."
+     "thesis": "Il multiplo di 334,7 incorpora aspettative eccezionali mentre NHTSA richiede prove sulla legalità del Cybercab. Una posizione piccola copre il rischio di compressione dei multipli growth.",
+     "name": "Tesla"
     }
    ]
   },
@@ -443,70 +489,80 @@
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Benefits from WTI crude >$100 and acts as a strong inflation hedge with attractive cash flows."
+     "thesis": "Benefits from WTI crude >$100 and acts as a strong inflation hedge with attractive cash flows.",
+     "name": "ExxonMobil"
     },
     {
      "ticker": "JPM",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Rising interest rates and a normal yield curve expand net interest margins for high-quality banks."
+     "thesis": "Rising interest rates and a normal yield curve expand net interest margins for high-quality banks.",
+     "name": "JPMorgan Chase"
     },
     {
      "ticker": "BRK-B",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Diversified cash flows and a massive insurance float that directly capitalizes on 5% treasury yields."
+     "thesis": "Diversified cash flows and a massive insurance float that directly capitalizes on 5% treasury yields.",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "MSFT",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Core AI software leadership with expanding cloud margins and an impenetrable balance sheet."
+     "thesis": "Core AI software leadership with expanding cloud margins and an impenetrable balance sheet.",
+     "name": "Microsoft"
     },
     {
      "ticker": "NVDA",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Dominant AI chip provider trading at an attractive 27 PE multiple given its fundamental growth."
+     "thesis": "Dominant AI chip provider trading at an attractive 27 PE multiple given its fundamental growth.",
+     "name": "NVIDIA"
     },
     {
      "ticker": "AVGO",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Custom silicon and networking growth tied directly to massive AI data center infrastructure build-outs."
+     "thesis": "Custom silicon and networking growth tied directly to massive AI data center infrastructure build-outs.",
+     "name": "Broadcom"
     },
     {
      "ticker": "META",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "High free cash flow generation and a reasonable valuation amid strong digital advertising resilience."
+     "thesis": "High free cash flow generation and a reasonable valuation amid strong digital advertising resilience.",
+     "name": "Meta Platforms"
     },
     {
      "ticker": "LLY",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Secular growth leadership in GLP-1 therapeutics providing non-cyclical, defensive earnings growth."
+     "thesis": "Secular growth leadership in GLP-1 therapeutics providing non-cyclical, defensive earnings growth.",
+     "name": "Eli Lilly"
     },
     {
      "ticker": "LMT",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Geopolitical hedge with an attractive dividend, supported by escalating global tensions and defense spending."
+     "thesis": "Geopolitical hedge with an attractive dividend, supported by escalating global tensions and defense spending.",
+     "name": "Lockheed Martin"
     },
     {
      "ticker": "GLD",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Safe-haven asset providing non-correlated protection against inflation and rising macroeconomic uncertainties."
+     "thesis": "Safe-haven asset providing non-correlated protection against inflation and rising macroeconomic uncertainties.",
+     "name": "SPDR Gold Shares"
     }
    ]
   },
@@ -518,70 +574,80 @@
      "action": "open",
      "side": "long",
      "target_weight": 0.12,
-     "thesis": "Petrolio a 100$ con rischio offerta (Bab al-Mandeb, Russia) e settore ancora a PE 17.5 con dy 2.2: e' l'esposizione piu' diretta all'inflazione energetica con utili reali."
+     "thesis": "Petrolio a 100$ con rischio offerta (Bab al-Mandeb, Russia) e settore ancora a PE 17.5 con dy 2.2: e' l'esposizione piu' diretta all'inflazione energetica con utili reali.",
+     "name": "Fidelity MSCI Energy Index ETF"
     },
     {
      "ticker": "DBC",
      "action": "open",
      "side": "long",
      "target_weight": 0.08,
-     "thesis": "Paniere commodity diversificato (+52% 12m, +8.5% 1m) come hedge strutturale contro l'inflazione che sta costringendo le banche centrali a rialzare."
+     "thesis": "Paniere commodity diversificato (+52% 12m, +8.5% 1m) come hedge strutturale contro l'inflazione che sta costringendo le banche centrali a rialzare.",
+     "name": "Invesco DB Commodity Index Tracking Fund"
     },
     {
      "ticker": "USFR",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Treasury floating rate: duration zero e cedola che sale con i rialzi Fed; parcheggio remunerato che protegge il NAV mentre i tassi salgono."
+     "thesis": "Treasury floating rate: duration zero e cedola che sale con i rialzi Fed; parcheggio remunerato che protegge il NAV mentre i tassi salgono.",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "IWD",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Large value a PE 20.7 batte il growth a PE 29 quando i tassi reali salgono; core azionario con beta contenuto rispetto a QQQ."
+     "thesis": "Large value a PE 20.7 batte il growth a PE 29 quando i tassi reali salgono; core azionario con beta contenuto rispetto a QQQ.",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "BRK-B",
      "action": "open",
      "side": "long",
      "target_weight": 0.09,
-     "thesis": "PE 13 e enorme liquidita' che rende di piu' con tassi al 4-5%: qualita' difensiva che beneficia proprio dello scenario di rialzi."
+     "thesis": "PE 13 e enorme liquidita' che rende di piu' con tassi al 4-5%: qualita' difensiva che beneficia proprio dello scenario di rialzi.",
+     "name": "Berkshire Hathaway"
     },
     {
      "ticker": "CB",
      "action": "open",
      "side": "long",
      "target_weight": 0.07,
-     "thesis": "Assicurazione a PE 12.1: float investito a tassi piu' alti e pricing power tariffario, esposizione finanziaria senza il rischio credito delle banche."
+     "thesis": "Assicurazione a PE 12.1: float investito a tassi piu' alti e pricing power tariffario, esposizione finanziaria senza il rischio credito delle banche.",
+     "name": "Chubb"
     },
     {
      "ticker": "BMY",
      "action": "open",
      "side": "long",
      "target_weight": 0.07,
-     "thesis": "Pharma a PE 14 con dy 3.95% e momentum positivo a 3m: cash flow difensivo a valutazione bassa, poco sensibile al ciclo dei tassi."
+     "thesis": "Pharma a PE 14 con dy 3.95% e momentum positivo a 3m: cash flow difensivo a valutazione bassa, poco sensibile al ciclo dei tassi.",
+     "name": "Bristol-Myers Squibb"
     },
     {
      "ticker": "GLD",
      "action": "open",
      "side": "long",
      "target_weight": 0.07,
-     "thesis": "Copertura contro inflazione persistente e rischio geopolitico; peso contenuto perche' tassi reali in rialzo sono un freno nel breve."
+     "thesis": "Copertura contro inflazione persistente e rischio geopolitico; peso contenuto perche' tassi reali in rialzo sono un freno nel breve.",
+     "name": "SPDR Gold Shares"
     },
     {
      "ticker": "EDV",
      "action": "open",
      "side": "long",
      "target_weight": 0.08,
-     "thesis": "SHORT duration lunga: con Fed in rialzo, 10Y al 5% e inflazione in accelerazione, gli zero-coupon lunghi restano il segmento piu' vulnerabile; copre il rischio tassi del portafoglio."
+     "thesis": "SHORT duration lunga: con Fed in rialzo, 10Y al 5% e inflazione in accelerazione, gli zero-coupon lunghi restano il segmento piu' vulnerabile; copre il rischio tassi del portafoglio.",
+     "name": "Vanguard Extended Duration Treasury ETF"
     },
     {
      "ticker": "ARM",
      "action": "open",
      "side": "short",
      "target_weight": 0.05,
-     "thesis": "PE 249 con prezzo -38% in 3 mesi: valutazione estrema e momentum gia' rotto, il candidato ideale al de-rating se il costo del capitale sale ancora."
+     "thesis": "PE 249 con prezzo -38% in 3 mesi: valutazione estrema e momentum gia' rotto, il candidato ideale al de-rating se il costo del capitale sale ancora.",
+     "name": "Arm Holdings"
     }
    ]
   },
@@ -593,70 +659,80 @@
      "action": "open",
      "side": "long",
      "target_weight": 0.12,
-     "thesis": "Petrolio a 100$ e inflazione persistente favoriscono l'energia: momentum +16% 3m, valutazione ragionevole (PE 17.5), yield 2.2%. Settore leader in un regime di prezzi in rialzo."
+     "thesis": "Petrolio a 100$ e inflazione persistente favoriscono l'energia: momentum +16% 3m, valutazione ragionevole (PE 17.5), yield 2.2%. Settore leader in un regime di prezzi in rialzo.",
+     "name": "Fidelity MSCI Energy Index ETF"
     },
     {
      "ticker": "DBC",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Commodity diversificate in trend rialzista (+19% 3m, +52% 12m): hedge inflazionistico diretto mentre Fed e BoE stringono su prezzi spinti dall'energia."
+     "thesis": "Commodity diversificate in trend rialzista (+19% 3m, +52% 12m): hedge inflazionistico diretto mentre Fed e BoE stringono su prezzi spinti dall'energia.",
+     "name": "Invesco DB Commodity Index Tracking Fund"
     },
     {
      "ticker": "IWD",
      "action": "open",
      "side": "long",
      "target_weight": 0.12,
-     "thesis": "Value batte growth da un anno (+26% vs +5%): con tassi al 5% la duration equity e' penalizzata e gli utili correnti a sconto (PE 20.7) offrono cuscinetto."
+     "thesis": "Value batte growth da un anno (+26% vs +5%): con tassi al 5% la duration equity e' penalizzata e gli utili correnti a sconto (PE 20.7) offrono cuscinetto.",
+     "name": "iShares Russell 1000 Value ETF"
     },
     {
      "ticker": "FHLC",
      "action": "open",
      "side": "long",
      "target_weight": 0.1,
-     "thesis": "Healthcare difensivo con momentum positivo (+10.6% 3m) e flussi stabili: protezione se il tightening raffredda il ciclo, trascinato da JNJ e MRK."
+     "thesis": "Healthcare difensivo con momentum positivo (+10.6% 3m) e flussi stabili: protezione se il tightening raffredda il ciclo, trascinato da JNJ e MRK.",
+     "name": "Fidelity MSCI Health Care Index ETF"
     },
     {
      "ticker": "CIBR",
      "action": "open",
      "side": "long",
      "target_weight": 0.08,
-     "thesis": "Cybersecurity con forza idiosincratica (CRWD +16% 1w, PANW +12%): domanda strutturale da rischi AI e stretta regolatoria EU; ETF per limitare il rischio singolo titolo."
+     "thesis": "Cybersecurity con forza idiosincratica (CRWD +16% 1w, PANW +12%): domanda strutturale da rischi AI e stretta regolatoria EU; ETF per limitare il rischio singolo titolo.",
+     "name": "First Trust NASDAQ Cybersecurity ETF"
     },
     {
      "ticker": "USFR",
      "action": "open",
      "side": "long",
      "target_weight": 0.15,
-     "thesis": "Parcheggio tattico a duration zero con carry ~3.75%: superiore al cash fermo, immunizzato dal rialzo dei tassi che affligge i Treasury lunghi."
+     "thesis": "Parcheggio tattico a duration zero con carry ~3.75%: superiore al cash fermo, immunizzato dal rialzo dei tassi che affligge i Treasury lunghi.",
+     "name": "WisdomTree Floating Rate Treasury Fund"
     },
     {
      "ticker": "SMH",
      "action": "open",
      "side": "short",
      "target_weight": 0.08,
-     "thesis": "Semiconduttori in correzione (-11% 3m, MU -10% 1w, ARM -38% 3m) con narrativa AI che si incrina; PE 37 vulnerabile a ulteriori rialzi dei tassi."
+     "thesis": "Semiconduttori in correzione (-11% 3m, MU -10% 1w, ARM -38% 3m) con narrativa AI che si incrina; PE 37 vulnerabile a ulteriori rialzi dei tassi.",
+     "name": "VanEck Semiconductor ETF"
     },
     {
      "ticker": "VGLT",
      "action": "open",
      "side": "short",
      "target_weight": 0.08,
-     "thesis": "La Fed ha appena rialzato e il 10Y e' al 5.01%: la duration lunga e' il trade perdente (VGLT -5% 12m) e il trend di tasso e' intatto."
+     "thesis": "La Fed ha appena rialzato e il 10Y e' al 5.01%: la duration lunga e' il trade perdente (VGLT -5% 12m) e il trend di tasso e' intatto.",
+     "name": "Vanguard Long-Term Treasury ETF"
     },
     {
      "ticker": "IWM",
      "action": "open",
      "side": "short",
      "target_weight": 0.07,
-     "thesis": "Small cap indebitate soffrono per prime tassi al 5% (-6.4% 1m, RUT in calo): il tightening colpisce il segmento con bilanci piu' fragili."
+     "thesis": "Small cap indebitate soffrono per prime tassi al 5% (-6.4% 1m, RUT in calo): il tightening colpisce il segmento con bilanci piu' fragili.",
+     "name": "iShares Russell 2000 ETF"
     },
     {
      "ticker": "ITB",
      "action": "open",
      "side": "short",
      "target_weight": 0.07,
-     "thesis": "Homebuilder -19% a 12m con mutui ai massimi dal 2023 e tassi piu' alti piu' a lungo: domanda immobiliare compressa, trend ribassista consolidato."
+     "thesis": "Homebuilder -19% a 12m con mutui ai massimi dal 2023 e tassi piu' alti piu' a lungo: domanda immobiliare compressa, trend ribassista consolidato.",
+     "name": "iShares U.S. Home Construction ETF"
     }
    ]
   }
