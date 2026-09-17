@@ -84,7 +84,7 @@ def build_user(packet, pf, prices, memory):
             "Decidi le mosse per questo periodo, restando coerente con la tua memoria. Restituisci SOLO il JSON.")
 
 # ---------------- adapters (HTTP) ----------------
-def _post(url, headers, body, timeout=120):
+def _post(url, headers, body, timeout=300):
     req = urllib.request.Request(url, data=json.dumps(body).encode(), headers=headers, method="POST")
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:

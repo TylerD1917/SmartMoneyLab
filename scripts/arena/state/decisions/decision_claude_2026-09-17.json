@@ -1,6 +1,0 @@
-{
- "rationale": "(errore API: HTTP 401: {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011Cf8s2dumUQBFccohJTaD6\"})",
- "orders": [],
- "as_of": "2026-09-17",
- "model": "claude"
-}
