@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-17T09:45:25.465667",
+ "updated": "2026-09-17T09:57:36.311771",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -56,7 +56,7 @@
   {
    "id": "random",
    "type": "control",
-   "nav": 99896.55,
+   "nav": 99893.1,
    "ret_total": 0.0,
    "vol_ann": null,
    "max_dd": 0.0,
@@ -65,7 +65,7 @@
   {
    "id": "ACWI",
    "type": "benchmark",
-   "nav": 100000,
+   "nav": 100000.0,
    "ret_total": 0.0,
    "vol_ann": null,
    "max_dd": 0.0,
@@ -74,7 +74,7 @@
   {
    "id": "SP500",
    "type": "benchmark",
-   "nav": 100000,
+   "nav": 100000.0,
    "ret_total": 0.0,
    "vol_ann": null,
    "max_dd": 0.0,
@@ -149,11 +149,21 @@
   "random": [
    [
     "2026-09-17",
-    99896.55
+    99893.1
    ]
   ],
-  "ACWI": [],
-  "SP500": []
+  "ACWI": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ],
+  "SP500": [
+   [
+    "2026-09-17",
+    100000.0
+   ]
+  ]
  },
  "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."
 }
