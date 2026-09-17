@@ -837,691 +837,685 @@
    "ticker": "AAPL",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Apple"
   },
   {
    "ticker": "MSFT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Microsoft"
   },
   {
    "ticker": "NVDA",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "NVIDIA"
   },
   {
    "ticker": "AMZN",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Amazon"
   },
   {
    "ticker": "GOOGL",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Alphabet (Google)"
   },
   {
    "ticker": "META",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Meta Platforms"
   },
   {
    "ticker": "TSLA",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Tesla"
   },
   {
    "ticker": "BRK-B",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Berkshire Hathaway"
   },
   {
    "ticker": "AVGO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Broadcom"
   },
   {
    "ticker": "JPM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "JPMorgan Chase"
   },
   {
    "ticker": "LLY",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Eli Lilly"
   },
   {
    "ticker": "V",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Visa"
   },
   {
    "ticker": "UNH",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "UnitedHealth Group"
   },
   {
    "ticker": "XOM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "ExxonMobil"
   },
   {
    "ticker": "MA",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Mastercard"
   },
   {
    "ticker": "COST",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Costco"
   },
   {
    "ticker": "HD",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Home Depot"
   },
   {
    "ticker": "PG",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Procter & Gamble"
   },
   {
    "ticker": "JNJ",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Johnson & Johnson"
   },
   {
    "ticker": "WMT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Walmart"
   },
   {
    "ticker": "NFLX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Netflix"
   },
   {
    "ticker": "BAC",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Bank of America"
   },
   {
    "ticker": "ORCL",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Oracle"
   },
   {
    "ticker": "ABBV",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "AbbVie"
   },
   {
    "ticker": "CVX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Chevron"
   },
   {
    "ticker": "KO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Coca-Cola"
   },
   {
    "ticker": "MRK",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Merck"
   },
   {
    "ticker": "CRM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Salesforce"
   },
   {
    "ticker": "AMD",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "AMD"
   },
   {
    "ticker": "PEP",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "PepsiCo"
   },
   {
    "ticker": "TMO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Thermo Fisher Scientific"
   },
   {
    "ticker": "LIN",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Linde"
   },
   {
    "ticker": "ADBE",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Adobe"
   },
   {
    "ticker": "MCD",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "McDonald's"
   },
   {
    "ticker": "CSCO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Cisco"
   },
   {
    "ticker": "ACN",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Accenture"
   },
   {
    "ticker": "WFC",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Wells Fargo"
   },
   {
    "ticker": "ABT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Abbott Laboratories"
   },
   {
    "ticker": "DHR",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Danaher"
   },
   {
    "ticker": "TXN",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Texas Instruments"
   },
   {
    "ticker": "INTC",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Intel"
   },
   {
    "ticker": "INTU",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Intuit"
   },
   {
    "ticker": "VZ",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Verizon"
   },
   {
    "ticker": "QCOM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Qualcomm"
   },
   {
    "ticker": "IBM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "IBM"
   },
   {
    "ticker": "PM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Philip Morris International"
   },
   {
    "ticker": "CAT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Caterpillar"
   },
   {
    "ticker": "GE",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "GE Aerospace"
   },
   {
    "ticker": "NOW",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "ServiceNow"
   },
   {
    "ticker": "DIS",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Walt Disney"
   },
   {
    "ticker": "AMGN",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Amgen"
   },
   {
    "ticker": "NEE",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "NextEra Energy"
   },
   {
    "ticker": "RTX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "RTX (Raytheon)"
   },
   {
    "ticker": "GS",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Goldman Sachs"
   },
   {
    "ticker": "UNP",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Union Pacific"
   },
   {
    "ticker": "HON",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Honeywell"
   },
   {
    "ticker": "LOW",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Lowe's"
   },
   {
    "ticker": "SPGI",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "S&P Global"
   },
   {
    "ticker": "ISRG",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Intuitive Surgical"
   },
   {
    "ticker": "BKNG",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Booking Holdings"
   },
   {
    "ticker": "AXP",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "American Express"
   },
   {
    "ticker": "PFE",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Pfizer"
   },
   {
    "ticker": "T",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "AT&T"
   },
   {
    "ticker": "COP",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "ConocoPhillips"
   },
   {
    "ticker": "MS",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Morgan Stanley"
   },
   {
    "ticker": "BLK",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "BlackRock"
   },
   {
    "ticker": "ELV",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Elevance Health"
   },
   {
    "ticker": "SYK",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Stryker"
   },
   {
    "ticker": "VRTX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Vertex Pharmaceuticals"
   },
   {
    "ticker": "C",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Citigroup"
   },
   {
    "ticker": "BA",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Boeing"
   },
   {
    "ticker": "MDT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Medtronic"
   },
   {
    "ticker": "PLD",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Prologis"
   },
   {
    "ticker": "TJX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "TJX Companies"
   },
   {
    "ticker": "ADP",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "ADP"
   },
   {
    "ticker": "GILD",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Gilead Sciences"
   },
   {
    "ticker": "MDLZ",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Mondelez"
   },
   {
    "ticker": "CB",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
-  },
-  {
-   "ticker": "MMC",
-   "class": "stock",
-   "group": "large_cap_us",
-   "name": ""
+   "name": "Chubb"
   },
   {
    "ticker": "DE",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Deere & Co."
   },
   {
    "ticker": "LMT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Lockheed Martin"
   },
   {
    "ticker": "SBUX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Starbucks"
   },
   {
    "ticker": "BMY",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Bristol-Myers Squibb"
   },
   {
    "ticker": "SCHW",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Charles Schwab"
   },
   {
    "ticker": "CI",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "The Cigna Group"
   },
   {
    "ticker": "SO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Southern Company"
   },
   {
    "ticker": "MO",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Altria"
   },
   {
    "ticker": "DUK",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Duke Energy"
   },
   {
    "ticker": "USB",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "U.S. Bancorp"
   },
   {
    "ticker": "CVS",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "CVS Health"
   },
   {
    "ticker": "TGT",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Target"
   },
   {
    "ticker": "PGR",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Progressive"
   },
   {
    "ticker": "FDX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "FedEx"
   },
   {
    "ticker": "BDX",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Becton Dickinson"
   },
   {
    "ticker": "GM",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "General Motors"
   },
   {
    "ticker": "CL",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Colgate-Palmolive"
   },
   {
    "ticker": "EMR",
    "class": "stock",
    "group": "large_cap_us",
-   "name": ""
+   "name": "Emerson Electric"
   },
   {
    "ticker": "PLTR",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Palantir"
   },
   {
    "ticker": "COIN",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Coinbase"
   },
   {
    "ticker": "MSTR",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Strategy (MicroStrategy)"
   },
   {
    "ticker": "UBER",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Uber"
   },
   {
    "ticker": "ABNB",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Airbnb"
   },
   {
    "ticker": "SHOP",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Shopify"
   },
   {
    "ticker": "SNOW",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Snowflake"
   },
   {
    "ticker": "CRWD",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "CrowdStrike"
   },
   {
    "ticker": "PANW",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Palo Alto Networks"
   },
   {
    "ticker": "MRVL",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Marvell"
   },
   {
    "ticker": "MU",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Micron"
   },
   {
    "ticker": "ARM",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Arm Holdings"
   },
   {
    "ticker": "SMCI",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Super Micro Computer"
   },
   {
    "ticker": "DELL",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Dell Technologies"
   },
   {
    "ticker": "HOOD",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Robinhood"
   },
   {
    "ticker": "SOFI",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "SoFi Technologies"
   },
   {
    "ticker": "RBLX",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Roblox"
   },
   {
    "ticker": "NET",
    "class": "stock",
    "group": "stock_high_dispersion",
-   "name": ""
+   "name": "Cloudflare"
   },
   {
    "ticker": "TSM",

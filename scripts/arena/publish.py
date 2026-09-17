@@ -20,6 +20,7 @@ def publish(cfg):
     for p in parts:
         m = ac.metrics_from_nav(nav_all[p])
         last = nav_all[p][-1][1] if nav_all[p] else cfg["capital"]
+        m["ret_total"] = round(last / cfg["capital"] - 1, 4)   # rendimento dal capitale iniziale
         board.append({"id": p, "type": ("model" if p in models else ("control" if p == "random" else "benchmark")),
                       "nav": round(last, 2), **m})
     board.sort(key=lambda r: (r["ret_total"] if r["ret_total"] is not None else -9), reverse=True)
@@ -33,10 +34,12 @@ def publish(cfg):
             positions[mid] = {"cash": round(pf["cash"], 2), "equity": round(E, 2),
                 "positions": [{"ticker": t, "qty": round(v["qty"], 2),
                     "px": prices.get(t), "weight": round(v["qty"]*prices.get(t, 0)/E, 4) if E else 0,
-                    "side": "long" if v["qty"] > 0 else "short"} for t, v in pf["positions"].items()]}
+                    "side": "long" if v["qty"] > 0 else "short",
+                    "name": meta.get(t, {}).get("name", "")} for t, v in pf["positions"].items()]}
         if as_of:
             d = ac.read_json(ac.state_path(cfg, "decisions", f"decision_{mid}_{as_of}.json"))
-            if d: decisions[mid] = {"rationale": d.get("rationale", ""), "orders": d.get("orders", [])}
+            if d: decisions[mid] = {"rationale": d.get("rationale", ""),
+                "orders": [dict(o, name=meta.get(o.get("ticker"), {}).get("name", "")) for o in d.get("orders", []) if isinstance(o, dict)]}
 
     ac.write_json(os.path.join(outdir, "arena.json"), {
         "as_of": as_of, "updated": dt.datetime.utcnow().isoformat(),

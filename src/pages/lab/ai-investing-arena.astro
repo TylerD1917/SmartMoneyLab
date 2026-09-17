@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Disclaimer from "../../components/Disclaimer.astro";
+import AiArena from "../../components/interactive/AiArena.jsx";
+
+const canonical = "https://smartmoneylab.it/lab/ai-investing-arena";
+const title = "AI Investing Arena: l'AI batte davvero il mercato?";
+const description =
+  "GPT-5.6, Gemini, Claude e Kimi gestiscono un portafoglio con gli stessi dati e le stesse notizie. Esperimento live: un'intelligenza artificiale sa investire meglio del mercato?";
+const ogImage = "/og/ai-investing-arena.png";
+
+const faq = [
+  {
+    q: "L'intelligenza artificiale può battere il mercato?",
+    a: "È esattamente la domanda di questo esperimento. Quattro tra i modelli di AI più potenti gestiscono un portafoglio con soldi virtuali e li confrontiamo con gli indici di mercato e con un portafoglio scelto a caso. Nel breve periodo il risultato è in gran parte fortuna: servono mesi di dati prima di trarre conclusioni.",
+  },
+  {
+    q: "Quale AI investe meglio: GPT, Gemini, Claude o Kimi?",
+    a: "È ciò che misuriamo in diretta. La classifica in cima alla pagina mostra il rendimento di ciascun modello dal lancio, aggiornato ogni settimana, insieme alle posizioni e alle tesi di ognuno.",
+  },
+  {
+    q: "Come fa un modello di intelligenza artificiale a scegliere le azioni?",
+    a: "Ogni due settimane ogni modello riceve lo stesso identico pacchetto di dati di mercato e notizie economiche e geopolitiche, e decide quali titoli comprare o vendere (long o short), motivando ogni singola mossa. Nessun modello ha accesso a informazioni che gli altri non hanno.",
+  },
+  {
+    q: "È un consiglio di investimento?",
+    a: "No. È un esperimento di ricerca a scopo divulgativo, non un segnale operativo né una consulenza finanziaria. Non replicare queste posizioni.",
+  },
+];
+
+const ld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": canonical,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "it-IT",
+      isPartOf: { "@type": "WebSite", name: "SmartMoneyLab", url: "https://smartmoneylab.it/" },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faq.map((x) => ({
+        "@type": "Question",
+        name: x.q,
+        acceptedAnswer: { "@type": "Answer", text: x.a },
+      })),
+    },
+  ],
+};
+---
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
+  <Fragment slot="head">
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </Fragment>
+
+  <div class="mx-auto max-w-5xl px-4">
+    <article class="prose prose-slate mx-auto max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-blue-700">Lab · esperimento in diretta</p>
+      <h1>AI Investing Arena: l'intelligenza artificiale batte il mercato?</h1>
+      <p class="lead">
+        Quattro tra i modelli di intelligenza artificiale più potenti al mondo — <strong>GPT-5.6</strong> (OpenAI),
+        <strong>Gemini 3.1 Pro</strong> (Google), <strong>Claude Opus 5</strong> (Anthropic) e <strong>Kimi K3</strong>
+        (Moonshot) — gestiscono ciascuno un portafoglio da <strong>100.000$ virtuali</strong>. Ogni due settimane ricevono
+        lo <strong>stesso identico pacchetto</strong> di dati di mercato e notizie e decidono come investire. La domanda che
+        incuriosisce tutti: <strong>un'AI sa fare stock picking meglio del mercato? E quale modello ragiona meglio?</strong>
+        Non lo sappiamo — per questo lo misuriamo, in diretta, davanti a te.
+      </p>
+    </article>
+
+    <AiArena client:load />
+
+    <article class="prose prose-slate mx-auto mt-6 max-w-3xl">
+      <h2>Come funziona</h2>
+      <p>
+        Il motore costruisce <strong>un unico pacchetto informativo identico per tutti</strong>: prezzi e rendimenti di
+        ~270 strumenti (azioni, ETF, materie prime, obbligazionari, crypto), un quadro macro (tassi, dollaro, oro,
+        petrolio, VIX…) e un <strong>digest di notizie</strong> economiche, finanziarie, di politica monetaria e
+        geopolitiche, aggregate da testate internazionali e banche centrali. Lo stesso pacchetto va a tutti e quattro i
+        modelli: nessuno ha accesso a strumenti o dati che gli altri non hanno. Così ciò che li distingue è
+        <strong>solo il ragionamento</strong>, non l'informazione.
+      </p>
+      <p>
+        Ogni modello risponde con le sue mosse (aprire, aumentare, ridurre o chiudere posizioni, long o short) e
+        <strong>deve giustificare ogni decisione</strong>. In più riceve la propria <strong>memoria</strong>: le tesi e le
+        mosse dei periodi precedenti, così mantiene una linea coerente nel tempo invece di ripartire da zero ogni volta.
+        Tesi e posizioni sono <strong>pubbliche</strong> qui sopra: vedi <em>perché</em> ogni modello ha scelto cosa.
+      </p>
+
+      <h2>Le regole del gioco</h2>
+      <p>
+        100k$ virtuali a testa, massimo 10 posizioni, long e short su azioni/ETF/ETN/ETC, <strong>niente leva</strong>
+        (esposizione lorda ≤ 100%). Ogni operazione paga <strong>costi realistici</strong> (commissione + spread, più il
+        costo di prestito sugli short), così il trading inutile viene penalizzato come nella realtà. Le decisioni sono
+        <strong>bisettimanali</strong>, il valore dei portafogli è aggiornato <strong>ogni settimana</strong>. È un
+        <strong>esperimento forward</strong>: parte dal lancio e accumula da lì, niente backtest retroattivo.
+      </p>
+      <p>
+        Confrontiamo i quattro modelli con due riferimenti onesti: un <strong>portafoglio casuale</strong> (stessa
+        struttura, titoli estratti a caso — misura quanta parte è pura fortuna) e i <strong>benchmark</strong> di mercato
+        (MSCI ACWI e S&P 500). Battere il mercato è difficile; battere il caso, nel breve, non è affatto scontato.
+      </p>
+
+      <h2>Cosa NON è</h2>
+      <p>
+        Un <strong>esperimento</strong> per rispondere a una domanda di ricerca, non un segnale operativo né un consiglio.
+        Nel breve periodo il vincitore è in larga parte <strong>fortuna</strong>: serviranno mesi di dati prima di poter
+        dire qualcosa di sensato. Non replicare queste posizioni.
+      </p>
+
+      <h2>Domande frequenti</h2>
+      {faq.map((x) => (
+        <>
+          <h3>{x.q}</h3>
+          <p>{x.a}</p>
+        </>
+      ))}
+
+      <Disclaimer />
+
+      <p class="text-sm">
+        Vedi anche la <a href="/portafogli">classifica dei portafogli celebri</a> e gli altri
+        <a href="/lab">esperimenti del Lab</a>.
+      </p>
+    </article>
+  </div>
+</BaseLayout>
