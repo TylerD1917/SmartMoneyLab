@@ -54,7 +54,7 @@ const ld = {
 <BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Fragment slot="head">
     <meta property="og:type" content="article" />
-    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
   </Fragment>
 
   <div class="mx-auto max-w-5xl px-4">
