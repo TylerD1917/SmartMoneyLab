@@ -15,7 +15,7 @@ const ASSET = {
   ENERGY: "MSCI Energy", HEALTH: "MSCI Healthcare", EM: "Mercati emergenti", SMALLCAP: "Small cap",
   GOLD: "Oro", BTC: "Bitcoin", COMMODITY: "Commodity", WORLD2X: "MSCI World 2x",
   US_20Y: "Treasury USA 20a", US_10Y: "Treasury USA 10a", US_2Y: "Treasury USA 2a",
-  EU_30Y: "BTP 30a", EU_10Y: "BTP 10a", EU_3Y: "BTP 3a",
+  EU_30Y: "Gov euro 15-30a", EU_10Y: "Gov euro 10-15a", EU_3Y: "Gov euro 1-3a",
 };
 // colore per asset nella barra di composizione (azioni=blu/viola, oro=oro, bond=teal/verde, commodity=bronzo, btc=arancio)
 const ASSET_COL = {

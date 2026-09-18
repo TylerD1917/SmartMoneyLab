@@ -3,8 +3,9 @@ Leaderboard — Step 5a: scarica i dati FRESCHI (gira sul runner GitHub, non nel
 sandbox dove yfinance e' bloccato). Rigenera esattamente gli input che i build
 script si aspettano, con gli stessi ticker gia' validati.
 
-NON tocca la curva BTP: quella arriva dall'export manuale settimanale di Tyler
-(data/raw/REPORT_BancaItalia.xlsx), committato prima che parta la Action.
+Scarica anche gli ETF governativi euro (IBGS/IBGZ/IBGL) per la gamba bond EUR:
+sostituiscono la vecchia curva BTP sintetica da REPORT_BancaItalia.xlsx (export
+manuale). Ora tutta la pipeline si aggiorna da sola, senza input a mano.
 
 Fonti: yfinance (equity/oro/BTC/EURUSD/CMOD/World daily) + FRED (Treasury USA).
 """
@@ -66,6 +67,25 @@ def fred(sid, path):
 fred("DGS20", os.path.join(RAW,"DGS20.csv"))
 fred("DGS2",  os.path.join(RAW,"DGS2.csv"))
 fred("DGS10", os.path.join(CACHE,"fred_dgs10.csv"))
+
+# ---- 4) ETF governativi euro (gamba bond EUR): TR mensile in EUR nativo ----
+#   auto_adjust=True -> il prezzo e' gia' total return (cedole reinvestite).
+#   IBGS 1-3yr -> EU_3Y | IBGZ 10-15yr -> EU_10Y | IBGL 15-30yr -> EU_30Y
+EU_GOVT={"IBGS":"eu_govt_1_3","IBGZ":"eu_govt_10_15","IBGL":"eu_govt_15_30"}
+EU_SUFFIXES=[".MI",".AS",".L",".DE"]   # prova piu' listini, tieni il primo con storico pre-2018
+for base,slug in EU_GOVT.items():
+    picked=None
+    for suf in EU_SUFFIXES:
+        s_etf=_close(dl(base+suf, period="max"))
+        if s_etf is not None and len(s_etf) and s_etf.index.min()<=pd.Timestamp("2017-06-30"):
+            picked=(base+suf, s_etf); break
+    if picked is None:
+        failed.append(base); print(f"  [X] {base} (nessun listino con storico pre-2018)"); continue
+    tk,s_etf=picked
+    m=s_etf.resample("ME").last(); m.index.name="Date"
+    m.to_csv(os.path.join(CACHE,f"{slug}.csv"), header=["adjclose"])
+    print(f"  [ok] {slug:14s} <- {tk:10s} {m.index[0].date()} -> {m.index[-1].date()} ({len(m)})")
+
 
 if failed:
     print(f"\n[!] ticker/serie falliti: {', '.join(failed)}")

@@ -1,7 +1,9 @@
 """
 Leaderboard — Step 1b: assembla TUTTI i mattoncini come TR mensile IN EURO.
 Blocchi USD (equity/oro/BTC/US bond/World2x) -> convertiti in EUR via EURUSD.
-Blocchi EUR nativi (CMOD, BTP) -> usati come sono.
+Blocchi EUR nativi (CMOD, ETF gov euro) -> usati come sono.
+Gamba bond EUR (EU_3Y/EU_10Y/EU_30Y): da ETF gov euro iShares (IBGS/IBGZ/IBGL),
+scaricati in fetch_data.py -> cache/eu_govt_*.csv. Prima erano sintetici da BTP.
 Output: data/processed/leaderboard_blocks_eur.csv (indici TR base 100, mensili, 2018+).
 """
 import os, numpy as np, pandas as pd
@@ -20,6 +22,10 @@ def corr_usd(name):  # serie mensile adjclose in USD -> price EUR
     d=pd.read_csv(os.path.join(CACHE,f"{name}.csv")); d.columns=["date","v"]
     s=m_last(d,"date","v"); return s/eurusd.reindex(s.index)   # EUR = USD / (USD per EUR)
 
+def cache_eur(name):  # serie mensile adjclose gia' in EUR (ETF quotati in EUR)
+    d=pd.read_csv(os.path.join(CACHE,f"{name}.csv")); d.columns=["date","v"]
+    return m_last(d,"date","v")
+
 def eur_native(path):  # serie giornaliera/mensile EUR -> mensile
     d=pd.read_csv(path)
     dcol=d.columns[0]; vcol="Close" if "Close" in d.columns else d.columns[1]
@@ -35,13 +41,17 @@ for k,src in usd_equity.items(): blocks[k]=corr_usd(src)
 # ---- commodity CMOD (EUR nativo) ----
 blocks["COMMODITY"]=eur_native(os.path.join(RAW,"CMOD.csv"))
 
-# ---- bond: US (USD->EUR), EUR (nativi) ----
+# ---- bond US: (USD->EUR) da leaderboard_bonds.csv ----
 bonds=pd.read_csv(os.path.join(PROC,"leaderboard_bonds.csv")); bonds["date"]=pd.to_datetime(bonds["date"])
 bonds=bonds.set_index("date")
 for k in ["us_20y","us_10y","us_2y"]:
     s=bonds[k].dropna(); blocks[k.upper()]=s/eurusd.reindex(s.index)
-for k in ["eu_30y","eu_10y","eu_3y"]:
-    blocks[k.upper()]=bonds[k].dropna()
+
+# ---- bond EUR: da ETF gov euro iShares (EUR nativo, gia' total return via auto_adjust) ----
+#   IBGS  1-3yr   -> EU_3Y   |  IBGZ 10-15yr -> EU_10Y  |  IBGL 15-30yr -> EU_30Y
+blocks["EU_3Y"] =cache_eur("eu_govt_1_3")
+blocks["EU_10Y"]=cache_eur("eu_govt_10_15")
+blocks["EU_30Y"]=cache_eur("eu_govt_15_30")
 
 # ---- World 2x sintetico (2x daily del World USD -> EUR) ----
 def load_daily_price(path):
