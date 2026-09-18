@@ -1,13 +1,13 @@
 {
   "meta": {
-    "as_of": "2026-07",
+    "as_of": "2026-08",
     "source_article": "/posts/cape-internazionale-predice-rendimenti",
     "note": "cape_now e as_of vanno aggiornati con nuovi snapshot RA. Previsione = intercept+slope*CAPE, banda ±RMSE."
   },
   "markets": {
     "Developed Markets Large": {
       "label": "World (mercati sviluppati)",
-      "cape_now": 33.3,
+      "cape_now": 33.8,
       "hist_median": 25.4,
       "hist_min": 13.9,
       "hist_max": 42.4,
@@ -65,8 +65,8 @@
     },
     "Emerging Markets": {
       "label": "Mercati emergenti",
-      "cape_now": 22.9,
-      "hist_median": 15.3,
+      "cape_now": 23.4,
+      "hist_median": 15.4,
       "hist_min": 11.7,
       "hist_max": 28.7,
       "slider_min": 11,
@@ -95,7 +95,7 @@
     "China": {
       "label": "Cina",
       "cape_now": 13.7,
-      "hist_median": 15.2,
+      "hist_median": 15.0,
       "hist_min": 8.5,
       "hist_max": 32.7,
       "slider_min": 8,
@@ -123,8 +123,8 @@
     },
     "India": {
       "label": "India",
-      "cape_now": 32.5,
-      "hist_median": 23.1,
+      "cape_now": 32.1,
+      "hist_median": 23.9,
       "hist_min": 16.9,
       "hist_max": 41.4,
       "slider_min": 16,
@@ -152,8 +152,8 @@
     },
     "Japan": {
       "label": "Giappone",
-      "cape_now": 28.3,
-      "hist_median": 24.9,
+      "cape_now": 29.0,
+      "hist_median": 25.1,
       "hist_min": 17.0,
       "hist_max": 92.0,
       "slider_min": 17,
@@ -186,86 +186,86 @@
       {
         "market": "Indonesia",
         "label": "Indonesia",
-        "cape_now": 9.3,
+        "cape_now": 9.2,
         "median": 18.6,
         "ratio": 0.5
       },
       {
         "market": "Denmark",
         "label": "Danimarca",
-        "cape_now": 20.8,
+        "cape_now": 20.7,
         "median": 32.2,
         "ratio": 0.64
       },
       {
         "market": "Brazil",
         "label": "Brasile",
-        "cape_now": 10.2,
+        "cape_now": 10.0,
         "median": 13.4,
-        "ratio": 0.76
+        "ratio": 0.75
       },
       {
         "market": "China",
         "label": "Cina",
         "cape_now": 13.7,
-        "median": 15.2,
-        "ratio": 0.9
-      },
-      {
-        "market": "Finland",
-        "label": "Finlandia",
-        "cape_now": 20.7,
-        "median": 20.9,
-        "ratio": 0.99
-      },
-      {
-        "market": "South Africa",
-        "label": "Sudafrica",
-        "cape_now": 18.3,
-        "median": 18.3,
-        "ratio": 1.0
+        "median": 15.0,
+        "ratio": 0.91
       },
       {
         "market": "France",
         "label": "Francia",
-        "cape_now": 21.9,
-        "median": 21.8,
-        "ratio": 1.01
+        "cape_now": 21.3,
+        "median": 21.7,
+        "ratio": 0.98
       },
       {
-        "market": "Sweden",
-        "label": "Svezia",
-        "cape_now": 20.8,
-        "median": 20.5,
+        "market": "Finland",
+        "label": "Finlandia",
+        "cape_now": 21.3,
+        "median": 21.0,
         "ratio": 1.01
       },
       {
         "market": "Switzerland",
         "label": "Svizzera",
-        "cape_now": 24.8,
-        "median": 23.8,
-        "ratio": 1.04
+        "cape_now": 24.7,
+        "median": 23.9,
+        "ratio": 1.03
       },
       {
         "market": "Australia",
         "label": "Australia",
-        "cape_now": 19.4,
-        "median": 18.5,
-        "ratio": 1.05
+        "cape_now": 19.2,
+        "median": 18.6,
+        "ratio": 1.03
       },
       {
-        "market": "Germany",
-        "label": "Germania",
-        "cape_now": 19.2,
-        "median": 18.1,
-        "ratio": 1.06
+        "market": "Sweden",
+        "label": "Svezia",
+        "cape_now": 21.3,
+        "median": 20.6,
+        "ratio": 1.03
       },
       {
         "market": "Thailand",
         "label": "Thailandia",
-        "cape_now": 18.8,
+        "cape_now": 18.3,
         "median": 17.2,
-        "ratio": 1.09
+        "ratio": 1.06
+      },
+      {
+        "market": "Germany",
+        "label": "Germania",
+        "cape_now": 19.5,
+        "median": 18.2,
+        "ratio": 1.07
+      },
+      {
+        "market": "South Africa",
+        "label": "Sudafrica",
+        "cape_now": 19.7,
+        "median": 18.3,
+        "ratio": 1.08
       },
       {
         "market": "Italy",
@@ -277,79 +277,79 @@
       {
         "market": "Japan",
         "label": "Giappone",
-        "cape_now": 28.3,
-        "median": 24.9,
-        "ratio": 1.14
+        "cape_now": 29.0,
+        "median": 25.1,
+        "ratio": 1.16
       },
       {
         "market": "Norway",
         "label": "Norvegia",
-        "cape_now": 17.9,
+        "cape_now": 18.3,
         "median": 14.6,
-        "ratio": 1.23
+        "ratio": 1.25
       },
       {
         "market": "Austria",
         "label": "Austria",
-        "cape_now": 16.1,
+        "cape_now": 17.1,
         "median": 13.1,
-        "ratio": 1.23
+        "ratio": 1.31
       },
       {
         "market": "Canada",
         "label": "Canada",
-        "cape_now": 28.2,
-        "median": 21.2,
-        "ratio": 1.33
-      },
-      {
-        "market": "Belgium",
-        "label": "Belgio",
-        "cape_now": 23.6,
-        "median": 17.6,
+        "cape_now": 28.5,
+        "median": 21.3,
         "ratio": 1.34
       },
       {
         "market": "India",
         "label": "India",
-        "cape_now": 32.5,
-        "median": 23.1,
-        "ratio": 1.4
+        "cape_now": 32.1,
+        "median": 23.9,
+        "ratio": 1.34
+      },
+      {
+        "market": "Belgium",
+        "label": "Belgio",
+        "cape_now": 23.9,
+        "median": 17.7,
+        "ratio": 1.35
       },
       {
         "market": "US Large",
         "label": "USA",
-        "cape_now": 40.4,
+        "cape_now": 41.1,
         "median": 27.9,
-        "ratio": 1.45
+        "ratio": 1.47
       },
       {
         "market": "Spain",
         "label": "Spagna",
-        "cape_now": 22.9,
-        "median": 14.6,
-        "ratio": 1.56
+        "cape_now": 23.1,
+        "median": 14.7,
+        "ratio": 1.57
       },
       {
         "market": "Netherlands",
         "label": "Olanda",
-        "cape_now": 34.6,
-        "median": 19.8,
-        "ratio": 1.75
-      },
-      {
-        "market": "Taiwan",
-        "label": "Taiwan",
-        "cape_now": 49.5,
-        "median": 20.9,
-        "ratio": 2.36
+        "cape_now": 34.3,
+        "median": 20.0,
+        "ratio": 1.71
       },
       {
         "market": "South Korea",
         "label": "Corea",
-        "cape_now": 33.9,
-        "median": 14.2,
+        "cape_now": 34.3,
+        "median": 14.4,
         "ratio": 2.38
+      },
+      {
+        "market": "Taiwan",
+        "label": "Taiwan",
+        "cape_now": 51.2,
+        "median": 21.0,
+        "ratio": 2.44
       }
     ]
   }

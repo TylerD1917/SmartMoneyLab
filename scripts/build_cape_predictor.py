@@ -14,7 +14,7 @@ capeL=pd.read_csv(os.path.join(PROC,"cape_panel_long.csv"))
 
 MARKETS={"Developed Markets Large":"World (mercati sviluppati)","Europe":"Europa",
          "Emerging Markets":"Mercati emergenti","China":"Cina","India":"India","Japan":"Giappone"}
-AS_OF="2026-07"          # data dell'ultimo snapshot CAPE (Tyler aggiorna qui e i cape_now sotto)
+AS_OF="2026-08"          # data dell'ultimo snapshot CAPE (Tyler aggiorna qui e i cape_now sotto)
 
 def fit(df,ycol):
     d=df[["cape",ycol]].dropna()
