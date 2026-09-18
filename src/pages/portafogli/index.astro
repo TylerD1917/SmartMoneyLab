@@ -24,7 +24,7 @@ import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderbo
     <PortfolioLeaderboard client:load />
 
     <article class="prose prose-slate mx-auto mt-6 max-w-3xl dark:prose-invert">
-      <h2>Le versioni "€/IT": Treasury o BTP?</h2>
+      <h2>Le due versioni: Treasury USA o titoli di Stato euro?</h2>
       <p>
         Diversi portafogli classici (60/40, All Weather, Golden Butterfly) usano
         come parte obbligazionaria i <strong>titoli di Stato USA</strong>. Per un
@@ -34,7 +34,7 @@ import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderbo
       </p>
       <ul>
         <li><strong>Treasury USA (€)</strong> — la formulazione originale, con i titoli USA convertiti in euro (quindi con il rischio di cambio incluso);</li>
-        <li><strong>BTP (€/IT)</strong> — la stessa strategia ma con <strong>titoli di Stato italiani</strong> al posto dei Treasury: quello che un risparmiatore italiano comprerebbe davvero.</li>
+        <li><strong>Titoli di Stato euro</strong> — la stessa strategia con <strong>titoli di Stato dell'area euro</strong> (Germania, Francia, Italia, Spagna…) al posto dei Treasury, tramite un ETF governativo in euro: niente rischio di cambio e un solo strumento, quello che un risparmiatore europeo comprerebbe davvero oggi.</li>
       </ul>
       <p>Confrontare le due versioni fa vedere quanto pesano la scelta del titolo e il cambio.</p>
 
@@ -42,7 +42,7 @@ import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderbo
       <ul>
         <li><strong>Tutto in euro.</strong> I mattoncini in dollari (azioni globali, oro, Treasury…) sono convertiti in euro al cambio del periodo: è il rendimento che avrebbe ottenuto davvero un investitore in euro, cambio incluso.</li>
         <li><strong>Ribilanciamento annuale</strong> (1° gennaio): i pesi tornano ai valori target una volta l'anno; nel frattempo il portafoglio "deriva" col mercato.</li>
-        <li><strong>Total return.</strong> Dividendi e cedole sono <strong>inclusi e reinvestiti</strong>. Per la parte obbligazionaria usiamo serie a <em>maturità costante</em> costruite dai rendimenti dei titoli: catturano la cedola incassata <strong>e</strong> l'oscillazione di prezzo, come un ETF obbligazionario o una scala di titoli continuamente rinnovata.</li>
+        <li><strong>Total return.</strong> Dividendi e cedole sono <strong>inclusi e reinvestiti</strong>. Per la parte obbligazionaria <strong>in euro</strong> usiamo direttamente <strong>ETF governativi</strong> (total return); per i <strong>Treasury USA</strong> ricostruiamo una serie a <em>maturità costante</em> dai rendimenti ufficiali. In entrambi i casi si catturano la cedola incassata <strong>e</strong> l'oscillazione di prezzo, come una scala di titoli continuamente rinnovata.</li>
         <li><strong>Al lordo</strong> di tasse e costi di negoziazione, coerentemente con il resto del sito. I costi dei prodotti (ETF) non sono modellati.</li>
         <li>I rendimenti pluriennali sono <strong>annualizzati</strong> (CAGR); "YTD" è da inizio anno. Il grafico ribasa le curve a 100 all'inizio del periodo selezionato.</li>
       </ul>
@@ -85,7 +85,7 @@ import PortfolioLeaderboard from "../../components/interactive/PortfolioLeaderbo
 
       <h2>Fonti e riproducibilità</h2>
       <ul>
-        <li>Azioni, oro, Bitcoin, materie prime (CMOD), cambio EUR/USD: prezzi da Yahoo Finance (Adj Close = total return). Treasury USA da rendimenti FRED; BTP da rendimenti benchmark Banca d'Italia; ricostruzione total-return a maturità costante.</li>
+        <li>Azioni, oro, Bitcoin, materie prime (CMOD), cambio EUR/USD: prezzi da Yahoo Finance (Adj Close = total return). Treasury USA da rendimenti FRED (ricostruzione total-return a maturità costante); titoli di Stato euro da ETF governativi euro (iShares 1-3 / 10-15 / 15-30 anni), prezzi Yahoo Finance in total return.</li>
         <li>Codice: <a href="https://github.com/TylerD1917/smartmoneylab/tree/main/scripts/leaderboard">scripts/leaderboard</a>. Dati: <a href="/tools/leaderboard.json">/tools/leaderboard.json</a>, aggiornato settimanalmente.</li>
         <li>Approfondimenti sulle strategie: <a href="/posts/tfr-in-azienda-o-fondo-pensione/">TFR o fondo pensione</a>, <a href="/posts/fondo-pensione-o-etf/">fondo pensione o ETF</a>, <a href="/posts/msci-world-ftse-all-world-sp500/">World, All-World o S&amp;P 500</a>.</li>
       </ul>

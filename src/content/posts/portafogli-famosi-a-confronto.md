@@ -20,7 +20,7 @@ faq:
       È una variante del Permanent Portfolio, popolare nella community FIRE: 20% azioni ampie, 20% small cap, 20% titoli di Stato lunghi, 20% titoli di Stato brevi e 20% oro. Bilancia crescita e difesa; storicamente ha un buon rapporto tra rendimento e cadute contenute.
   - q: "Il 60/40 conviene ancora?"
     a: |-
-      Il 60% azioni / 40% obbligazioni resta un riferimento sensato per chi vuole semplicità e un rischio moderato. Rende meno di un portafoglio tutto azionario nei mercati toro, ma attutisce le discese. Nel confronto lo trovi sia in versione con Treasury USA sia in versione con BTP italiani.
+      Il 60% azioni / 40% obbligazioni resta un riferimento sensato per chi vuole semplicità e un rischio moderato. Rende meno di un portafoglio tutto azionario nei mercati toro, ma attutisce le discese. Nel confronto lo trovi sia in versione con Treasury USA sia in versione con titoli di Stato euro (ETF governativo in euro).
   - q: "Posso proporre un mio portafoglio per la classifica?"
     a: |-
       Sì. Nella pagina Portafogli a confronto c'è un modulo "Proponi il tuo portafoglio": indichi gli asset e i pesi, e se l'allocazione è ben posta la aggiungiamo alla classifica citandoti con il nome o il nickname che preferisci.
@@ -37,7 +37,7 @@ Ho sempre voluto una cosa sola quando leggo di "portafogli famosi": **i numeri, 
 
 1. **Ci sono dentro** All Weather (Ray Dalio), Golden Butterfly, 60/40, 90/10 di Buffett, un paio di portafogli miei, e i grandi benchmark (MSCI World, S&P 500, Nasdaq).
 
-2. **Tutto in euro**, cambio incluso. E per i portafogli che usano titoli di Stato USA c'è anche la **versione con BTP italiani** — quello che un risparmiatore italiano comprerebbe davvero.
+2. **Tutto in euro**, cambio incluso. E per i portafogli che usano titoli di Stato USA c'è anche la **versione con titoli di Stato dell'area euro** (via ETF governativo in euro) — senza rischio di cambio e con un solo strumento.
 
 3. **Non c'è un vincitore assoluto.** Nella finestra recente (2018-oggi, un mercato molto toro) hanno dominato i portafogli concentrati su USA e tecnologia; i difensivi come l'All Weather sono rimasti indietro. Ma è proprio il punto: servono a perdere meno nei crolli, non a vincere le classifiche nei rialzi.
 
@@ -73,7 +73,7 @@ La conclusione onesta è che **la classifica dipende dalla finestra temporale**.
 - **60/40** — il classico 60% azioni / 40% obbligazioni. Semplice, rischio moderato.
 - **90/10 di Buffett** — 90% S&P 500 e 10% titoli di Stato a breve, l'allocazione suggerita da Warren Buffett per il lascito alla moglie.
 
-Nel confronto, dove serve, ogni classico ha **due versioni**: una con Treasury USA (in euro, cambio incluso) e una con **BTP italiani**, per vedere quanto pesano il titolo e il cambio.
+Nel confronto, dove serve, ogni classico ha **due versioni**: una con Treasury USA (in euro, cambio incluso) e una con **titoli di Stato dell'area euro** (ETF governativo in euro), per vedere quanto pesano l'emittente e il cambio.
 
 ## Trova il tuo — e proponilo
 
@@ -85,7 +85,7 @@ La sezione è pensata per essere usata, non solo guardata:
 
 ## Come funziona (in breve)
 
-Ogni portafoglio è ricostruito dai suoi mattoncini, convertito **in euro**, ribilanciato al 1° gennaio, con dividendi e cedole reinvestiti. La parte obbligazionaria usa serie a **maturità costante** costruite dai rendimenti dei titoli (catturano cedola *e* prezzo, come un ETF obbligazionario). Tutto **al lordo** di tasse e costi. Il dettaglio completo, le fonti e il codice sono nella [pagina della classifica](/portafogli).
+Ogni portafoglio è ricostruito dai suoi mattoncini, convertito **in euro**, ribilanciato al 1° gennaio, con dividendi e cedole reinvestiti. La parte obbligazionaria in euro usa direttamente **ETF governativi**; quella in Treasury USA una serie a **maturità costante** dai rendimenti ufficiali (in entrambi i casi cedola *e* prezzo, come un ETF obbligazionario). Tutto **al lordo** di tasse e costi. Il dettaglio completo, le fonti e il codice sono nella [pagina della classifica](/portafogli).
 
 ## Domande frequenti
 
@@ -95,7 +95,7 @@ Ogni portafoglio è ricostruito dai suoi mattoncini, convertito **in euro**, rib
 
 **Cos'è il Golden Butterfly?** 20% azioni, 20% small cap, 20% bond lunghi, 20% bond brevi, 20% oro: bilancia crescita e difesa, con cadute storicamente contenute.
 
-**Il 60/40 conviene ancora?** Sì come scelta semplice e a rischio moderato: rende meno del tutto-azioni nei rialzi, ma attutisce le discese. Nel confronto c'è sia con Treasury sia con BTP.
+**Il 60/40 conviene ancora?** Sì come scelta semplice e a rischio moderato: rende meno del tutto-azioni nei rialzi, ma attutisce le discese. Nel confronto c'è sia con Treasury USA sia con titoli di Stato euro.
 
 **Posso proporre un mio portafoglio?** Sì, dal modulo nella pagina Portafogli a confronto: indichi asset e pesi e, se l'allocazione è valida, entra in classifica con la tua citazione.
 
