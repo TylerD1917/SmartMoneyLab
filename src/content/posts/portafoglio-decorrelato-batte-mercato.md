@@ -1,7 +1,7 @@
 ---
 category: "strategie"
 title: "Il portafoglio più decorrelato batte il mercato? 27 anni di backtest"
-description: "Backtest dal 1999 del portafoglio più decorrelato (oro, Treasury 20+, Nasdaq, financials, energia), equal weight. Su finestre mobili di 10 anni batte l'S&P 500 in 5 metriche su 6 e l'MSCI World in tutte, con metà del drawdown. Verdetto e dati."
+description: "Backtest dal 1999 del portafoglio più decorrelato (oro, Treasury 20+, Nasdaq, financials, energia): su finestre mobili di 10 anni batte l'S&P 500 in 5 metriche su 6 e l'MSCI World in tutte, con metà del rischio."
 pubDate: 2026-09-19
 tags: ["portafogli", "decorrelazione", "diversificazione", "risk-parity", "asset-allocation", "backtest", "oro", "treasury", "rolling-windows", "monte-carlo"]
 author: "SmartMoneyLab"
