@@ -88,7 +88,7 @@ export default function PortfolioLeaderboard() {
       const base = pts[0].v;
       pts.forEach(pt => {
         if (!byDate.has(pt.d)) byDate.set(pt.d, { d: pt.d });
-        byDate.get(pt.d)[p.id] = +(pt.v / base * 100).toFixed(2);
+        byDate.get(pt.d)[p.id] = +((pt.v / base - 1) * 100).toFixed(2);
       });
     });
     const merged = [...byDate.values()].sort((a, b) => a.d.localeCompare(b.d));
@@ -113,7 +113,7 @@ export default function PortfolioLeaderboard() {
     <div className="not-prose my-8 space-y-5">
       {/* Grafico */}
       <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
-        <h3 className="mb-2 text-sm font-semibold text-slate-700 dark:text-slate-200">Crescita di 100€ (base 100 a inizio periodo, in euro)</h3>
+        <h3 className="mb-2 text-sm font-semibold text-slate-700 dark:text-slate-200">Rendimento dall'inizio del periodo (in euro)</h3>
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
           <div className="flex gap-1.5 text-xs">
             {[["1","1 anno"],["3","3 anni"],["5","5 anni"],["7","7 anni"],["max","Dal 2017"]].map(([v, lbl]) => (
@@ -131,8 +131,8 @@ export default function PortfolioLeaderboard() {
             <LineChart data={chart.data} margin={{ top: 6, right: 16, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
               <XAxis dataKey="d" tick={{ fontSize: 11 }} tickFormatter={(s) => s.split("-")[0]} minTickGap={40} />
-              <YAxis tick={{ fontSize: 11 }} width={44} tickFormatter={(v) => `${Math.round(v)}`} domain={["auto", "auto"]} />
-              <Tooltip formatter={(v, id) => [`${Number(v).toFixed(0)}`, chart.series.find(s => s.id === id)?.label ?? id]} contentStyle={{ fontSize: 12 }} />
+              <YAxis tick={{ fontSize: 11 }} width={54} tickFormatter={(v) => `${v>=0?"+":"−"}${Math.abs(Math.round(v))}%`} domain={["auto", "auto"]} />
+              <Tooltip formatter={(v, id) => [`${v>=0?"+":"−"}${Math.abs(Number(v)).toFixed(1).replace(".", ",")}%`, chart.series.find(s => s.id === id)?.label ?? id]} contentStyle={{ fontSize: 12 }} />
               {chart.series.map(s => (
                 <Line key={s.id} type="monotone" dataKey={s.id} name={s.label} stroke={colorOf(s.id)} dot={false} strokeWidth={2} connectNulls isAnimationActive={false} />
               ))}
