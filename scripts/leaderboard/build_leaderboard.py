@@ -31,6 +31,7 @@ PORTAFOGLI=[
  ("nasdaq-energy","Nasdaq + Energy","","autore",{"NASDAQ":.80,"ENERGY":.15,"GOLD":.05}),
  ("allweather-aggressive","All Weather Aggressive","SmartMoneyLab","autore",{"NASDAQ":.25,"EM":.20,"WORLD":.25,"GOLD":.10,"SMALLCAP":.10,"BTC":.05,"ENERGY":.05}),
  ("effective-leverage","Effective Leverage","SmartMoneyLab","autore",{"ALLWORLD":.75,"WORLD2X":.25}),
+ ("decorrelato-sml","Portafoglio decorrelato","SmartMoneyLab","autore",{"GOLD":.20,"US_20Y":.20,"NASDAQ":.20,"ENERGY":.20,"FINANCIALS":.20}),
 ]
 
 def nav_portafoglio(alloc):

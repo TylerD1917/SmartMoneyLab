@@ -87,6 +87,18 @@ for base,slug in EU_GOVT.items():
     print(f"  [ok] {slug:14s} <- {tk:10s} {m.index[0].date()} -> {m.index[-1].date()} ({len(m)})")
 
 
+# ---- 5) MSCI World Financials (blocco FINANCIALS leaderboard): XDWF.MI, EUR nativo, TR mensile ----
+try:
+    s_fin=_close(dl("XDWF.MI", period="max"))
+    if s_fin is not None and len(s_fin):
+        mfin=s_fin.resample("ME").last(); mfin.index.name="Date"
+        mfin.to_csv(os.path.join(CACHE,"financials_world_eur.csv"), header=["adjclose"])
+        print(f"  [ok] financials_world_eur <- XDWF.MI {mfin.index[0].date()} -> {mfin.index[-1].date()} ({len(mfin)})")
+    else:
+        failed.append("XDWF.MI"); print("  [X] XDWF.MI")
+except Exception as e:
+    failed.append("XDWF.MI"); print("  [X] XDWF.MI", repr(e)[:80])
+
 if failed:
     print(f"\n[!] ticker/serie falliti: {', '.join(failed)}")
     # se manca un mattoncino CRITICO il build successivo fallira' (visibile nel log)

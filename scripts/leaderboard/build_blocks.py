@@ -53,6 +53,9 @@ blocks["EU_3Y"] =cache_eur("eu_govt_1_3")
 blocks["EU_10Y"]=cache_eur("eu_govt_10_15")
 blocks["EU_30Y"]=cache_eur("eu_govt_15_30")
 
+# ---- financials mondo (EUR nativo) da ETF XDWF (MSCI World Financials) ----
+blocks["FINANCIALS"]=cache_eur("financials_world_eur")
+
 # ---- World 2x sintetico (2x daily del World USD -> EUR) ----
 def load_daily_price(path):
     d=pd.read_csv(path)

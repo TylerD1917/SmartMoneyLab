@@ -13,7 +13,7 @@ const LOOKUP_URL = "/tools/leaderboard.json";
 const ASSET = {
   WORLD: "MSCI World", ALLWORLD: "FTSE All-World", SP500: "S&P 500", NASDAQ: "Nasdaq 100",
   ENERGY: "MSCI Energy", HEALTH: "MSCI Healthcare", EM: "Mercati emergenti", SMALLCAP: "Small cap",
-  GOLD: "Oro", BTC: "Bitcoin", COMMODITY: "Commodity", WORLD2X: "MSCI World 2x",
+  GOLD: "Oro", BTC: "Bitcoin", COMMODITY: "Commodity", WORLD2X: "MSCI World 2x", FINANCIALS: "MSCI Financials",
   US_20Y: "Treasury USA 20a", US_10Y: "Treasury USA 10a", US_2Y: "Treasury USA 2a",
   EU_30Y: "Gov euro 15-30a", EU_10Y: "Gov euro 10-15a", EU_3Y: "Gov euro 1-3a",
 };
@@ -21,7 +21,7 @@ const ASSET = {
 const ASSET_COL = {
   WORLD: "#1e3a8a", ALLWORLD: "#2563eb", SP500: "#3b82f6", NASDAQ: "#6d28d9", WORLD2X: "#4338ca",
   ENERGY: "#ea580c", HEALTH: "#0891b2", EM: "#0ea5e9", SMALLCAP: "#7c3aed",
-  GOLD: "#fbbf24", BTC: "#f97316", COMMODITY: "#a16207",
+  GOLD: "#fbbf24", BTC: "#f97316", COMMODITY: "#a16207", FINANCIALS: "#8b5cf6",
   US_20Y: "#065f46", US_10Y: "#059669", US_2Y: "#34d399", EU_30Y: "#0f766e", EU_10Y: "#14b8a6", EU_3Y: "#5eead4",
 };
 const LINE_COLORS = ["#1e3a8a","#fbbf24","#e11d48","#059669","#7c3aed","#0891b2","#ea580c","#4d7c0f",
