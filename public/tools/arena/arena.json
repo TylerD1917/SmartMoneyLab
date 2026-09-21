@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-17T17:05:25.600075",
+ "updated": "2026-09-21T18:28:55.583923",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -18,9 +18,18 @@
  },
  "leaderboard": [
   {
+   "id": "gemini",
+   "type": "model",
+   "nav": 102415.97,
+   "ret_total": 0.0242,
+   "vol_ann": null,
+   "max_dd": 0.0,
+   "sharpe": null
+  },
+  {
    "id": "ACWI",
    "type": "benchmark",
-   "nav": 100000,
+   "nav": 100000.0,
    "ret_total": 0.0,
    "vol_ann": null,
    "max_dd": 0.0,
@@ -29,44 +38,8 @@
   {
    "id": "SP500",
    "type": "benchmark",
-   "nav": 100000,
+   "nav": 100000.0,
    "ret_total": 0.0,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "claude",
-   "type": "model",
-   "nav": 99916.71,
-   "ret_total": -0.0008,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "gpt",
-   "type": "model",
-   "nav": 99904.71,
-   "ret_total": -0.001,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "gemini",
-   "type": "model",
-   "nav": 99900.0,
-   "ret_total": -0.001,
-   "vol_ann": null,
-   "max_dd": 0.0,
-   "sharpe": null
-  },
-  {
-   "id": "kimi",
-   "type": "model",
-   "nav": 99901.27,
-   "ret_total": -0.001,
    "vol_ann": null,
    "max_dd": 0.0,
    "sharpe": null
@@ -74,17 +47,44 @@
   {
    "id": "random",
    "type": "control",
-   "nav": 99896.55,
-   "ret_total": -0.001,
+   "nav": 99279.05,
+   "ret_total": -0.0072,
    "vol_ann": null,
-   "max_dd": 0.0,
+   "max_dd": -0.0062,
+   "sharpe": null
+  },
+  {
+   "id": "gpt",
+   "type": "model",
+   "nav": 99198.61,
+   "ret_total": -0.008,
+   "vol_ann": null,
+   "max_dd": -0.0071,
+   "sharpe": null
+  },
+  {
+   "id": "kimi",
+   "type": "model",
+   "nav": 99056.05,
+   "ret_total": -0.0094,
+   "vol_ann": null,
+   "max_dd": -0.0085,
+   "sharpe": null
+  },
+  {
+   "id": "claude",
+   "type": "model",
+   "nav": 97980.96,
+   "ret_total": -0.0202,
+   "vol_ann": null,
+   "max_dd": -0.0194,
    "sharpe": null
   }
  ],
  "positions": {
   "gpt": {
-   "cash": 14904.71,
-   "equity": 99904.71,
+   "cash": 14904.41,
+   "equity": 99904.41,
    "positions": [
     {
      "ticker": "USFR",
@@ -239,8 +239,8 @@
    ]
   },
   "claude": {
-   "cash": 26916.71,
-   "equity": 99916.71,
+   "cash": 26916.34,
+   "equity": 99916.34,
    "positions": [
     {
      "ticker": "FENY",
@@ -325,8 +325,8 @@
    ]
   },
   "kimi": {
-   "cash": 62901.27,
-   "equity": 99901.27,
+   "cash": 62899.5,
+   "equity": 99899.5,
    "positions": [
     {
      "ticker": "FENY",
@@ -372,7 +372,7 @@
      "ticker": "USFR",
      "qty": 297.09,
      "px": 50.49,
-     "weight": 0.1501,
+     "weight": 0.1502,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund"
     },
@@ -742,34 +742,64 @@
    [
     "2026-09-17",
     99904.71
+   ],
+   [
+    "2026-09-21",
+    99198.61
    ]
   ],
   "gemini": [
    [
     "2026-09-17",
     99900.0
+   ],
+   [
+    "2026-09-21",
+    102415.97
    ]
   ],
   "claude": [
    [
     "2026-09-17",
     99916.71
+   ],
+   [
+    "2026-09-21",
+    97980.96
    ]
   ],
   "kimi": [
    [
     "2026-09-17",
     99901.27
+   ],
+   [
+    "2026-09-21",
+    99056.05
    ]
   ],
   "random": [
    [
     "2026-09-17",
     99896.55
+   ],
+   [
+    "2026-09-21",
+    99279.05
    ]
   ],
-  "ACWI": [],
-  "SP500": []
+  "ACWI": [
+   [
+    "2026-09-21",
+    100000.0
+   ]
+  ],
+  "SP500": [
+   [
+    "2026-09-21",
+    100000.0
+   ]
+  ]
  },
  "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."
 }
