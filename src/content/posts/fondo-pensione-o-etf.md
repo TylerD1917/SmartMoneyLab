@@ -1,6 +1,6 @@
 ---
 category: "finanza-personale"
-title: "Fondo pensione o ETF? Dipende dalla tua aliquota (2026)"
+title: "Fondo pensione o ETF? Uno studio comparato"
 description: "Conviene il fondo pensione o un ETF? Confronto a 30 anni a parità di esborso netto coi rendimenti reali COVIP. Con la quota trattenuta in busta paga il recupero delle detrazioni ribalta l'esito."
 pubDate: 2026-08-27
 tags: ["fondo-pensione", "etf", "fondo-pensione-o-etf", "previdenza-complementare", "deducibilita", "contribuzione-volontaria", "tassazione", "fisco", "msci-world", "pensione-integrativa"]
@@ -42,13 +42,11 @@ faq:
 
 2. **Ma il fondo ha un'arma: la deduzione.** Versare 5.300€ ti costa davvero 4.081€ (al 23%) o 3.551€ (al 33%), perché il resto te lo restituisce l'IRPEF. È come investire di più a parità di soldi usciti dal conto.
 
-3. **Chi vince dipende dall'aliquota.** A parità di esborso netto, su 30 anni: con aliquota al **23% vince l'ETF (+32.000€)**; con aliquota al **33% vince il fondo (+16.000€)**; al **43% il fondo (+64.000€)**. Il punto di pareggio è attorno al **30%**.
+3. **Se il tuo comparto rendesse come il mercato, il fondo vincerebbe quasi sempre** (+53.000€ al 23%, +100.000€ al 33%). Ma pochissimi comparti azionari italiani lo fanno: è un "se" grosso.
 
-4. **Se il tuo comparto rendesse come il mercato, il fondo vincerebbe quasi sempre** (+53.000€ al 23%, +100.000€ al 33%). Ma pochissimi comparti azionari italiani lo fanno: è un "se" grosso.
+4. **E comunque il fondo pensione non è liquido.** Ci esci alla pensione, e dal 2026 puoi ritirare al massimo il **60% in capitale**. È un costo reale che nessuna simulazione monetizza.
 
-5. **E comunque il fondo pensione non è liquido.** Ci esci alla pensione, e dal 2026 puoi ritirare al massimo il **60% in capitale**. È un costo reale che nessuna simulazione monetizza.
-
-6. **Ma se versi la quota trattenuta in busta paga, il fondo cambia passo.** La trattenuta abbassa il reddito complessivo e ti fa recuperare le detrazioni dipendente e cuneo fiscale: il beneficio reale sull'importo versato sale fino al **57,6%** (a 42.000€ di RAL), e in questo caso il fondo batte l'ETF su tutta la fascia di reddito. Il verdetto "sotto il 30% vince l'ETF" vale solo se versi con bonifico.
+5. **Ma se versi la quota trattenuta in busta paga, il fondo cambia passo.** La trattenuta abbassa il reddito complessivo e ti fa recuperare le detrazioni dipendente e cuneo fiscale: il beneficio reale sull'importo versato sale fino al **57,6%** (a 42.000€ di RAL), e in questo caso il fondo batte l'ETF su tutta la fascia di reddito. Il verdetto "sotto il 30% vince l'ETF" vale solo se versi con bonifico.
 
 ## Le due strade: cosa stiamo confrontando davvero
 
