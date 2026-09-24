@@ -32,7 +32,7 @@ Ho simulato cinque ETF su cinque indici, in euro, usando per ciascuno la massima
 4. **Al netto anche dell'inflazione italiana il MSCI World mediano a vent'anni rende l'1,96% annuo**, cioè 1,47 volte il capitale. Il 21,8% delle finestre ventennali ha chiuso con una perdita di potere d'acquisto.
 
 <figure>
-  <img src="/charts/rendimenti-netti-indici-azionari/05_moltiplicatori_20_anni.png" alt="Grafico a barre orizzontali: per ciascuno dei cinque indici, tre barre di intensità crescente mostrano quanto è diventato un euro dopo vent'anni, nella mediana delle 134 finestre del periodo comune. Sempre lordo più alto di netto, e netto più alto di netto reale. Il MSCI World va da 3,54 volte lordo a 1,80 volte netto reale, il Nasdaq da 6,27 a 2,86." />
+  <img src="/charts/rendimenti-netti-indici-azionari/05_moltiplicatori_20_anni.png" alt="Grafico a barre orizzontali: per ciascuno dei cinque indici, tre barre di intensità crescente mostrano quanto è diventato un euro dopo vent'anni, nella mediana delle 134 finestre del periodo comune. Sempre lordo più alto di netto, e netto più alto di netto reale. Il MSCI World va da 3,54 volte lordo a 1,80 volte netto reale, il Nasdaq da 6,27 a 2,86." width="2230" height="1001" decoding="async" />
   <figcaption>Un euro investito per vent'anni, mediana di 134 finestre sul periodo comune giugno 1995 - luglio 2026. La barra chiara è l'indice lordo, quella intermedia l'ETF al netto di costi e imposta, quella piena l'ETF anche al netto dell'inflazione italiana.</figcaption>
 </figure>
 
@@ -108,7 +108,7 @@ Gli indici hanno storie di lunghezza diversa, quindi i confronti tra un indice e
 ## I rendimenti netti nominali, per orizzonte
 
 <figure>
-  <img src="/charts/rendimenti-netti-indici-azionari/01_mediana_netta_per_orizzonte.png" alt="Grafico a linee con cinque serie, una per indice, che mostra il rendimento annuo netto mediano sui sei orizzonti da 1 a 20 anni. Tutte e cinque le linee scendono passando dagli orizzonti brevi a quelli lunghi. A vent'anni convergono in una fascia stretta tra il 5,0% dell'ACWI IMI e il 7,5% del Nasdaq." />
+  <img src="/charts/rendimenti-netti-indici-azionari/01_mediana_netta_per_orizzonte.png" alt="Grafico a linee con cinque serie, una per indice, che mostra il rendimento annuo netto mediano sui sei orizzonti da 1 a 20 anni. Tutte e cinque le linee scendono passando dagli orizzonti brevi a quelli lunghi. A vent'anni convergono in una fascia stretta tra il 5,0% dell'ACWI IMI e il 7,5% del Nasdaq." width="1832" height="1080" loading="lazy" decoding="async" />
   <figcaption>Rendimento annuo netto mediano per orizzonte, massima storicità per indice. Netto di TER, ritenuta estera, bollo e 26% sulla plusvalenza al riscatto. Numero di finestre per punto: da 668 (MSCI World a 1 anno) a 134 (Russell 2000 a 20 anni).</figcaption>
 </figure>
 
@@ -154,7 +154,7 @@ Sul periodo comune a tutti e cinque, giugno 1995 - luglio 2026, le mediane nette
 ### La dispersione
 
 <figure>
-  <img src="/charts/rendimenti-netti-indici-azionari/02_ventaglio_percentili.png" alt="Cinque pannelli affiancati, uno per indice, ciascuno con un cono che si restringe da sinistra a destra. La banda chiara va dal quinto al novantacinquesimo percentile, quella scura dal venticinquesimo al settantacinquesimo, la linea centrale è la mediana. A un anno il cono è larghissimo e scende sotto lo zero, a vent'anni è stretto e tutto sopra lo zero." />
+  <img src="/charts/rendimenti-netti-indici-azionari/02_ventaglio_percentili.png" alt="Cinque pannelli affiancati, uno per indice, ciascuno con un cono che si restringe da sinistra a destra. La banda chiara va dal quinto al novantacinquesimo percentile, quella scura dal venticinquesimo al settantacinquesimo, la linea centrale è la mediana. A un anno il cono è larghissimo e scende sotto lo zero, a vent'anni è stretto e tutto sopra lo zero." width="3081" height="973" loading="lazy" decoding="async" />
   <figcaption>Dispersione del rendimento annuo netto per orizzonte. La banda scura contiene metà delle finestre, quella chiara il 90%. La linea orizzontale è lo zero: dove il cono la attraversa, ci sono finestre chiuse in perdita.</figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ Due dettagli da leggere con attenzione. Il primo è che la frequenza non cala in
 ## Come si ripartisce l'erosione
 
 <figure>
-  <img src="/charts/rendimenti-netti-indici-azionari/03_scomposizione_erosione.png" alt="Cinque pannelli con barre impilate, uno per indice. Ogni barra è la distanza in punti percentuali tra rendimento lordo dell'indice e netto dell'ETF, divisa in due segmenti: uno grigio in basso per i costi ricorrenti, uno colorato sopra per l'imposta. Le barre si accorciano passando da 1 a 20 anni, e il segmento grigio resta di altezza costante mentre quello colorato si riduce." />
+  <img src="/charts/rendimenti-netti-indici-azionari/03_scomposizione_erosione.png" alt="Cinque pannelli con barre impilate, uno per indice. Ogni barra è la distanza in punti percentuali tra rendimento lordo dell'indice e netto dell'ETF, divisa in due segmenti: uno grigio in basso per i costi ricorrenti, uno colorato sopra per l'imposta. Le barre si accorciano passando da 1 a 20 anni, e il segmento grigio resta di altezza costante mentre quello colorato si riduce." width="3082" height="942" loading="lazy" decoding="async" />
   <figcaption>Scomposizione dell'erosione. Il segmento grigio (TER, ritenuta estera, bollo) resta costante perché si paga ogni anno; quello colorato (imposta del 26%) si riduce perché si paga una volta sola al riscatto e il suo costo annualizzato si diluisce sull'orizzonte.</figcaption>
 </figure>
 
@@ -203,7 +203,7 @@ Tre osservazioni, tutte meccaniche.
 ## Gli stessi numeri al netto dell'inflazione
 
 <figure>
-  <img src="/charts/rendimenti-netti-indici-azionari/04_nominale_vs_reale.png" alt="Cinque pannelli con coppie di barre, uno per indice. Per ogni orizzonte una barra chiara mostra il rendimento netto nominale e una piena quello netto reale, sempre più bassa. Sul MSCI World il divario è il più ampio dei cinque, con il reale intorno al 2% contro un nominale tra il 6% e il 7,5%." />
+  <img src="/charts/rendimenti-netti-indici-azionari/04_nominale_vs_reale.png" alt="Cinque pannelli con coppie di barre, uno per indice. Per ogni orizzonte una barra chiara mostra il rendimento netto nominale e una piena quello netto reale, sempre più bassa. Sul MSCI World il divario è il più ampio dei cinque, con il reale intorno al 2% contro un nominale tra il 6% e il 7,5%." width="3082" height="942" loading="lazy" decoding="async" />
   <figcaption>Lo stesso rendimento netto mediano, prima e dopo l'inflazione italiana. Il divario tra le due barre è l'inflazione del periodo che ciascuna finestra ha attraversato, diversa da indice a indice perché le serie coprono periodi diversi.</figcaption>
 </figure>
 
