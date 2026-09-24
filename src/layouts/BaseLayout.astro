@@ -54,16 +54,43 @@ const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).toStri
     <!-- Tema: solo chiaro (dark mode rimossa). Le classi dark: nel codice restano inerti. -->
 
     <!-- Cloudflare Web Analytics (privacy-first, no cookie, no GDPR popup) -->
-    <!-- Le visite del proprietario NON vengono conteggiate: dal browser che vuoi
-         escludere apri la console (F12) e lancia una volta:
-           localStorage.setItem('sml_owner','1')
-         Da quel momento il beacon non si carica su quel browser. Per ricontare:
-           localStorage.removeItem('sml_owner') -->
+    <!-- Le visite del proprietario NON vengono conteggiate.
+         Per escludere un dispositivo, visitare UNA volta:
+           https://smartmoneylab.it/?sml_owner=1     -> esclude
+           https://smartmoneylab.it/?sml_owner=0     -> torna a contare
+         Funziona anche da telefono, dove non c'è la console. Il flag vive in
+         localStorage, quindi è per-browser e per-origine: va ripetuto su ogni
+         dispositivo e browser, e non sopravvive alle finestre in incognito né
+         alla cancellazione dei dati del sito.
+         Equivalente da console desktop: localStorage.setItem('sml_owner','1') -->
     <script is:inline>
       (function () {
+        var KEY = 'sml_owner';
         var isOwner = false;
-        try { isOwner = localStorage.getItem('sml_owner') === '1'; } catch (e) {}
+
+        // 1. il parametro nell'URL ha la precedenza e scrive il flag
+        try {
+          var q = new URLSearchParams(location.search).get(KEY);
+          if (q === '1' || q === '0') {
+            if (q === '1') localStorage.setItem(KEY, '1');
+            else localStorage.removeItem(KEY);
+            // conferma visibile: serve sul telefono, e la vede solo chi passa il parametro
+            alert(q === '1'
+              ? 'SmartMoneyLab: le visite da questo browser NON verranno più conteggiate.'
+              : 'SmartMoneyLab: le visite da questo browser verranno di nuovo conteggiate.');
+            // ripulisce l'URL, così il parametro non finisce in link condivisi
+            if (history.replaceState) {
+              var u = new URL(location.href);
+              u.searchParams.delete(KEY);
+              history.replaceState(null, '', u.pathname + u.search + u.hash);
+            }
+          }
+        } catch (e) {}
+
+        // 2. decide se caricare il beacon
+        try { isOwner = localStorage.getItem(KEY) === '1'; } catch (e) {}
         if (isOwner) return;
+
         var b = document.createElement('script');
         b.defer = true;
         b.src = 'https://static.cloudflareinsights.com/beacon.min.js';
