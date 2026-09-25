@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
+import rehypeImageDimensions from "./plugins/rehype-image-dimensions.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,6 +21,9 @@ export default defineConfig({
     // dopo aggiornamento upstream o sostituire con generazione manuale.
   ],
   markdown: {
+    // inietta width/height reali sulle <img> dei post: evita il layout shift
+    // (CLS) causato dalle immagini senza dimensioni. Vedi il file del plugin.
+    rehypePlugins: [rehypeImageDimensions],
     shikiConfig: {
       theme: "github-dark-dimmed",
       wrap: true,
