@@ -304,7 +304,7 @@ def rebuild(cfg, write=True):
     if write:
         for key, ser in series.items():
             path = ac.nav_file(cfg, key)
-            with open(path, "w") as f:
+            with open(path, "w", encoding="utf-8") as f:
                 f.write("date,nav\n" + "\n".join(f"{d},{round(v,2)}" for d, v in ser) + "\n")
         print(f"[nav_daily] scritte {len(series)} serie in {os.path.dirname(ac.nav_file(cfg,'x'))}")
     return series

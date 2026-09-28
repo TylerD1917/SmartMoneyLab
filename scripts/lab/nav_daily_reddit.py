@@ -102,7 +102,7 @@ def segments(data):
 
 
 def rebuild(path=OUT, write=True):
-    data = json.load(open(path))
+    data = json.load(open(path, encoding="utf-8"))
     segs = segments(data)
     if not segs:
         raise SystemExit("[nav_daily_reddit] nessun segmento ricostruibile.")
@@ -178,7 +178,7 @@ def rebuild(path=OUT, write=True):
         data["portfolio"]["nav_frequenza"] = "giornaliera (chiusure ufficiali)"
         data["benchmark_ticker"] = BENCH_TICKER
         data["rendimento"] = "total return (dividendi reinvestiti su entrambi i lati)"
-        json.dump(data, open(path, "w"), ensure_ascii=False, indent=1)
+        json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(f"[nav_daily_reddit] scritto {path}")
     return serie
 

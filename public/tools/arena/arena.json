@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-28T16:24:29.516151",
+ "updated": "2026-09-28T16:26:48.493318",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -949,5 +949,5 @@
    ]
   ]
  },
- "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."
+ "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine Ã¨ in gran parte fortuna."
 }

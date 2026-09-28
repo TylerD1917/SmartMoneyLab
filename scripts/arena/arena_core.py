@@ -26,11 +26,13 @@ def state_path(cfg, *parts):
     return p
 
 def read_json(path, default=None):
-    return json.load(open(path)) if os.path.exists(path) else default
+    # encoding esplicito: senza, su Windows si legge in cp1252 e i testi
+    # scritti dalla Action in UTF-8 arrivano corrotti
+    return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else default
 
 def write_json(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    json.dump(obj, open(path, "w"), ensure_ascii=False, indent=1)
+    json.dump(obj, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 # ---------------- portfolio ----------------
 def portfolio_new(cfg, model_id):
@@ -136,17 +138,17 @@ def append_nav(cfg, key, date, nav):
     path = nav_file(cfg, key)
     lines = []
     if os.path.exists(path):
-        lines = [l for l in open(path).read().splitlines() if l and not l.startswith("date")]
+        lines = [l for l in open(path, encoding="utf-8").read().splitlines() if l and not l.startswith("date")]
     lines = [l for l in lines if not l.startswith(date + ",")]   # niente doppioni stessa data
     lines.append(f"{date},{round(float(nav), 2)}")
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("date,nav\n" + "\n".join(lines) + "\n")
 
 def read_nav(cfg, key):
     path = nav_file(cfg, key)
     if not os.path.exists(path): return []
     out = []
-    for l in open(path).read().splitlines():
+    for l in open(path, encoding="utf-8").read().splitlines():
         if not l or l.startswith("date"): continue
         d, v = l.split(","); out.append((d, float(v)))
     return out

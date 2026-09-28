@@ -177,7 +177,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--dry-run", action="store_true"); args = ap.parse_args()
     today = dt.date.today().isoformat(); ym = today[:7]
 
-    prev = json.load(open(OUT)) if os.path.exists(OUT) else {}
+    prev = json.load(open(OUT, encoding="utf-8")) if os.path.exists(OUT) else {}
     port = prev.get("portfolio", {})
     prev_holdings = port.get("holdings", [])
     navreb = port.get("nav_at_rebalance", {"port": 100.0, "bench": 100.0})
@@ -260,7 +260,7 @@ def main():
     # in dry-run non si tocca il file pubblicato
     dest = OUT if not args.dry_run else OUT + ".dryrun"
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    json.dump(out, open(dest, "w"), ensure_ascii=False, indent=1)
+    json.dump(out, open(dest, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"[{'RIBILANCIO' if is_rebalance else 'valore'}] prezzi al {price_date}  port {cur_port:.2f}  "
           f"bench {cur_bench:.2f}  squadra {new_tickers}")
 

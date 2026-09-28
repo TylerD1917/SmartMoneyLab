@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Scrive i JSON pubblici per la sezione /lab (classifica, posizioni, NAV, decisioni)."""
-import os, sys, datetime as dt
+import os, sys, json, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import arena_core as ac
 
@@ -49,6 +49,14 @@ def publish(cfg):
         "leaderboard": board, "positions": positions, "decisions": decisions,
         "nav": {p: nav_all[p] for p in parts},
         "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."})
+    # Controllo di codifica: i rationale dei modelli sono in italiano e il browser
+    # legge questo JSON come UTF-8. Se qualcuno lo riscrive con la codifica di
+    # sistema (su Windows cp1252) la pagina /lab si rompe in silenzio.
+    try:
+        json.load(open(os.path.join(outdir, "arena.json"), encoding="utf-8"))
+    except UnicodeDecodeError as e:
+        sys.exit(f"[publish] arena.json non e' UTF-8 valido: {e}")
+
     print(f"[publish] arena.json -> {outdir} | classifica: " +
           ", ".join(f"{r['id']} {r['ret_total']}" for r in board))
 
