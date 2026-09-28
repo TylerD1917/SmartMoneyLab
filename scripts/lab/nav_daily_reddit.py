@@ -83,7 +83,8 @@ def segments(data):
         if h.get("as_of") and h.get("basis"):
             out.append({"date": h["as_of"], "basis": h["basis"],
                         "bench_basis": h.get("bench_basis"),
-                        "weights": h.get("weights") or {t: 1.0 / len(h["tickers"]) for t in h["tickers"]}})
+                        "weights": h.get("weights") or {t: 1.0 / len(h["tickers"]) for t in h["tickers"]},
+                        "_hist": i})
         elif ultimo and pf.get("holdings"):
             first = nav[0]["d"] if nav else None
             if not first:
@@ -91,7 +92,8 @@ def segments(data):
             out.append({"date": first,
                         "basis": {x["ticker"]: x["basis_price"] for x in pf["holdings"]},
                         "bench_basis": None,   # ricalcolato sulla chiusura di quella data
-                        "weights": {x["ticker"]: x["weight"] for x in pf["holdings"]}})
+                        "weights": {x["ticker"]: x["weight"] for x in pf["holdings"]},
+                        "_hist": i})
         else:
             salti.append(h["month"])
     if salti:
@@ -128,15 +130,36 @@ def rebuild(path=OUT, write=True):
     serie = []
     for i, s in enumerate(segs):
         d0 = s["date"]
-        stop = segs[i + 1]["date"] if i + 1 < len(segs) else "9999-12-31"
+        # Il giorno del ribilancio il portafoglio detiene ancora la squadra
+        # PRECEDENTE fino alla chiusura: quel punto lo emette il segmento vecchio,
+        # e la squadra nuova parte dal giorno dopo. Trattare d0 come primo giorno
+        # del nuovo segmento (rapporto 1) butterebbe via il rendimento fra
+        # l'ultima chiusura precedente e il ribilancio.
+        nxt = segs[i + 1]["date"] if i + 1 < len(segs) else None
         bb = s["bench_basis"] or float(close.loc[d0, BENCH_TICKER])
-        seg_dates = [d for d in dates if d0 <= d < stop]
+        # Ricuce nello storico i riferimenti del segmento ricavati dagli holdings
+        # correnti. Senza questo, al ribilancio successivo quel mese non sarebbe
+        # piu' l'ultimo e la sua parte di curva diventerebbe irrecuperabile.
+        if write and s.get("_hist") is not None:
+            h = data["portfolio"]["history"][s["_hist"]]
+            h.setdefault("as_of", d0)
+            h.setdefault("basis", s["basis"])
+            h.setdefault("weights", s["weights"])
+            if not h.get("bench_basis") or h.get("bench_basis_ticker") != BENCH_TICKER:
+                h["bench_basis"] = bb
+                h["bench_basis_ticker"] = BENCH_TICKER
+        seg_dates = [d for d in dates
+                     if (d >= d0 if i == 0 else d > d0) and (nxt is None or d <= nxt)]
+        p_last = b_last = None
         for d in seg_dates:
             r = sum(w * tr(t, s["basis"][t], d0, d) for t, w in s["weights"].items())
-            serie.append({"d": d, "port": round(port_ref * r, 2),
-                          "bench": round(bench_ref * tr(BENCH_TICKER, bb, d0, d), 2)})
-        if seg_dates:
-            port_ref, bench_ref = serie[-1]["port"], serie[-1]["bench"]
+            p_last = port_ref * r
+            b_last = bench_ref * tr(BENCH_TICKER, bb, d0, d)
+            serie.append({"d": d, "port": round(p_last, 2), "bench": round(b_last, 2)})
+        if p_last is not None:
+            # si concatena sui valori NON arrotondati: con un ribilancio al mese
+            # l'arrotondamento a due decimali si accumulerebbe di segmento in segmento
+            port_ref, bench_ref = p_last, b_last
 
     vecchio = {p["d"]: p for p in data["portfolio"].get("nav", [])}
     print(f"[nav_daily_reddit] {len(serie)} giorni dal {serie[0]['d']} al {serie[-1]['d']} "

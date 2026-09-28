@@ -326,7 +326,24 @@
      "SNOW",
      "MSTR",
      "PLTR"
-    ]
+    ],
+    "as_of": "2026-09-03",
+    "basis": {
+     "LULU": 121.7699966430664,
+     "AVGO": 357.1600036621094,
+     "SNOW": 356.55999755859375,
+     "MSTR": 144.82000732421875,
+     "PLTR": 182.52999877929688
+    },
+    "weights": {
+     "LULU": 0.2,
+     "AVGO": 0.2,
+     "SNOW": 0.2,
+     "MSTR": 0.2,
+     "PLTR": 0.2
+    },
+    "bench_basis": 777.1300048828125,
+    "bench_basis_ticker": "IVV"
    }
   ],
   "nav_frequenza": "giornaliera (chiusure ufficiali)"

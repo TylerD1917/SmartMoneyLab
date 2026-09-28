@@ -51,3 +51,6 @@ social/*/video_youtube_*.mp4
 
 # output dei test in dry-run degli esperimenti /lab
 public/tools/*.dryrun
+
+# cartelle di scarti create quando la cancellazione non era permessa
+_to_delete/
