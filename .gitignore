@@ -48,3 +48,6 @@ analytics/
 # tracciati perche' sono piccoli e servono al repurposing.
 social/*/voce_tyler/
 social/*/video_youtube_*.mp4
+
+# output dei test in dry-run degli esperimenti /lab
+public/tools/*.dryrun
