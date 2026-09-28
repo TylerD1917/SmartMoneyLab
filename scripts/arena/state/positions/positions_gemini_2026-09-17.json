@@ -1,6 +1,6 @@
 {
- "model": "gemini",
- "cash": -73.057461,
+ "date": "2026-09-17",
+ "cash": -100.0,
  "positions": {
   "XOM": {
    "qty": 61.22948812147931,
@@ -43,21 +43,5 @@
    "avg_price": 391.74
   }
  },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 10,
-   "borrow_fee": 0.0,
-   "nav": 99900.0,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 102415.97
-  }
- ],
- "created": "2026-09-17"
+ "_bootstrap": true
 }

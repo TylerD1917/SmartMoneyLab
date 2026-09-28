@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-28",
+ "updated": "2026-09-21",
  "subreddit": "wallstreetbets",
  "currency": "USD",
  "benchmark": "S&P 500",
@@ -238,28 +238,83 @@
   "nav": [
    {
     "d": "2026-09-03",
-    "port": 100.0,
+    "port": 99.99,
     "bench": 100.0
    },
    {
-    "d": "2026-09-07",
+    "d": "2026-09-04",
     "port": 94.3,
-    "bench": 99.62
+    "bench": 99.59
+   },
+   {
+    "d": "2026-09-08",
+    "port": 93.92,
+    "bench": 98.98
+   },
+   {
+    "d": "2026-09-09",
+    "port": 92.28,
+    "bench": 98.58
+   },
+   {
+    "d": "2026-09-10",
+    "port": 90.54,
+    "bench": 97.99
+   },
+   {
+    "d": "2026-09-11",
+    "port": 91.39,
+    "bench": 98.81
    },
    {
     "d": "2026-09-14",
-    "port": 91.39,
-    "bench": 98.83
+    "port": 92.32,
+    "bench": 98.37
+   },
+   {
+    "d": "2026-09-15",
+    "port": 90.08,
+    "bench": 97.94
+   },
+   {
+    "d": "2026-09-16",
+    "port": 89.87,
+    "bench": 97.52
+   },
+   {
+    "d": "2026-09-17",
+    "port": 92.33,
+    "bench": 98.6
+   },
+   {
+    "d": "2026-09-18",
+    "port": 95.5,
+    "bench": 98.71
    },
    {
     "d": "2026-09-21",
-    "port": 95.5,
-    "bench": 98.75
+    "port": 99.35,
+    "bench": 100.25
    },
    {
-    "d": "2026-09-28",
-    "port": 97.92,
-    "bench": 99.94
+    "d": "2026-09-22",
+    "port": 99.74,
+    "bench": 100.24
+   },
+   {
+    "d": "2026-09-23",
+    "port": 98.91,
+    "bench": 99.52
+   },
+   {
+    "d": "2026-09-24",
+    "port": 98.5,
+    "bench": 99.45
+   },
+   {
+    "d": "2026-09-25",
+    "port": 97.96,
+    "bench": 99.99
    }
   ],
   "history": [
@@ -273,7 +328,8 @@
      "PLTR"
     ]
    }
-  ]
+  ],
+  "nav_frequenza": "giornaliera (chiusure ufficiali)"
  },
  "_mentions_snapshot": {
   "AVGO": 568,
@@ -476,5 +532,7 @@
   "INTU": 1,
   "IPGP": 1,
   "KLAC": 1
- }
+ },
+ "benchmark_ticker": "IVV",
+ "rendimento": "total return (dividendi reinvestiti su entrambi i lati)"
 }

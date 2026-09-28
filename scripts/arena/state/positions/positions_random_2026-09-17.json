@@ -1,6 +1,6 @@
 {
- "model": "random",
- "cash": 119838.280456,
+ "date": "2026-09-17",
+ "cash": 119896.54415277769,
  "positions": {
   "EWW": {
    "qty": 137.1930305940458,
@@ -43,21 +43,5 @@
    "avg_price": 70.1
   }
  },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 10,
-   "borrow_fee": 3.45,
-   "nav": 99896.55,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 99279.05
-  }
- ],
- "created": "2026-09-17"
+ "_bootstrap": true
 }

@@ -1,6 +1,6 @@
 {
- "model": "gpt",
- "cash": 14982.605349,
+ "date": "2026-09-17",
+ "cash": 14904.713039734146,
  "positions": {
   "USFR": {
    "qty": 495.14755397108337,
@@ -35,21 +35,5 @@
    "avg_price": 358.08
   }
  },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 8,
-   "borrow_fee": 0.29,
-   "nav": 99904.71,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 99198.61
-  }
- ],
- "created": "2026-09-17"
+ "_bootstrap": true
 }

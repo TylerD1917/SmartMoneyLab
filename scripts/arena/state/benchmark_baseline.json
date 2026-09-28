@@ -1,7 +1,20 @@
 {
+ "as_of": "2026-09-17",
  "capital": 100000,
  "prices": {
-  "ACWI": 161.86500549316406,
-  "SP500": 7769.33984375
+  "ACWI": 157.61,
+  "SP500": 755.63
+ },
+ "ingresso": {
+  "ACWI": {
+   "ticker": "ACWI",
+   "price": 157.61,
+   "fonte": "packet"
+  },
+  "SP500": {
+   "ticker": "IVV",
+   "price": 755.63,
+   "fonte": "packet"
+  }
  }
 }
