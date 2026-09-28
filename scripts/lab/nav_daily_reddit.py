@@ -24,6 +24,9 @@ Uso:  python scripts/lab/nav_daily_reddit.py [percorso json]
 """
 import os, sys, json, datetime as dt
 
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
+import nav_thin
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 OUT = os.path.join(ROOT, "public", "tools", "reddit-sentiment.json")
@@ -161,7 +164,7 @@ def rebuild(path=OUT, write=True):
             # l'arrotondamento a due decimali si accumulerebbe di segmento in segmento
             port_ref, bench_ref = p_last, b_last
 
-    vecchio = {p["d"]: p for p in data["portfolio"].get("nav", [])}
+    vecchio = {p["d"]: p for p in data["portfolio"].get("nav", [])}   # eventualmente ridotta
     print(f"[nav_daily_reddit] {len(serie)} giorni dal {serie[0]['d']} al {serie[-1]['d']} "
           f"(prima: {len(vecchio)} punti settimanali)")
     print("[nav_daily_reddit] riconciliazione sui punti gia' pubblicati:")
@@ -174,8 +177,22 @@ def rebuild(path=OUT, write=True):
             print(f"    {d}  (non e' un giorno di borsa: punto eliminato)")
 
     if write:
-        data["portfolio"]["nav"] = serie
-        data["portfolio"]["nav_frequenza"] = "giornaliera (chiusure ufficiali)"
+        # serie completa scaricabile, accanto al json
+        csv = os.path.join(os.path.dirname(path), "reddit-sentiment-nav.csv")
+        with open(csv, "w", encoding="utf-8") as f:
+            f.write("date,portafoglio,benchmark\n")
+            for p in serie:
+                f.write(f"{p['d']},{p['port']:.2f},{p['bench']:.2f}\n")
+
+        tieni = {h["as_of"] for h in data["portfolio"].get("history", []) if h.get("as_of")}
+        ridotta = nav_thin.thin_dicts(serie, "d", tieni=tieni)
+        print(f"[nav_daily_reddit] pubblicati {len(ridotta)} punti su {len(serie)} "
+              f"(serie completa in {os.path.basename(csv)})")
+        data["portfolio"]["nav"] = ridotta
+        data["portfolio"]["nav_frequenza"] = (
+            f"calcolo giornaliero su chiusure ufficiali; nel grafico dettaglio "
+            f"giornaliero negli ultimi {nav_thin.GIORNI_PIENI} giorni, poi settimanale")
+        data["portfolio"]["nav_csv"] = "/tools/reddit-sentiment-nav.csv"
         data["benchmark_ticker"] = BENCH_TICKER
         data["rendimento"] = "total return (dividendi reinvestiti su entrambi i lati)"
         json.dump(data, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

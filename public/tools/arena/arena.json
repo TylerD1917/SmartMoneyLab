@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-28T16:26:48.493318",
+ "updated": "2026-09-28T17:52:57.876791",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -949,5 +949,7 @@
    ]
   ]
  },
+ "nav_risoluzione": "giornaliera negli ultimi 90 giorni, poi settimanale e, oltre 2 anni, mensile",
+ "nav_csv": "/tools/arena/nav_daily.csv",
  "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."
 }

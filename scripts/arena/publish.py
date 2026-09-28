@@ -2,7 +2,9 @@
 """Scrive i JSON pubblici per la sezione /lab (classifica, posizioni, NAV, decisioni)."""
 import os, sys, json, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
 import arena_core as ac
+import nav_thin
 
 def publish(cfg):
     meta, _ = ac.load_universe(cfg)
@@ -15,7 +17,13 @@ def publish(cfg):
     models = [m["id"] for m in cfg["models"]]
     parts = models + (["random"] if cfg.get("random_control") else []) + list(cfg["benchmarks"].keys())
 
-    nav_all = {p: ac.read_nav(cfg, p) for p in parts}
+    nav_all = {p: ac.read_nav(cfg, p) for p in parts}   # giornaliero, completo
+
+    # date delle riallocazioni: vanno conservate nel grafico ridotto
+    tieni = set()
+    for mid in models:
+        pf = ac.read_json(ac.state_path(cfg, f"portfolio_{mid}.json")) or {}
+        tieni |= {h["date"] for h in pf.get("history", []) if h.get("action") == "settle"}
     board = []
     for p in parts:
         m = ac.metrics_from_nav(nav_all[p])
@@ -47,8 +55,23 @@ def publish(cfg):
                   "gross_cap": cfg["gross_exposure_cap"], "cadence_days": cfg["cadence"]["decision_days"],
                   "costs": cfg["costs"], "benchmarks": list(cfg["benchmarks"].keys())},
         "leaderboard": board, "positions": positions, "decisions": decisions,
-        "nav": {p: nav_all[p] for p in parts},
+        # Il grafico riceve la serie ridotta (vedi scripts/nav_thin.py); le metriche
+        # in leaderboard sono gia' state calcolate sulla serie giornaliera completa,
+        # che resta scaricabile in CSV.
+        "nav": {p: nav_thin.thin_pairs(nav_all[p], tieni=tieni) for p in parts},
+        "nav_risoluzione": (f"giornaliera negli ultimi {nav_thin.GIORNI_PIENI} giorni, "
+                            f"poi settimanale e, oltre {nav_thin.ANNI_SETTIMANALI} anni, mensile"),
+        "nav_csv": "/tools/arena/nav_daily.csv",
         "disclaimer": "Esperimento tra modelli, non consulenza finanziaria. Il vincitore a breve termine è in gran parte fortuna."})
+    # serie giornaliera completa scaricabile: il grafico e' ridotto, il dato pieno no
+    tutte = sorted({d for ser in nav_all.values() for d, _ in ser})
+    idx = {p: dict(nav_all[p]) for p in parts}
+    with open(os.path.join(outdir, "nav_daily.csv"), "w", encoding="utf-8") as f:
+        f.write("date," + ",".join(parts) + "\n")
+        for d in tutte:
+            f.write(d + "," + ",".join(("" if idx[p].get(d) is None else f"{idx[p][d]:.2f}")
+                                       for p in parts) + "\n")
+
     # Controllo di codifica: i rationale dei modelli sono in italiano e il browser
     # legge questo JSON come UTF-8. Se qualcuno lo riscrive con la codifica di
     # sistema (su Windows cp1252) la pagina /lab si rompe in silenzio.

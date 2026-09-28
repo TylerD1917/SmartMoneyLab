@@ -346,7 +346,8 @@
     "bench_basis_ticker": "IVV"
    }
   ],
-  "nav_frequenza": "giornaliera (chiusure ufficiali)"
+  "nav_frequenza": "calcolo giornaliero su chiusure ufficiali; nel grafico dettaglio giornaliero negli ultimi 90 giorni, poi settimanale",
+  "nav_csv": "/tools/reddit-sentiment-nav.csv"
  },
  "_mentions_snapshot": {
   "AVGO": 568,
