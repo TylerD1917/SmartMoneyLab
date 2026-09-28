@@ -5,7 +5,8 @@ name: AI Investing Arena
 
 on:
   schedule:
-    - cron: "0 13 * * 1"    # ogni lunedì 13:00 UTC (mercati USA aperti da poco)
+    - cron: "15 22 * * 1"   # lunedì 22:15 UTC: dopo la chiusura USA sia in ora legale
+                            # (20:00 UTC) sia in ora solare (21:00), così prezzi e date coincidono
   workflow_dispatch:
 
 permissions:

@@ -152,8 +152,21 @@ def read_nav(cfg, key):
     return out
 
 # ---------------- metriche ----------------
+def _periods_per_year(nav_series):
+    """Osservazioni per anno dedotte dalla spaziatura reale delle date.
+    La serie e' passata da settimanale a giornaliera: annualizzare con una
+    costante fissa darebbe volatilita' e Sharpe sbagliati di un fattore ~2,2."""
+    ds = [dt.date.fromisoformat(d) for d, _ in nav_series]
+    if len(ds) < 3:
+        return None
+    gaps = sorted((ds[i] - ds[i-1]).days for i in range(1, len(ds)))
+    med = gaps[len(gaps)//2] or 1
+    return 252.0 if med <= 2 else (52.0 if med <= 9 else 12.0)
+
+
 def metrics_from_nav(nav_series):
-    """nav_series: lista di (date_str, nav). Ritorna dict metriche (settimanale)."""
+    """nav_series: lista di (date_str, nav). Ritorna dict metriche annualizzate
+    sulla frequenza effettiva della serie."""
     vals = [v for _, v in nav_series]
     if len(vals) < 2:
         return {"ret_total": 0.0, "vol_ann": None, "max_dd": 0.0, "sharpe": None}
@@ -163,12 +176,16 @@ def metrics_from_nav(nav_series):
     for v in vals:
         peak = max(peak, v); mdd = min(mdd, v/peak - 1)
     vol = None; sharpe = None
-    if len(rets) >= 2:
+    ppy = _periods_per_year(nav_series)
+    # Sotto un mese di osservazioni volatilita' e Sharpe annualizzati non
+    # significano nulla (su 7 giorni si ottengono Sharpe a doppia cifra):
+    # meglio lasciarli vuoti che pubblicare un numero indifendibile.
+    if len(rets) >= 20 and ppy:
         mean = sum(rets)/len(rets)
         var = sum((r-mean)**2 for r in rets)/(len(rets)-1)
         sd = math.sqrt(var)
-        vol = sd * math.sqrt(52)                      # annualizzata (dati settimanali)
-        sharpe = (mean*52)/vol if vol > 0 else None
+        vol = sd * math.sqrt(ppy)                     # annualizzata sulla frequenza reale
+        sharpe = (mean*ppy)/vol if vol > 0 else None
     return {"ret_total": round(ret_total,4),
             "vol_ann": round(vol,4) if vol is not None else None,
             "max_dd": round(mdd,4),

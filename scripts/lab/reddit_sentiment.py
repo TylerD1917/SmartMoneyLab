@@ -15,10 +15,12 @@ Solo dati pubblici gratuiti senza chiave (ApeWisdom/Tradestie). Forward-only.
 import os, json, argparse, datetime as dt
 import numpy as np, pandas as pd
 
+import sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.join(HERE, "..", "..")
 OUT = os.path.join(ROOT, "public", "tools", "reddit-sentiment.json")
 SUBREDDIT = "wallstreetbets"
-BENCH_TICKER = "^GSPC"; BENCH_NAME = "S&P 500"
+BENCH_TICKER = "IVV"; BENCH_NAME = "S&P 500"   # IVV e non ^GSPC: l'indice e' di soli
+# prezzi, quindi escluderebbe i dividendi e sottostimerebbe l'S&P di ~1,2 punti/anno
 TOP_N = 5
 MIN_MENTIONS = 10
 WEIGHTS = {"sentiment": 0.30, "mentions": 0.25, "comments": 0.20, "growth": 0.15, "upvotes": 0.10}
@@ -143,17 +145,32 @@ def ranking_json(rk):
 
 # ---------------------------------------------------------------- PREZZI
 def get_prices(tickers, dry_run):
+    """Chiusure dell'ultima sessione USA CONCLUSA, con la sua data.
+
+    Prima si prendeva l'ultimo prezzo disponibile: girando il lunedi' alle 06:00
+    UTC, a mercato chiuso, era la chiusura del venerdi' precedente, che veniva
+    poi salvata con la data del lunedi'. Restituendo anche la data il punto
+    finisce nel giorno giusto.
+    """
     if dry_run:
         rng = np.random.default_rng(abs(hash(tuple(sorted(tickers)))) % (2**32))
-        return {tk: float(50 + rng.uniform(-8, 8)) for tk in tickers}
+        return {tk: float(50 + rng.uniform(-8, 8)) for tk in tickers}, dt.date.today().isoformat()
     import yfinance as yf
-    px = {}
-    for tk in tickers:
-        try:
-            h = yf.Ticker(tk).history(period="5d")
-            if len(h): px[tk] = float(h["Close"].iloc[-1])
-        except Exception: pass
-    return px
+    raw = yf.download(sorted(set(tickers)), period="1mo", interval="1d",
+                      auto_adjust=False, actions=False, progress=False, threads=False)
+    close = raw["Close"] if "Close" in raw else raw
+    if isinstance(close, pd.Series):
+        close = close.to_frame(sorted(set(tickers))[0])
+    close = close.dropna(how="all")
+    now = dt.datetime.utcnow()
+    idx = [d for d in close.index
+           if now >= dt.datetime.fromisoformat(d.date().isoformat()) + dt.timedelta(hours=22)]
+    if not idx:
+        raise SystemExit("Nessuna sessione conclusa disponibile.")
+    d = idx[-1]
+    row = close.loc[d]
+    px = {tk: float(row[tk]) for tk in close.columns if pd.notna(row[tk])}
+    return px, d.date().isoformat()
 
 # ---------------------------------------------------------------- MAIN
 def main():
@@ -187,7 +204,7 @@ def main():
 
     # prezzi correnti (holding attuali + nuovi + benchmark)
     need = sorted(set(new_tickers) | {h["ticker"] for h in prev_holdings} | {BENCH_TICKER})
-    prices = get_prices(need, args.dry_run)
+    prices, price_date = get_prices(need, args.dry_run)
 
     # valore corrente dai holding ATTUALI (prev), dalla base dell'ultimo ribilancio
     if prev_holdings and bench_basis:
@@ -199,8 +216,8 @@ def main():
         cur_port, cur_bench = 100.0, 100.0
 
     # punto NAV (sostituisci se già presente per oggi)
-    pt = {"d": today, "port": round(cur_port, 2), "bench": round(cur_bench, 2)}
-    if nav and nav[-1]["d"] == today: nav[-1] = pt
+    pt = {"d": price_date, "port": round(cur_port, 2), "bench": round(cur_bench, 2)}
+    if nav and nav[-1]["d"] == price_date: nav[-1] = pt
     else: nav.append(pt)
 
     if is_rebalance:
@@ -210,7 +227,13 @@ def main():
         bench_basis = prices.get(BENCH_TICKER)
         last_month = ym
         if not history or history[-1]["month"] != ym:
-            history.append({"month": ym, "tickers": new_tickers})
+            # data e prezzi base restano scritti nello storico: e' cio' che rende
+            # ricostruibile la curva giornaliera dei mesi passati anche in futuro,
+            # quando gli holdings correnti saranno un'altra squadra.
+            history.append({"month": ym, "tickers": new_tickers, "as_of": price_date,
+                            "weights": {tk: w for tk in new_tickers},
+                            "basis": {tk: prices.get(tk) for tk in new_tickers},
+                            "bench_basis": prices.get(BENCH_TICKER)})
         current = {"as_of": today, "selection": new_tickers, "ranking": ranking}
         # commento sul mese appena chiuso (solo se c'era già un periodo precedente)
         if prev_tickers and port.get("last_rebalance_month") and prev_navreb.get("port"):
@@ -234,10 +257,18 @@ def main():
         "portfolio": {"holdings": holdings, "bench_basis": bench_basis, "nav_at_rebalance": navreb,
                       "last_rebalance_month": last_month, "nav": nav, "history": history},
         "_mentions_snapshot": snap}
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    json.dump(out, open(OUT, "w"), ensure_ascii=False, indent=1)
-    print(f"[{'RIBILANCIO' if is_rebalance else 'valore'}] {today}  port {cur_port:.2f}  bench {cur_bench:.2f}  "
-          f"squadra {new_tickers}  (NAV punti: {len(nav)})")
+    # in dry-run non si tocca il file pubblicato
+    dest = OUT if not args.dry_run else OUT + ".dryrun"
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    json.dump(out, open(dest, "w"), ensure_ascii=False, indent=1)
+    print(f"[{'RIBILANCIO' if is_rebalance else 'valore'}] prezzi al {price_date}  port {cur_port:.2f}  "
+          f"bench {cur_bench:.2f}  squadra {new_tickers}")
+
+    # La curva pubblicata e' giornaliera: ricostruita dalle chiusure ufficiali a
+    # ogni run, quindi resta densa e con le date corrette senza interventi manuali.
+    if not args.dry_run:
+        import nav_daily_reddit
+        nav_daily_reddit.rebuild(OUT, write=True)
     return out
 
 if __name__ == "__main__":

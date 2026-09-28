@@ -95,13 +95,18 @@ const ld = {
         100k$ virtuali a testa, massimo 10 posizioni, long e short su azioni/ETF/ETN/ETC, <strong>niente leva</strong>
         (esposizione lorda ≤ 100%). Ogni operazione paga <strong>costi realistici</strong> (commissione + spread, più il
         costo di prestito sugli short), così il trading inutile viene penalizzato come nella realtà. Le decisioni sono
-        <strong>bisettimanali</strong>, il valore dei portafogli è aggiornato <strong>ogni settimana</strong>. È un
-        <strong>esperimento forward</strong>: parte dal lancio e accumula da lì, niente backtest retroattivo.
+        <strong>bisettimanali</strong>, mentre il valore dei portafogli è calcolato per <strong>ogni giorno di
+        borsa</strong> sulle <strong>chiusure ufficiali</strong>: i dividendi vengono accreditati (addebitati sugli
+        short) e il costo di prestito maturato giorno per giorno. Chiunque, con gli stessi prezzi pubblici, riottiene
+        le stesse curve. È un <strong>esperimento forward</strong>: parte dal lancio e accumula da lì, niente backtest
+        retroattivo.
       </p>
       <p>
         Confrontiamo i quattro modelli con due riferimenti onesti: un <strong>portafoglio casuale</strong> (stessa
         struttura, titoli estratti a caso — misura quanta parte è pura fortuna) e i <strong>benchmark</strong> di mercato
-        (MSCI ACWI e S&P 500). Battere il mercato è difficile; battere il caso, nel breve, non è affatto scontato.
+        (MSCI ACWI e S&P 500, entrambi <strong>total return</strong> e comprati agli stessi prezzi che i modelli
+        avevano davanti quando hanno deciso). Battere il mercato è difficile; battere il caso, nel breve, non è affatto
+        scontato.
       </p>
 
       <h2>Cosa NON è</h2>

@@ -56,7 +56,7 @@ export default function RedditSentiment() {
               <ResponsiveContainer>
                 <LineChart data={chartData} margin={{ top: 6, right: 12, left: 0, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                  <XAxis dataKey="d" tick={{ fontSize: 11 }} tickFormatter={s => s?.slice(0, 7)} minTickGap={30} />
+                  <XAxis dataKey="d" tick={{ fontSize: 11 }} tickFormatter={s => s ? `${s.slice(8, 10)}/${s.slice(5, 7)}` : ""} minTickGap={30} />
                   <YAxis tick={{ fontSize: 11 }} width={52} domain={["auto", "auto"]} tickFormatter={yFmt} />
                   <Tooltip contentStyle={{ fontSize: 12 }} formatter={v => yFmt(v)} labelFormatter={l => l} />
                   <Legend wrapperStyle={{ fontSize: 12 }} />
@@ -69,7 +69,7 @@ export default function RedditSentiment() {
         ) : (
           <p className="mt-2 rounded-lg bg-amber-50 p-3 text-sm text-amber-800">
             🧪 <strong>Esperimento appena partito.</strong> Il portafoglio è stato "acquistato" ora: la curva di
-            rendimento inizierà a formarsi dai prossimi aggiornamenti settimanali. Torna tra qualche giorno.
+            rendimento inizierà a formarsi dai prossimi aggiornamenti. Torna tra qualche giorno.
           </p>
         )}
         <p className="mt-2 text-xs text-slate-400">

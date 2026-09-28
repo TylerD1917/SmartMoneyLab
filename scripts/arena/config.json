@@ -15,17 +15,37 @@
   },
   "benchmarks": {
     "ACWI": "ACWI",
-    "SP500": "^GSPC"
+    "SP500": "IVV"
   },
   "random_control": true,
   "memory": {
     "lookback": 4
   },
   "models": [
-    {"id": "gpt",    "provider": "openai",    "model": "gpt-5.6-sol",   "key_env": "OPENAI_API_KEY"},
-    {"id": "gemini", "provider": "google",    "model": "gemini-3.1-pro-preview", "key_env": "GEMINI_API_KEY"},
-    {"id": "claude", "provider": "anthropic", "model": "claude-opus-5",  "key_env": "ANTHROPIC_API_KEY"},
-    {"id": "kimi",   "provider": "moonshot",  "model": "kimi-k3",        "key_env": "MOONSHOT_API_KEY"}
+    {
+      "id": "gpt",
+      "provider": "openai",
+      "model": "gpt-5.6-sol",
+      "key_env": "OPENAI_API_KEY"
+    },
+    {
+      "id": "gemini",
+      "provider": "google",
+      "model": "gemini-3.1-pro-preview",
+      "key_env": "GEMINI_API_KEY"
+    },
+    {
+      "id": "claude",
+      "provider": "anthropic",
+      "model": "claude-opus-5",
+      "key_env": "ANTHROPIC_API_KEY"
+    },
+    {
+      "id": "kimi",
+      "provider": "moonshot",
+      "model": "kimi-k3",
+      "key_env": "MOONSHOT_API_KEY"
+    }
   ],
   "temperature": 0.3,
   "universe_file": "scripts/arena/universe.json",
@@ -34,18 +54,68 @@
   "news": {
     "max_headlines": 40,
     "per_feed": 6,
-    "yfinance_seeds": ["AAPL", "MSFT", "NVDA", "AMZN", "JPM", "XOM", "IVV", "QQQ"],
+    "yfinance_seeds": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "AMZN",
+      "JPM",
+      "XOM",
+      "IVV",
+      "QQQ"
+    ],
     "feeds": [
-      {"name": "BBC World",         "url": "https://feeds.bbci.co.uk/news/world/rss.xml",           "cat": "geopolitica"},
-      {"name": "BBC Business",      "url": "https://feeds.bbci.co.uk/news/business/rss.xml",        "cat": "economia"},
-      {"name": "Guardian World",    "url": "https://www.theguardian.com/world/rss",                 "cat": "geopolitica"},
-      {"name": "Guardian Economy",  "url": "https://www.theguardian.com/business/economics/rss",    "cat": "economia"},
-      {"name": "Al Jazeera",        "url": "https://www.aljazeera.com/xml/rss/all.xml",             "cat": "geopolitica"},
-      {"name": "CNBC Economy",      "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html",  "cat": "economia"},
-      {"name": "CNBC Markets",      "url": "https://www.cnbc.com/id/15839135/device/rss/rss.html",  "cat": "mercati"},
-      {"name": "Investing.com",     "url": "https://www.investing.com/rss/news.rss",                "cat": "mercati"},
-      {"name": "Fed press",         "url": "https://www.federalreserve.gov/feeds/press_all.xml",    "cat": "banche centrali"},
-      {"name": "ECB press",         "url": "https://www.ecb.europa.eu/rss/press.xml",               "cat": "banche centrali"}
+      {
+        "name": "BBC World",
+        "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+        "cat": "geopolitica"
+      },
+      {
+        "name": "BBC Business",
+        "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+        "cat": "economia"
+      },
+      {
+        "name": "Guardian World",
+        "url": "https://www.theguardian.com/world/rss",
+        "cat": "geopolitica"
+      },
+      {
+        "name": "Guardian Economy",
+        "url": "https://www.theguardian.com/business/economics/rss",
+        "cat": "economia"
+      },
+      {
+        "name": "Al Jazeera",
+        "url": "https://www.aljazeera.com/xml/rss/all.xml",
+        "cat": "geopolitica"
+      },
+      {
+        "name": "CNBC Economy",
+        "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html",
+        "cat": "economia"
+      },
+      {
+        "name": "CNBC Markets",
+        "url": "https://www.cnbc.com/id/15839135/device/rss/rss.html",
+        "cat": "mercati"
+      },
+      {
+        "name": "Investing.com",
+        "url": "https://www.investing.com/rss/news.rss",
+        "cat": "mercati"
+      },
+      {
+        "name": "Fed press",
+        "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+        "cat": "banche centrali"
+      },
+      {
+        "name": "ECB press",
+        "url": "https://www.ecb.europa.eu/rss/press.xml",
+        "cat": "banche centrali"
+      }
     ]
-  }
+  },
+  "_note_benchmark": "SP500 usa IVV e non ^GSPC: ^GSPC e' un indice di soli prezzi, quindi escluderebbe i dividendi e sottostimerebbe l'S&P 500 di circa 1,2 punti all'anno contro portafogli che invece incassano i dividendi."
 }

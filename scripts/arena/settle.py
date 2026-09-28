@@ -4,6 +4,7 @@ Include il portafoglio di controllo CASUALE (stessi costi) come misura della for
 import os, sys, json, random, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import arena_core as ac
+import nav_daily as nd
 
 def random_decision(universe_meta, prices, n, cfg, seed):
     rng = random.Random(seed)
@@ -32,13 +33,20 @@ def settle(cfg):
             decision = ac.read_json(ac.state_path(cfg, "decisions", f"decision_{mid}_{today}.json")) \
                        or {"orders": []}
         ok, log = ac.apply_decision(pf, decision, prices, universe, cfg)
-        fee = ac.charge_borrow(pf, prices, cfg, mark_days)
+        # Il costo di prestito NON si addebita qui: nav_daily lo accumula pro-rata
+        # die. Addebitare 7 giorni nel momento in cui la posizione viene aperta
+        # significherebbe pagare interessi su giorni non ancora trascorsi.
+        fee = 0.0
         nav = ac.equity(pf, prices)
         pf["history"].append({"date": today, "action": "settle", "ok": ok,
                               "n_orders": len(decision.get("orders", [])), "borrow_fee": round(fee, 2),
                               "nav": round(nav, 2), "log": log})
         ac.write_json(ac.state_path(cfg, f"portfolio_{mid}.json"), pf)
         ac.append_nav(cfg, mid, today, nav)
+        # Snapshot del segmento: fotografa cassa e quantita' subito dopo l'esecuzione.
+        # E' cio' che permette di ricostruire il NAV giornaliero anche mesi dopo,
+        # quando le posizioni saranno state sostituite piu' volte.
+        nd.write_snapshot(cfg, mid, today, pf)
         print(f"[settle] {mid}: ok={ok} nav={nav:.0f} {'; '.join(log) if log else ''}")
 
 if __name__ == "__main__":

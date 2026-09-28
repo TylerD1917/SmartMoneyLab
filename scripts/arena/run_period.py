@@ -23,8 +23,12 @@ def main():
     import datetime as dt
     marker = ac.state_path(cfg, "last_decision.txt")
     def run_decision():
-        import build_packet, run_agents, settle, publish
-        build_packet.build(cfg); run_agents.run(cfg); settle.settle(cfg); publish.publish(cfg)
+        import build_packet, run_agents, settle, publish, nav_daily
+        build_packet.build(cfg); run_agents.run(cfg); settle.settle(cfg)
+        # dopo il settle il segmento e' nuovo: la serie giornaliera va estesa
+        # prima di pubblicare, altrimenti arena.json resterebbe all'ultimo mark
+        nav_daily.rebuild(cfg, write=True)
+        publish.publish(cfg)
         open(marker, "w").write(dt.date.today().isoformat())
     def run_weekly():
         import mark, publish

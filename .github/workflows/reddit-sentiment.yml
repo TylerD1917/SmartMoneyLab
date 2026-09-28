@@ -4,7 +4,8 @@ name: Reddit Retail Sentiment (Lab)
 # Lo script ribilancia la squadra da solo al primo run di ogni mese.
 on:
   schedule:
-    - cron: "0 6 * * 1"   # lunedì 06:00 UTC
+    - cron: "15 22 * * 1"   # lunedì 22:15 UTC, dopo la chiusura USA (prima girava a
+                            # mercato chiuso e salvava la chiusura del venerdì con la data del lunedì)
   workflow_dispatch:        # esecuzione manuale (per il primo lancio)
 
 permissions:
