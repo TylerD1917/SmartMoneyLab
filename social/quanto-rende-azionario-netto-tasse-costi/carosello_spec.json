@@ -1,0 +1,97 @@
+{
+  "slug": "quanto-rende-azionario-netto-tasse-costi",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "Quanto rende",
+        "davvero l'azionario?"
+      ],
+      "accent_lines": [
+        1
+      ],
+      "subtitle": "56 anni di dati. Cinque indici famosi. Tolti costi, tasse e inflazione."
+    },
+    {
+      "type": "number",
+      "kicker": "Un euro sul MSCI World, tenuto 20 anni, è diventato:",
+      "number": "3,27€",
+      "note": "mediana di 440 periodi ventennali",
+      "box": [
+        "Al 10% all'anno,",
+        "il numero che si legge ovunque,",
+        "sarebbero stati 6,73€."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "chart",
+      "title": [
+        "Dove finisce",
+        "il resto"
+      ],
+      "chart": "social/quanto-rende-azionario-netto-tasse-costi/chart_moltiplicatori_social.png",
+      "caption": "Sulla carta, in tasca, e in potere d'acquisto."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Tolta anche l'inflazione italiana, al MSCI World resta:",
+      "number": "1,96%",
+      "note": "mediana dei periodi di 20 anni dal 1969",
+      "box": [
+        "In 20 anni il tuo potere d'acquisto",
+        "è cresciuto di 1,47 volte.",
+        "Non di sei."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "compare",
+      "kicker": "Su 20 anni, quanto ti toglie ogni anno:",
+      "left": {
+        "num": "0,70",
+        "label": "punti di costi"
+      },
+      "right": {
+        "num": "1,16",
+        "label": "punti di tasse"
+      },
+      "punch": [
+        "Scegliere l'ETF più economico",
+        "sposta le briciole."
+      ],
+      "punch_accent": [
+        1
+      ]
+    },
+    {
+      "type": "bullets",
+      "title": [
+        "Tre cose che i dati dicono"
+      ],
+      "bullets": [
+        "Il peso di costi e tasse CALA con gli anni: l'imposta si paga una volta sola, alla fine, e si spalma sul tempo.",
+        "Il costo del prodotto è la voce più piccola. Contano di più la ritenuta sui dividendi e il bollo, che non puoi scegliere.",
+        "A 10 anni si può ancora perdere: è successo tra il 7% e il 13% delle volte, a seconda dell'indice."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": [
+        "Lo studio completo",
+        "è sul blog."
+      ],
+      "bullets": [
+        "Tutti e cinque gli indici, da 1 a 20 anni",
+        "Il metodo, spiegato passo passo",
+        "I dati e il codice, verificabili"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
