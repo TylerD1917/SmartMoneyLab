@@ -45,13 +45,32 @@ In modo che il **potere d'acquisto del prelievo resti costante** anno per anno. 
 Il "successo" è definito in due modi nella letteratura, ed entrambi sono importanti:
 
 - **Caso A — Sopravvivenza nuda**: il capitale resta sopra zero per tutto l'orizzonte. Cioè a fine vita non ti sei trovato in mutande. Definizione minima.
-- **Caso B — Preservazione del capitale**: il capitale finale è almeno il 50% del capitale iniziale, espresso in euro reali (cioè con il potere d'acquisto di oggi). Definizione utile per chi vuole lasciare qualcosa ai figli o alla compagna.
+- **Caso B — Preservazione del capitale**: il capitale finale è almeno il 50% del capitale iniziale, espresso in termini reali (cioè con il potere d'acquisto di oggi). Definizione utile per chi vuole lasciare qualcosa ai figli o alla compagna.
 
 I due numeri differiscono molto. Un tasso che sopravvive nel 90% degli scenari potrebbe preservare il 50% del capitale solo nel 70%. Bisogna decidere quale dei due obiettivi conta per te.
 
 ## Il metodo
 
-Ho lavorato a frequenza annuale sui dati Shiller, che ricostruiscono S&P 500 *Total Return* (cioè con dividendi reinvestiti) e indice dei prezzi al consumo CPI dal 1872 al 2022. 151 anni di dati. I rendimenti sono espressi in **euro reali** — cioè ho sottratto l'inflazione storica mese per mese per ottenere il rendimento reale dell'investimento azionario. Lavorare in reali elimina la variabilità dell'inflazione futura dal modello: tutto è già "deflazionato" e i risultati possono essere letti come *potere d'acquisto* indipendentemente dall'inflazione che ci sarà nei prossimi 30 anni.
+Ho lavorato a frequenza annuale sui dati Shiller, che ricostruiscono S&P 500 *Total Return* (cioè con dividendi reinvestiti) e indice dei prezzi al consumo CPI dal 1872 al 2022. 151 anni di dati. I rendimenti sono espressi in **dollari reali**: ho deflazionato la serie con il CPI americano per ottenere il rendimento reale dell'investimento azionario. Lavorare in reali elimina la variabilità dell'inflazione futura dal modello: tutto è già "deflazionato" e i risultati possono essere letti come *potere d'acquisto* indipendentemente dall'inflazione che ci sarà nei prossimi 30 anni.
+
+**Una precisazione doverosa, perché il dato è americano e il lettore è italiano.** Trasferire
+un rendimento reale in dollari a chi spende in euro presuppone che il cambio reale euro-dollaro
+sia stabile sull'orizzonte considerato. Sull'era euro l'ipotesi tiene bene: su finestre di
+vent'anni lo scarto tra il rendimento reale misurato in dollari con inflazione americana e quello
+misurato in euro con inflazione italiana è di 0,06 punti percentuali all'anno, cioè nulla. Sul
+periodo precedente non è verificabile con i dati usati qui, e l'inflazione italiana ha corso a
+lungo sopra quella americana. Va aggiunto che nel decumulo la compensazione di lungo periodo
+protegge meno che nell'accumulo: si vende ogni anno, e un cambio sfavorevole nei primi anni
+lascia un danno permanente, esattamente come il rischio di sequenza dei rendimenti.
+
+**Perché allora l'S&P 500 e non un indice globale in euro?** Perché qui serviva la massima
+profondità storica possibile. La serie Shiller copre 151 anni e contiene la Grande Depressione,
+le due guerre e la stagflazione degli anni Settanta, cioè proprio gli scenari che fanno fallire
+un piano di decumulo. Un MSCI World in euro parte dal 1969 e non consente finestre di quarant'anni
+in numero sufficiente: avremmo guadagnato in aderenza al caso italiano quello che avremmo perso
+in robustezza statistica, che su una domanda come questa è il rischio maggiore. È uno studio che
+vale la pena fare come seguito, con l'MSCI World in euro e l'inflazione italiana, per misurare
+quanto la prospettiva valutaria sposta davvero i tassi di prelievo sicuri.
 
 Tasso di prelievo testati: 2,5%, 3%, 3,5%, 4%, 4,5%, 5%. Orizzonti di decumulo: 20, 30 e 40 anni — coprono dallo scenario "pensione tradizionale" (decumulo dai 65 ai 85) allo scenario "indipendenza finanziaria precoce" (decumulo dai 40 agli 80).
 
