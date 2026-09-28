@@ -41,3 +41,10 @@ venv/
 
 # analytics privati (engagement IG + traffico sito): NON devono finire nel repo pubblico
 analytics/
+
+# tracce vocali grezze e video renderizzati: pesano decine di MB e git li tiene
+# per sempre nella storia. Le registrazioni sono la voce di Tyler e il repo e'
+# pubblico. Il video finito va su YouTube, non qui. I reel social restano
+# tracciati perche' sono piccoli e servono al repurposing.
+social/*/voce_tyler/
+social/*/video_youtube_*.mp4

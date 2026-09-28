@@ -91,6 +91,17 @@ def wrap(text: str, size: int, bold: bool, max_w: int = CONTENT_W) -> list[str]:
     return lines
 
 
+def fit_size(text: str, size: int, bold: bool, max_w: int, min_size: int = 120) -> int:
+    """Rimpicciolisce il testo finche' non sta dentro max_w.
+
+    Serve per i numeroni delle slide: la dimensione era fissa, quindi una
+    stringa lunga (es. "1,96%") sbordava a destra.
+    """
+    while size > min_size and _font(bold, size).getlength(text) > max_w:
+        size -= 4
+    return size
+
+
 def T(x, y, s, size, fill, bold=False, anchor="start", italic=False):
     style = f' font-style="italic"' if italic else ""
     weight = ' font-weight="bold"' if bold else ""
@@ -175,7 +186,9 @@ def render_number(s, light=False):
         blk, y = _lines_block(kl, MARGIN, y, 46, kicker_c)
         parts.append(blk)
         y += 40
-    parts.append(T(MARGIN - 10, y + 250, s["number"], 300, num_c, bold=True))
+    num_x = MARGIN - 10
+    num_size = fit_size(s["number"], 300, True, W - MARGIN - num_x)
+    parts.append(T(num_x, y + 250, s["number"], num_size, num_c, bold=True))
     y += 340
     if s.get("note"):
         parts.append(T(MARGIN, y, s["note"], 40, note_c))
