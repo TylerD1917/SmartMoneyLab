@@ -140,6 +140,7 @@ def rebuild(path=OUT, write=True):
         # l'ultima chiusura precedente e il ribilancio.
         nxt = segs[i + 1]["date"] if i + 1 < len(segs) else None
         bb = s["bench_basis"] or float(close.loc[d0, BENCH_TICKER])
+        bb_ultimo, d0_ultimo = bb, d0
         # Ricuce nello storico i riferimenti del segmento ricavati dagli holdings
         # correnti. Senza questo, al ribilancio successivo quel mese non sarebbe
         # piu' l'ultimo e la sua parte di curva diventerebbe irrecuperabile.
@@ -177,6 +178,15 @@ def rebuild(path=OUT, write=True):
             print(f"    {d}  (non e' un giorno di borsa: punto eliminato)")
 
     if write:
+        # Ripara gli ancoraggi che reddit_sentiment.main() usa per il calcolo
+        # incrementale: erano rimasti tarati su ^GSPC (livello ~7.700) mentre il
+        # benchmark e' IVV (~775), e producevano un valore fuori scala di 10 volte.
+        # Qui li riallineiamo alla serie ricostruita, che e' l'unica autorevole.
+        anc = next((x for x in serie if x["d"] >= d0_ultimo), serie[0])
+        data["portfolio"]["bench_basis"] = bb_ultimo
+        data["portfolio"]["bench_basis_ticker"] = BENCH_TICKER
+        data["portfolio"]["nav_at_rebalance"] = {"port": anc["port"], "bench": anc["bench"]}
+
         # serie completa scaricabile, accanto al json
         csv = os.path.join(os.path.dirname(path), "reddit-sentiment-nav.csv")
         with open(csv, "w", encoding="utf-8") as f:

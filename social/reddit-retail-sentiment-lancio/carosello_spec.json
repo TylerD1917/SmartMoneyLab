@@ -1,0 +1,74 @@
+{
+ "slug": "reddit-retail-sentiment-lancio",
+ "slides": [
+  {
+   "type": "cover",
+   "title": [
+    "Compriamo i 5 titoli",
+    "più citati su Reddit"
+   ],
+   "accent_lines": [
+    1
+   ],
+   "subtitle": "Ogni mese, in pubblico, dal 3 settembre 2026. Portafoglio simulato, prezzi reali."
+  },
+  {
+   "type": "bullets",
+   "title": "Come funziona",
+   "bullets": [
+    "Ogni mese leggiamo le discussioni di r/wallstreetbets e ne ricaviamo un punteggio per ogni titolo.",
+    "I primi cinque entrano in un portafoglio equipesato, 20% ciascuno, e restano lì per tutto il mese.",
+    "Il valore si ricalcola ogni giorno di borsa sulle chiusure ufficiali, confrontato con l'S&P 500."
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Il punteggio, in chiaro",
+   "bullets": [
+    "Sentiment delle discussioni: 30%",
+    "Quante volte se ne parla: 25%",
+    "Commenti: 20%",
+    "Crescita delle menzioni: 15%",
+    "Upvote: 10%",
+    "Su ogni criterio i titoli vengono messi in classifica: il punteggio è la media pesata delle posizioni, non dei valori assoluti."
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Cosa resta fuori",
+   "bullets": [
+    "ETF e indici. Comprare l'S&P 500 per poi confrontarlo con l'S&P 500 non direbbe nulla.",
+    "Titoli con sentiment negativo. Qui misuriamo l'entusiasmo della folla, non il panico.",
+    "Titoli sotto le dieci menzioni. Troppo pochi per chiamarlo sentiment."
+   ]
+  },
+  {
+   "type": "number",
+   "kicker": "Ciò di cui parla il retail sui social anticipa i titoli che andranno bene?",
+   "number": "?",
+   "note": "due tesi opposte, nessuna mai misurata",
+   "box": [
+    "Momentum per alcuni,",
+    "contrarian per altri.",
+    "O batte il mercato, o viene battuto."
+   ],
+   "box_accent": [
+    2
+   ]
+  },
+  {
+   "type": "cta",
+   "title": [
+    "L'esperimento è live",
+    "su smartmoneylab.it"
+   ],
+   "bullets": [
+    "La squadra del mese, col punteggio",
+    "La curva, giorno per giorno",
+    "La serie completa scaricabile in CSV"
+   ],
+   "button": "Link in bio →",
+   "handle": "@smartmoneylab_it"
+  }
+ ]
+}

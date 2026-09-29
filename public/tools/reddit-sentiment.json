@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-21",
+ "updated": "2026-09-29",
  "subreddit": "wallstreetbets",
  "currency": "USD",
  "benchmark": "S&P 500",
@@ -229,9 +229,9 @@
     "basis_price": 182.52999877929688
    }
   ],
-  "bench_basis": 7747.7099609375,
+  "bench_basis": 777.1300048828125,
   "nav_at_rebalance": {
-   "port": 100.0,
+   "port": 99.99,
    "bench": 100.0
   },
   "last_rebalance_month": "2026-09",
@@ -315,6 +315,11 @@
     "d": "2026-09-25",
     "port": 97.96,
     "bench": 99.99
+   },
+   {
+    "d": "2026-09-28",
+    "port": 96.78,
+    "bench": 99.23
    }
   ],
   "history": [
@@ -346,6 +351,7 @@
     "bench_basis_ticker": "IVV"
    }
   ],
+  "bench_basis_ticker": "IVV",
   "nav_frequenza": "calcolo giornaliero su chiusure ufficiali; nel grafico dettaglio giornaliero negli ultimi 90 giorni, poi settimanale",
   "nav_csv": "/tools/reddit-sentiment-nav.csv"
  },

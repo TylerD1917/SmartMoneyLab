@@ -1,0 +1,93 @@
+{
+ "slug": "reddit-retail-sentiment-squadra-settembre",
+ "slides": [
+  {
+   "type": "cover",
+   "title": [
+    "Cosa ha comprato",
+    "r/wallstreetbets"
+   ],
+   "accent_lines": [
+    1
+   ],
+   "subtitle": "La squadra di settembre 2026, scelta dalle discussioni del subreddit."
+  },
+  {
+   "type": "bullets",
+   "title": "I cinque di settembre",
+   "bullets": [
+    "LULU · lululemon athletica",
+    "AVGO · Broadcom",
+    "SNOW · Snowflake",
+    "MSTR · MicroStrategy",
+    "PLTR · Palantir",
+    "Equipesati al 20%, comprati il 3 settembre alla chiusura."
+   ]
+  },
+  {
+   "type": "compare",
+   "kicker": "Menzioni nel mese sul subreddit:",
+   "left": {
+    "num": "79",
+    "label": "LULU"
+   },
+   "right": {
+    "num": "568",
+    "label": "AVGO"
+   },
+   "punch": [
+    "Ha vinto LULU.",
+    "Il più citato non vince."
+   ],
+   "punch_accent": [
+    0
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Perché non vince il più citato",
+   "bullets": [
+    "Il punteggio pesa cinque criteri, e quante volte se ne parla vale solo il 25%.",
+    "LULU aveva il sentiment più alto del mese e la crescita di menzioni più forte.",
+    "AVGO era il più citato in assoluto, ma su sentiment e crescita stava dietro."
+   ]
+  },
+  {
+   "type": "number",
+   "kicker": "Il secondo titolo più citato del mese:",
+   "number": "SPY",
+   "note": "243 menzioni. Escluso.",
+   "box": [
+    "È l'S&P 500.",
+    "Comprarlo per poi confrontarlo",
+    "con l'S&P 500 non direbbe nulla."
+   ],
+   "box_accent": [
+    2
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Quello che non ci convince",
+   "bullets": [
+    "La crescita delle menzioni di LULU e MSTR parte da una sola menzione il giorno prima: +7.800% e +4.000% su una base di uno.",
+    "È il criterio più fragile dei cinque. Pesa il 15% e lo stiamo tenendo d'occhio.",
+    "Lo scriviamo noi, invece di aspettare che lo noti qualcuno."
+   ]
+  },
+  {
+   "type": "cta",
+   "title": [
+    "La squadra di ottobre",
+    "esce il 5 ottobre."
+   ],
+   "bullets": [
+    "Punteggio scomposto, titolo per titolo",
+    "La curva giornaliera contro l'S&P 500",
+    "Esperimento pubblico, non un consiglio"
+   ],
+   "button": "Link in bio →",
+   "handle": "@smartmoneylab_it"
+  }
+ ]
+}

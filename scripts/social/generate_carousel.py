@@ -270,8 +270,14 @@ def render_cta(s):
     parts.append(blk)
     y += 70
     for b in s.get("bullets", []):
-        parts.append(T(MARGIN, y, "•  " + b, 40, MUTE))
-        y += 65
+        # I bullet della CTA prima venivano scritti su una riga sola: oltre ~42
+        # caratteri finivano fuori dal margine destro senza alcun avviso.
+        blines = wrap(b, 40, False, CONTENT_W - 50)
+        parts.append(T(MARGIN, y, "•", 40, MUTE))
+        for ln in blines:
+            parts.append(T(MARGIN + 50, y, ln, 40, MUTE))
+            y += 55
+        y += 10
     y += 60
     btn = s.get("button", "Link in bio →")
     bw = _font(True, 38).getlength(btn) + 80
