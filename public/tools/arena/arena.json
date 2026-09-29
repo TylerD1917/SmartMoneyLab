@@ -1,6 +1,6 @@
 {
  "as_of": "2026-09-17",
- "updated": "2026-09-28T17:52:57.876791",
+ "updated": "2026-09-29T02:01:40.020854",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -20,35 +20,35 @@
   {
    "id": "SP500",
    "type": "benchmark",
-   "nav": 102540.93,
-   "ret_total": 0.0254,
+   "nav": 101760.12,
+   "ret_total": 0.0176,
    "vol_ann": null,
-   "max_dd": -0.008,
+   "max_dd": -0.0102,
    "sharpe": null
   },
   {
    "id": "ACWI",
    "type": "benchmark",
-   "nav": 102182.6,
-   "ret_total": 0.0218,
+   "nav": 101313.36,
+   "ret_total": 0.0131,
    "vol_ann": null,
-   "max_dd": -0.0131,
+   "max_dd": -0.0155,
    "sharpe": null
   },
   {
    "id": "gemini",
    "type": "model",
-   "nav": 102036.06,
-   "ret_total": 0.0204,
+   "nav": 100943.27,
+   "ret_total": 0.0094,
    "vol_ann": null,
-   "max_dd": -0.0087,
+   "max_dd": -0.0134,
    "sharpe": null
   },
   {
    "id": "random",
    "type": "control",
-   "nav": 99260.75,
-   "ret_total": -0.0074,
+   "nav": 99383.29,
+   "ret_total": -0.0062,
    "vol_ann": null,
    "max_dd": -0.0068,
    "sharpe": null
@@ -56,8 +56,8 @@
   {
    "id": "kimi",
    "type": "model",
-   "nav": 98873.97,
-   "ret_total": -0.0113,
+   "nav": 99252.7,
+   "ret_total": -0.0075,
    "vol_ann": null,
    "max_dd": -0.0139,
    "sharpe": null
@@ -65,8 +65,8 @@
   {
    "id": "gpt",
    "type": "model",
-   "nav": 98421.41,
-   "ret_total": -0.0158,
+   "nav": 98460.0,
+   "ret_total": -0.0154,
    "vol_ann": null,
    "max_dd": -0.014,
    "sharpe": null
@@ -74,8 +74,8 @@
   {
    "id": "claude",
    "type": "model",
-   "nav": 97388.47,
-   "ret_total": -0.0261,
+   "nav": 97607.12,
+   "ret_total": -0.0239,
    "vol_ann": null,
    "max_dd": -0.0248,
    "sharpe": null
@@ -83,14 +83,14 @@
  ],
  "positions": {
   "gpt": {
-   "cash": 14982.61,
-   "equity": 99982.61,
+   "cash": 15060.67,
+   "equity": 100060.67,
    "positions": [
     {
      "ticker": "USFR",
      "qty": 495.15,
      "px": 50.49,
-     "weight": 0.25,
+     "weight": 0.2498,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund"
     },
@@ -98,7 +98,7 @@
      "ticker": "BRK-B",
      "qty": 28.86,
      "px": 519.8,
-     "weight": 0.15,
+     "weight": 0.1499,
      "side": "long",
      "name": "Berkshire Hathaway"
     },
@@ -106,7 +106,7 @@
      "ticker": "IWD",
      "qty": 47.78,
      "px": 251.16,
-     "weight": 0.12,
+     "weight": 0.1199,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF"
     },
@@ -114,7 +114,7 @@
      "ticker": "SHEL",
      "qty": 104.49,
      "px": 95.7,
-     "weight": 0.1,
+     "weight": 0.0999,
      "side": "long",
      "name": "Shell (ADR)"
     },
@@ -122,7 +122,7 @@
      "ticker": "CB",
      "qty": 29.28,
      "px": 341.53,
-     "weight": 0.1,
+     "weight": 0.0999,
      "side": "long",
      "name": "Chubb"
     },
@@ -130,7 +130,7 @@
      "ticker": "ACN",
      "qty": 52.73,
      "px": 189.64,
-     "weight": 0.1,
+     "weight": 0.0999,
      "side": "long",
      "name": "Accenture"
     },
@@ -153,14 +153,14 @@
    ]
   },
   "gemini": {
-   "cash": -73.06,
-   "equity": 99926.94,
+   "cash": -46.11,
+   "equity": 99953.89,
    "positions": [
     {
      "ticker": "XOM",
      "qty": 61.23,
      "px": 163.32,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "ExxonMobil"
     },
@@ -168,7 +168,7 @@
      "ticker": "JPM",
      "qty": 28.66,
      "px": 348.92,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "JPMorgan Chase"
     },
@@ -176,7 +176,7 @@
      "ticker": "BRK-B",
      "qty": 19.24,
      "px": 519.8,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Berkshire Hathaway"
     },
@@ -184,7 +184,7 @@
      "ticker": "MSFT",
      "qty": 20.4,
      "px": 490.3,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Microsoft"
     },
@@ -192,7 +192,7 @@
      "ticker": "NVDA",
      "qty": 46.75,
      "px": 213.9,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "NVIDIA"
     },
@@ -200,7 +200,7 @@
      "ticker": "AVGO",
      "qty": 29.45,
      "px": 339.51,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Broadcom"
     },
@@ -208,7 +208,7 @@
      "ticker": "META",
      "qty": 14.85,
      "px": 673.31,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Meta Platforms"
     },
@@ -216,7 +216,7 @@
      "ticker": "LLY",
      "qty": 8.79,
      "px": 1137.82,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Eli Lilly"
     },
@@ -224,7 +224,7 @@
      "ticker": "LMT",
      "qty": 18.61,
      "px": 537.25,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "Lockheed Martin"
     },
@@ -232,21 +232,21 @@
      "ticker": "GLD",
      "qty": 25.53,
      "px": 391.74,
-     "weight": 0.1001,
+     "weight": 0.1,
      "side": "long",
      "name": "SPDR Gold Shares"
     }
    ]
   },
   "claude": {
-   "cash": 27017.04,
-   "equity": 100017.04,
+   "cash": 27117.59,
+   "equity": 100117.59,
    "positions": [
     {
      "ticker": "FENY",
      "qty": 338.7,
      "px": 35.43,
-     "weight": 0.12,
+     "weight": 0.1199,
      "side": "long",
      "name": "Fidelity MSCI Energy Index ETF"
     },
@@ -254,7 +254,7 @@
      "ticker": "DBC",
      "qty": 241.25,
      "px": 33.16,
-     "weight": 0.08,
+     "weight": 0.0799,
      "side": "long",
      "name": "Invesco DB Commodity Index Tracking Fund"
     },
@@ -262,7 +262,7 @@
      "ticker": "USFR",
      "qty": 198.06,
      "px": 50.49,
-     "weight": 0.1,
+     "weight": 0.0999,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund"
     },
@@ -270,7 +270,7 @@
      "ticker": "IWD",
      "qty": 39.82,
      "px": 251.16,
-     "weight": 0.1,
+     "weight": 0.0999,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF"
     },
@@ -278,7 +278,7 @@
      "ticker": "BRK-B",
      "qty": 17.31,
      "px": 519.8,
-     "weight": 0.09,
+     "weight": 0.0899,
      "side": "long",
      "name": "Berkshire Hathaway"
     },
@@ -286,7 +286,7 @@
      "ticker": "CB",
      "qty": 20.5,
      "px": 341.53,
-     "weight": 0.07,
+     "weight": 0.0699,
      "side": "long",
      "name": "Chubb"
     },
@@ -294,7 +294,7 @@
      "ticker": "BMY",
      "qty": 110.06,
      "px": 63.6,
-     "weight": 0.07,
+     "weight": 0.0699,
      "side": "long",
      "name": "Bristol-Myers Squibb"
     },
@@ -302,7 +302,7 @@
      "ticker": "GLD",
      "qty": 17.87,
      "px": 391.74,
-     "weight": 0.07,
+     "weight": 0.0699,
      "side": "long",
      "name": "SPDR Gold Shares"
     },
@@ -310,7 +310,7 @@
      "ticker": "EDV",
      "qty": 134.88,
      "px": 59.31,
-     "weight": 0.08,
+     "weight": 0.0799,
      "side": "long",
      "name": "Vanguard Extended Duration Treasury ETF"
     },
@@ -318,21 +318,21 @@
      "ticker": "ARM",
      "qty": -20.49,
      "px": 243.98,
-     "weight": -0.05,
+     "weight": -0.0499,
      "side": "short",
      "name": "Arm Holdings"
     }
    ]
   },
   "kimi": {
-   "cash": 63047.11,
-   "equity": 100047.11,
+   "cash": 63193.97,
+   "equity": 100193.97,
    "positions": [
     {
      "ticker": "FENY",
      "qty": 338.7,
      "px": 35.43,
-     "weight": 0.1199,
+     "weight": 0.1198,
      "side": "long",
      "name": "Fidelity MSCI Energy Index ETF"
     },
@@ -340,7 +340,7 @@
      "ticker": "DBC",
      "qty": 301.57,
      "px": 33.16,
-     "weight": 0.1,
+     "weight": 0.0998,
      "side": "long",
      "name": "Invesco DB Commodity Index Tracking Fund"
     },
@@ -348,7 +348,7 @@
      "ticker": "IWD",
      "qty": 47.78,
      "px": 251.16,
-     "weight": 0.1199,
+     "weight": 0.1198,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF"
     },
@@ -356,7 +356,7 @@
      "ticker": "FHLC",
      "qty": 123.0,
      "px": 81.3,
-     "weight": 0.1,
+     "weight": 0.0998,
      "side": "long",
      "name": "Fidelity MSCI Health Care Index ETF"
     },
@@ -364,7 +364,7 @@
      "ticker": "CIBR",
      "qty": 79.76,
      "px": 100.3,
-     "weight": 0.08,
+     "weight": 0.0798,
      "side": "long",
      "name": "First Trust NASDAQ Cybersecurity ETF"
     },
@@ -372,7 +372,7 @@
      "ticker": "USFR",
      "qty": 297.09,
      "px": 50.49,
-     "weight": 0.1499,
+     "weight": 0.1497,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund"
     },
@@ -380,7 +380,7 @@
      "ticker": "SMH",
      "qty": -14.66,
      "px": 545.56,
-     "weight": -0.08,
+     "weight": -0.0798,
      "side": "short",
      "name": "VanEck Semiconductor ETF"
     },
@@ -388,7 +388,7 @@
      "ticker": "VGLT",
      "qty": -154.17,
      "px": 51.89,
-     "weight": -0.08,
+     "weight": -0.0798,
      "side": "short",
      "name": "Vanguard Long-Term Treasury ETF"
     },
@@ -396,7 +396,7 @@
      "ticker": "IWM",
      "qty": -24.65,
      "px": 283.92,
-     "weight": -0.07,
+     "weight": -0.0699,
      "side": "short",
      "name": "iShares Russell 2000 ETF"
     },
@@ -404,7 +404,7 @@
      "ticker": "ITB",
      "qty": -79.44,
      "px": 88.12,
-     "weight": -0.07,
+     "weight": -0.0699,
      "side": "short",
      "name": "iShares U.S. Home Construction ETF"
     }
@@ -741,151 +741,171 @@
   "gpt": [
    [
     "2026-09-17",
-    99721.51
+    99799.71
    ],
    [
     "2026-09-18",
-    99122.65
+    99200.84
    ],
    [
     "2026-09-21",
-    98987.28
+    99065.47
    ],
    [
     "2026-09-22",
-    98747.87
+    98826.06
    ],
    [
     "2026-09-23",
-    98593.95
+    98672.14
    ],
    [
     "2026-09-24",
-    98327.91
+    98406.1
    ],
    [
     "2026-09-25",
-    98421.41
+    98499.6
+   ],
+   [
+    "2026-09-28",
+    98460.0
    ]
   ],
   "gemini": [
    [
     "2026-09-17",
-    100786.7
+    100813.64
    ],
    [
     "2026-09-18",
-    100926.61
+    100953.56
    ],
    [
     "2026-09-21",
-    102291.51
+    102318.45
    ],
    [
     "2026-09-22",
-    101828.55
+    101855.49
    ],
    [
     "2026-09-23",
-    101400.41
+    101427.35
    ],
    [
     "2026-09-24",
-    101933.61
+    101960.55
    ],
    [
     "2026-09-25",
-    102036.06
+    102063.01
+   ],
+   [
+    "2026-09-28",
+    100943.27
    ]
   ],
   "claude": [
    [
     "2026-09-17",
-    99576.1
+    99676.8
    ],
    [
     "2026-09-18",
-    99216.82
+    99317.53
    ],
    [
     "2026-09-21",
-    97744.08
+    97844.78
    ],
    [
     "2026-09-22",
-    97319.32
+    97420.02
    ],
    [
     "2026-09-23",
-    97106.92
+    97207.63
    ],
    [
     "2026-09-24",
-    97553.09
+    97653.79
    ],
    [
     "2026-09-25",
-    97388.47
+    97489.18
+   ],
+   [
+    "2026-09-28",
+    97607.12
    ]
   ],
   "kimi": [
    [
     "2026-09-17",
-    99823.74
+    99971.35
    ],
    [
     "2026-09-18",
-    99513.02
+    99660.64
    ],
    [
     "2026-09-21",
-    99046.27
+    99193.88
    ],
    [
     "2026-09-22",
-    98437.14
+    98584.75
    ],
    [
     "2026-09-23",
-    99157.16
+    99304.78
    ],
    [
     "2026-09-24",
-    99404.77
+    99552.38
    ],
    [
     "2026-09-25",
-    98873.97
+    99021.58
+   ],
+   [
+    "2026-09-28",
+    99252.7
    ]
   ],
   "random": [
    [
     "2026-09-17",
-    99780.13
+    99725.37
    ],
    [
     "2026-09-18",
-    99363.86
+    99309.09
    ],
    [
     "2026-09-21",
-    99226.3
+    99171.53
    ],
    [
     "2026-09-22",
-    99104.72
+    99049.96
    ],
    [
     "2026-09-23",
-    99620.98
+    99566.22
    ],
    [
     "2026-09-24",
-    99266.08
+    99211.32
    ],
    [
     "2026-09-25",
-    99260.75
+    99205.99
+   ],
+   [
+    "2026-09-28",
+    99383.29
    ]
   ],
   "ACWI": [
@@ -916,6 +936,10 @@
    [
     "2026-09-25",
     102182.6
+   ],
+   [
+    "2026-09-28",
+    101313.36
    ]
   ],
   "SP500": [
@@ -946,6 +970,10 @@
    [
     "2026-09-25",
     102540.93
+   ],
+   [
+    "2026-09-28",
+    101760.12
    ]
   ]
  },
