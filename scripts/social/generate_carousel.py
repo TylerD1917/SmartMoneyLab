@@ -232,8 +232,13 @@ def render_compare(s):
         parts.append(T(MARGIN, y, s["kicker"], 44, MUTE))
         y += 210
     L, R = s["left"], s["right"]
-    parts.append(T(MARGIN, y, L["num"], 150, WHITE, bold=True))
-    parts.append(T(560, y, R["num"], 150, GREY_NUM, bold=True))
+    # La colonna destra e' fissa a x=560: se il numero di sinistra e' largo
+    # (es. "17,6%" a 150px arriva a 600) i due valori si sovrappongono.
+    # Rimpiccioliamo quanto serve, come gia' si fa per le slide numeriche.
+    lsz = fit_size(L["num"], 150, True, 560 - MARGIN - 20, min_size=90)
+    rsz = fit_size(R["num"], 150, True, W - MARGIN - 560, min_size=90)
+    parts.append(T(MARGIN, y, L["num"], lsz, WHITE, bold=True))
+    parts.append(T(560, y, R["num"], rsz, GREY_NUM, bold=True))
     parts.append(T(MARGIN, y + 60, L["label"], 34, MUTE))
     parts.append(T(560, y + 60, R["label"], 34, MUTE))
     ly = y + 160

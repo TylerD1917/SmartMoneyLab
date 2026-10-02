@@ -1,0 +1,155 @@
+---
+title: "Conviene un prestito a rate per investire? Il simulatore"
+description: "Simulatore live: prendi un prestito e investi subito, oppure investi quelle stesse rate in un PAC? Finestre storiche dal 1970 e bootstrap a blocchi, al netto del 26% su entrambe le strade."
+pubDate: 2026-10-02
+tags: ["prestito", "leva", "PAC", "lump-sum", "simulatore", "bootstrap", "fiscalita"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import PrestitoInvestimentoSimulator from "../../components/interactive/PrestitoInvestimentoSimulator.jsx";
+
+## La domanda
+
+Un prestito personale mette sul conto una somma oggi, e la fa pagare a rate per anni.
+Investire quella somma subito, tutta insieme, dà al mercato più tempo. Ma il prestito
+costa, e quel costo è certo mentre il rendimento non lo è.
+
+La domanda non è "il mercato sale?". È più stretta di così: **a parità di esborso
+mensile dalle mie tasche**, conviene farsi prestare il capitale e investirlo subito,
+oppure investire ogni mese quella stessa rata senza prendere il prestito?
+
+Messa in questo modo il confronto è simmetrico, ed è l'unico modo onesto di porla:
+
+- **Strada A — prestito investito subito.** Ricevo il capitale, lo investo tutto oggi,
+  e per tutta la durata pago la rata di tasca mia.
+- **Strada B — PAC delle stesse rate.** Non prendo il prestito, e ogni mese investo
+  esattamente quella rata.
+
+Dalle mie tasche escono gli stessi euro, negli stessi mesi, in entrambi i casi. La
+differenza è che la strada B investe *tutto* quel denaro, mentre la strada A investe
+solo il capitale erogato: la differenza fra i due importi è il costo del prestito.
+
+<PrestitoInvestimentoSimulator client:load />
+
+## Come leggerlo
+
+Tre numeri contano più degli altri.
+
+**"Il prestito batte il PAC"** è la percentuale di traiettorie in cui la strada A finisce
+sopra la strada B. Sotto il 50% il prestito è il lato sbagliato della scommessa, e non
+di poco: perde nella maggioranza dei casi pagando interessi certi.
+
+**"Operazione chiusa in perdita"** è la percentuale di traiettorie in cui il patrimonio
+finale della strada A è inferiore al totale versato. Non è "ho perso contro il PAC":
+è "ho restituito più di quanto ho".
+
+**La traiettoria peggiore e il 5° percentile** sono la parte che decide davvero. Un
+prestito va rimborsato anche quando il portafoglio è a −40%, e la rata non si sospende
+perché il mercato è in crisi. Guarda quel numero prima della mediana.
+
+## Le ipotesi, in chiaro
+
+- **Tasse su entrambi i lati, al 26%.** È il punto che quasi tutte le simulazioni che
+  si trovano in giro sbagliano. Il lump sum ha come costo fiscale il solo capitale
+  erogato; il PAC ha come costo fiscale la somma di tutte le rate versate, che è una
+  base più alta. Tassare solo il primo falsa il confronto a favore del prestito.
+- **Il TAEG è un tasso annuo effettivo.** La rata si calcola sul tasso mensile
+  equivalente, la radice dodicesima di (1 + TAEG), non su TAEG/12. Chi usa TAEG/12
+  sottostima la rata.
+- **Erosione annua dei costi.** Commissioni dell'ETF, spread, bollo, tracking
+  difference: il menu offre 0,50% (ottimistico), 0,75% (realistico) e 1,00%
+  (pessimistico), applicata mensilmente a entrambe le strade.
+- **Total return in euro.** Tutte le serie sono total return, convertite in euro: il
+  cambio conta, e un investitore italiano lo subisce. Prima del 1999 il cambio è
+  ricostruito dal rapporto fra le due versioni valutarie del MSCI World.
+- **Buy and hold, senza ribilanciamento.** Ogni euro investito compra i pesi obiettivo
+  e poi resta fermo. Su venti anni un 60/40 non ribilanciato diventa un altro
+  portafoglio, e il pannello in fondo mostra di quanto: è un effetto vero, non un
+  dettaglio da nascondere.
+- **La gamba obbligazionaria è un modello, non un ETF.** È il total return del Treasury
+  decennale ricostruito dai rendimenti FRED con l'approssimazione duration-based
+  (Swinkels 2019), convertito in euro e **non coperto dal cambio**. È la scelta che
+  permette di arrivare al 1970 invece che al 2008, e il prezzo è che la gamba
+  obbligazionaria risulta più volatile di un ETF in euro hedged: l'11,4% annuo contro
+  l'8,1% della stessa serie senza cambio.
+- **Periodi diversi per portafogli diversi.** MSCI World, oro e obbligazionario partono
+  dal 1970; il Nasdaq dal 1975; l'S&P 500 dal 1988; l'ACWI IMI dal 1994. Il simulatore
+  usa il periodo in comune ai mattoni del portafoglio scelto e lo scrive sotto il
+  grafico. Due portafogli con numeri diversi possono differire per il periodo prima
+  che per il merito.
+- **Il Nasdaq** è un indice di prezzo, con un dividendo figurato dello 0,75% annuo.
+
+## Finestre storiche e bootstrap: due domande diverse
+
+Il simulatore ha due modalità, e rispondono a domande diverse.
+
+**Finestre storiche** prende tutte le finestre mobili a passo mensile della lunghezza
+scelta. È la storia come è andata, nella sequenza in cui è andata: i crolli dove sono
+stati, le riprese dove sono state. Il limite è il numero di osservazioni vere. Su venti
+anni di S&P in euro ci sono 223 finestre, ma si sovrappongono quasi tutte: non sono 223
+esperimenti indipendenti, sono poche storie lette da punti di partenza vicini.
+
+**Bootstrap a blocchi** ricampiona blocchi di 24 mesi consecutivi, prendendo la stessa
+finestra temporale per tutte le asset class insieme — altrimenti si distrugge la
+correlazione che giustifica un 60/40 — e costruisce 10.000 percorsi. I blocchi di due
+anni servono a conservare quello che la singola estrazione mensile perderebbe: la
+persistenza della volatilità, il fatto che i mesi brutti arrivano in fila.
+
+Una cosa va detta chiaramente: **il bootstrap non crea dati, redistribuisce la stessa
+storia.** Non sa nulla che le serie non contengano già, e ogni percorso eredita il
+rendimento medio dell'intero campione. Per questo le due modalità possono dare risposte
+diverse sullo stesso portafoglio, e la differenza è informativa: dove il bootstrap è
+più generoso delle finestre storiche, significa che la storia reale ha concentrato i
+rendimenti migliori in un pezzo di campione che le finestre sovrapposte non riescono a
+raccontare in modo uniforme. Dove il bootstrap è più severo nella coda, significa che
+le peggiori 343 finestre realmente osservate non avevano esplorato il peggio possibile.
+
+Le finestre storiche sono la modalità di default perché sono le uniche che descrivono
+qualcosa che è accaduto. Il bootstrap serve a misurare la coda, non a spostare la
+mediana.
+
+A parità di input il bootstrap restituisce sempre lo stesso risultato: il generatore
+casuale è inizializzato con un seme che dipende dai parametri, quindi lo strumento è
+riproducibile e due persone che inseriscono gli stessi numeri vedono gli stessi numeri.
+
+## Per chi è (e per chi non è)
+
+**Utile se** stai valutando un prestito per investire e vuoi vedere la distribuzione
+intera invece dell'unico scenario medio che ti mostra chi vende il prestito; se vuoi
+capire a quale TAEG l'operazione smette di avere senso sul tuo orizzonte; se vuoi
+vedere quanto cambia la risposta fra dieci e venti anni.
+
+**Non utile se** cerchi un consiglio personalizzato: non lo è, è un calcolatore
+parametrico su dati storici. E non è utile se cerchi la conferma di una decisione già
+presa — in quel caso il numero da guardare è la traiettoria peggiore, non la mediana.
+
+<div style="margin: 1.5rem 0; padding: 1rem 1.25rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.75rem;">
+  <strong>Una cosa che il simulatore non modella.</strong> Un debito ha conseguenze che
+  non stanno in una distribuzione di rendimenti: la rata va pagata anche se perdi il
+  lavoro, anche se il portafoglio è a &minus;40%, anche se serve liquidità per
+  un'emergenza. Vendere in perdita per pagare una rata trasforma una perdita temporanea
+  in una perdita definitiva, ed è il modo in cui questa operazione fallisce davvero.
+  Nessuna simulazione può dirti se puoi sostenere quella rata nel tuo anno peggiore.
+  Quello lo sai solo tu.
+</div>
+
+## Il ragionamento dietro i numeri
+
+L'articolo dedicato ricostruisce il confronto per esteso, con i grafici dei montanti e
+la discussione del caso in cui il prestito conviene davvero:
+
+→ [Prestito contro PAC: conviene indebitarsi per investire?](/posts/prestito-vs-pac)
+
+Attenzione a un punto, se confronti i due: l'articolo e questo simulatore leggono due
+punti della stessa curva su campioni diversi. L'articolo usa l'S&P dal 1976 e ipotesi
+più asciutte; qui l'S&P parte dal 1988, c'è l'erosione dei costi, c'è il cambio e c'è
+la tassazione su entrambe le strade. Le percentuali di vittoria del prestito sono quindi
+più basse, e la differenza è spiegata quasi tutta dal periodo campionato, non dalle
+tasse.
+
+Il codice che genera le serie storiche e il motore di calcolo sono nel repository del
+blog: riproducibili, modificabili, criticabili. Se trovi un errore metodologico,
+scrivimi.

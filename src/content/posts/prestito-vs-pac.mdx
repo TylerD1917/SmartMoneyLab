@@ -3,6 +3,7 @@ category: "finanza-personale"
 title: "Conviene un prestito per investire al posto del PAC? La risposta nei dati"
 description: "Se hai un cash flow di $250 al mese: meglio fare PAC tradizionale o trasformarli nella rata di un prestito e investire subito il lump sum? 50 anni di NASDAQ e SP500, due scenari TAEG, win rate e payoff."
 pubDate: 2026-05-28
+updatedDate: 2026-10-02
 tags: ["prestito", "lump-sum", "pac", "dca", "leva", "taeg", "finanziamento", "rolling-windows", "backtest", "nasdaq", "sp500"]
 author: "SmartMoneyLab"
 simulationSlug: "prestito-vs-pac"
@@ -214,6 +215,30 @@ Quello che vale la pena notare giocandoci: la combinazione TAEG-capitale che ott
 import PrestitoPacSimulator from "../../components/interactive/PrestitoPacSimulator.jsx";
 
 <PrestitoPacSimulator client:visible />
+
+## Una seconda versione, più severa
+
+Il simulatore qui sopra è il backtest di questo articolo: dollari, al lordo delle tasse,
+S&P e Nasdaq, ipotesi asciutte per isolare l'effetto della leva.
+
+Nel frattempo ho costruito una versione più larga e più severa, pubblicata fra gli
+strumenti: portafogli multipli (World, ACWI IMI, S&P, Nasdaq, 80/20, 60/40, 40/60,
+50/40/10 con oro), tutto in euro con il cambio dentro, l'erosione annua dei costi
+selezionabile, la tassazione al 26% applicata a **entrambe** le strade — non solo al
+lump sum — e, oltre alle finestre storiche, un bootstrap a blocchi da 10.000 percorsi
+per guardare la coda invece della mediana.
+
+→ **[Simulatore: conviene un prestito a rate per investire?](/tools/simulatore-prestito-per-investire)**
+
+Le percentuali di vittoria del prestito che vedrai là sono più basse di quelle di questo
+articolo, e vale la pena dire perché, perché non è un ripensamento. Scomponendo la
+differenza sull'S&P a 20 anni con TAEG 8%, si passa dal 72,7% di questo articolo al
+38,7% del nuovo strumento, e i pezzi sono questi: il campione diverso (S&P dal 1988
+invece che dal 1976) vale da solo circa 21 punti, l'erosione dei costi 5, la tassazione
+simmetrica 5 e il cambio euro 3. Il grosso è il periodo osservato, non un'ipotesi
+cambiata: sono due punti della stessa curva, letti su campioni diversi. Ed è proprio il
+motivo per cui conviene guardare entrambi.
+
 
 ## Note metodologiche
 

@@ -1,0 +1,119 @@
+{
+ "slug": "welcome-post-fissato",
+ "slides": [
+  {
+   "type": "cover",
+   "title": [
+    "Finanza senza",
+    "numeri a caso"
+   ],
+   "accent_lines": [
+    1
+   ],
+   "subtitle": "SmartMoneyLab · Analisi quantitativa in italiano. Dati pubblici, codice replicabile, conti che puoi ricontrollare."
+  },
+  {
+   "type": "bullets",
+   "title": "Cos'è questa pagina",
+   "bullets": [
+    "Un blog e un profilo di analisi quantitativa sulla finanza personale, in italiano.",
+    "Dietro ogni affermazione c'è una serie storica, uno script Python e un metodo scritto per esteso.",
+    "Niente segnali, niente corsi, niente opinioni vendute come dati."
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Chi la scrive",
+   "bullets": [
+    "Non sono un consulente finanziario. Investo come te e non mi accontento delle risposte tanto al chilo.",
+    "Mi faccio le domande che mi farei comunque, e invece di rispondere a intuito vado a vedere i dati.",
+    "Quando un numero non torna lo scrivo, anche quando il numero sbagliato è il mio."
+   ]
+  },
+  {
+   "type": "compare",
+   "kicker": "Quanto rende l'S&P 500 in dieci anni?",
+   "left": {
+    "num": "17,6",
+    "label": "chi entra il 9/3/2009"
+   },
+   "right": {
+    "num": "1,2",
+    "label": "chi entra il 7/8/2001"
+   },
+   "punch": [
+    "Percentuali annue.",
+    "Cambia solo il giorno",
+    "in cui sei entrato."
+   ],
+   "punch_accent": [
+    2
+   ]
+  },
+  {
+   "type": "number",
+   "kicker": "Le finestre di dieci anni possibili negli ultimi 25:",
+   "number": "3.774",
+   "note": "una per ogni giorno di borsa",
+   "box": [
+    "Chi ti dà un numero solo",
+    "te ne sta mostrando una",
+    "e tace sulle altre 3.773."
+   ],
+   "box_accent": [
+    2
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Cosa cambia, in pratica",
+   "bullets": [
+    "La mediana di quelle finestre è 11,7% all'anno.",
+    "Ma il 14% di esse sta sotto il 7% che trovi in ogni manuale.",
+    "Fra la migliore e la peggiore ballano 16,4 punti all'anno."
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Le tre regole che mi sono dato",
+   "bullets": [
+    "Si calcolano tutte le finestre, non quella che fa comodo a cose fatte.",
+    "Il codice esce insieme allo studio: lo rigiri sul tuo computer e ottieni gli stessi numeri.",
+    "Nessuna data di partenza scelta dopo aver visto il risultato."
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Cosa trovi sul blog",
+   "bullets": [
+    "Studi sui dati, spiegati passo per passo",
+    "Simulatori interattivi da usare sul tuo caso",
+    "Template Excel e codice Python",
+    "Le serie storiche in CSV, scaricabili"
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "E due esperimenti dal vivo",
+   "bullets": [
+    "Quattro IA gestiscono 100.000$ a testa, contro il mercato e contro un portafoglio a caso.",
+    "Ogni mese compriamo i cinque titoli più discussi su r/wallstreetbets, per vedere se la folla ci prende.",
+    "Si aggiornano da soli e sbagliano in pubblico."
+   ]
+  },
+  {
+   "type": "cta",
+   "title": [
+    "Tutto è su",
+    "smartmoneylab.it"
+   ],
+   "bullets": [
+    "Nessun consiglio: solo dati e metodo",
+    "Manca una risposta? Chiedila nei commenti",
+    "Salva il post, ti servirà"
+   ],
+   "button": "Link in bio →",
+   "handle": "@smartmoneylab_it"
+  }
+ ]
+}
