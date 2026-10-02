@@ -206,47 +206,41 @@ Non c'è un verdetto netto: questo non è un test di strategia (non sto confront
 
 In sintesi: i numeri sono dalla parte del lump sum finanziato in modo solido, ma la decisione finale è meno univoca dei numeri. Dipende dal tuo TAEG specifico, dal tuo MDD-tolerance, dal tuo cash flow di sicurezza in caso di sciagure. Il pezzo che il backtest non può sostituire è l'autovalutazione di queste tre variabili personali.
 
-## Esplora i parametri
+## I numeri in due immagini
 
-Il simulatore qui sotto ricalcola la strategia con i parametri che scegli tu: TAEG (da 0% al 14% in step di 0.5%) e capitale ricevuto dal prestito (da $5k a $40k). La rata mensile è calcolata di conseguenza, e il PAC equivalente investe la stessa rata mese per mese. Il calcolo gira su ~50 anni di dati storici NASDAQ e SP500, e mostra equity curve di un esempio rappresentativo (1976–2025) e percentili sulla distribuzione delle finestre rolling.
+<figure>
+  <img src="/charts/prestito-vs-pac/03_winrate_bar.png" alt="Win rate del lump sum finanziato contro il PAC negli otto scenari: barre fra il 65% e l'82%, tutte sopra la soglia di parità del 50%." />
+  <figcaption>Percentuale di finestre mobili in cui il lump sum finanziato chiude sopra il PAC, negli otto scenari (indice, TAEG, orizzonte). Tutte le barre stanno sopra la parità, le due a TAEG 8% sul NASDAQ sono le più vicine.</figcaption>
+</figure>
 
-Quello che vale la pena notare giocandoci: la combinazione TAEG-capitale che ottieni dalla banca non è del tutto libera. In pratica un capitale di $30.000 a TAEG 6% implica una rata di $333/mese — molto sopra i $250/mese del case study. Se il tuo cash flow disponibile è davvero $250/mese, sei limitato a capitali ~$20-22k a TAEG 6-8%. Il simulatore ti lascia comunque esplorare combinazioni "ipotetiche" (es. TAEG 4% con capitale $25k = condizioni amico-finanziatore), utili per capire dove sta il vantaggio della strategia in scenari più favorevoli del realistico.
+<figure>
+  <img src="/charts/prestito-vs-pac/01_equity_example.png" alt="Quattro pannelli con il valore del portafoglio dal 2000 al 2021 per lump sum finanziato e PAC, su NASDAQ e S&P 500 a TAEG 6% e 8%. In tutti e quattro la curva del PAC finisce sopra quella del lump sum." />
+  <figcaption>La finestra 2000-2021, due prestiti consecutivi. È l'esempio che va contro la media: chi parte alla vigilia del dot-com investe tutto il capitale sul massimo e poi passa un decennio a recuperare, mentre il PAC compra per tutto il ribasso. In tutti e quattro i pannelli il PAC finisce sopra.</figcaption>
+</figure>
 
-import PrestitoPacSimulator from "../../components/interactive/PrestitoPacSimulator.jsx";
+Il secondo grafico vale più del primo, perché il win rate è una media e questa è la coda. La strategia vince nella maggioranza delle finestre e perde esattamente dove fa più male: quando il capitale entra tutto insieme poco prima di un mercato orso lungo.
 
-<PrestitoPacSimulator client:visible />
+## Esplora i parametri: lo strumento dedicato
 
-## Una seconda versione, più severa
-
-Il simulatore qui sopra è il backtest di questo articolo: dollari, al lordo delle tasse,
-S&P e Nasdaq, ipotesi asciutte per isolare l'effetto della leva.
-
-Nel frattempo ho costruito una versione più larga e più severa, pubblicata fra gli
-strumenti: portafogli multipli (World, ACWI IMI, S&P, Nasdaq, 80/20, 60/40, 40/60,
-50/40/10 con oro), tutto in euro con il cambio dentro, l'erosione annua dei costi
-selezionabile, la tassazione al 26% applicata a **entrambe** le strade — non solo al
-lump sum — e, oltre alle finestre storiche, un bootstrap a blocchi da 10.000 percorsi
-per guardare la coda invece della mediana.
+Qui c'era un simulatore interattivo costruito su questo backtest. L'ho sostituito con uno strumento più serio, pubblicato fra gli strumenti del sito:
 
 → **[Simulatore: conviene un prestito a rate per investire?](/tools/simulatore-prestito-per-investire)**
 
-Le percentuali di vittoria del prestito che vedrai là sono più basse di quelle di questo
-articolo, e vale la pena dire perché, perché non è un ripensamento. Scomponendo la
-differenza sull'S&P a 20 anni con TAEG 8%, si passa dal 72,7% di questo articolo al
-38,7% del nuovo strumento, e i pezzi sono questi: il campione diverso (S&P dal 1988
-invece che dal 1976) vale da solo circa 21 punti, l'erosione dei costi 5, la tassazione
-simmetrica 5 e il cambio euro 3. Il grosso è il periodo osservato, non un'ipotesi
-cambiata: sono due punti della stessa curva, letti su campioni diversi. Ed è proprio il
-motivo per cui conviene guardare entrambi.
+Fa la stessa domanda su un impianto più largo e più severo: portafogli multipli (MSCI World, ACWI IMI, S&P 500, Nasdaq, 80/20, 60/40, 40/60, 50/40/10 con oro), tutto in euro con il cambio dentro, erosione annua dei costi selezionabile, tassazione al 26% applicata a **entrambe** le strade, e oltre alle finestre storiche un bootstrap a blocchi da 10.000 percorsi per guardare la coda invece della mediana.
 
+Due avvertenze, se confronti i suoi numeri con quelli di questo articolo.
+
+**Le percentuali di vittoria del prestito sono più basse, e non è un ripensamento.** Scomponendo la differenza sull'S&P a 20 anni con TAEG 8% si passa dal 72,7% di qui al 38,7% di là, e i pezzi sono questi: il campione diverso (S&P dal 1988 invece che dal 1976) vale da solo circa 21 punti, l'erosione dei costi 5, la tassazione simmetrica 5, il cambio euro 3. Il grosso è il periodo osservato. Sono due punti della stessa curva, letti su campioni diversi, ed è il motivo per cui vale la pena guardare entrambi.
+
+**La tassazione simmetrica è una correzione, non una variante.** Nelle note qui sotto avevo scritto che la differenza relativa fra le due strade è invariante alle tasse. Non è vero, e l'errore va a favore del prestito: il lump sum finanziato ha come base imponibile il solo capitale erogato, il PAC ha come base la somma di tutte le rate versate, che è più alta. Tassare entrambi al 26% toglie al prestito circa cinque punti di win rate. Lo strumento nuovo lo fa, questo backtest no.
 
 ## Note metodologiche
 
 - **Dati**: SP500 Total Return ricostruito da prezzo daily Yahoo + dividendi monthly Shiller dal 1976. NASDAQ Composite daily price-only da FRED (TR non disponibile per 1976-1999, dividend yield storico ~1% non incluso nei rendimenti; il confronto LUMP vs PAC è comunque invariante perché entrambi usano la stessa serie).
 - **CAGR money-weighted** via IRR sui flussi di cassa personali (rate uscite mese per mese + valore finale). Per il PAC sono i versamenti, per il lump sono le rate del prestito. La simmetria è esatta: in entrambi gli scenari escono $250/mese.
 - **Rolling windows** con step di 3 mesi sull'intero periodo, finestre da 120 e 240 mesi. N. di finestre indipendenti: 161 (10y) e 121 (20y) per ciascuno degli 8 scenari.
-- **Capitale del prestito** derivato dalla formula del prestito amortizing standard: `C = M * (1 - (1+r)^(-n)) / r`, dove `M = 250`, `r = TAEG/12`, `n = 120`. Risultati: `C(6%) = 22.518`, `C(8%) = 20.605`.
-- **Tasse**: non simulate. Sia lump che PAC sono al lordo. La differenza relativa è ~invariante alle tasse, ma in $$$ assoluti i numeri vanno ridimensionati moltiplicando per (1 − aliquota).
+- **Capitale del prestito** derivato dalla formula del prestito amortizing standard: `C = M * (1 - (1+r)^(-n)) / r`, dove `M = 250`, `r = TAEG/12`, `n = 120`. Risultati: `C(6%) = 22.518`, `C(8%) = 20.605`. Nota: `TAEG/12` è il tasso nominale, non il mensile effettivo `(1+TAEG)^(1/12)-1`. A TAEG 8% la differenza è l'1,2% di capitale (20.605 invece di 20.854), e va a sfavore del prestito, quindi è prudente. Il simulatore dedicato usa il tasso effettivo.
+- **Tasse**: non simulate. Sia lump che PAC sono al lordo. Avevo scritto che la differenza relativa è ~invariante alle tasse: **è un errore**, e in favore del prestito. Le due strade hanno basi imponibili diverse — il capitale erogato per il lump sum, la somma delle rate versate per il PAC — quindi il 26% morde di più il lump sum. Il [simulatore dedicato](/tools/simulatore-prestito-per-investire) applica l'imposta a entrambe le strade con la base corretta; i win rate di questo articolo sono da leggere come il caso al lordo, cioè il limite superiore.
 - **Risk-free** per Sharpe/Sortino (se mostrati): 2.0% (storico USA approssimato).
 - **Volatilità del portafoglio**: calcolata sui returns daily del valore di portafoglio. Per i PAC questo include la "volatilità contabile" dovuta ai versamenti — è la ragione per cui mostro volatilità solo nelle note metodologiche e non come metrica decisionale principale.
 - **Sequenza temporale dei prestiti consecutivi (20y)**: secondo prestito accesso al mese 121, identico al primo (stesso TAEG, stessa rata, stesso capitale). Non si liquida il primo investimento per finanziare il secondo.
