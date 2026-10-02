@@ -222,7 +222,17 @@ def main():
 
     if is_rebalance:
         navreb = {"port": round(cur_port, 2), "bench": round(cur_bench, 2)}
-        w = round(1.0 / TOP_N, 4)
+        # Il peso si divide per i titoli EFFETTIVAMENTE selezionati, non per TOP_N.
+        # Se i filtri (intersezione delle due fonti, non-ETF, almeno MIN_MENTIONS
+        # menzioni, sentiment positivo) ne lasciano passare meno di TOP_N, con
+        # 1/TOP_N fisso una parte del capitale resterebbe non investita in
+        # silenzio: con 4 titoli su 5 si pubblicava un portafoglio all'80%.
+        n_sel = len(new_tickers)
+        if n_sel < TOP_N:
+            print(f"[ATTENZIONE] solo {n_sel} titoli eleggibili su {TOP_N} richiesti: "
+                  f"il portafoglio resta pienamente investito ripartendo "
+                  f"{100.0/n_sel:.1f}% a testa.")
+        w = round(1.0 / n_sel, 4)
         holdings = [{"ticker": tk, "weight": w, "basis_price": prices.get(tk)} for tk in new_tickers]
         bench_basis = prices.get(BENCH_TICKER)
         last_month = ym
@@ -234,7 +244,7 @@ def main():
                             "weights": {tk: w for tk in new_tickers},
                             "basis": {tk: prices.get(tk) for tk in new_tickers},
                             "bench_basis": prices.get(BENCH_TICKER)})
-        current = {"as_of": today, "selection": new_tickers, "ranking": ranking}
+        current = {"as_of": price_date, "selection": new_tickers, "ranking": ranking}
         # commento sul mese appena chiuso (solo se c'era già un periodo precedente)
         if prev_tickers and port.get("last_rebalance_month") and prev_navreb.get("port"):
             p_ret = cur_port / prev_navreb["port"] - 1
@@ -248,10 +258,12 @@ def main():
                 commento = c
     else:
         holdings = prev_holdings
-        current = prev.get("current", {"as_of": today, "selection": new_tickers, "ranking": []})
+        current = prev.get("current", {"as_of": price_date, "selection": new_tickers, "ranking": []})
 
     out = {"updated": today, "subreddit": SUBREDDIT, "currency": "USD", "benchmark": BENCH_NAME,
-        "weighting": "equipesato (20% ciascuno)", "sources": ["ApeWisdom", "Tradestie"],
+        "weighting": (f"equipesato ({100.0/max(len(holdings),1):.0f}% ciascuno "
+                      f"su {len(holdings)} titoli)"),
+        "sources": ["ApeWisdom", "Tradestie"],
         "current": current,
         "commento": commento,
         "portfolio": {"holdings": holdings, "bench_basis": bench_basis, "nav_at_rebalance": navreb,

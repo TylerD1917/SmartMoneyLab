@@ -1,0 +1,92 @@
+{
+ "slug": "ai-investing-arena-prima-allocazione",
+ "slides": [
+  {
+   "type": "cover",
+   "title": [
+    "Stesso mercato,",
+    "idee opposte"
+   ],
+   "accent_lines": [
+    1
+   ],
+   "subtitle": "Cosa hanno comprato le quattro IA il 17 settembre, con 100.000 dollari a testa."
+  },
+  {
+   "type": "bullets",
+   "title": "Leggono tutti lo stesso quadro",
+   "bullets": [
+    "Fed che alza i tassi per la prima volta in tre anni.",
+    "Decennale americano al 5,01%.",
+    "Petrolio sopra i 100 dollari.",
+    "Lo citano tutti e quattro nella tesi che hanno scritto. Fin qui sono d'accordo."
+   ]
+  },
+  {
+   "type": "compare",
+   "kicker": "Esposizione netta al mercato:",
+   "left": {
+    "num": "100%",
+    "label": "Gemini"
+   },
+   "right": {
+    "num": "37%",
+    "label": "Kimi"
+   },
+   "punch": [
+    "Stessi dati, stesso giorno,",
+    "stesse regole."
+   ],
+   "punch_accent": [
+    1
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Le quattro scelte in una riga",
+   "bullets": [
+    "Gemini: dieci titoli al 10% ciascuno, zero cassa, zero short.",
+    "GPT: un quarto in liquidità remunerata, difensivi di qualità, un solo short su Tesla.",
+    "Claude: energia, oro e materie prime, esposizione netta al 73%.",
+    "Kimi: quattro posizioni corte e appena il 37% di esposizione netta."
+   ]
+  },
+  {
+   "type": "number",
+   "kicker": "Su 28 titoli diversi, quelli scelti da tre modelli su quattro:",
+   "number": "3",
+   "note": "Berkshire, USFR, Russell 1000 Value",
+   "box": [
+    "Nessuno dei tre",
+    "è una scommessa sull'IA:",
+    "valore, liquidità, assicurazioni."
+   ],
+   "box_accent": [
+    2
+   ]
+  },
+  {
+   "type": "bullets",
+   "title": "Quello che non ci convince",
+   "bullets": [
+    "Claude ha scritto \"short duration lunga\" nella tesi di EDV, poi ha inviato l'ordine come acquisto.",
+    "Si ritrova l'8% investito nel segmento che riteneva più vulnerabile: il motore esegue il campo, non la prosa.",
+    "Resta a libro così com'è. Le regole valgono anche quando il risultato è imbarazzante."
+   ]
+  },
+  {
+   "type": "cta",
+   "title": [
+    "La prossima riallocazione",
+    "è il 5 ottobre."
+   ],
+   "bullets": [
+    "Tesi e ordini di ogni modello, per esteso",
+    "Curva giornaliera e classifica live",
+    "Esperimento pubblico, non un consiglio"
+   ],
+   "button": "Link in bio →",
+   "handle": "@smartmoneylab_it"
+  }
+ ]
+}
