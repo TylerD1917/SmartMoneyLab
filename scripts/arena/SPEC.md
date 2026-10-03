@@ -93,6 +93,46 @@ Ogni modello riceve pacchetto + il **proprio stato portafoglio** e restituisce S
 - Output validato: JSON malformato o che viola i vincoli (≤10 posizioni, lordo ≤100%, universo) →
   ordine rifiutato e loggato; il portafoglio resta invariato per quell'ordine.
 
+## 6-bis. Controllo di coerenza (dal 2026-10-03)
+
+Una decisione puo' essere internamente contraddittoria: il 2026-09-17 un modello ha
+aperto EDV (Treasury a duration lunga) con `side: long` scrivendo come tesi *"SHORT
+duration lunga: ... gli zero-coupon lunghi restano il segmento piu' vulnerabile"*, e
+il suo stesso rationale elencava EDV fra le coperture short. La pipeline ha eseguito
+l'ordine alla lettera, perche' nessuno controllava la coerenza fra `side`, `thesis` e
+`rationale`.
+
+**Prevenzione.** Ogni ordine dichiara `attesa` (`rialzo|ribasso`): cosa il modello si
+aspetta dal PREZZO dello strumento. `side` e `attesa` devono combaciare, quindi una
+tesi ribassista su una posizione long diventa meccanicamente visibile. Il prompt
+avverte esplicitamente sugli strumenti a relazione inversa (bond a duration lunga).
+
+**Rilevazione** (`coherence.py`, quattro controlli, nessuna chiamata API):
+
+| controllo | severita' | cosa guarda |
+|---|---|---|
+| `attesa_vs_side` | hard | `attesa` contraddice `side` |
+| `rationale_vs_side` | hard | il rationale nomina il ticker con la direzione opposta, nella *sua* proposizione |
+| `tesi_vs_side` | hard | la tesi apre con un marcatore di direzione opposto, o contiene SHORT/LONG in maiuscolo (le negazioni, "non shortare qui", non contano) |
+| `esposizione` | soft | il gross/net dichiarato non torna con gli ordini |
+| `tono_tesi` | soft | tesi interamente ribassista su una posizione long (o viceversa) |
+
+Il controllo sull'esposizione resta un indizio e **non** sale mai a `hard`: "net" e'
+ambiguo. Nel caso EDV il net dichiarato era "~70%", che con EDV long fa 73% e con EDV
+short 57% — il 70% torna solo leggendo "net" come "il lato long dopo le coperture".
+
+**Reazione.** Se la severita' finale e' `hard`, `run_agents` ri-sottopone la
+contraddizione **una volta sola allo stesso modello**, citandola e senza suggerire
+quale lettura sia corretta. Quello che il modello risponde la seconda volta viene
+eseguito alla lettera. **Il codice non riscrive mai un ordine**: se lo facesse, la
+scelta non sarebbe piu' del modello e l'esperimento non misurerebbe piu' nulla. Una
+contraddizione che sopravvive alla ri-domanda viene eseguita e pubblicata con il flag
+(`decisions.<model>.coherence` in `arena.json`).
+
+Audit di file gia' scritti: `python scripts/arena/coherence.py state/decisions/*.json`
+(exit 1 se trova una contraddizione `hard`). Casi di prova, inclusi i falsi positivi
+da non produrre: `python scripts/arena/test_coherence.py`.
+
 ## 7. Prompt comune
 Identico per tutti (cambia SOLO il modello). Contiene: ruolo, regole, universo (o riferimento),
 formato JSON d'uscita, il pacchetto, lo stato del portafoglio. **Temperatura bassa, 1 sola chiamata

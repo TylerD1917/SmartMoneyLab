@@ -47,6 +47,16 @@ Vedi `arena_workflow_example.yml` (da mettere in `.github/workflows/arena.yml`, 
 file workflow non sono scrivibili dagli strumenti remoti). Cron settimanale → `run_period.py auto`. Chiavi come secret.
 Committa lo stato aggiornato (`state/`, `public/tools/arena/arena.json`) come fa il bot della leaderboard.
 
+## Coerenza delle decisioni
+
+`coherence.py` controlla che `side`, `attesa`, `thesis` e `rationale` di ogni ordine
+dicano la stessa cosa, prima del settle. Se c'e' una contraddizione dimostrata,
+`run_agents` la ri-sottopone una volta al modello e poi esegue qualunque cosa risponda:
+nessun ordine viene mai riscritto dal codice. Dettagli in `SPEC.md` (sezione 6-bis).
+
+    python scripts/arena/coherence.py scripts/arena/state/decisions/*.json   # audit, exit 1 se hard
+    python scripts/arena/test_coherence.py                                   # 13 casi di prova
+
 ## Note
 - Pre-registrare regole/universo/prompt PRIMA di iniziare (vedi SPEC).
 - Caveat pubblici: vincitore a breve = fortuna; esperimento tra modelli, non consulenza.

@@ -4,6 +4,7 @@ Senza chiave API il modello va in modalita' STUB (nessuna operazione) cosi' la p
 import os, sys, json, re, glob, urllib.request, urllib.error, datetime as dt
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import arena_core as ac
+import coherence as coh
 
 # ---------------- prompt ----------------
 SYSTEM = (
@@ -16,13 +17,18 @@ SYSTEM = (
  "perche'. Non ribaltare il portafoglio senza motivo.\n"
  "GIUSTIFICAZIONE OBBLIGATORIA: ogni singolo ordine deve avere una 'thesis' non vuota (perche' proprio quel "
  "titolo, proprio ora, proprio quel peso). Il 'rationale' riassume la visione del periodo.\n"
+ "COERENZA DIREZIONE (dal 2026-10-03): ogni ordine dichiara anche 'attesa', cioe' cosa ti aspetti dal PREZZO "
+ "di quello strumento: 'rialzo' oppure 'ribasso'. side e attesa devono combaciare: long se attendi rialzo, "
+ "short se attendi ribasso. Attenzione agli strumenti a relazione inversa: se la tua tesi e' che i tassi "
+ "salgono e quindi un bond a duration lunga scende, l'ordine su quel bond e' SHORT, non long. Prima di "
+ "chiudere il JSON rileggi ogni ordine e verifica che side, attesa e thesis dicano la stessa cosa.\n"
  "REGOLE: capitale 100k virtuali; solo strumenti dell'universo fornito; long e short; max 10 posizioni; "
  "niente leva (esposizione lorda <= 100% dell'equity); ogni operazione paga costi, non fare trading inutile. "
  "Basati SOLO sul pacchetto, sulla tua memoria e sul tuo ragionamento. "
  "Rispondi con SOLO questo JSON, nessun altro testo:\n"
  '{"rationale":"<max 120 parole; includi coerenza/cambi rispetto al passato>",'
  '"orders":[{"ticker":"XLE","action":"open|increase|trim|close","side":"long|short",'
- '"target_weight":0.15,"thesis":"1-2 frasi, OBBLIGATORIA"}]}\n'
+ '"attesa":"rialzo|ribasso","target_weight":0.15,"thesis":"1-2 frasi, OBBLIGATORIA"}]}\n'
  "target_weight = peso a mercato desiderato sull'equity (0-1). Chiudere: action close, target_weight 0. "
  "Nessuna mossa: orders vuoto (spiega comunque nel rationale perche' mantieni le posizioni)."
 )
@@ -151,6 +157,7 @@ def run(cfg):
         memory = agent_memory(cfg, mid)
         user = build_user(packet, pf, prices, memory)
         key = os.environ.get(m["key_env"])
+        rilancio = None
         if not key:
             decision = {"rationale": "(STUB: nessuna chiave API, nessuna operazione)", "orders": []}
             raw = "STUB"
@@ -160,10 +167,40 @@ def run(cfg):
                 decision = parse_decision(raw)
             except Exception as e:
                 decision = {"rationale": f"(errore API: {e})", "orders": []}; raw = str(e)
+
+            # ---- layer di coerenza ----------------------------------------
+            # Se la decisione e' internamente contraddittoria la ri-sottoponiamo
+            # UNA volta al modello stesso. Poi si esegue qualunque cosa risponda:
+            # il codice non corregge mai un ordine, altrimenti la scelta non e'
+            # piu' del modello e l'esperimento non misura piu' nulla.
+            primo = coh.audit(decision)
+            if primo["severity"] == "hard" and decision.get("orders"):
+                sfida = coh.challenge(primo)
+                print(f"[coerenza] {mid}: {primo['n_flags']} flag, ri-domando una volta")
+                try:
+                    raw2 = call_model(m["provider"], m["model"], key, SYSTEM,
+                                      user + "\n\nLA TUA RISPOSTA PRECEDENTE:\n" + str(raw) +
+                                      "\n\n" + sfida)
+                    d2 = parse_decision(raw2)
+                    if d2.get("orders") or str(d2.get("rationale", "")).strip():
+                        decision, raw = d2, raw2
+                        rilancio = {"chiesto": sfida, "raw": raw2}
+                    else:
+                        rilancio = {"chiesto": sfida, "raw": raw2, "nota": "risposta vuota, tengo la prima"}
+                except Exception as e:
+                    rilancio = {"chiesto": sfida, "errore": str(e)}
+            secondo = coh.audit(decision)
+            decision["coherence"] = {"prima": primo, "ri_domanda": rilancio is not None,
+                                     "dopo": secondo}
+            if secondo["severity"] == "hard":
+                print(f"[coerenza] {mid}: ATTENZIONE, contraddizione confermata dopo la ri-domanda "
+                      f"-> eseguo come scritto e lascio il flag")
+
         decision["as_of"] = today; decision["model"] = mid
         ac.write_json(ac.state_path(cfg, "decisions", f"decision_{mid}_{today}.json"), decision)
         ac.write_json(ac.state_path(cfg, "transcripts", f"transcript_{mid}_{today}.json"),
-                      {"model": mid, "as_of": today, "system": SYSTEM, "user": user, "raw": raw})
+                      {"model": mid, "as_of": today, "system": SYSTEM, "user": user, "raw": raw,
+                       "rilancio_coerenza": rilancio})
         print(f"[agent] {mid}: {len(decision['orders'])} ordini")
 
 if __name__ == "__main__":

@@ -46,8 +46,21 @@ def publish(cfg):
                     "name": meta.get(t, {}).get("name", "")} for t, v in pf["positions"].items()]}
         if as_of:
             d = ac.read_json(ac.state_path(cfg, "decisions", f"decision_{mid}_{as_of}.json"))
-            if d: decisions[mid] = {"rationale": d.get("rationale", ""),
-                "orders": [dict(o, name=meta.get(o.get("ticker"), {}).get("name", "")) for o in d.get("orders", []) if isinstance(o, dict)]}
+            if d:
+                decisions[mid] = {"rationale": d.get("rationale", ""),
+                    "orders": [dict(o, name=meta.get(o.get("ticker"), {}).get("name", "")) for o in d.get("orders", []) if isinstance(o, dict)]}
+                # Esito del controllo di coerenza, se presente: la decisione viene
+                # sempre eseguita come il modello l'ha scritta, ma se resta
+                # contraddittoria dopo la ri-domanda il flag e' pubblico.
+                c = d.get("coherence") or {}
+                dopo = c.get("dopo") or {}
+                if dopo.get("severity") in ("hard", "soft"):
+                    decisions[mid]["coherence"] = {
+                        "severity": dopo.get("severity"),
+                        "ri_domanda": bool(c.get("ri_domanda")),
+                        "flags": [{"ticker": f.get("ticker"), "check": f.get("check"),
+                                   "severity": f.get("severity"), "detail": f.get("detail")}
+                                  for f in dopo.get("flags", [])]}
 
     ac.write_json(os.path.join(outdir, "arena.json"), {
         "as_of": as_of, "updated": dt.datetime.utcnow().isoformat(),
