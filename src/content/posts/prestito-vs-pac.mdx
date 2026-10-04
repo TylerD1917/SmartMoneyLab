@@ -224,7 +224,7 @@ Il secondo grafico vale più del primo, perché il win rate è una media e quest
 
 Qui c'era un simulatore interattivo costruito su questo backtest. L'ho sostituito con uno strumento più serio, pubblicato fra gli strumenti del sito:
 
-→ **[Simulatore: conviene un prestito a rate per investire?](/tools/simulatore-prestito-per-investire)**
+→ **[Simulatore: conviene un prestito a rate per investire?](/strumenti/simulatore-prestito-per-investire)**
 
 Fa la stessa domanda su un impianto più largo e più severo: portafogli multipli (MSCI World, ACWI IMI, S&P 500, Nasdaq, 80/20, 60/40, 40/60, 50/40/10 con oro), tutto in euro con il cambio dentro, erosione annua dei costi selezionabile, tassazione al 26% applicata a **entrambe** le strade, e oltre alle finestre storiche un bootstrap a blocchi da 10.000 percorsi per guardare la coda invece della mediana.
 
@@ -240,7 +240,7 @@ Due avvertenze, se confronti i suoi numeri con quelli di questo articolo.
 - **CAGR money-weighted** via IRR sui flussi di cassa personali (rate uscite mese per mese + valore finale). Per il PAC sono i versamenti, per il lump sono le rate del prestito. La simmetria è esatta: in entrambi gli scenari escono $250/mese.
 - **Rolling windows** con step di 3 mesi sull'intero periodo, finestre da 120 e 240 mesi. N. di finestre indipendenti: 161 (10y) e 121 (20y) per ciascuno degli 8 scenari.
 - **Capitale del prestito** derivato dalla formula del prestito amortizing standard: `C = M * (1 - (1+r)^(-n)) / r`, dove `M = 250`, `r = TAEG/12`, `n = 120`. Risultati: `C(6%) = 22.518`, `C(8%) = 20.605`. Nota: `TAEG/12` è il tasso nominale, non il mensile effettivo `(1+TAEG)^(1/12)-1`. A TAEG 8% la differenza è l'1,2% di capitale (20.605 invece di 20.854), e va a sfavore del prestito, quindi è prudente. Il simulatore dedicato usa il tasso effettivo.
-- **Tasse**: non simulate. Sia lump che PAC sono al lordo. Avevo scritto che la differenza relativa è ~invariante alle tasse: **è un errore**, e in favore del prestito. Le due strade hanno basi imponibili diverse — il capitale erogato per il lump sum, la somma delle rate versate per il PAC — quindi il 26% morde di più il lump sum. Il [simulatore dedicato](/tools/simulatore-prestito-per-investire) applica l'imposta a entrambe le strade con la base corretta; i win rate di questo articolo sono da leggere come il caso al lordo, cioè il limite superiore.
+- **Tasse**: non simulate. Sia lump che PAC sono al lordo. Avevo scritto che la differenza relativa è ~invariante alle tasse: **è un errore**, e in favore del prestito. Le due strade hanno basi imponibili diverse — il capitale erogato per il lump sum, la somma delle rate versate per il PAC — quindi il 26% morde di più il lump sum. Il [simulatore dedicato](/strumenti/simulatore-prestito-per-investire) applica l'imposta a entrambe le strade con la base corretta; i win rate di questo articolo sono da leggere come il caso al lordo, cioè il limite superiore.
 - **Risk-free** per Sharpe/Sortino (se mostrati): 2.0% (storico USA approssimato).
 - **Volatilità del portafoglio**: calcolata sui returns daily del valore di portafoglio. Per i PAC questo include la "volatilità contabile" dovuta ai versamenti — è la ragione per cui mostro volatilità solo nelle note metodologiche e non come metrica decisionale principale.
 - **Sequenza temporale dei prestiti consecutivi (20y)**: secondo prestito accesso al mese 121, identico al primo (stesso TAEG, stessa rata, stesso capitale). Non si liquida il primo investimento per finanziare il secondo.

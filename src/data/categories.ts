@@ -18,6 +18,17 @@ export interface CategoryMeta {
 }
 
 export const CATEGORIES: Record<string, CategoryMeta> = {
+  "le-basi": {
+    slug: "le-basi",
+    title: "Le basi",
+    shortLabel: "Le basi",
+    description:
+      "Il percorso per chi parte da zero: dodici episodi che spiegano " +
+      "l'inflazione, le asset class, gli ETF, i costi e le metriche con cui " +
+      "si giudica un portafoglio. Sono i prerequisiti per leggere tutto il " +
+      "resto del sito — e ogni episodio si chiude con un numero preso da " +
+      "un'analisi vera, non con una definizione da manuale.",
+  },
   strategie: {
     slug: "strategie",
     title: "Strategie & backtest",
@@ -53,6 +64,7 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
 
 // Ordine in cui mostrare i chip di filtro e le voci.
 export const CATEGORY_ORDER: string[] = [
+  "le-basi",
   "strategie",
   "approfondimenti",
   "finanza-personale",

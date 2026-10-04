@@ -5,9 +5,20 @@ import { getSeriesMeta } from "../data/series";
 import { CATEGORIES, CATEGORY_ORDER, getCategoryMeta } from "../data/categories";
 
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
-const posts = allPosts.sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+
+// "Le basi" non e' un flusso di novita', e' materiale di riferimento: sta
+// fuori dall'elenco cronologico e ha un suo richiamo in cima alla pagina.
+// Gli articoli restano comunque nel DOM, in ordine di episodio, cosi' il
+// chip della categoria li mostra con un filtro client-side e la pagina
+// funziona anche senza JS.
+const BASI = "le-basi";
+const cronologici = allPosts
+  .filter((p) => p.data.category !== BASI)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const episodiBasi = allPosts
+  .filter((p) => p.data.category === BASI)
+  .sort((a, b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999));
+const posts = [...cronologici, ...episodiBasi];
 
 const fmt = new Intl.DateTimeFormat("it-IT", {
   day: "numeric",
@@ -54,13 +65,43 @@ const usedCategories = CATEGORY_ORDER.filter((slug) =>
     </p>
   </section>
 
+  {episodiBasi.length > 0 && (
+    <section
+      aria-labelledby="basi-heading"
+      class="mb-12 rounded-xl border border-blue-200 bg-blue-50/60 px-5 py-4 dark:border-blue-900/60 dark:bg-blue-950/30"
+    >
+      <h2
+        id="basi-heading"
+        class="text-sm font-semibold uppercase tracking-wider text-blue-900 dark:text-blue-300"
+      >
+        Nuovo qui? Parti dalle basi
+      </h2>
+      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+        Dodici episodi in ordine, per arrivare da zero alla soglia minima che serve
+        per leggere tutto il resto del sito: perché investire e con quali soldi, le
+        asset class, gli strumenti e quanto costano, come si leggono i numeri.
+      </p>
+      <p class="mt-3 text-sm">
+        <a
+          href="/serie/le-basi"
+          class="font-semibold text-blue-900 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-900 dark:text-blue-300 dark:decoration-blue-700 dark:hover:decoration-blue-300"
+        >
+          Vai al percorso completo
+        </a>
+        <span class="ml-2 text-slate-500 dark:text-slate-400">
+          ({episodiBasi.length} {episodiBasi.length === 1 ? "episodio" : "episodi"} pubblicati su 12)
+        </span>
+      </p>
+    </section>
+  )}
+
   <section aria-labelledby="latest-posts">
     <div class="mb-4 flex items-baseline justify-between">
       <h2 id="latest-posts" class="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
         Ultimi articoli
       </h2>
       <span id="post-count" class="text-xs text-slate-400 dark:text-slate-500">
-        {posts.length} articoli
+        {cronologici.length} articoli
       </span>
     </div>
 
@@ -92,7 +133,12 @@ const usedCategories = CATEGORY_ORDER.filter((slug) =>
           const catMeta = getCategoryMeta(post.data.category);
           const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
           return (
-            <li class="py-5" data-category-item data-category={post.data.category ?? ""}>
+            <li
+              class="py-5"
+              data-category-item
+              data-category={post.data.category ?? ""}
+              data-base={post.data.category === BASI ? "1" : undefined}
+            >
               <a href={`/posts/${post.slug}`} class="group block">
                 <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
                   <time datetime={post.data.pubDate.toISOString()}>
@@ -147,7 +193,7 @@ const usedCategories = CATEGORY_ORDER.filter((slug) =>
   // Filtro categorie client-side, progressivo: i chip sono <a> verso le pagine
   // /categoria/<slug> (funzionano anche senza JS); qui li trasformiamo in filtro
   // in-place sulla stessa home, sincronizzato con ?cat= nell'URL.
-  const VALID = ["strategie", "approfondimenti", "finanza-personale"];
+  const VALID = ["le-basi", "strategie", "approfondimenti", "finanza-personale"];
   const ACTIVE =
     "border-blue-900 bg-blue-900 text-white dark:border-blue-400 dark:bg-blue-400 dark:text-slate-900".split(" ");
   const INACTIVE =
@@ -166,7 +212,9 @@ const usedCategories = CATEGORY_ORDER.filter((slug) =>
   function apply(cat) {
     let n = 0;
     items.forEach((li) => {
-      const match = !cat || li.dataset.category === cat;
+      // Senza filtro attivo gli episodi delle basi restano nascosti: non sono
+      // novita'. Col loro chip selezionato si vedono, in ordine di episodio.
+      const match = cat ? li.dataset.category === cat : li.dataset.base !== "1";
       li.hidden = !match;
       if (match) n++;
     });

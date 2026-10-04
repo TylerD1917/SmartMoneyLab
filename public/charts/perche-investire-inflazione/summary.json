@@ -1,0 +1,32 @@
+{
+  "fonte_inflazione": "FRED FPCPITOTLZGITA (Inflation, consumer prices for Italy), media annua",
+  "fonte_azionario": "public/tools/prestito-investimento-serie.json, MSCI World total return in EUR",
+  "periodo_cpi": [
+    1960,
+    2025
+  ],
+  "inflazione_media_annua": 5.55,
+  "inflazione_mediana_annua": 4.01,
+  "anno_peggiore": {
+    "anno": 1980,
+    "valore": 21.1
+  },
+  "inflazione_2022": 8.2,
+  "inflazione_2024": 1.0,
+  "inflazione_2025": 1.5,
+  "prezzi_1960_2025_fattore": 31.79,
+  "confronto": {
+    "da": 2000,
+    "a": 2025,
+    "capitale": 1000.0,
+    "prezzi_fattore": 1.634,
+    "inflazione_cumulata_pct": 63.4,
+    "liquido_reale_finale": 612.0,
+    "liquido_perso": 388.0,
+    "investito_reale_finale": 2768.0,
+    "investito_nominale_finale": 4522.0,
+    "rapporto_investito_su_liquido": 4.5
+  },
+  "anni_sopra_4pct": 33,
+  "anni_totali": 66
+}

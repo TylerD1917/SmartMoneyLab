@@ -22,7 +22,7 @@ const posts = defineCollection({
       // esclusiva). Alimenta la barra di filtri sulla home e le pagine
       // /categoria/<slug>. Registry in src/data/categories.ts.
       category: z
-        .enum(["strategie", "approfondimenti", "finanza-personale"])
+        .enum(["le-basi", "strategie", "approfondimenti", "finanza-personale"])
         .optional(),
       // Verdict opzionale per articoli-strategia (vince/parziale/non vince)
       verdict: z.enum(["vince", "parziale", "non-vince"]).optional(),
