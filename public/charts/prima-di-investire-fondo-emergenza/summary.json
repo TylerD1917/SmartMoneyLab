@@ -1,0 +1,132 @@
+{
+  "serie": {
+    "fonte": "MSCI World total return in EUR, prestito-investimento-serie.json",
+    "inizio": "1970-01",
+    "fine": "2026-07",
+    "mesi": 679
+  },
+  "inflazione": {
+    "fonte": "FRED FPCPITOTLZGITA",
+    "anni_reale": [
+      1970,
+      2025
+    ]
+  },
+  "nominale": {
+    "1": {
+      "finestre": 668,
+      "in_perdita": 174,
+      "quota_perdita": 26.0,
+      "mediana_moltiplicatore": 1.106,
+      "peggiore_moltiplicatore": 0.607
+    },
+    "2": {
+      "finestre": 656,
+      "in_perdita": 138,
+      "quota_perdita": 21.0,
+      "mediana_moltiplicatore": 1.231,
+      "peggiore_moltiplicatore": 0.484
+    },
+    "3": {
+      "finestre": 644,
+      "in_perdita": 136,
+      "quota_perdita": 21.1,
+      "mediana_moltiplicatore": 1.358,
+      "peggiore_moltiplicatore": 0.477
+    },
+    "5": {
+      "finestre": 620,
+      "in_perdita": 137,
+      "quota_perdita": 22.1,
+      "mediana_moltiplicatore": 1.596,
+      "peggiore_moltiplicatore": 0.594
+    },
+    "7": {
+      "finestre": 596,
+      "in_perdita": 78,
+      "quota_perdita": 13.1,
+      "mediana_moltiplicatore": 1.915,
+      "peggiore_moltiplicatore": 0.598
+    },
+    "10": {
+      "finestre": 560,
+      "in_perdita": 41,
+      "quota_perdita": 7.3,
+      "mediana_moltiplicatore": 2.555,
+      "peggiore_moltiplicatore": 0.644
+    },
+    "15": {
+      "finestre": 500,
+      "in_perdita": 0,
+      "quota_perdita": 0.0,
+      "mediana_moltiplicatore": 3.519,
+      "peggiore_moltiplicatore": 1.257
+    },
+    "20": {
+      "finestre": 440,
+      "in_perdita": 0,
+      "quota_perdita": 0.0,
+      "mediana_moltiplicatore": 4.631,
+      "peggiore_moltiplicatore": 1.643
+    }
+  },
+  "reale": {
+    "1": {
+      "finestre": 56,
+      "quota_perdita": 35.7,
+      "mediana_moltiplicatore": 1.076,
+      "peggiore_moltiplicatore": 0.577
+    },
+    "2": {
+      "finestre": 55,
+      "quota_perdita": 27.3,
+      "mediana_moltiplicatore": 1.126,
+      "peggiore_moltiplicatore": 0.367
+    },
+    "3": {
+      "finestre": 54,
+      "quota_perdita": 31.5,
+      "mediana_moltiplicatore": 1.182,
+      "peggiore_moltiplicatore": 0.415
+    },
+    "5": {
+      "finestre": 52,
+      "quota_perdita": 40.4,
+      "mediana_moltiplicatore": 1.395,
+      "peggiore_moltiplicatore": 0.305
+    },
+    "7": {
+      "finestre": 50,
+      "quota_perdita": 26.0,
+      "mediana_moltiplicatore": 1.209,
+      "peggiore_moltiplicatore": 0.258
+    },
+    "10": {
+      "finestre": 47,
+      "quota_perdita": 21.3,
+      "mediana_moltiplicatore": 1.493,
+      "peggiore_moltiplicatore": 0.273
+    },
+    "15": {
+      "finestre": 42,
+      "quota_perdita": 16.7,
+      "mediana_moltiplicatore": 2.023,
+      "peggiore_moltiplicatore": 0.43
+    },
+    "20": {
+      "finestre": 37,
+      "quota_perdita": 13.5,
+      "mediana_moltiplicatore": 2.092,
+      "peggiore_moltiplicatore": 0.456
+    }
+  },
+  "sotto_acqua": {
+    "episodi": 49,
+    "recupero_piu_lungo_mesi": 161,
+    "recupero_piu_lungo_anni": 13.4,
+    "drawdown_peggiore_pct": -55.7,
+    "episodi_oltre_3_anni": 3,
+    "episodi_oltre_5_anni": 2,
+    "mesi_sotto_acqua_su_totale_pct": 76.0
+  }
+}
