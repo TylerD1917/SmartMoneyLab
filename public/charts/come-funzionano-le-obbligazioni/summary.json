@@ -1,0 +1,212 @@
+{
+  "titolo_di_esempio": {
+    "cedola": 0.035,
+    "prezzo_iniziale": 100.0,
+    "nota": "titolo alla pari, cedola annua uguale al rendimento"
+  },
+  "duration": [
+    {
+      "anni": 2,
+      "prezzo_iniziale": 100.00000000000001,
+      "duration_macaulay": 1.9661835748792271,
+      "duration_modificata": 1.8996942752456303,
+      "mosse": {
+        "-0.02": {
+          "prezzo": 103.911766847048,
+          "variazione_vera": 0.03911766847047993,
+          "variazione_stimata": 0.03799388550491261,
+          "scarto_punti": 0.11237829655673173
+        },
+        "-0.01": {
+          "prezzo": 101.92742415229031,
+          "variazione_vera": 0.019274241522903024,
+          "variazione_stimata": 0.018996942752456305,
+          "scarto_punti": 0.027729877044671905
+        },
+        "+0.01": {
+          "prezzo": 98.12733224971957,
+          "variazione_vera": -0.018726677502804434,
+          "variazione_stimata": -0.018996942752456305,
+          "scarto_punti": 0.02702652496518708
+        },
+        "+0.02": {
+          "prezzo": 96.30736057141574,
+          "variazione_vera": -0.03692639428584277,
+          "variazione_stimata": -0.03799388550491261,
+          "scarto_punti": 0.10674912190698424
+        }
+      }
+    },
+    {
+      "anni": 5,
+      "prezzo_iniziale": 100.00000000000004,
+      "duration_macaulay": 4.673079208612225,
+      "duration_modificata": 4.515052375470749,
+      "mosse": {
+        "-0.02": {
+          "prezzo": 109.5652899459148,
+          "variazione_vera": 0.09565289945914746,
+          "variazione_stimata": 0.09030104750941498,
+          "scarto_punti": 0.5351851949732478
+        },
+        "-0.01": {
+          "prezzo": 104.64582849561938,
+          "variazione_vera": 0.04645828495619342,
+          "variazione_stimata": 0.04515052375470749,
+          "scarto_punti": 0.13077612014859297
+        },
+        "+0.01": {
+          "prezzo": 95.61002325557078,
+          "variazione_vera": -0.04389976744429258,
+          "variazione_stimata": -0.04515052375470749,
+          "scarto_punti": 0.12507563104149078
+        },
+        "+0.02": {
+          "prezzo": 91.4594310487618,
+          "variazione_vera": -0.08540568951238237,
+          "variazione_stimata": -0.09030104750941498,
+          "scarto_punti": 0.4895357997032612
+        }
+      }
+    },
+    {
+      "anni": 10,
+      "prezzo_iniziale": 100.00000000000007,
+      "duration_macaulay": 8.607686508868182,
+      "duration_modificata": 8.316605322577955,
+      "mosse": {
+        "-0.02": {
+          "prezzo": 118.44436910370896,
+          "variazione_vera": 0.1844436910370888,
+          "variazione_stimata": 0.1663321064515591,
+          "scarto_punti": 1.8111584585529694
+        },
+        "-0.01": {
+          "prezzo": 108.75206393097103,
+          "variazione_vera": 0.08752063930970966,
+          "variazione_stimata": 0.08316605322577955,
+          "scarto_punti": 0.43545860839301065
+        },
+        "+0.01": {
+          "prezzo": 92.08728182288988,
+          "variazione_vera": -0.0791271817711019,
+          "variazione_stimata": -0.08316605322577955,
+          "scarto_punti": 0.4038871454677656
+        },
+        "+0.02": {
+          "prezzo": 84.92474834282211,
+          "variazione_vera": -0.15075251657177946,
+          "variazione_stimata": -0.1663321064515591,
+          "scarto_punti": 1.5579589879779643
+        }
+      }
+    },
+    {
+      "anni": 30,
+      "prezzo_iniziale": 100.00000000000014,
+      "duration_macaulay": 19.035767000760522,
+      "duration_modificata": 18.392045411362826,
+      "mosse": {
+        "-0.02": {
+          "prezzo": 148.03167601246852,
+          "variazione_vera": 0.48031676012468316,
+          "variazione_stimata": 0.3678409082272565,
+          "scarto_punti": 11.247585189742665
+        },
+        "-0.01": {
+          "prezzo": 120.93029259276142,
+          "variazione_vera": 0.20930292592761246,
+          "variazione_stimata": 0.18392045411362826,
+          "scarto_punti": 2.5382471813984204
+        },
+        "+0.01": {
+          "prezzo": 83.71111145571128,
+          "variazione_vera": -0.1628888854428885,
+          "variazione_stimata": -0.18392045411362826,
+          "scarto_punti": 2.103156867073977
+        },
+        "+0.02": {
+          "prezzo": 70.93250965775594,
+          "variazione_vera": -0.2906749034224416,
+          "variazione_stimata": -0.3678409082272565,
+          "scarto_punti": 7.716600480481489
+        }
+      }
+    }
+  ],
+  "curva": {
+    "fonte": "FRED, serie DGS3MO/1/2/5/10/20/30 in data/Bonds/",
+    "date": {
+      "curva inclinata": "2022-05-06",
+      "curva invertita": "2023-06-01",
+      "ultima disponibile": "2026-08-27"
+    },
+    "spread_10a_meno_3m": {
+      "curva inclinata": 2.27,
+      "curva invertita": -1.89,
+      "ultima disponibile": 0.83
+    },
+    "valori": {
+      "curva inclinata": {
+        "3m": 0.85,
+        "1a": 2.08,
+        "2a": 2.72,
+        "5a": 3.06,
+        "10a": 3.12,
+        "20a": 3.43,
+        "30a": 3.23
+      },
+      "curva invertita": {
+        "3m": 5.5,
+        "1a": 5.11,
+        "2a": 4.33,
+        "5a": 3.7,
+        "10a": 3.61,
+        "20a": 3.98,
+        "30a": 3.84
+      },
+      "ultima disponibile": {
+        "3m": 3.84,
+        "1a": 4.04,
+        "2a": 4.2,
+        "5a": 4.38,
+        "10a": 4.67,
+        "20a": 5.18,
+        "30a": 5.19
+      }
+    }
+  },
+  "btp_decennale": {
+    "fonte": "FRED IRLTLT01ITM156N, rendimento dei titoli di Stato italiani a lungo termine",
+    "da": "2016-06-01",
+    "a": "2026-06-01",
+    "minimo": {
+      "data": "2020-12-01",
+      "valore": 0.578
+    },
+    "massimo": {
+      "data": "2023-10-01",
+      "valore": 4.885
+    },
+    "ultimo": {
+      "data": "2026-06-01",
+      "valore": 3.734
+    },
+    "caso_minimo_massimo": {
+      "acquisto": {
+        "data": "2020-12-01",
+        "rendimento": 0.578,
+        "prezzo": 100.0
+      },
+      "vendita": {
+        "data": "2023-10-01",
+        "rendimento": 4.885,
+        "prezzo": 74.97389088087203,
+        "vita_residua_anni": 7
+      },
+      "variazione_prezzo": -0.2502610911912797,
+      "anni_trascorsi": 2.8333333333333335,
+      "nota": "titolo annuale stilizzato emesso alla pari, non un BTP specifico"
+    }
+  }
+}
