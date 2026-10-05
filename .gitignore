@@ -54,3 +54,10 @@ public/tools/*.dryrun
 
 # cartelle di scarti create quando la cancellazione non era permessa
 _to_delete/
+
+# backup e bozze di lavoro, non vanno nel repo pubblico
+*.bak
+scripts/_bozze_parcheggiate/
+_da_cancellare/
+Claude outputs/
+data/cache/
