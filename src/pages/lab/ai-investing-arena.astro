@@ -105,22 +105,17 @@ const ld = {
         retroattivo.
       </p>
       <p>
+        Ogni ordine dichiara anche l'<strong>attesa sul prezzo</strong> dello strumento, e prima dell'esecuzione un
+        controllo verifica che direzione, attesa e tesi dicano la stessa cosa. Se non combaciano, la decisione torna
+        <strong>una volta sola al modello che l'ha scritta</strong>, senza suggerirgli quale sia la lettura giusta, e
+        si esegue quello che risponde. Il motore non riscrive mai un ordine: la scelta resta del modello, sempre.
+      </p>
+      <p>
         Confrontiamo i quattro modelli con due riferimenti onesti: un <strong>portafoglio casuale</strong> (stessa
         struttura, titoli estratti a caso — misura quanta parte è pura fortuna) e i <strong>benchmark</strong> di mercato
         (MSCI ACWI e S&P 500, entrambi <strong>total return</strong> e comprati agli stessi prezzi che i modelli
         avevano davanti quando hanno deciso). Battere il mercato è difficile; battere il caso, nel breve, non è affatto
         scontato.
-      </p>
-
-      <p>
-        <strong>Nota metodologica del 3 ottobre 2026.</strong> Da questa data il prompt chiede a ogni modello, per
-        ogni singolo ordine, anche l'<strong>attesa sul prezzo</strong> dello strumento (rialzo o ribasso) oltre alla
-        direzione della posizione, e un controllo automatico verifica che direzione, attesa e tesi dicano la stessa
-        cosa prima dell'esecuzione. Se risultano in contraddizione, la decisione viene <strong>ri-sottoposta una volta
-        al modello stesso</strong>, citando la contraddizione e senza suggerire quale sia la lettura giusta: quello che
-        risponde la seconda volta viene eseguito alla lettera. Il codice non corregge mai un ordine — se la
-        contraddizione resta, la posizione viene aperta così com'è e il controllo lo segnala qui in chiaro. Serve a
-        distinguere un errore di compilazione da una scelta deliberata, non a migliorare i risultati di nessuno.
       </p>
 
       <h2>Cosa NON è</h2>
