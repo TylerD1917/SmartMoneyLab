@@ -3,6 +3,7 @@ category: "le-basi"
 title: "Prima di investire: fondo di emergenza, debiti e orizzonte temporale"
 description: "Secondo episodio delle basi: con quali soldi si investe. Perché il fondo di emergenza viene prima, perché estinguere un debito è un rendimento certo e quanti anni servono davvero."
 pubDate: 2026-10-05
+updatedDate: 2026-10-05
 tags: ["le-basi", "fondo-di-emergenza", "debiti", "orizzonte-temporale", "rischio", "principianti", "liquidita"]
 author: "SmartMoneyLab"
 series: "le-basi"
@@ -43,7 +44,7 @@ Tre numeri che il resto dell'episodio spiega:
 
 ## L'ordine giusto delle domande
 
-Chi arriva agli investimenti parte quasi sempre dalla domanda sbagliata: quale ETF, quale piattaforma, azioni o obbligazioni. Sono domande legittime, e gli episodi dal 3 all'8 le affrontano tutte. Ma vengono dopo tre decisioni che non riguardano il mercato e riguardano solo te: quanta liquidità tieni fuori, se hai debiti da chiudere prima, e per quanto tempo puoi lasciare stare quel denaro.
+Chi arriva agli investimenti parte quasi sempre dalla domanda sbagliata: quale ETF, quale piattaforma, azioni o obbligazioni. Sono domande legittime, e gli episodi dal 4 al 9 le affrontano tutte. Ma vengono dopo tre decisioni che non riguardano il mercato e riguardano solo te: quanta liquidità tieni fuori, se hai debiti da chiudere prima, e per quanto tempo puoi lasciare stare quel denaro.
 
 Il motivo è uno solo, e si vede meglio con un grafico che con un ragionamento.
 
@@ -100,7 +101,7 @@ Quest'ultimo caso è la trappola da conoscere: **un conto deposito vincolato sen
 
 I conti deposito delle banche autorizzate in Italia rientrano nella garanzia del Fondo Interbancario di Tutela dei Depositi, fino a 100.000 euro per depositante e per banca. È il motivo per cui si parla di rischio quasi nullo, e anche il motivo per cui spezzare somme molto grandi su più istituti ha una logica.
 
-**I titoli a brevissimo termine** sono la terza strada: i BOT, cioè i buoni ordinari del Tesoro italiano, con scadenze da 3 a 12 mesi. Li compri in asta o sul mercato, e se ti serve il denaro prima della scadenza li vendi al prezzo di mercato, che su scadenze così brevi si muove poco. Esistono anche ETF monetari che fanno la stessa cosa in forma di fondo, e li riprendiamo nell'episodio 6.
+**I titoli a brevissimo termine** sono la terza strada: i BOT, cioè i buoni ordinari del Tesoro italiano, con scadenze da 3 a 12 mesi. Li compri in asta o sul mercato, e se ti serve il denaro prima della scadenza li vendi al prezzo di mercato, che su scadenze così brevi si muove poco. Esistono anche ETF monetari che fanno la stessa cosa in forma di fondo, e li riprendiamo nell'episodio 7.
 
 ### Quanto rendono, e da cosa dipende
 
@@ -126,6 +127,16 @@ Ora mettiamo insieme questo capitolo e l'episodio 1, perché il risultato è il 
 Il miglior conto deposito vincolato sul mercato rende il 4,05% lordo, cioè il **3,00% netto**. L'inflazione italiana di settembre 2026 correva al 4,2%. Anche il prodotto migliore della categoria, quindi, **sta perdendo potere d'acquisto**, di oltre un punto all'anno. Un conto deposito libero al 3% lordo perde circa due punti.
 
 Non è un argomento contro il fondo di emergenza: è la conferma di cosa sia. Il fondo di emergenza costa, sempre, anche quando è ben sistemato, e quel costo è il premio dell'assicurazione calcolato qualche riga sopra. L'errore non è pagare quel premio, è pagarlo due volte: una tenendo il denaro sul conto corrente invece che su un conto deposito, e una tenendone fermo molto più del necessario.
+
+## C'è un terzo livello, fra il fondo e il mercato
+
+Il fondo di emergenza copre quello che non sai. Il capitale a mercato, di cui parla tutto il resto della collana, copre quello che è lontano e indefinito. In mezzo resta un caso che non è né l'uno né l'altro, e per chi ha meno di cinquant'anni è spesso il più ingombrante: **le spese grandi che sai già di dover affrontare**, con un importo stimabile e una data.
+
+L'anticipo per la casa fra tre anni, l'università dei figli, l'auto da cambiare. Non sono emergenze, perché le hai previste. Non sono investimenti di lungo periodo, perché hanno una scadenza. E il denaro che le copre non va trattato come nessuna delle due cose: va messo in uno strumento che restituisce il capitale **quando serve**, cioè un'obbligazione che scade vicino alla data della spesa.
+
+È un livello che la divulgazione italiana salta quasi sempre, e ha una proprietà interessante: serve tantissimo a chi sta iniziando e quasi per niente a chi ha già un patrimonio grande. L'episodio 3 lo tratta per intero, con i numeri che spiegano perché.
+
+→ **[Le spese che sai già di dover affrontare: il terzo livello](/posts/spese-previste-obbligazioni-scadenza)**
 
 ## I debiti: il rendimento certo
 
@@ -166,7 +177,7 @@ La **capacità di rischio** è oggettiva. Dipende da quanto reddito hai, quanto 
 
 La **tolleranza al rischio** è psicologica: quanto riesci a vedere il tuo capitale scendere senza vendere. Non si calcola, e soprattutto non si conosce in anticipo. Quasi nessuno sa come reagirà a un meno 35% prima di averlo visto sul proprio conto, con i propri soldi, mentre i giornali spiegano perché questa volta è diverso.
 
-**Vale la più bassa delle due.** Avere la capacità di sopportare un portafoglio interamente azionario non serve a nulla se poi lo vendi al primo crollo: il risultato sarebbe peggiore di un portafoglio più prudente tenuto fino in fondo. È un punto che torna nell'episodio 9, quando parleremo di rischio e diversificazione.
+**Vale la più bassa delle due.** Avere la capacità di sopportare un portafoglio interamente azionario non serve a nulla se poi lo vendi al primo crollo: il risultato sarebbe peggiore di un portafoglio più prudente tenuto fino in fondo. È un punto che torna nell'episodio 10, quando parleremo di rischio e diversificazione.
 
 Il corollario pratico, per chi inizia: la prima discesa seria è l'unico test attendibile, quindi conviene arrivarci con una posizione che ti permetta di sbagliare la stima.
 
@@ -180,7 +191,7 @@ Il corollario pratico, per chi inizia: la prima discesa seria è l'unico test at
 
 ## Il prossimo episodio
 
-Finito il lavoro preliminare, si entra nel merito delle varie asset class i cui possiamo investire per cercare di fronteggiare l'erosione dei nostri risparmi per l'inflazione. Cominceremo con: **le azioni**. Cosa compri davvero quando compri un'azione, cosa sono utili e dividendi, e come si leggono le prime due metriche che incontrerai, il rapporto prezzo/utili e il prezzo/vendite. È l'episodio 3 e apre il blocco sulle asset class.
+Spese previste e prevedibili. Si tratta dell'ultimo capitolo del nostro lavoro preliminare, come gestire degli accantonamenti di denaro per spese future, certe o quasi per importo e data. Come avreste capito arrivati fino a qui, tenere il capitale destinato a quella spesa in conto corrente **non è la soluzione giusta**. È l'episodio 3, l'ultimo del primo blocco, prima di addentrarci nelle diverse sulle asset class.
 
 ## Fonti e metodo
 

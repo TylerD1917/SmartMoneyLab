@@ -1,0 +1,64 @@
+{
+  "titolo_esempio": {
+    "anni": 5,
+    "cedola": 0.03,
+    "tasso_iniziale": 0.03,
+    "tasso_dopo_rialzo": 0.06,
+    "prezzo_subito_dopo_il_rialzo": 87.36,
+    "perdita_immediata_pct": -12.6,
+    "prezzo_a_scadenza": 100.0,
+    "prezzi_anno_per_anno": [
+      87.36,
+      89.6,
+      91.98,
+      94.5,
+      97.17,
+      100.0
+    ]
+  },
+  "indice_obbligazionario": {
+    "fonte": "modello duration sul Treasury decennale",
+    "2022_in_dollari_pct": -17.0,
+    "2022_in_euro_pct": -11.9,
+    "drawdown_massimo_dollari_pct": -27.1,
+    "nota": "in euro il 2022 e' meno negativo perche' il dollaro si e' rafforzato"
+  },
+  "costo_di_vendere": {
+    "spesa": 20000.0,
+    "calo_mercato": 0.35,
+    "liquidato_a_valori_di_picco": 30769.0,
+    "capitale_bruciato": 10769.0,
+    "per_dimensione": [
+      {
+        "portafoglio": 25000,
+        "spesa_su_portafoglio_pct": 80.0,
+        "bruciato_su_portafoglio_pct": 43.08
+      },
+      {
+        "portafoglio": 50000,
+        "spesa_su_portafoglio_pct": 40.0,
+        "bruciato_su_portafoglio_pct": 21.54
+      },
+      {
+        "portafoglio": 100000,
+        "spesa_su_portafoglio_pct": 20.0,
+        "bruciato_su_portafoglio_pct": 10.77
+      },
+      {
+        "portafoglio": 250000,
+        "spesa_su_portafoglio_pct": 8.0,
+        "bruciato_su_portafoglio_pct": 4.31
+      },
+      {
+        "portafoglio": 500000,
+        "spesa_su_portafoglio_pct": 4.0,
+        "bruciato_su_portafoglio_pct": 2.15
+      },
+      {
+        "portafoglio": 1000000,
+        "spesa_su_portafoglio_pct": 2.0,
+        "bruciato_su_portafoglio_pct": 1.08
+      }
+    ]
+  }
+}

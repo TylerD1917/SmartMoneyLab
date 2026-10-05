@@ -23,7 +23,7 @@ export const CATEGORIES: Record<string, CategoryMeta> = {
     title: "Le basi",
     shortLabel: "Le basi",
     description:
-      "Il percorso per chi parte da zero: dodici episodi che spiegano " +
+      "Il percorso per chi parte da zero: tredici episodi che spiegano " +
       "l'inflazione, le asset class, gli ETF, i costi e le metriche con cui " +
       "si giudica un portafoglio. Sono i prerequisiti per leggere tutto il " +
       "resto del sito — e ogni episodio si chiude con un numero preso da " +

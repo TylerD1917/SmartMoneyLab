@@ -38,7 +38,7 @@ Tre numeri, che il resto dell'episodio spiega:
 2. **Fra il 1960 e il 2025 l'inflazione italiana è stata in media del 5,55% all'anno**, con un massimo del 21,1% nel 1980. I prezzi si sono moltiplicati per quasi 32 volte.
 3. **Gli stessi mille euro investiti nel 2000 su un indice azionario mondiale valevano, in potere d'acquisto, 2.768 euro.** Ma per i primi tredici anni sono stati sotto il punto di partenza, e questo pezzo della storia conta quanto il primo.
 
-Questo è il primo dei dodici episodi delle [basi](/categoria/le-basi), la collana pensata per chi arriva qui senza una preparazione finanziaria. Non si parla di strategie: si parla del problema che gli investimenti cercano di risolvere.
+Questo è il primo dei tredici episodi delle [basi](/categoria/le-basi), la collana pensata per chi arriva qui senza una preparazione finanziaria. Non si parla di strategie: si parla del problema che gli investimenti cercano di risolvere.
 
 ## Il problema esiste adesso, non solo nei libri di storia
 

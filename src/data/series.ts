@@ -15,10 +15,10 @@ export interface SeriesMeta {
 export const SERIES: Record<string, SeriesMeta> = {
   "le-basi": {
     slug: "le-basi",
-    title: "Le basi: dodici episodi per partire da zero",
+    title: "Le basi: tredici episodi per partire da zero",
     shortLabel: "Le basi",
     description:
-      "Dodici episodi in quattro blocchi — perche' investire e con quali " +
+      "Tredici episodi in quattro blocchi: perche' investire e con quali " +
       "soldi, dove si puo' mettere il denaro, gli strumenti e quanto " +
       "costano, come si leggono i numeri. Vanno letti in ordine: ogni " +
       "blocco da' per noto il precedente.",
