@@ -1,0 +1,83 @@
+{
+  "serie": {
+    "inizio_comune": "2010-06-29",
+    "fine": "2026-07-08",
+    "sedute": 4030,
+    "ko_dal": "1975-01-02",
+    "nota": "prezzi aggiustati; per KO anche per i dividendi"
+  },
+  "coca_cola_lungo_periodo": {
+    "da": "1975-01-02",
+    "a": "2026-07-08",
+    "anni": 51.5,
+    "crescita": 665.0,
+    "cagr": 0.1344
+  },
+  "dal_debutto_di_tesla": {
+    "Coca-Cola": {
+      "crescita": 5.4033,
+      "montante": 5403.2989,
+      "cagr": 0.1113,
+      "drawdown_peggiore": -0.3699,
+      "quota_sotto_il_massimo": 0.9233,
+      "volatilita": 0.1709,
+      "anni": 15.9921
+    },
+    "Tesla": {
+      "crescita": 247.4215,
+      "montante": 247421.4645,
+      "cagr": 0.4114,
+      "drawdown_peggiore": -0.7363,
+      "quota_sotto_il_massimo": 0.9576,
+      "volatilita": 0.574,
+      "anni": 15.9921
+    }
+  },
+  "fondamentali_5_ottobre_2026": {
+    "Coca-Cola": {
+      "prezzo": 85.65,
+      "pe": 25.72,
+      "eps": 3.33,
+      "cap_mld": 368.513,
+      "dividendo": 2.12,
+      "beta": 0.34,
+      "fatturato_mld": 50.13,
+      "min52": 65.84,
+      "max52": 92.49,
+      "target": 94.65,
+      "utile_netto_mld": 14.3279,
+      "price_sales": 7.3511,
+      "margine_netto": 0.2858,
+      "earnings_yield": 0.0389,
+      "euro_di_utile_ogni_100_investiti": 3.888,
+      "payout": 0.6366,
+      "dividend_yield": 0.0248,
+      "pe_ricalcolato": 25.72
+    },
+    "Tesla": {
+      "prezzo": 370.0,
+      "pe": 343.14,
+      "eps": 1.08,
+      "cap_mld": 1464.0,
+      "dividendo": 0.0,
+      "beta": 1.92,
+      "fatturato_mld": 103.62,
+      "min52": 297.38,
+      "max52": 498.83,
+      "target": 396.41,
+      "utile_netto_mld": 4.2665,
+      "price_sales": 14.1285,
+      "margine_netto": 0.0412,
+      "earnings_yield": 0.0029,
+      "euro_di_utile_ogni_100_investiti": 0.2914,
+      "payout": 0.0,
+      "dividend_yield": 0.0,
+      "pe_ricalcolato": 343.14
+    }
+  },
+  "confronti": {
+    "tesla_vale_volte_coca_cola": 3.97,
+    "coca_cola_guadagna_volte_tesla": 3.36,
+    "tesla_fattura_volte_coca_cola": 2.07
+  }
+}
