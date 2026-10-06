@@ -1,6 +1,7 @@
-# Esempio GitHub Action per l'AI Investing Arena.
-# Copialo a mano in .github/workflows/arena.yml (i file workflow vanno aggiunti da te; il tuo PAT ha scope 'workflow').
-# Cron settimanale -> run_period.py auto (decide da solo se è periodo di decisione o solo mark).
+# AI Investing Arena: ogni lunedi' dopo la chiusura americana.
+# run_period.py auto decide da solo se e' un periodo di decisione o solo di
+# valorizzazione. Lo stato durevole sono gli snapshot di allocazione in
+# scripts/arena/state/positions/: tutto il resto e' ricalcolato.
 name: AI Investing Arena
 
 on:
@@ -27,6 +28,15 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install --upgrade yfinance pandas numpy
+
+      # Il 2026-10-06 la Action e' andata a buon fine pubblicando una classifica
+      # azzerata. I test girano PRIMA di toccare qualunque cosa: se il motore
+      # NAV e' rotto, il job si ferma qui e il sito resta all'ultima versione buona.
+      - name: Test del motore NAV e del controllo di coerenza
+        run: |
+          python scripts/arena/test_nav_daily.py
+          python scripts/arena/test_coherence.py
+
       - name: Esegui il periodo (auto)
         env:
           OPENAI_API_KEY:    ${{ secrets.OPENAI_API_KEY }}
@@ -34,6 +44,25 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           MOONSHOT_API_KEY:  ${{ secrets.MOONSHOT_API_KEY }}
         run: python scripts/arena/run_period.py auto
+
+      # Rete di sicurezza: se per qualunque motivo arena.json uscisse con i
+      # modelli fermi al capitale iniziale, non lo si committa.
+      - name: Verifica l'output prima di committare
+        run: |
+          python - <<'PY'
+          import json, sys
+          d = json.load(open("public/tools/arena/arena.json", encoding="utf-8"))
+          cap = d["rules"]["capital"]
+          fermi = [r["id"] for r in d["leaderboard"]
+                   if r["type"] in ("model", "control") and abs(r["nav"] - cap) < 0.01]
+          vuote = [k for k, v in d["nav"].items() if not v]
+          if fermi or vuote:
+              sys.exit(f"arena.json non pubblicabile: NAV fermo al capitale per {fermi}; "
+                       f"curve vuote per {vuote}")
+          print("arena.json ok:", ", ".join(f"{r['id']} {r['ret_total']:+.2%}"
+                                            for r in d["leaderboard"]))
+          PY
+
       - name: Committa stato e output pubblici
         run: |
           git config user.name "smartmoneylab-bot"

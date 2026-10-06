@@ -42,7 +42,9 @@ def settle(cfg):
                               "n_orders": len(decision.get("orders", [])), "borrow_fee": round(fee, 2),
                               "nav": round(nav, 2), "log": log})
         ac.write_json(ac.state_path(cfg, f"portfolio_{mid}.json"), pf)
-        ac.append_nav(cfg, mid, today, nav)
+        # La serie NAV NON si tocca qui: e' un file derivato, ricostruito da
+        # nav_daily a partire dagli snapshot. Scriverci anche da qui creava un
+        # secondo autore per lo stesso dato, e due autori prima o poi divergono.
         # Snapshot del segmento: fotografa cassa e quantita' subito dopo l'esecuzione.
         # E' cio' che permette di ricostruire il NAV giornaliero anche mesi dopo,
         # quando le posizioni saranno state sostituite piu' volte.

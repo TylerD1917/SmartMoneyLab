@@ -27,6 +27,7 @@ const pct = (x, d = 2) => x == null ? "—" : `${x >= 0 ? "+" : "−"}${Math.abs
 const eur = (x) => x == null ? "—" : Math.round(x).toLocaleString("it-IT");
 const wpc = (x) => x == null ? "—" : `${(x * 100).toFixed(1).replace(".", ",")}%`;
 const ACT = { open: "apre", increase: "aumenta", trim: "riduce", close: "chiude" };
+const fdata = (d) => !d ? "" : d.split("-").reverse().slice(0, 2).join("/");
 const isBad = (s) => !s || /^\(errore|^\(STUB|^\(parse/.test(String(s));
 
 function Box({ children, err }) {
@@ -154,6 +155,8 @@ export default function AiArena() {
           const pos = d.positions?.[mid];
           const bad = isBad(dec.rationale);
           const orders = (dec.orders ?? []).filter(o => o && o.ticker);
+          const aperti = new Set((pos?.positions ?? []).map(p => p.ticker));
+          const chiuse = orders.filter(o => !aperti.has(o.ticker));
           return (
             <div key={mid} className="rounded-2xl border border-slate-200 bg-white p-5">
               <div className="flex items-baseline gap-2">
@@ -197,17 +200,31 @@ export default function AiArena() {
                     </div>
                   )}
 
-                  {orders.length > 0 && (
+                  {/* Il perché di OGNI posizione, non solo di quelle mosse in questo
+                      periodo: una posizione lasciata ferma conserva la tesi con cui
+                      era stata aperta, altrimenti dalla seconda riallocazione in poi
+                      gran parte del portafoglio resterebbe senza spiegazione. */}
+                  {pos && pos.positions?.length > 0 && (
                     <details className="mt-3">
-                      <summary className="cursor-pointer text-xs font-semibold text-blue-700">Le mosse del periodo e il perché ({orders.length})</summary>
+                      <summary className="cursor-pointer text-xs font-semibold text-blue-700">Perché queste posizioni ({pos.positions.length})</summary>
                       <ul className="mt-2 space-y-1.5">
-                        {orders.map((o, i) => (
-                          <li key={i} className="text-xs leading-relaxed text-slate-600">
-                            <span className="font-semibold text-slate-800">{o.ticker}</span>{o.name ? <span className="text-slate-400"> {o.name}</span> : null} — {ACT[o.action] ?? o.action} {o.side}
-                            {o.thesis ? <span className="text-slate-500">: {o.thesis}</span> : null}
+                        {pos.positions.slice().sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight)).map(p => (
+                          <li key={p.ticker} className="text-xs leading-relaxed text-slate-600">
+                            <span className="font-semibold text-slate-800">{p.ticker}</span>
+                            {p.name ? <span className="text-slate-400"> {p.name}</span> : null}
+                            <span className={`ml-1.5 rounded px-1.5 py-0.5 text-[10px] font-semibold uppercase ${p.mossa === "invariata" ? "bg-slate-100 text-slate-500" : "bg-blue-50 text-blue-600"}`}>
+                              {p.mossa === "invariata" ? (p.dal ? `invariata dal ${fdata(p.dal)}` : "invariata") : "mossa ora"}
+                            </span>
+                            {p.thesis ? <span className="text-slate-500">: {p.thesis}</span> : null}
                           </li>
                         ))}
                       </ul>
+                      {chiuse.length > 0 && (
+                        <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                          <span className="font-semibold text-slate-700">Chiuse in questo periodo:</span>{" "}
+                          {chiuse.map(o => o.ticker).join(", ")}.
+                        </p>
+                      )}
                     </details>
                   )}
                 </>
