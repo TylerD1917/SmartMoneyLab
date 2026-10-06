@@ -1,0 +1,56 @@
+{
+ "rationale": "Manteniamo ferma la nostra tesi barbell che bilancia asset difensivi e value con il growth tecnologico. Effettuiamo un rebalancing tattico: riduciamo marginalmente le posizioni tech che hanno sforato il target (NVDA, META) per finanziare l'incremento di LMT, spinto dalle nuove tensioni militari in Medio Oriente, e JPM, avvantaggiata da un decennale USA stabilmente oltre il 5%. La limitata movimentazione minimizza i costi operativi, confermando la view strategica di lungo periodo.",
+ "orders": [
+  {
+   "ticker": "NVDA",
+   "action": "trim",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "Prendiamo parziale profitto per riallineare il peso al target strategico del 10%, mantenendo intatte le nostre aspettative di rialzo di lungo periodo sui trend AI."
+  },
+  {
+   "ticker": "META",
+   "action": "trim",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "Leggero ribilanciamento per contenere l'esposizione, pur restando posizionati stabilmente al rialzo sulla scia del solido momentum aziendale."
+  },
+  {
+   "ticker": "LMT",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "Incrementiamo la posizione al 10% per rinforzare le difese di portafoglio di fronte all'escalation geopolitica in Medio Oriente, attendendo un conseguente rialzo del titolo."
+  },
+  {
+   "ticker": "JPM",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "Riportiamo il peso al target del 10% poiché la persistenza dei rendimenti obbligazionari oltre il 5% sostiene fortemente i margini di interesse del settore bancario."
+  }
+ ],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  },
+  "ri_domanda": false,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  }
+ },
+ "as_of": "2026-10-06",
+ "model": "gemini"
+}

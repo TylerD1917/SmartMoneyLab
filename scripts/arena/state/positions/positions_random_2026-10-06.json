@@ -1,5 +1,5 @@
 {
- "model": "random",
+ "date": "2026-10-06",
  "cash": 119782.032621,
  "positions": {
   "EWW": {
@@ -42,33 +42,5 @@
    "qty": 142.65335235378032,
    "avg_price": 70.1
   }
- },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 10,
-   "borrow_fee": 3.45,
-   "nav": 99896.55,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 99279.05
-  },
-  {
-   "date": "2026-10-06",
-   "action": "settle",
-   "ok": false,
-   "n_orders": 10,
-   "borrow_fee": 0.0,
-   "nav": 98480.51,
-   "log": [
-    "RIFIUTATA: 20 posizioni > max 10 (portafoglio invariato)"
-   ]
-  }
- ],
- "created": "2026-09-17"
+ }
 }

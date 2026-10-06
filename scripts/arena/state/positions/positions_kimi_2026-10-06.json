@@ -1,5 +1,5 @@
 {
- "model": "kimi",
+ "date": "2026-10-06",
  "cash": 51919.70136191761,
  "positions": {
   "FENY": {
@@ -42,31 +42,5 @@
    "qty": -119.01426968774228,
    "avg_price": 41.79
   }
- },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 10,
-   "borrow_fee": 1.73,
-   "nav": 99901.27,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 99056.05
-  },
-  {
-   "date": "2026-10-06",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 4,
-   "borrow_fee": 0.0,
-   "nav": 99450.93,
-   "log": []
-  }
- ],
- "created": "2026-09-17"
+ }
 }

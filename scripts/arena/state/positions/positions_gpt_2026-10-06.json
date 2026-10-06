@@ -1,5 +1,5 @@
 {
- "model": "gpt",
+ "date": "2026-10-06",
  "cash": 15060.671045,
  "positions": {
   "USFR": {
@@ -34,31 +34,5 @@
    "qty": -13.963360142984808,
    "avg_price": 358.08
   }
- },
- "history": [
-  {
-   "date": "2026-09-17",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 8,
-   "borrow_fee": 0.29,
-   "nav": 99904.71,
-   "log": []
-  },
-  {
-   "date": "2026-09-21",
-   "action": "mark",
-   "nav": 99198.61
-  },
-  {
-   "date": "2026-10-06",
-   "action": "settle",
-   "ok": true,
-   "n_orders": 0,
-   "borrow_fee": 0.0,
-   "nav": 99347.46,
-   "log": []
-  }
- ],
- "created": "2026-09-17"
+ }
 }
