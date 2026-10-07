@@ -184,7 +184,7 @@ Anche con un emittente che paga puntualmente e un titolo tenuto fino in fondo, r
 
 ## Il prossimo episodio
 
-Abbiamo visto le due materie prime, azioni e obbligazioni. L'episodio 6 affronta la domanda che viene subito dopo: **come si comprano senza doverle scegliere una per una.** Fondi, ETF, indici, e cosa significa davvero "replicare il mercato".
+Azioni e obbligazioni sono le due cose che **producono**: utili le prime, interessi le seconde. L'episodio 6 passa alla terza famiglia, quella che non produce niente e che in portafoglio compare lo stesso: **oro e materie prime**, con un box sulle criptovalute.
 
 ## Fonti e metodo
 

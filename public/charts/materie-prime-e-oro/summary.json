@@ -1,0 +1,101 @@
+{
+  "oro_reale": {
+    "fonte_prezzo": "data/Gold/gold_monthly.csv, prezzo mensile in dollari per oncia",
+    "fonte_cpi": "FRED CPIAUCSL, indice dei prezzi al consumo USA, in data/Valute/",
+    "dollari_del": "2026-03",
+    "rendimenti_per_data_di_partenza": {
+      "1947-01": {
+        "nota": "inizio della serie CPI mensile",
+        "anni": 79.2,
+        "nominale_da": 34.71,
+        "nominale_a": 4855.54,
+        "cagr_nominale": 0.06439941304200358,
+        "reale_da": 533.727655027933,
+        "reale_a": 4855.54,
+        "cagr_reale": 0.028282977138823995
+      },
+      "1971-08": {
+        "nota": "fine della convertibilita' in oro del dollaro",
+        "anni": 54.6,
+        "nominale_da": 42.71,
+        "nominale_a": 4855.54,
+        "cagr_nominale": 0.09059078885427074,
+        "reale_da": 346.6047673218673,
+        "reale_a": 4855.54,
+        "cagr_reale": 0.04954920289559572
+      },
+      "1975-01": {
+        "nota": "ritorno alla detenzione legale per i privati americani",
+        "anni": 51.2,
+        "nominale_da": 176.27,
+        "nominale_a": 4855.54,
+        "cagr_nominale": 0.06695100822369704,
+        "reale_da": 1113.2074017208415,
+        "reale_a": 4855.54,
+        "cagr_reale": 0.029204145273281412
+      },
+      "1980-01": {
+        "nota": "massimo della bolla",
+        "anni": 46.2,
+        "nominale_da": 675.31,
+        "nominale_a": 4855.54,
+        "cagr_nominale": 0.04365611688505089,
+        "reale_da": 2859.6175106410255,
+        "reale_a": 4855.54,
+        "cagr_reale": 0.011533858627351234
+      }
+    },
+    "picco_1980": {
+      "mese": "1980-01",
+      "nominale": 675.31,
+      "reale": 2859.6175106410255
+    },
+    "minimo_successivo": {
+      "mese": "2001-04",
+      "reale": 487.7251736961452,
+      "caduta_dal_picco": -0.8294439127326457
+    },
+    "recupero_del_picco": {
+      "mese": "2025-02",
+      "anni": 45.1
+    }
+  },
+  "oro_vs_azioni": {
+    "oro": {
+      "da": "1988-01",
+      "a": "2026-03",
+      "anni": 38.166666666666664,
+      "finale": 10188.29997062403,
+      "cagr": 0.06270603178837275
+    },
+    "azioni": {
+      "da": "1988-01",
+      "a": "2026-03",
+      "anni": 38.166666666666664,
+      "finale": 56553.190394862875,
+      "cagr": 0.11151648161210481
+    }
+  },
+  "materie_prime_vs_azioni": {
+    "materie_prime": {
+      "da": "2006-02",
+      "a": "2026-07",
+      "anni": 20.416666666666668,
+      "finale": 1595.0238231671533,
+      "cagr": 0.023131494263800123
+    },
+    "azioni": {
+      "da": "2006-02",
+      "a": "2026-07",
+      "anni": 20.416666666666668,
+      "finale": 8614.669670948699,
+      "cagr": 0.11123933607413283
+    },
+    "fonte": "DBC, paniere di futures su materie prime, prezzo mensile aggiustato",
+    "caduta": {
+      "da": "2008-06",
+      "a": "2020-04",
+      "variazione": -0.745525442228227
+    }
+  }
+}
