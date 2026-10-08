@@ -1,0 +1,336 @@
+{
+  "fonte": "data/processed/returns_panel_wide.csv, indici MSCI Total Return lordi in dollari, mensili (panel costruito per l'articolo sul CAPE internazionale)",
+  "periodo": {
+    "da": "2000-12",
+    "a": "2026-04",
+    "anni": 25.3
+  },
+  "n_paesi": 25,
+  "globale": {
+    "indice": "ACWI",
+    "cagr": 0.07826180935686788,
+    "paesi_sotto": 11,
+    "paesi_sopra": 14
+  },
+  "migliore": {
+    "paese": "South Korea",
+    "cagr": 0.13541586394509708
+  },
+  "peggiore": {
+    "paese": "Finland",
+    "cagr": 0.034200401628868615
+  },
+  "distanza_punti": 10.121546231622848,
+  "classifica_completa": {
+    "South Korea": 0.1354,
+    "Taiwan": 0.1232,
+    "Thailand": 0.1169,
+    "Indonesia": 0.1077,
+    "India": 0.1033,
+    "Denmark": 0.0991,
+    "South Africa": 0.0977,
+    "Australia": 0.0959,
+    "Norway": 0.0928,
+    "Brazil": 0.0902,
+    "US Large": 0.0895,
+    "Canada": 0.086,
+    "Austria": 0.0841,
+    "Switzerland": 0.0789,
+    "Netherlands": 0.0781,
+    "Sweden": 0.077,
+    "China": 0.0767,
+    "Spain": 0.0761,
+    "Germany": 0.0608,
+    "France": 0.057,
+    "United Kingdom": 0.0545,
+    "Italy": 0.0521,
+    "Japan": 0.049,
+    "Belgium": 0.0487,
+    "Finland": 0.0342
+  },
+  "quinquenni": [
+    {
+      "da": "2001-01",
+      "a": "2005-12",
+      "acwi": 0.0294,
+      "posizione_acwi": 20,
+      "primi_tre": [
+        {
+          "paese": "Indonesia",
+          "cagr": 0.3063
+        },
+        {
+          "paese": "Austria",
+          "cagr": 0.3035
+        },
+        {
+          "paese": "South Korea",
+          "cagr": 0.2782
+        }
+      ],
+      "ultimi_due": [
+        {
+          "paese": "US Large",
+          "cagr": -0.0018
+        },
+        {
+          "paese": "Finland",
+          "cagr": -0.0449
+        }
+      ]
+    },
+    {
+      "da": "2006-01",
+      "a": "2010-12",
+      "acwi": 0.0303,
+      "posizione_acwi": 18,
+      "primi_tre": [
+        {
+          "paese": "Indonesia",
+          "cagr": 0.2699
+        },
+        {
+          "paese": "Brazil",
+          "cagr": 0.1795
+        },
+        {
+          "paese": "China",
+          "cagr": 0.1776
+        }
+      ],
+      "ultimi_due": [
+        {
+          "paese": "Belgium",
+          "cagr": -0.0757
+        },
+        {
+          "paese": "Austria",
+          "cagr": -0.0857
+        }
+      ]
+    },
+    {
+      "da": "2011-01",
+      "a": "2015-12",
+      "acwi": 0.0643,
+      "posizione_acwi": 5,
+      "primi_tre": [
+        {
+          "paese": "Belgium",
+          "cagr": 0.1391
+        },
+        {
+          "paese": "Denmark",
+          "cagr": 0.1299
+        },
+        {
+          "paese": "US Large",
+          "cagr": 0.1221
+        }
+      ],
+      "ultimi_due": [
+        {
+          "paese": "Austria",
+          "cagr": -0.0808
+        },
+        {
+          "paese": "Brazil",
+          "cagr": -0.1919
+        }
+      ]
+    },
+    {
+      "da": "2016-01",
+      "a": "2020-12",
+      "acwi": 0.1453,
+      "posizione_acwi": 7,
+      "primi_tre": [
+        {
+          "paese": "Taiwan",
+          "cagr": 0.2412
+        },
+        {
+          "paese": "China",
+          "cagr": 0.1876
+        },
+        {
+          "paese": "Brazil",
+          "cagr": 0.1844
+        }
+      ],
+      "ultimi_due": [
+        {
+          "paese": "United Kingdom",
+          "cagr": 0.0401
+        },
+        {
+          "paese": "Belgium",
+          "cagr": -0.0104
+        }
+      ]
+    },
+    {
+      "da": "2021-01",
+      "a": "2026-04",
+      "acwi": 0.1261,
+      "posizione_acwi": 11,
+      "primi_tre": [
+        {
+          "paese": "Taiwan",
+          "cagr": 0.2235
+        },
+        {
+          "paese": "Austria",
+          "cagr": 0.2174
+        },
+        {
+          "paese": "Spain",
+          "cagr": 0.2148
+        }
+      ],
+      "ultimi_due": [
+        {
+          "paese": "Indonesia",
+          "cagr": -0.0502
+        },
+        {
+          "paese": "China",
+          "cagr": -0.0524
+        }
+      ]
+    }
+  ],
+  "settori": {
+    "fonte": "data/cache/correlation_universe_monthly.csv, chiusure mensili aggiustate per i dividendi, in dollari",
+    "periodo": {
+      "da": "2001-07",
+      "meta": "2013-12",
+      "a": "2026-08"
+    },
+    "mercato": {
+      "nome": "S&P 500",
+      "intero": 0.0959807223293605,
+      "prima": 0.05467241186258298,
+      "seconda": 0.13804367356072267
+    },
+    "voci": [
+      {
+        "colonna": "Semiconduttori",
+        "nome": "Semiconduttori",
+        "intero": 0.13911597538494824,
+        "prima": 0.0038616865482723473,
+        "seconda": 0.2893729966001597
+      },
+      {
+        "colonna": "Nasdaq 100",
+        "nome": "Nasdaq 100",
+        "intero": 0.12771157423580926,
+        "prima": 0.06793076012142074,
+        "seconda": 0.18955932533418718
+      },
+      {
+        "colonna": "Healthcare",
+        "nome": "Sanità",
+        "intero": 0.08871622688862435,
+        "prima": 0.07025071137571892,
+        "seconda": 0.10712648031063399
+      },
+      {
+        "colonna": "Energy",
+        "nome": "Energia",
+        "intero": 0.08365893102461275,
+        "prima": 0.10915021915178347,
+        "seconda": 0.059239475626988725
+      },
+      {
+        "colonna": "Consumer Staples",
+        "nome": "Beni di consumo",
+        "intero": 0.0762157804000827,
+        "prima": 0.06875316614373062,
+        "seconda": 0.08358167939563921
+      },
+      {
+        "colonna": "Financials",
+        "nome": "Banche e finanza",
+        "intero": 0.05867581194731564,
+        "prima": 0.001263086743342523,
+        "seconda": 0.1181494447804805
+      }
+    ]
+  },
+  "fattori": {
+    "nota": "ogni fattore e' rapportato al PROPRIO mercato; il rapporto e' immune al cambio perche' le due gambe sono nella stessa valuta",
+    "voci": [
+      {
+        "nome": "Value USA",
+        "da": "2000-05",
+        "a": "2026-08",
+        "anni": 26.2,
+        "cagr_fattore": 0.07614850298127274,
+        "cagr_mercato": 0.085330763699355,
+        "differenza_punti": -0.9182260718082258,
+        "ritardo_peggiore": -0.3976910428109868,
+        "ritardo_da": "2007-03",
+        "ritardo_fino": "2026-05",
+        "recuperato": null,
+        "anni_per_recuperare": null
+      },
+      {
+        "nome": "Small cap USA",
+        "da": "2000-05",
+        "a": "2026-08",
+        "anni": 26.2,
+        "cagr_fattore": 0.08655738139479041,
+        "cagr_mercato": 0.085330763699355,
+        "differenza_punti": 0.12266176954354169,
+        "ritardo_peggiore": -0.48563947046331757,
+        "ritardo_da": "2011-03",
+        "ritardo_fino": "2025-07",
+        "recuperato": null,
+        "anni_per_recuperare": null
+      },
+      {
+        "nome": "Quality USA",
+        "da": "2013-07",
+        "a": "2025-12",
+        "anni": 12.4,
+        "cagr_fattore": 0.13455828263295633,
+        "cagr_mercato": 0.13864844635412488,
+        "differenza_punti": -0.40901637211685493,
+        "ritardo_peggiore": -0.11519472336217162,
+        "ritardo_da": "2016-02",
+        "ritardo_fino": "2025-10",
+        "recuperato": null,
+        "anni_per_recuperare": null
+      },
+      {
+        "nome": "Minima volatilità USA",
+        "da": "2011-10",
+        "a": "2025-12",
+        "anni": 14.2,
+        "cagr_fattore": 0.11686292576611645,
+        "cagr_mercato": 0.14725045963341654,
+        "differenza_punti": -3.0387533867300087,
+        "ritardo_peggiore": -0.3702763542383959,
+        "ritardo_da": "2016-06",
+        "ritardo_fino": "2025-10",
+        "recuperato": null,
+        "anni_per_recuperare": null
+      },
+      {
+        "nome": "Momentum Europa",
+        "da": "1994-06",
+        "a": "2026-07",
+        "anni": 32.1,
+        "cagr_fattore": 0.11008107882100027,
+        "cagr_mercato": 0.077109194325653,
+        "differenza_punti": 3.297188449534727,
+        "ritardo_peggiore": -0.2722499657029598,
+        "ritardo_da": "2000-02",
+        "ritardo_fino": "2001-01",
+        "recuperato": "2002-09",
+        "anni_per_recuperare": 2.6
+      }
+    ]
+  }
+}
