@@ -1,0 +1,86 @@
+{
+  "ter": {
+    "capitale": 10000,
+    "anni": 30,
+    "da": "1996-07",
+    "a": "2026-07",
+    "serie": "data/Msci_world/Msci_world_1969_EUR.csv, MSCI World in euro, mensile",
+    "livelli": [
+      {
+        "ter": 0.0003,
+        "etichetta": "0,03% all'anno",
+        "nota": "il più economico oggi su un indice grande",
+        "valore_finale": 117159.11
+      },
+      {
+        "ter": 0.0021,
+        "etichetta": "0,21% all'anno",
+        "nota": "ETF azionario passivo, media europea",
+        "valore_finale": 110993.1
+      },
+      {
+        "ter": 0.0128,
+        "etichetta": "1,28% all'anno",
+        "nota": "fondo azionario attivo non-ETF, media europea",
+        "valore_finale": 80322.96
+      }
+    ],
+    "differenza_economico_vs_attivo": 36836.15,
+    "fonti": {
+      "0,03%": "TER del piu' economico fra gli ETF su S&P 500 citati in msci-world-ftse-all-world-sp500 (2026)",
+      "0,21%": "ESMA, Costs and Performance of EU Retail Investment Products, marzo 2026: ETF azionari passivi, costi correnti 2024",
+      "1,28%": "stessa fonte: fondi azionari attivi non-ETF. La media di tutti i non-ETF azionari e' 1,32%; l'Italia e' fra i paesi piu' cari"
+    }
+  },
+  "commissioni": {
+    "nota": "aritmetica su forme di listino tipiche, senza nomi di intermediari: i listini cambiano, le forme no",
+    "soglia_di_guardia": 0.005,
+    "importo_minimo_per_restare_sotto_soglia_con_3_euro": 600.0,
+    "esempi": [
+      {
+        "importo": 50,
+        "fissa_3_euro_pct": 0.06
+      },
+      {
+        "importo": 100,
+        "fissa_3_euro_pct": 0.03
+      },
+      {
+        "importo": 200,
+        "fissa_3_euro_pct": 0.015
+      },
+      {
+        "importo": 500,
+        "fissa_3_euro_pct": 0.006
+      },
+      {
+        "importo": 1000,
+        "fissa_3_euro_pct": 0.003
+      }
+    ],
+    "soglia_oltre_la_quale_la_percentuale_supera_il_minimo": 1578.9473684210527
+  },
+  "cascata": {
+    "fonte": "public/charts/rendimenti-netti-indici-azionari/summary.json e l'articolo quanto-rende-azionario-netto-tasse-costi: MSCI World, mediana di 440 finestre ventennali",
+    "lordo_pct": 7.96,
+    "costi_ricorrenti_pp": 0.7,
+    "imposta_pp": 1.16,
+    "netto_pct": 6.1
+  },
+  "tracking_error": {
+    "fonte": "robustness_tracking_error.csv dello stesso studio, 200 simulazioni",
+    "msci_world_dev_std_bps_per_orizzonte": {
+      "1": 4.55,
+      "3": 3.24,
+      "5": 2.85,
+      "10": 2.92,
+      "15": 2.27,
+      "20": 2.3
+    },
+    "scarto_massimo_bps": {
+      "indice": "Russell 2000",
+      "anni": 1,
+      "dev_std_bps": 10.89
+    }
+  }
+}
