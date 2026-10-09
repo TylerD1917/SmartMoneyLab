@@ -72,7 +72,18 @@ const verdictMap = {
       <ul class="divide-y divide-slate-200 dark:divide-slate-800">
         {seriesPosts.map((post) => {
           const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
+          const blocco = meta.blocks?.find(
+            (b) => b.da === post.data.seriesOrder
+          );
           return (
+            <>
+            {blocco && (
+              <li class="pt-7 pb-1 first:pt-0">
+                <p class="text-xs font-semibold uppercase tracking-wider text-blue-900 dark:text-blue-400">
+                  {blocco.titolo}
+                </p>
+              </li>
+            )}
             <li class="py-5">
               <a href={`/posts/${post.slug}`} class="group block">
                 <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
@@ -105,6 +116,7 @@ const verdictMap = {
                 </p>
               </a>
             </li>
+            </>
           );
         })}
       </ul>

@@ -5,11 +5,20 @@
  * comparire nella pagina indice della serie e mostrare un badge.
  */
 
+/** Intestazione di blocco nella pagina-percorso: compare sopra l'episodio
+ *  il cui seriesOrder coincide con `da`. Serve alle serie lunghe, dove un
+ *  elenco piatto di tredici titoli non fa vedere la struttura. */
+export interface SeriesBlock {
+  da: number;
+  titolo: string;
+}
+
 export interface SeriesMeta {
   slug: string;
   title: string;
   shortLabel: string; // versione abbreviata per il badge inline
   description: string;
+  blocks?: SeriesBlock[];
 }
 
 export const SERIES: Record<string, SeriesMeta> = {
@@ -22,6 +31,12 @@ export const SERIES: Record<string, SeriesMeta> = {
       "soldi, dove si puo' mettere il denaro, gli strumenti e quanto " +
       "costano, come si leggono i numeri. Vanno letti in ordine: ogni " +
       "blocco da' per noto il precedente.",
+    blocks: [
+      { da: 1, titolo: "Blocco A, perché investire e con quali soldi" },
+      { da: 4, titolo: "Blocco B, dove si può mettere il denaro" },
+      { da: 7, titolo: "Blocco C, gli strumenti e quanto costano" },
+      { da: 11, titolo: "Blocco D, come si leggono i numeri" },
+    ],
   },
   "battere-il-mercato": {
     slug: "battere-il-mercato",

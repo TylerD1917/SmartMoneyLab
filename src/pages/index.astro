@@ -89,7 +89,9 @@ const usedCategories = CATEGORY_ORDER.filter((slug) =>
           Vai al percorso completo
         </a>
         <span class="ml-2 text-slate-500 dark:text-slate-400">
-          ({episodiBasi.length} {episodiBasi.length === 1 ? "episodio" : "episodi"} pubblicati su 13)
+          {episodiBasi.length >= 13
+            ? "(collana completa, 13 episodi)"
+            : `(${episodiBasi.length} ${episodiBasi.length === 1 ? "episodio" : "episodi"} pubblicati su 13)`}
         </span>
       </p>
     </section>
