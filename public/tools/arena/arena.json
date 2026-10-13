@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-06",
- "updated": "2026-10-13T03:04:30.352246",
+ "updated": "2026-10-13T17:35:19.879290",
  "ultima_sessione": "2026-10-12",
  "rules": {
   "capital": 100000,
@@ -19,15 +19,6 @@
  },
  "leaderboard": [
   {
-   "id": "gpt",
-   "type": "model",
-   "nav": NaN,
-   "ret_total": NaN,
-   "vol_ann": null,
-   "max_dd": -0.014,
-   "sharpe": null
-  },
-  {
    "id": "SP500",
    "type": "benchmark",
    "nav": 103415.69,
@@ -43,6 +34,15 @@
    "ret_total": 0.0292,
    "vol_ann": null,
    "max_dd": -0.0168,
+   "sharpe": null
+  },
+  {
+   "id": "gpt",
+   "type": "model",
+   "nav": 102144.36,
+   "ret_total": 0.0214,
+   "vol_ann": null,
+   "max_dd": -0.014,
    "sharpe": null
   },
   {
@@ -748,7 +748,7 @@
    ],
    [
     "2026-10-12",
-    NaN
+    102144.36
    ]
   ],
   "gemini": [
