@@ -1,0 +1,106 @@
+{
+  "slug": "quanto-rendono-etf-obbligazionari",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "Gli ETF obbligazionari",
+        "rendono male?"
+      ],
+      "accent_lines": [
+        1
+      ],
+      "subtitle": "64 anni di dati dicono il contrario. Ma gli ultimi dieci anni sono stati i peggiori di sempre, e sono quelli che tutti ricordano."
+    },
+    {
+      "type": "bullets",
+      "title": "Il problema di giudicarli",
+      "bullets": [
+        "Il più vecchio di questi ETF esiste dal 2002, gli europei dal 2008.",
+        "In quei vent'anni ci stanno il più grande calo dei tassi della storia e la risalita più rapida da quarant'anni.",
+        "Qualunque statistica su quel periodo parla del periodo, non dello strumento.",
+        "Li ho ricostruiti dal 1962 con i rendimenti dei titoli di Stato, e ho verificato che replichino gli ETF veri."
+      ]
+    },
+    {
+      "type": "number",
+      "kicker": "Finestre di vent'anni chiuse in perdita, su quattro ETF e 64 anni:",
+      "number": "0",
+      "note": "zero, su più di 600 finestre",
+      "box": [
+        "La peggiore in assoluto",
+        "ha reso +1,73% all'anno.",
+        "Era partita nel gennaio 1962."
+      ],
+      "box_accent": [
+        1
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "public/charts/quanto-rendono-etf-obbligazionari/03_peggiori.png",
+      "caption": "I minimi cadono tutti dopo il 2015.",
+      "title": [
+        "Non dipende dall'ETF.",
+        "Dipende da quando compri."
+      ]
+    },
+    {
+      "type": "compare",
+      "kicker": "Titoli di Stato USA lunghi, 10 anni:",
+      "left": {
+        "num": "+16,5%",
+        "label": "chi comprava nel 1981"
+      },
+      "right": {
+        "num": "−2,8%",
+        "label": "chi comprava nel 2016"
+      },
+      "punch": [
+        "Cambia solo",
+        "la data di acquisto."
+      ],
+      "punch_accent": [
+        1
+      ]
+    },
+    {
+      "type": "number_light",
+      "kicker": "Però il contraltare esiste, e va detto. Perdita massima dal 2020:",
+      "number": "−47%",
+      "note": "sui titoli di Stato americani oltre i vent'anni",
+      "box": [
+        "Oggi quell'indice è ancora",
+        "40% sotto il suo massimo.",
+        "Chi ha comprato nel 2020 aspetta."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "bullets",
+      "title": "Le tre cose che restano",
+      "bullets": [
+        "L'orizzonte conta più dello strumento: a cinque anni perdi nel 6-13% dei casi, a venti mai.",
+        "La scadenza media decide quanto sarà brutto nel mezzo: le mediane a vent'anni stanno in due punti, le perdite del 2022 in più di venti.",
+        "Il rendimento scritto sul prodotto il giorno in cui compri spiega fra il 74% e il 90% di quello che otterrai in dieci anni.",
+        "Nessuna di queste tre cose è un consiglio di comprare."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": [
+        "Lo studio completo,",
+        "limiti del modello compresi."
+      ],
+      "bullets": [
+        "Quattro ETF ricostruiti dal 1962, validati sui veri",
+        "Il caso italiano anche al netto dell'inflazione",
+        "Tutti i limiti dichiarati, con la misura di quanto pesano"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}

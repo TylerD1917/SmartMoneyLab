@@ -55,7 +55,7 @@ import matplotlib.animation as animation
 import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
-from matplotlib.ticker import FuncFormatter
+from matplotlib.ticker import FuncFormatter, MaxNLocator
 
 # Reel Instagram: 9:16 verticale @ 30fps
 WIDTH_PX = 1080
@@ -99,12 +99,68 @@ def _format_eur(value: float) -> str:
     return f"€{value:.0f}"
 
 
-def _format_pct(value: float) -> str:
-    """Formatta come '+X%' / '-X%', arrotondato all'intero.
+MESI_IT = ["gen", "feb", "mar", "apr", "mag", "giu",
+           "lug", "ago", "set", "ott", "nov", "dic"]
+
+
+def _data_breve(d, giorni_totali: int) -> str:
+    """Etichetta di data compatta e in italiano.
+
+    Sotto i tre mesi serve il giorno ("12 set"), fino a tre anni basta il
+    mese ("set 2026"), oltre basta l'anno.
+    """
+    mese = MESI_IT[d.month - 1]
+    if giorni_totali <= 95:
+        return f"{d.day} {mese}"
+    if giorni_totali <= 1100:
+        return f"{mese} {d.year}"
+    return str(d.year)
+
+
+def _format_pct(value: float, decimali: int = 0) -> str:
+    """Formatta come '+X%' / '-X%'.
+
     Usato in modalita' --percentage: le curve rappresentano variazioni
-    rispetto al punto iniziale (base 0)."""
+    rispetto al punto iniziale (base 0). I decimali non sono fissi: su un
+    backtest di trent'anni l'intero basta e avanza (+251%), ma su un mese di
+    esperimento l'intero schiaccerebbe tutto il racconto in "-2%" contro
+    "+0%". Li sceglie _decimali_pct guardando l'escursione della serie.
+    """
     sign = "+" if value >= 0 else ""
-    return f"{sign}{value:.0f}%"
+    testo = f"{sign}{value:.{decimali}f}%"
+    return testo.replace(".", ",") if decimali else testo
+
+
+def _decimali_pct(span: float) -> int:
+    """Quanti decimali servono alle etichette, data l'escursione in punti."""
+    return 1 if span < 25 else 0
+
+
+def _spread(ys, gap, lo, hi):
+    """Distanzia verticalmente le etichette finali di almeno `gap`.
+
+    Quando due curve arrivano allo stesso valore (es. -1,0% e -1,2%) le due
+    etichette si sovrappongono e diventano illeggibili. Qui si tengono i dot
+    sul punto vero e si spostano solo i testi: passata dal basso verso l'alto
+    per imporre la distanza minima, poi rientro nel riquadro.
+    """
+    ordine = sorted(range(len(ys)), key=lambda i: ys[i])
+    out = list(ys)
+    for k, i in enumerate(ordine):
+        if k == 0:
+            continue
+        prec = out[ordine[k - 1]]
+        if out[i] - prec < gap:
+            out[i] = prec + gap
+    # se la pila sfonda il bordo alto, la si riabbassa in blocco
+    eccesso = out[ordine[-1]] - hi
+    if eccesso > 0:
+        for i in ordine:
+            out[i] -= eccesso
+    for k, i in enumerate(ordine):
+        if out[i] < lo:
+            out[i] = lo + k * gap
+    return out
 
 
 def _pchip_upsample(y, n_out):
@@ -149,7 +205,10 @@ def generate_reel(
     from_returns: bool = False,
     return_seed_value: float = 1000.0,
     percentage: bool = True,
+    rebase: bool = True,
     elapsed: bool = False,
+    counter_label: str = "",
+    counter_step_months: int = 1,
     fps: int | None = 60,
     smooth: bool = True,
     upsample: bool = True,
@@ -167,6 +226,17 @@ def generate_reel(
       duration_seconds: durata target del reel (default 15s)
       log_scale:        scala log su asse Y (default True, raccomandato per equity)
       initial_capital:  capitale iniziale per il "ticker numerico" (None = lo deduce)
+      rebase:           in modalita' percentuale, riporta le curve a base 0 sul primo
+                        punto (variazione % dall'inizio). False quando le colonne SONO
+                        gia' percentuali di per se' (es. rendimento annuo a 10 anni per
+                        mese di acquisto): si tengono i livelli e si formatta in %.
+      counter_step_months: granularita' del contatore-data, in mesi (default 1).
+                        Su cinquant'anni in diciotto secondi il mese cambia dodici
+                        volte al secondo e non si legge: a 3 il contatore scatta di
+                        trimestre in trimestre e resta fermo abbastanza da leggerlo.
+      counter_label:    prefisso del contatore in alto, che diventa "<label> mese anno"
+                        (es. "Compri a set 1981"). Serve ai reel in cui l'asse del tempo
+                        e' la data di ACQUISTO e non la detenzione.
       fps:              framerate di export (None = FPS globale, 30). Alzarlo a 60
                         raddoppia i frame e rende il tratto molto piu' continuo.
       smooth:           modalita' "disegno continuo" (default False = comportamento
@@ -214,8 +284,9 @@ def generate_reel(
     # che dal moltiplicatore assoluto (3.51x). Forza log_scale=False perche'
     # la scala log non gestisce valori negativi (es. -7% del bucket <$40).
     if percentage:
-        first = df.iloc[0]
-        df = df.divide(first).subtract(1).multiply(100)
+        if rebase:
+            first = df.iloc[0]
+            df = df.divide(first).subtract(1).multiply(100)
         log_scale = False
 
     # ---- Upsampling per curve morbide (look 'chart-race') ---- #
@@ -270,8 +341,14 @@ def generate_reel(
         # Range simmetrico attorno a 0; gestisce valori negativi.
         _lo = float(df[columns].min().min())
         _hi = float(df[columns].max().max())
-        pad_top = max(abs(_hi) * 0.20, 15)
-        pad_bot = max(abs(_lo) * 0.40, 10)
+        # I minimi fissi (15 e 10 punti) erano tarati sui backtest decennali,
+        # dove la curva arriva a +250%. Su un esperimento di un mese, con
+        # escursione di dieci punti, schiacciavano il racconto in mezzo a un
+        # asse da -20% a +15%. Proporzionali all'escursione reale, con un
+        # pavimento piccolo perche' le etichette finali abbiano comunque aria.
+        _span = max(_hi - _lo, 1e-9)
+        pad_top = max(abs(_hi) * 0.20, _span * 0.22, 2.0)
+        pad_bot = max(abs(_lo) * 0.40, _span * 0.18, 1.5)
         y_min = _lo - pad_bot
         y_max = _hi + pad_top
     else:
@@ -289,7 +366,16 @@ def generate_reel(
         # In modalita' 'anni trascorsi' le date sull'asse x sono fittizie:
         # nascondo le etichette per non far leggere anni di calendario fuorvianti.
         ax.tick_params(axis="x", labelbottom=False)
-    _y_formatter = _format_pct if percentage else _format_eur
+    else:
+        # Le date ISO per esteso si sovrapponevano fra loro su una serie
+        # breve: poche tacche e formato corto, scelto in base alla durata.
+        _giorni = (df.index[-1] - df.index[0]).days
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=4, prune="both"))
+        ax.xaxis.set_major_formatter(FuncFormatter(
+            lambda v, _: _data_breve(mdates.num2date(v), _giorni)))
+    _dec = _decimali_pct(float(df[columns].max().max()) - float(df[columns].min().min())) \
+        if percentage else 0
+    _y_formatter = (lambda v: _format_pct(v, _dec)) if percentage else _format_eur
     ax.yaxis.set_major_formatter(FuncFormatter(lambda v, _: _y_formatter(v)))
     if percentage:
         # Linea 0% di riferimento (piu' visibile della griglia)
@@ -359,8 +445,12 @@ def generate_reel(
         raw = (f - intro_frames) / growth_frames
         return _ease(raw) if smooth else raw
 
+    # distanza minima fra due etichette finali, in unita' dell'asse y
+    gap_etichette = (y_max - y_min) * 0.038
+
     def animate(frame: int):
         p = progress_at_frame(frame)
+        teste: list[tuple[float, float]] = []
         if smooth:
             # Posizione frazionaria lungo la serie: i punti interi gia'
             # "disegnati" + un punto interpolato che scivola sul segmento
@@ -381,8 +471,7 @@ def generate_reel(
                     y_head = yv[i0] + (yv[i0 + 1] - yv[i0]) * frac
                 ys = np.append(yv[: i0 + 1], y_head)
                 lines[i].set_data(xs, ys)
-                end_labels[i].set_position((x_head, y_head))
-                end_labels[i].set_text(f"  {_y_formatter(y_head)}")
+                teste.append((x_head, y_head))
                 dots[i].set_data([x_head], [y_head])
             head_ts = pd.Timestamp(mdates.num2date(x_head)).tz_localize(None)
         else:
@@ -393,15 +482,38 @@ def generate_reel(
                 lines[i].set_data(x, y)
                 # Etichetta al punto finale
                 if len(y) > 0:
-                    end_labels[i].set_position((x[-1], y[-1]))
-                    end_labels[i].set_text(f"  {_y_formatter(y[-1])}")
+                    teste.append((mdates.date2num(x[-1]), float(y[-1])))
                     dots[i].set_data([x[-1]], [y[-1]])
             head_ts = pd.Timestamp(x[-1])
+        # Etichette finali: testo sul valore vero, posizione distanziata.
+        if teste:
+            y_testi = _spread([t[1] for t in teste], gap_etichette, y_min, y_max)
+            for i, (x_t, y_t) in enumerate(teste):
+                end_labels[i].set_position((x_t, y_testi[i]))
+                end_labels[i].set_text(f"  {_y_formatter(y_t)}")
         # Etichetta temporale: anno di calendario, oppure anni trascorsi
         # dall'inizio (modalita' elapsed, per reel 'forward da evento').
-        if elapsed:
+        if counter_label:
+            # L'asse del tempo e' la data di acquisto: il contatore la legge
+            # per esteso ("Compri a set 1981"), non come anno di detenzione.
+            # Con passo > 1 il mese viene arrotondato in giu' al blocco
+            # (trimestre, semestre) cosi' l'etichetta sta ferma e si legge.
+            if counter_step_months >= 12:
+                # Un mese in etichetta, con passo annuale, darebbe una
+                # precisione che il contatore non ha: resta il solo anno.
+                year_txt.set_text(f"{counter_label} {head_ts.year}")
+            else:
+                _m = head_ts.month - 1
+                if counter_step_months > 1:
+                    _m -= _m % counter_step_months
+                year_txt.set_text(f"{counter_label} {MESI_IT[_m]} {head_ts.year}")
+        elif elapsed:
             yrs = (head_ts - t0).days / 365.25
             year_txt.set_text(f"Anno {yrs:.0f}")
+        elif (df.index[-1] - df.index[0]).days < 400:
+            # Su una serie breve l'anno resta fermo per tutto il reel e non
+            # dice niente: meglio far correre il giorno.
+            year_txt.set_text(_data_breve(head_ts, 0))
         else:
             year_txt.set_text(str(head_ts.year))
         return lines + end_labels + dots + [year_txt]
@@ -484,6 +596,20 @@ def main():
     parser.add_argument("--absolute", action="store_true",
                         help="Mostra valori assoluti invece della variazione %% dal punto "
                              "iniziale. DEFAULT: percentuale (standard per i rendimenti).")
+    parser.add_argument("--pct-levels", action="store_true",
+                        help="Le colonne sono GIA' percentuali (es. rendimento annuo): "
+                             "le mostra come livelli, formattati in %%, senza riportarle "
+                             "a base 0 sul primo punto.")
+    parser.add_argument("--counter-label", default="",
+                        help="Prefisso del contatore in alto, che diventa "
+                             "'<label> mese anno' (es. --counter-label \"Compri a\" -> "
+                             "'Compri a set 1981'). Per reel il cui asse del tempo e' "
+                             "la data di acquisto.")
+    parser.add_argument("--counter-step", type=int, default=1,
+                        help="Granularita' in mesi del contatore-data (default 1). "
+                             "Con 3 scatta di trimestre in trimestre; da 12 in su "
+                             "mostra il solo anno. Su serie lunghe il mese cambia "
+                             "troppo in fretta per essere letto.")
     parser.add_argument("--no-smooth", action="store_true",
                         help="Disegno 'a gradini' classico. DEFAULT: tratto continuo smooth.")
     parser.add_argument("--no-upsample", action="store_true",
@@ -514,7 +640,10 @@ def main():
         from_returns=args.from_returns,
         return_seed_value=args.seed,
         percentage=not args.absolute,
+        rebase=not args.pct_levels,
         elapsed=args.elapsed,
+        counter_label=args.counter_label,
+        counter_step_months=args.counter_step,
         fps=args.fps,
         smooth=not args.no_smooth,
         upsample=not args.no_upsample,
