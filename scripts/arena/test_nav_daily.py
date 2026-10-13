@@ -13,6 +13,11 @@ di questi test ne fissa uno:
   - una serie vuota veniva pubblicata come 100.000 -> test_senza_snapshot_si_ferma
     e test_publish_rifiuta_storia_piu_corta.
 
+Dal guasto del 2026-10-12 (un prezzo mancante -> "nav": NaN -> pagina /lab
+rotta con "Unexpected token N") vengono invece test_sessione_incompleta_scartata,
+test_buco_interno_si_ferma, test_publish_rifiuta_nav_non_finito e
+test_write_json_rifiuta_nan.
+
   python scripts/arena/test_nav_daily.py
 """
 import os
@@ -194,6 +199,61 @@ def test_publish_rifiuta_serie_vuota():
             assert "VUOTA" in str(e), e
             return
         raise AssertionError("publish doveva rifiutare una serie vuota")
+
+
+def _close_pandas(sessioni, prezzi):
+    import pandas as pd
+    return pd.DataFrame(prezzi, index=pd.to_datetime(sessioni))
+
+
+def test_sessione_incompleta_scartata():
+    """Prezzo mancante nell'ultima sessione: si pubblica fino al giorno prima."""
+    prezzi = {"AAA": [100.0, 101.0, 102.0], "BBB": [50.0, 50.0, None]}
+    close = _close_pandas(SESSIONI[:3], prezzi)
+    out = nd.sessioni_complete(close, ["AAA", "BBB"])
+    assert len(out) == 2, out
+    assert out.index[-1].date().isoformat() == SESSIONI[1]
+    # un ticker non usato da nessuno non deve far scartare niente
+    prezzi2 = dict(prezzi, CCC=[None, None, None])
+    out2 = nd.sessioni_complete(_close_pandas(SESSIONI[:3], prezzi2), ["AAA"])
+    assert len(out2) == 3, out2
+
+
+def test_buco_interno_si_ferma():
+    """Prezzo mancante in mezzo: scartare falserebbe i conti, quindi errore."""
+    prezzi = {"AAA": [100.0, None, 102.0], "BBB": [50.0, 50.0, 50.0]}
+    close = _close_pandas(SESSIONI[:3], prezzi)
+    try:
+        nd.sessioni_complete(close, ["AAA", "BBB"])
+    except SystemExit as e:
+        assert "AAA" in str(e) and SESSIONI[1] in str(e), e
+        return
+    raise AssertionError("un buco interno doveva fermare la ricostruzione")
+
+
+def test_publish_rifiuta_nav_non_finito():
+    import publish
+    with tempfile.TemporaryDirectory() as root:
+        serie = {"m1": [("2026-09-17", 100000.0), ("2026-09-18", float("nan"))]}
+        try:
+            publish.verifica_regressioni(serie, root, ["m1"])
+        except SystemExit as e:
+            assert "non finito" in str(e) and "m1" in str(e), e
+            return
+        raise AssertionError("publish doveva rifiutare un NAV non finito")
+
+
+def test_write_json_rifiuta_nan():
+    """NaN e' accettato da Python e rifiutato dal browser: deve fallire qui."""
+    with tempfile.TemporaryDirectory() as root:
+        path = os.path.join(root, "x.json")
+        try:
+            ac.write_json(path, {"nav": float("nan")})
+        except SystemExit as e:
+            assert "NaN" in str(e) or "JSON" in str(e), e
+            assert not os.path.exists(path), "il file non va scritto a meta'"
+            return
+        raise AssertionError("write_json doveva rifiutare un NaN")
 
 
 if __name__ == "__main__":

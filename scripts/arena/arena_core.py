@@ -31,8 +31,20 @@ def read_json(path, default=None):
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else default
 
 def write_json(path, obj):
+    """Scrive JSON valido anche per un browser.
+
+    allow_nan=False non e' un dettaglio: Python accetta NaN e Infinity, il
+    JSON.parse del browser no. Il 2026-10-12 un prezzo mancante ha prodotto
+    "nav": NaN, Python l'ha riletto senza fiatare e la pagina /lab si e'
+    rotta. Meglio far fallire la Action: il sito resta all'ultima versione
+    buona e l'errore si vede."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    json.dump(obj, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    try:
+        testo = json.dumps(obj, ensure_ascii=False, indent=1, allow_nan=False)
+    except ValueError as e:
+        raise SystemExit(f"[arena] valore non rappresentabile in JSON in {path}: {e}. "
+                         "Di solito e' un NaN nato da un prezzo mancante.")
+    open(path, "w", encoding="utf-8").write(testo)
 
 # ---------------- portfolio ----------------
 def portfolio_new(cfg, model_id):

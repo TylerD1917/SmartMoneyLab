@@ -99,6 +99,53 @@ def scarica(tickers, start, end):
     return close, divs
 
 
+def sessioni_complete(close, tickers):
+    """Scarta le sessioni in cui manca il prezzo di QUALCHE ticker usato.
+
+    Imparata dal guasto del 2026-10-12. Alle 22 UTC il dato di un titolo puo'
+    non essere ancora pubblicato: la riga esiste (gli altri ticker ce l'hanno)
+    ma quella casella e' vuota. Il vecchio motore ci passava sopra, il NaN
+    attraversava NAV, classifica e JSON pubblico, e la pagina moriva con
+    "SyntaxError: Unexpected token N" perche' NaN non e' JSON valido.
+
+    Un buco IN CODA e' fisiologico e si risolve aspettando: si scarta la
+    sessione e la curva si ferma al giorno prima. Un buco IN MEZZO alla serie
+    no: li' scartare falserebbe i conti (il giorno esiste per tutti gli altri),
+    quindi ci si ferma e il sito resta all'ultima versione buona.
+
+    Si guarda l'unione dei ticker di tutti i partecipanti: se ne manca uno solo,
+    la sessione salta per tutti. E' voluto, una classifica in cui un modello e'
+    valorizzato un giorno piu' avanti degli altri non e' confrontabile.
+    """
+    col = [t for t in sorted(set(tickers)) if t in close.columns]
+    buchi = close[col].isna().any(axis=1)
+    if not bool(buchi.any()):
+        return close
+
+    date = [d.date().isoformat() for d in close.index]
+    taglio = len(close)                       # prima sessione scartata in coda
+    while taglio > 0 and bool(buchi.iloc[taglio - 1]):
+        taglio -= 1
+
+    interni = [d for d, b in zip(date[:taglio], buchi.iloc[:taglio]) if bool(b)]
+    if interni:
+        dettaglio = []
+        for d in interni[:5]:
+            mancano = [t for t in col if bool(close[t].isna().loc[close.index[date.index(d)]])]
+            dettaglio.append(f"{d}: manca {', '.join(mancano)}")
+        raise SystemExit(
+            "[nav] ERRORE: prezzi mancanti dentro la serie, non in coda:\n       "
+            + "\n       ".join(dettaglio)
+            + ("\n       (e altre " + str(len(interni) - 5) + " sessioni)" if len(interni) > 5 else "")
+            + "\n       Scartarle falserebbe il NAV: controlla il ticker su Yahoo "
+              "(delisting, cambio simbolo) e rilancia.")
+
+    for d in date[taglio:]:
+        mancano = [t for t in col if bool(close[t].isna().loc[close.index[date.index(d)]])]
+        print(f"[nav] sessione incompleta, esclusa: {d} (manca {', '.join(mancano)})")
+    return close.iloc[:taglio]
+
+
 def sessioni_chiuse(close, adesso=None):
     """Tiene solo le sessioni gia' chiuse: il prezzo del giorno in corso e' un
     valore intraday, non riproducibile da chi rifa' il conto domani."""
@@ -259,6 +306,7 @@ def rebuild(cfg, write=True):
 
     close, divs = scarica(tick, start, end)
     close = sessioni_chiuse(close)
+    close = sessioni_complete(close, tick)
     if close.empty:
         raise SystemExit(
             f"[nav] ERRORE: nessuna sessione di borsa chiusa dal {start} a oggi.\n"

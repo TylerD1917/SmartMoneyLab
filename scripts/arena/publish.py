@@ -18,6 +18,7 @@ tutti i modelli a 100.000 e +0,00% senza che niente segnalasse un errore:
 import os
 import sys
 import json
+import math
 import datetime as dt
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -49,6 +50,16 @@ def storico_tesi(cfg, mid):
 
 
 # ---------------------------------------------------------------- guardrail
+def _cella(v):
+    """Valore per il CSV pubblico: vuoto se manca o non e' finito, mai "nan"."""
+    return "" if v is None or not math.isfinite(v) else f"{v:.2f}"
+
+
+def _niente_costanti(nome):
+    """json.loads chiama questa su NaN/Infinity: il browser li rifiuta, noi pure."""
+    raise ValueError(f"{nome} non e' un numero JSON valido")
+
+
 def _serie_pubblicata(outdir, parts):
     """Serie gia' online, lette dal CSV completo: {id: [date...]}"""
     path = os.path.join(outdir, "nav_daily.csv")
@@ -62,8 +73,16 @@ def _serie_pubblicata(outdir, parts):
     for l in righe[1:]:
         c = l.split(",")
         for p in out:
-            if c[cols.index(p)]:
-                out[p].append(c[0])
+            v = c[cols.index(p)]
+            # una cella pubblicata come "nan" (il guasto del 2026-10-12) non e'
+            # storia da difendere: non deve bloccare una ripubblicazione sana
+            if not v:
+                continue
+            try:
+                if math.isfinite(float(v)):
+                    out[p].append(c[0])
+            except ValueError:
+                continue
     return out
 
 
@@ -73,6 +92,12 @@ def verifica_regressioni(nav_all, outdir, parts):
     for p in parts:
         if not nav_all.get(p):
             problemi.append(f"{p}: serie VUOTA")
+            continue
+        rotti = [d for d, v in nav_all[p] if not math.isfinite(v)]
+        if rotti:
+            problemi.append(f"{p}: NAV non finito il {', '.join(rotti[:3])}"
+                            + (f" (+altri {len(rotti) - 3})" if len(rotti) > 3 else "")
+                            + " - di solito un prezzo mancante")
     vecchie = _serie_pubblicata(outdir, parts)
     for p, old in vecchie.items():
         new = [d for d, _ in nav_all.get(p, [])]
@@ -83,7 +108,7 @@ def verifica_regressioni(nav_all, outdir, parts):
         if len(new) < len(old):
             problemi.append(f"{p}: {len(new)} giorni contro i {len(old)} gia' online")
     if problemi:
-        sys.exit("[publish] PUBBLICAZIONE ANNULLATA, la storia si accorcerebbe:\n  - "
+        sys.exit("[publish] PUBBLICAZIONE ANNULLATA:\n  - "
                  + "\n  - ".join(problemi)
                  + "\n  Gli snapshot in state/positions/ sono la fonte: controlla che "
                    "ci siano tutti e rilancia nav_daily.py.")
@@ -184,15 +209,18 @@ def publish(cfg):
     with open(os.path.join(outdir, "nav_daily.csv"), "w", encoding="utf-8") as f:
         f.write("date," + ",".join(parts) + "\n")
         for d in tutte:
-            f.write(d + "," + ",".join(("" if idx[p].get(d) is None else f"{idx[p][d]:.2f}")
-                                       for p in parts) + "\n")
+            f.write(d + "," + ",".join(_cella(idx[p].get(d)) for p in parts) + "\n")
 
-    # i rationale sono in italiano e il browser legge questo JSON come UTF-8:
-    # se qualcuno lo riscrive con la codifica di sistema la pagina si rompe in silenzio
+    # Rilettura con le stesse regole del browser. Due trappole, entrambe viste
+    # dal vivo: i rationale sono in italiano e vanno letti UTF-8, e json.load di
+    # Python accetta NaN mentre JSON.parse no (guasto del 2026-10-12).
     try:
-        json.load(open(os.path.join(outdir, "arena.json"), encoding="utf-8"))
+        json.loads(open(os.path.join(outdir, "arena.json"), encoding="utf-8").read(),
+                   parse_constant=_niente_costanti)
     except UnicodeDecodeError as e:
         sys.exit(f"[publish] arena.json non e' UTF-8 valido: {e}")
+    except ValueError as e:
+        sys.exit(f"[publish] arena.json non e' JSON valido per un browser: {e}")
 
     print(f"[publish] arena.json -> {outdir}\n[publish] classifica: "
           + ", ".join(f"{r['id']} {r['ret_total']:+.2%}" for r in board))

@@ -46,19 +46,34 @@ jobs:
         run: python scripts/arena/run_period.py auto
 
       # Rete di sicurezza: se per qualunque motivo arena.json uscisse con i
-      # modelli fermi al capitale iniziale, non lo si committa.
+      # modelli fermi al capitale iniziale, o con numeri che il browser non sa
+      # leggere, non lo si committa. Il 2026-10-12 questo controllo e' passato
+      # con "nav": NaN dentro, perche' json.load di Python accetta NaN mentre
+      # JSON.parse no: da qui la lettura severa con parse_constant.
       - name: Verifica l'output prima di committare
         run: |
           python - <<'PY'
-          import json, sys
-          d = json.load(open("public/tools/arena/arena.json", encoding="utf-8"))
+          import json, math, sys
+
+          def no(nome):
+              raise ValueError(f"{nome} non e' un numero JSON valido")
+
+          testo = open("public/tools/arena/arena.json", encoding="utf-8").read()
+          try:
+              d = json.loads(testo, parse_constant=no)
+          except ValueError as e:
+              sys.exit(f"arena.json non e' leggibile da un browser: {e}")
           cap = d["rules"]["capital"]
           fermi = [r["id"] for r in d["leaderboard"]
                    if r["type"] in ("model", "control") and abs(r["nav"] - cap) < 0.01]
           vuote = [k for k, v in d["nav"].items() if not v]
-          if fermi or vuote:
+          rotti = [r["id"] for r in d["leaderboard"]
+                   if not isinstance(r.get("nav"), (int, float)) or not math.isfinite(r["nav"])]
+          rotti += [f"{k} (curva)" for k, v in d["nav"].items()
+                    if any(p[1] is None or not math.isfinite(p[1]) for p in v)]
+          if fermi or vuote or rotti:
               sys.exit(f"arena.json non pubblicabile: NAV fermo al capitale per {fermi}; "
-                       f"curve vuote per {vuote}")
+                       f"curve vuote per {vuote}; valori non finiti per {rotti}")
           print("arena.json ok:", ", ".join(f"{r['id']} {r['ret_total']:+.2%}"
                                             for r in d["leaderboard"]))
           PY
