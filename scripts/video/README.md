@@ -52,3 +52,24 @@ Tipi di scena (vedi `engine.py`):
 - Frame e audio intermedi vivono in `<tmp>/smlvideo_<slug>/` (fuori dal repo).
 - Riproducibile: cambi testo/grafici nella config e rilanci.
 ```
+
+## HyperFrames (motion, sperimentale)
+
+Cartella `hyperframes/`: scene animate scritte in HTML + GSAP e renderizzate in MP4 da
+[HyperFrames](https://github.com/heygen-com/hyperframes) (open source, render locale).
+Gira nella VM Linux usata da Claude, non da PowerShell (Node 22 e ffmpeg stanno lì).
+
+- Installazione: `cd scripts/video/hyperframes && npm install --no-bin-links`
+  (`node_modules/`, `.libs/`, `out/`, `*.mp4`, `gsap.min.js` esclusi da git).
+- Chrome headless nella VM richiede `libXdamage.so.1`, che non c'è e non si installa
+  senza sudo: sta in `.libs/` (estratta con `apt-get download libxdamage1`). Prima del
+  render: `export LD_LIBRARY_PATH=$PWD/.libs` dalla cartella `hyperframes/`.
+- Smoke test: `python3 smoke_build.py` genera `smoke-sml/index.html` dai dati del reel
+  obbligazionario; render con
+  `node ../node_modules/hyperframes/bin/hyperframes.mjs render -f 60 -q high -o out/smoke_sml.mp4`
+  da dentro `smoke-sml/`. 10 s a 60 fps = ~40 s di render (1 worker).
+- Ogni chiamata della shell ha un limite di 3 minuti: i video lunghi vanno renderizzati
+  scena per scena e concatenati con ffmpeg.
+- Gotcha: le curve si disegnano ricostruendo il path fino alla punta, non con una
+  maschera in larghezza (sui tratti quasi verticali la maschera lascia un segmento
+  oltre il pallino).

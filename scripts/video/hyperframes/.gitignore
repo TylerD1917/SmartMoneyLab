@@ -1,0 +1,7 @@
+node_modules/
+.cache/
+out/
+*.mp4
+.hf-create-*/
+.libs/
+gsap.min.js

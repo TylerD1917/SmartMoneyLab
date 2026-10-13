@@ -1,0 +1,9 @@
+{
+  "name": "sml-hyperframes",
+  "description": "Scene motion per i video YouTube di SmartMoneyLab (HyperFrames). node_modules escluso da git.",
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "hyperframes": "^0.8.150"
+  },
+  "private": true
+}
