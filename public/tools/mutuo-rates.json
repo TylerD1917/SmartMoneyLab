@@ -6,19 +6,19 @@
       "variabile": "MIR/M.IT.B.A2C.F.R.A.2250.EUR.N",
       "euribor": "FM/M.U2.EUR.RT.MM.EURIBOR3MD_.HSTA"
     },
-    "updated": "2026-09-14"
+    "updated": "2026-10-14"
   },
   "fisso": {
-    "pct": 3.56,
-    "period": "2026-07"
-  },
-  "variabile": {
-    "pct": 2.99,
-    "period": "2026-07"
-  },
-  "euribor": {
-    "pct": 2.513,
+    "pct": 3.6,
     "period": "2026-08"
   },
-  "spread_variabile": 0.477
+  "variabile": {
+    "pct": 3.37,
+    "period": "2026-08"
+  },
+  "euribor": {
+    "pct": 2.635,
+    "period": "2026-09"
+  },
+  "spread_variabile": 0.735
 }
