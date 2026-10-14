@@ -145,7 +145,26 @@ Applicato ai livelli attuali:
 | Governativi euro 7-10 | 3,22% | **3,4% annuo** |
 | Italia oltre 15 anni | 3,99% | **5,2% annuo** |
 
+I rendimenti nella colonna centrale sono quelli disponibili quando è uscito lo studio: ottobre 2026 per gli Stati Uniti, gennaio 2026 per l'area euro, che è l'ultimo dato della serie OCSE usata qui. Da allora i rendimenti europei sono saliti, e il simulatore qui sotto rifà il conto con i valori di oggi.
+
 Due avvertenze. La prima è che questa è una **relazione statistica su finestre sovrapposte**, non una promessa: il 10-26% di variabilità che resta non spiegato è esattamente la parte che non si può sapere. La seconda è che **sulle duration lunghe la relazione è molto più lasca**: sui Treasury 7-10 il risultato a dieci anni è finito entro due punti dal rendimento iniziale nell'85,5% dei casi, sui Treasury oltre i vent'anni solo nel 49,4%. Più allunghi la duration, meno il prezzo di oggi ti dice cosa otterrai.
+
+Quella seconda avvertenza non è un dettaglio: è la cosa più utile dello studio, e merita di essere misurata a ogni orizzonte invece che solo a dieci anni. Sui Treasury oltre i vent'anni la quota di casi entro due punti passa dal 49,4% a dieci anni all'**83,1% a venti**; sui titoli italiani lunghi dal 41,4% all'83,4%. La soglia cade intorno al doppio della duration: prima di lì conta più il prezzo a cui rivendi che la cedola che incassi. Lo strumento qui sotto fa questo conto per la tua gamba, al tuo orizzonte, partendo dal rendimento a scadenza del tuo ETF.
+
+<div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; border: 2px solid #1e3a8a; border-radius: 1rem; background: #dbeafe;">
+  <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #1e3a8a; font-weight: 600;">Strumento correlato</div>
+  <div style="font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-top: 0.25rem;">
+    Simulatore: quanto renderà il tuo ETF obbligazionario
+  </div>
+  <div style="color: #334155; margin-top: 0.5rem; font-size: 0.95rem;">
+    Inserisci il rendimento a scadenza del tuo ETF governativo e l'orizzonte: vedi la stima, la fascia dentro cui sono finiti otto casi storici su dieci, e quanto quella stima ha tenuto a quell'orizzonte.
+  </div>
+  <div style="margin-top: 0.75rem;">
+    <a href="/strumenti/simulatore-etf-obbligazionari" style="display: inline-block; background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; text-decoration: none; font-weight: 600;">
+      Apri il simulatore →
+    </a>
+  </div>
+</div>
 
 ## Il caso italiano, al netto dell'inflazione
 

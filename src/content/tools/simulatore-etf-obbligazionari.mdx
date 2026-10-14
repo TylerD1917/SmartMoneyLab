@@ -1,0 +1,55 @@
+---
+title: "Simulatore: quanto renderà il tuo ETF obbligazionario"
+description: "Inserisci il rendimento a scadenza del tuo ETF governativo e scopri cosa ha reso storicamente chi comprava a quel livello, e per quanti anni bisogna tenerlo perché quel numero conti davvero."
+pubDate: 2026-10-14
+tags: ["obbligazioni", "etf", "rendimento-a-scadenza", "duration", "simulatore", "btp", "treasury"]
+author: "SmartMoneyLab"
+toolType: "calculator"
+tier: "free"
+draft: false
+---
+
+import BondYieldSimulator from "../../components/interactive/BondYieldSimulator.jsx";
+
+## Cosa fa
+
+Scegli il tipo di titoli di Stato in cui investe il tuo ETF, inserisci il **rendimento a scadenza** del portafoglio (lo trovi nella scheda del fondo) e un orizzonte di detenzione. Lo strumento mostra cosa è successo storicamente a chi comprava quella categoria a quel livello di rendimento: la stima centrale, la fascia dentro cui sono finiti otto casi su dieci, e soprattutto **quanto quella stima ha tenuto** all'orizzonte che hai scelto.
+
+<BondYieldSimulator client:load />
+
+<div style="margin: 1.5rem 0; padding: 1rem 1.25rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 0.75rem;">
+  <strong>Il ragionamento dietro i numeri.</strong> Indici ricostruiti, validazione contro gli ETF reali e limiti del modello nello studio: <a href="/posts/quanto-rendono-etf-obbligazionari/"><b>Quanto rendono gli ETF obbligazionari su finestre di 5, 10, 15 e 20 anni</b></a>
+</div>
+
+## La cosa che quasi nessuno dice
+
+Il rendimento a scadenza di oggi è una buona stima di quello che otterrai, **ma solo se tieni abbastanza a lungo**, e "abbastanza" dipende dalla duration del fondo.
+
+Sui Treasury 7-10 anni, duration intorno a 6,8, il risultato a dieci anni è finito entro due punti dal rendimento di partenza nell'86% dei casi storici. Sui Treasury oltre i vent'anni, duration 13,5, la stessa cosa succede solo nel 49% dei casi: a dieci anni il prezzo di acquisto ti dice poco più di una moneta lanciata. Allunga l'orizzonte a vent'anni e si risale all'83%.
+
+La soglia cade intorno al **doppio della duration**. Prima di lì il prezzo a cui rivendi conta più della cedola che incassi, e il prezzo a cui rivendi dipende dai tassi di quel giorno, che oggi nessuno conosce. Dopo, le cedole reinvestite hanno avuto il tempo di dominare, e il conto torna dove era partito.
+
+Per questo lo strumento non si limita a darti un numero: ti dice anche se quel numero, al tuo orizzonte, vale la carta su cui è scritto.
+
+## Cosa NON fa
+
+**Non è una previsione.** La relazione fra rendimento iniziale e risultato futuro è una regolarità storica misurata su finestre che si sovrappongono, in un periodo (1962-2026) dominato da una sola grande discesa dei tassi. Spiega fra il 74% e il 91% della variabilità a seconda della gamba e dell'orizzonte: il resto è esattamente la parte che non si può sapere.
+
+**Non copre gli ETF non governativi.** Se il tuo fondo è corporate, aggregate, emergenti o high yield, il rendimento a scadenza che leggi nella scheda comprende anche le perdite attese per default e downgrade. Una parte di quel rendimento non arriverà mai a destinazione, e quanta i nostri dati non lo dicono. Lo strumento in quel caso si ferma invece di darti un numero inventato.
+
+**Non tiene conto di imposte e cambio.** I numeri sono lordi di imposte. Le due gambe americane sono in dollari: se investi in euro senza copertura, il cambio si aggiunge sopra e può superare tutto il resto su orizzonti brevi.
+
+## Come leggere i numeri
+
+- **Stima centrale**: la retta di regressione fra rendimento a scadenza all'acquisto e rendimento annuo ottenuto dopo, calcolata sulla gamba e sull'orizzonte scelti, meno il TER che hai inserito. La pendenza è quasi sempre vicina a uno: la stima finisce molto vicino al rendimento di partenza.
+- **Fascia storica**: dal 10° al 90° percentile degli scarti osservati intorno a quella retta. Otto casi storici su dieci sono finiti lì dentro.
+- **Affidabilità**: la quota di finestre storiche in cui il risultato è finito entro due punti dal rendimento di partenza. È il numero che decide quanto fidarsi degli altri due.
+- **Gamba Italia 15+**: prima del novembre 1993 i dati simulano un portafoglio di BTP lunghi che in Italia non esisteva (nel 1993 la vita media del debito era 3,3 anni). Le statistiche a quindici e vent'anni pescano quasi tutte da quel periodo: trattale come un ordine di grandezza.
+
+## Fonti e riproducibilità
+
+- Rendimenti dei titoli di Stato: Treasury constant maturity a 7, 10 e 20 anni da [FRED](https://fred.stlouisfed.org/series/DGS20); curva dei rendimenti dell'area euro e tasso a lungo termine italiano dalla [BCE](https://data.ecb.europa.eu/data/datasets/YC).
+- Serie storiche e motore degli indici: `scripts/quanto-rendono-etf-obbligazionari.py` nel repository del sito, validato contro IEF, TLT e SXRQ con scarti fra −0,05 e +0,16 punti all'anno.
+- Statistiche del simulatore: `scripts/simulatore-etf-obbligazionari.py`, rigenerabile in qualsiasi momento.
+
+Questo non è un consiglio di investimento.

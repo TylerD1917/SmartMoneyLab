@@ -1,0 +1,1326 @@
+{
+ "generato": "2026-10-14",
+ "articolo": "/posts/quanto-rendono-etf-obbligazionari/",
+ "orizzonti": [
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20
+ ],
+ "nota": "Rendimenti lordi di costi e imposte, indici ricostruiti dai rendimenti dei titoli di Stato. Le finestre si sovrappongono: descrivono il passato, non sono probabilita'.",
+ "gambe": [
+  {
+   "id": "usa-7-10",
+   "nome": "Treasury USA 7-10 anni",
+   "valuta": "USD",
+   "descrizione": "Titoli di Stato americani a media scadenza.",
+   "etf": [
+    {
+     "ticker": "IEF",
+     "nome": "iShares 7-10 Year Treasury Bond ETF",
+     "ter": 0.15
+    },
+    {
+     "ticker": "SXRM",
+     "nome": "iShares $ Treasury Bond 7-10yr UCITS ETF",
+     "ter": 0.07
+    }
+   ],
+   "fonte": {
+    "nome": "Treasury constant maturity 7 e 10 anni, FRED",
+    "link": "https://fred.stlouisfed.org/series/DGS10"
+   },
+   "serie": "USA 7-10",
+   "duration": 6.8,
+   "scadenza_modellata": 8.5,
+   "storia_da": "1969-07",
+   "campo_x": {
+    "min": 0.47,
+    "max": 15.95
+   },
+   "rendimento": {
+    "valore": 5.19,
+    "data": "2026-10-09",
+    "scarto_vs_serie_storica": 0.0,
+    "fonte": "Treasury constant maturity 7 e 10 anni, FRED",
+    "link": "https://fred.stlouisfed.org/series/DGS10"
+   },
+   "orizzonte_migliore": 12,
+   "orizzonte_sufficiente": 7,
+   "orizzonti": [
+    {
+     "anni": 5,
+     "n": 627,
+     "pendenza": 1.175,
+     "intercetta": -0.366,
+     "r2": 0.75,
+     "residui": {
+      "p10": -2.59,
+      "p25": -1.21,
+      "p50": 0.25,
+      "p75": 1.47,
+      "p90": 2.48
+     },
+     "entro1": 30.5,
+     "entro2": 60.3,
+     "da": "1969-07",
+     "a": "2021-09"
+    },
+    {
+     "anni": 6,
+     "n": 615,
+     "pendenza": 1.116,
+     "intercetta": -0.006,
+     "r2": 0.786,
+     "residui": {
+      "p10": -2.26,
+      "p25": -0.99,
+      "p50": 0.26,
+      "p75": 1.27,
+      "p90": 2.06
+     },
+     "entro1": 29.8,
+     "entro2": 68.5,
+     "da": "1969-07",
+     "a": "2020-09"
+    },
+    {
+     "anni": 7,
+     "n": 603,
+     "pendenza": 1.078,
+     "intercetta": 0.218,
+     "r2": 0.814,
+     "residui": {
+      "p10": -2.02,
+      "p25": -0.86,
+      "p50": 0.17,
+      "p75": 1.07,
+      "p90": 1.83
+     },
+     "entro1": 33.8,
+     "entro2": 76.5,
+     "da": "1969-07",
+     "a": "2019-09"
+    },
+    {
+     "anni": 8,
+     "n": 591,
+     "pendenza": 1.062,
+     "intercetta": 0.29,
+     "r2": 0.841,
+     "residui": {
+      "p10": -1.84,
+      "p25": -0.76,
+      "p50": 0.22,
+      "p75": 0.95,
+      "p90": 1.52
+     },
+     "entro1": 35.7,
+     "entro2": 81.6,
+     "da": "1969-07",
+     "a": "2018-09"
+    },
+    {
+     "anni": 9,
+     "n": 579,
+     "pendenza": 1.033,
+     "intercetta": 0.443,
+     "r2": 0.852,
+     "residui": {
+      "p10": -1.83,
+      "p25": -0.77,
+      "p50": 0.22,
+      "p75": 0.85,
+      "p90": 1.46
+     },
+     "entro1": 41.6,
+     "entro2": 83.8,
+     "da": "1969-07",
+     "a": "2017-09"
+    },
+    {
+     "anni": 10,
+     "n": 567,
+     "pendenza": 1.014,
+     "intercetta": 0.551,
+     "r2": 0.862,
+     "residui": {
+      "p10": -1.64,
+      "p25": -0.73,
+      "p50": 0.08,
+      "p75": 0.84,
+      "p90": 1.43
+     },
+     "entro1": 48.1,
+     "entro2": 85.5,
+     "da": "1969-07",
+     "a": "2016-09"
+    },
+    {
+     "anni": 11,
+     "n": 555,
+     "pendenza": 1.002,
+     "intercetta": 0.614,
+     "r2": 0.875,
+     "residui": {
+      "p10": -1.39,
+      "p25": -0.7,
+      "p50": 0.06,
+      "p75": 0.81,
+      "p90": 1.36
+     },
+     "entro1": 53.2,
+     "entro2": 87.4,
+     "da": "1969-07",
+     "a": "2015-09"
+    },
+    {
+     "anni": 12,
+     "n": 543,
+     "pendenza": 0.979,
+     "intercetta": 0.765,
+     "r2": 0.879,
+     "residui": {
+      "p10": -1.38,
+      "p25": -0.73,
+      "p50": 0.08,
+      "p75": 0.76,
+      "p90": 1.37
+     },
+     "entro1": 58.0,
+     "entro2": 89.5,
+     "da": "1969-07",
+     "a": "2014-09"
+    },
+    {
+     "anni": 13,
+     "n": 531,
+     "pendenza": 0.949,
+     "intercetta": 0.971,
+     "r2": 0.875,
+     "residui": {
+      "p10": -1.37,
+      "p25": -0.66,
+      "p50": -0.04,
+      "p75": 0.55,
+      "p90": 1.59
+     },
+     "entro1": 63.8,
+     "entro2": 87.2,
+     "da": "1969-07",
+     "a": "2013-09"
+    },
+    {
+     "anni": 14,
+     "n": 519,
+     "pendenza": 0.919,
+     "intercetta": 1.132,
+     "r2": 0.849,
+     "residui": {
+      "p10": -1.29,
+      "p25": -0.67,
+      "p50": -0.17,
+      "p75": 0.53,
+      "p90": 1.77
+     },
+     "entro1": 64.7,
+     "entro2": 85.0,
+     "da": "1969-07",
+     "a": "2012-09"
+    },
+    {
+     "anni": 15,
+     "n": 507,
+     "pendenza": 0.875,
+     "intercetta": 1.389,
+     "r2": 0.8,
+     "residui": {
+      "p10": -1.62,
+      "p25": -0.7,
+      "p50": -0.14,
+      "p75": 0.46,
+      "p90": 1.82
+     },
+     "entro1": 62.1,
+     "entro2": 81.5,
+     "da": "1969-07",
+     "a": "2011-09"
+    },
+    {
+     "anni": 16,
+     "n": 495,
+     "pendenza": 0.841,
+     "intercetta": 1.589,
+     "r2": 0.763,
+     "residui": {
+      "p10": -1.67,
+      "p25": -0.83,
+      "p50": -0.21,
+      "p75": 0.9,
+      "p90": 1.79
+     },
+     "entro1": 54.1,
+     "entro2": 80.8,
+     "da": "1969-07",
+     "a": "2010-09"
+    },
+    {
+     "anni": 17,
+     "n": 483,
+     "pendenza": 0.814,
+     "intercetta": 1.706,
+     "r2": 0.735,
+     "residui": {
+      "p10": -1.66,
+      "p25": -0.9,
+      "p50": -0.24,
+      "p75": 0.95,
+      "p90": 1.91
+     },
+     "entro1": 51.6,
+     "entro2": 79.1,
+     "da": "1969-07",
+     "a": "2009-09"
+    },
+    {
+     "anni": 18,
+     "n": 471,
+     "pendenza": 0.783,
+     "intercetta": 1.85,
+     "r2": 0.699,
+     "residui": {
+      "p10": -1.79,
+      "p25": -0.84,
+      "p50": -0.25,
+      "p75": 0.99,
+      "p90": 2.04
+     },
+     "entro1": 52.2,
+     "entro2": 77.3,
+     "da": "1969-07",
+     "a": "2008-09"
+    },
+    {
+     "anni": 19,
+     "n": 459,
+     "pendenza": 0.755,
+     "intercetta": 1.998,
+     "r2": 0.666,
+     "residui": {
+      "p10": -1.67,
+      "p25": -0.83,
+      "p50": -0.4,
+      "p75": 1.2,
+      "p90": 2.16
+     },
+     "entro1": 51.9,
+     "entro2": 78.6,
+     "da": "1969-07",
+     "a": "2007-09"
+    },
+    {
+     "anni": 20,
+     "n": 447,
+     "pendenza": 0.733,
+     "intercetta": 2.107,
+     "r2": 0.647,
+     "residui": {
+      "p10": -1.59,
+      "p25": -0.88,
+      "p50": -0.48,
+      "p75": 1.31,
+      "p90": 2.12
+     },
+     "entro1": 56.6,
+     "entro2": 77.4,
+     "da": "1969-07",
+     "a": "2006-09"
+    }
+   ]
+  },
+  {
+   "id": "usa-20",
+   "nome": "Treasury USA oltre 20 anni",
+   "valuta": "USD",
+   "descrizione": "Titoli di Stato americani lunghissimi.",
+   "etf": [
+    {
+     "ticker": "TLT",
+     "nome": "iShares 20+ Year Treasury Bond ETF",
+     "ter": 0.15
+    }
+   ],
+   "fonte": {
+    "nome": "Treasury constant maturity 20 anni, FRED",
+    "link": "https://fred.stlouisfed.org/series/DGS20"
+   },
+   "serie": "USA 20+",
+   "duration": 13.5,
+   "scadenza_modellata": 24.0,
+   "storia_da": "1962-01",
+   "campo_x": {
+    "min": 0.98,
+    "max": 15.78
+   },
+   "rendimento": {
+    "valore": 5.65,
+    "data": "2026-10-09",
+    "scarto_vs_serie_storica": 0.0,
+    "fonte": "Treasury constant maturity 20 anni, FRED",
+    "link": "https://fred.stlouisfed.org/series/DGS20"
+   },
+   "orizzonte_migliore": 20,
+   "orizzonte_sufficiente": 15,
+   "orizzonti": [
+    {
+     "anni": 5,
+     "n": 718,
+     "pendenza": 1.611,
+     "intercetta": -3.772,
+     "r2": 0.583,
+     "residui": {
+      "p10": -4.98,
+      "p25": -2.85,
+      "p50": 0.59,
+      "p75": 2.52,
+      "p90": 4.6
+     },
+     "entro1": 14.8,
+     "entro2": 29.9,
+     "da": "1962-01",
+     "a": "2021-10"
+    },
+    {
+     "anni": 6,
+     "n": 706,
+     "pendenza": 1.524,
+     "intercetta": -3.176,
+     "r2": 0.617,
+     "residui": {
+      "p10": -4.23,
+      "p25": -2.75,
+      "p50": 0.46,
+      "p75": 2.35,
+      "p90": 4.26
+     },
+     "entro1": 11.0,
+     "entro2": 30.2,
+     "da": "1962-01",
+     "a": "2020-10"
+    },
+    {
+     "anni": 7,
+     "n": 694,
+     "pendenza": 1.443,
+     "intercetta": -2.617,
+     "r2": 0.646,
+     "residui": {
+      "p10": -3.73,
+      "p25": -2.61,
+      "p50": 0.53,
+      "p75": 2.06,
+      "p90": 3.62
+     },
+     "entro1": 10.1,
+     "entro2": 31.6,
+     "da": "1962-01",
+     "a": "2019-10"
+    },
+    {
+     "anni": 8,
+     "n": 682,
+     "pendenza": 1.426,
+     "intercetta": -2.471,
+     "r2": 0.689,
+     "residui": {
+      "p10": -3.32,
+      "p25": -2.35,
+      "p50": 0.48,
+      "p75": 1.92,
+      "p90": 3.26
+     },
+     "entro1": 9.7,
+     "entro2": 37.0,
+     "da": "1962-01",
+     "a": "2018-10"
+    },
+    {
+     "anni": 9,
+     "n": 670,
+     "pendenza": 1.391,
+     "intercetta": -2.221,
+     "r2": 0.72,
+     "residui": {
+      "p10": -3.04,
+      "p25": -1.99,
+      "p50": 0.5,
+      "p75": 1.66,
+      "p90": 2.87
+     },
+     "entro1": 10.4,
+     "entro2": 44.5,
+     "da": "1962-01",
+     "a": "2017-10"
+    },
+    {
+     "anni": 10,
+     "n": 658,
+     "pendenza": 1.374,
+     "intercetta": -2.113,
+     "r2": 0.745,
+     "residui": {
+      "p10": -2.69,
+      "p25": -1.87,
+      "p50": 0.5,
+      "p75": 1.52,
+      "p90": 2.58
+     },
+     "entro1": 11.1,
+     "entro2": 49.4,
+     "da": "1962-01",
+     "a": "2016-10"
+    },
+    {
+     "anni": 11,
+     "n": 646,
+     "pendenza": 1.363,
+     "intercetta": -2.054,
+     "r2": 0.769,
+     "residui": {
+      "p10": -2.4,
+      "p25": -1.72,
+      "p50": 0.48,
+      "p75": 1.41,
+      "p90": 2.32
+     },
+     "entro1": 11.8,
+     "entro2": 52.8,
+     "da": "1962-01",
+     "a": "2015-10"
+    },
+    {
+     "anni": 12,
+     "n": 634,
+     "pendenza": 1.34,
+     "intercetta": -1.893,
+     "r2": 0.788,
+     "residui": {
+      "p10": -2.27,
+      "p25": -1.55,
+      "p50": 0.39,
+      "p75": 1.28,
+      "p90": 2.16
+     },
+     "entro1": 15.3,
+     "entro2": 59.3,
+     "da": "1962-01",
+     "a": "2014-10"
+    },
+    {
+     "anni": 13,
+     "n": 622,
+     "pendenza": 1.305,
+     "intercetta": -1.648,
+     "r2": 0.8,
+     "residui": {
+      "p10": -2.19,
+      "p25": -1.49,
+      "p50": 0.43,
+      "p75": 1.24,
+      "p90": 2.01
+     },
+     "entro1": 19.9,
+     "entro2": 64.8,
+     "da": "1962-01",
+     "a": "2013-10"
+    },
+    {
+     "anni": 14,
+     "n": 610,
+     "pendenza": 1.266,
+     "intercetta": -1.382,
+     "r2": 0.808,
+     "residui": {
+      "p10": -2.07,
+      "p25": -1.35,
+      "p50": 0.37,
+      "p75": 1.2,
+      "p90": 1.9
+     },
+     "entro1": 24.1,
+     "entro2": 72.0,
+     "da": "1962-01",
+     "a": "2012-10"
+    },
+    {
+     "anni": 15,
+     "n": 598,
+     "pendenza": 1.223,
+     "intercetta": -1.086,
+     "r2": 0.801,
+     "residui": {
+      "p10": -2.11,
+      "p25": -1.33,
+      "p50": 0.34,
+      "p75": 1.12,
+      "p90": 1.87
+     },
+     "entro1": 25.4,
+     "entro2": 75.9,
+     "da": "1962-01",
+     "a": "2011-10"
+    },
+    {
+     "anni": 16,
+     "n": 586,
+     "pendenza": 1.196,
+     "intercetta": -0.914,
+     "r2": 0.806,
+     "residui": {
+      "p10": -2.03,
+      "p25": -1.36,
+      "p50": 0.34,
+      "p75": 1.14,
+      "p90": 1.67
+     },
+     "entro1": 31.9,
+     "entro2": 77.3,
+     "da": "1962-01",
+     "a": "2010-10"
+    },
+    {
+     "anni": 17,
+     "n": 574,
+     "pendenza": 1.164,
+     "intercetta": -0.683,
+     "r2": 0.808,
+     "residui": {
+      "p10": -2.05,
+      "p25": -1.19,
+      "p50": 0.24,
+      "p75": 1.16,
+      "p90": 1.65
+     },
+     "entro1": 38.7,
+     "entro2": 79.4,
+     "da": "1962-01",
+     "a": "2009-10"
+    },
+    {
+     "anni": 18,
+     "n": 562,
+     "pendenza": 1.107,
+     "intercetta": -0.276,
+     "r2": 0.791,
+     "residui": {
+      "p10": -2.22,
+      "p25": -1.0,
+      "p50": 0.33,
+      "p75": 1.1,
+      "p90": 1.62
+     },
+     "entro1": 38.8,
+     "entro2": 80.6,
+     "da": "1962-01",
+     "a": "2008-10"
+    },
+    {
+     "anni": 19,
+     "n": 550,
+     "pendenza": 1.039,
+     "intercetta": 0.246,
+     "r2": 0.776,
+     "residui": {
+      "p10": -2.05,
+      "p25": -0.97,
+      "p50": 0.24,
+      "p75": 1.15,
+      "p90": 1.6
+     },
+     "entro1": 40.4,
+     "entro2": 78.9,
+     "da": "1962-01",
+     "a": "2007-10"
+    },
+    {
+     "anni": 20,
+     "n": 538,
+     "pendenza": 0.973,
+     "intercetta": 0.771,
+     "r2": 0.774,
+     "residui": {
+      "p10": -2.02,
+      "p25": -0.79,
+      "p50": 0.1,
+      "p75": 0.96,
+      "p90": 1.6
+     },
+     "entro1": 45.0,
+     "entro2": 83.1,
+     "da": "1962-01",
+     "a": "2006-10"
+    }
+   ]
+  },
+  {
+   "id": "euro-7-10",
+   "nome": "Governativi area euro 7-10 anni",
+   "valuta": "EUR",
+   "descrizione": "Titoli di Stato dell'area euro a media scadenza.",
+   "etf": [
+    {
+     "ticker": "SXRQ",
+     "nome": "iShares Euro Government Bond 7-10yr UCITS ETF",
+     "ter": 0.2
+    }
+   ],
+   "fonte": {
+    "nome": "Curva dei rendimenti area euro, tutti gli emittenti, 10 anni, BCE",
+    "link": "https://data.ecb.europa.eu/data/datasets/YC"
+   },
+   "serie": "Area euro 7-10",
+   "duration": 7.4,
+   "scadenza_modellata": 8.5,
+   "storia_da": "1970-01",
+   "campo_x": {
+    "min": -0.09,
+    "max": 15.44
+   },
+   "rendimento": {
+    "valore": 4.09,
+    "data": "2026-10-13",
+    "scarto_vs_serie_storica": 0.07,
+    "fonte": "Curva dei rendimenti area euro, tutti gli emittenti, 10 anni, BCE",
+    "link": "https://data.ecb.europa.eu/data/datasets/YC"
+   },
+   "orizzonte_migliore": 14,
+   "orizzonte_sufficiente": 7,
+   "orizzonti": [
+    {
+     "anni": 5,
+     "n": 613,
+     "pendenza": 1.156,
+     "intercetta": -0.38,
+     "r2": 0.821,
+     "residui": {
+      "p10": -2.7,
+      "p25": -1.52,
+      "p50": 0.23,
+      "p75": 1.44,
+      "p90": 2.56
+     },
+     "entro1": 34.3,
+     "entro2": 62.2,
+     "da": "1970-01",
+     "a": "2021-01"
+    },
+    {
+     "anni": 6,
+     "n": 601,
+     "pendenza": 1.126,
+     "intercetta": -0.206,
+     "r2": 0.854,
+     "residui": {
+      "p10": -2.29,
+      "p25": -1.16,
+      "p50": 0.24,
+      "p75": 1.2,
+      "p90": 2.14
+     },
+     "entro1": 38.4,
+     "entro2": 66.6,
+     "da": "1970-01",
+     "a": "2020-01"
+    },
+    {
+     "anni": 7,
+     "n": 589,
+     "pendenza": 1.095,
+     "intercetta": -0.033,
+     "r2": 0.875,
+     "residui": {
+      "p10": -2.07,
+      "p25": -1.03,
+      "p50": 0.18,
+      "p75": 1.09,
+      "p90": 1.82
+     },
+     "entro1": 42.8,
+     "entro2": 75.6,
+     "da": "1970-01",
+     "a": "2019-01"
+    },
+    {
+     "anni": 8,
+     "n": 577,
+     "pendenza": 1.085,
+     "intercetta": -0.019,
+     "r2": 0.893,
+     "residui": {
+      "p10": -1.87,
+      "p25": -0.89,
+      "p50": 0.08,
+      "p75": 0.98,
+      "p90": 1.71
+     },
+     "entro1": 48.0,
+     "entro2": 80.1,
+     "da": "1970-01",
+     "a": "2018-01"
+    },
+    {
+     "anni": 9,
+     "n": 565,
+     "pendenza": 1.068,
+     "intercetta": 0.031,
+     "r2": 0.898,
+     "residui": {
+      "p10": -1.71,
+      "p25": -0.87,
+      "p50": 0.03,
+      "p75": 0.89,
+      "p90": 1.68
+     },
+     "entro1": 52.0,
+     "entro2": 84.8,
+     "da": "1970-01",
+     "a": "2017-01"
+    },
+    {
+     "anni": 10,
+     "n": 553,
+     "pendenza": 1.058,
+     "intercetta": 0.036,
+     "r2": 0.9,
+     "residui": {
+      "p10": -1.67,
+      "p25": -0.72,
+      "p50": -0.13,
+      "p75": 0.84,
+      "p90": 1.67
+     },
+     "entro1": 56.1,
+     "entro2": 85.9,
+     "da": "1970-01",
+     "a": "2016-01"
+    },
+    {
+     "anni": 11,
+     "n": 541,
+     "pendenza": 1.046,
+     "intercetta": 0.077,
+     "r2": 0.896,
+     "residui": {
+      "p10": -1.67,
+      "p25": -0.82,
+      "p50": 0.04,
+      "p75": 0.79,
+      "p90": 1.59
+     },
+     "entro1": 56.6,
+     "entro2": 88.9,
+     "da": "1970-01",
+     "a": "2015-01"
+    },
+    {
+     "anni": 12,
+     "n": 529,
+     "pendenza": 1.04,
+     "intercetta": 0.08,
+     "r2": 0.897,
+     "residui": {
+      "p10": -1.6,
+      "p25": -0.85,
+      "p50": 0.1,
+      "p75": 0.83,
+      "p90": 1.51
+     },
+     "entro1": 53.9,
+     "entro2": 88.7,
+     "da": "1970-01",
+     "a": "2014-01"
+    },
+    {
+     "anni": 13,
+     "n": 517,
+     "pendenza": 1.026,
+     "intercetta": 0.143,
+     "r2": 0.885,
+     "residui": {
+      "p10": -1.83,
+      "p25": -0.82,
+      "p50": 0.16,
+      "p75": 0.73,
+      "p90": 1.41
+     },
+     "entro1": 55.1,
+     "entro2": 91.1,
+     "da": "1970-01",
+     "a": "2013-01"
+    },
+    {
+     "anni": 14,
+     "n": 505,
+     "pendenza": 1.01,
+     "intercetta": 0.197,
+     "r2": 0.865,
+     "residui": {
+      "p10": -1.78,
+      "p25": -0.99,
+      "p50": 0.24,
+      "p75": 0.83,
+      "p90": 1.46
+     },
+     "entro1": 52.5,
+     "entro2": 92.7,
+     "da": "1970-01",
+     "a": "2012-01"
+    },
+    {
+     "anni": 15,
+     "n": 493,
+     "pendenza": 0.994,
+     "intercetta": 0.248,
+     "r2": 0.853,
+     "residui": {
+      "p10": -1.74,
+      "p25": -1.17,
+      "p50": 0.1,
+      "p75": 0.76,
+      "p90": 1.71
+     },
+     "entro1": 51.9,
+     "entro2": 89.7,
+     "da": "1970-01",
+     "a": "2011-01"
+    },
+    {
+     "anni": 16,
+     "n": 481,
+     "pendenza": 0.975,
+     "intercetta": 0.312,
+     "r2": 0.831,
+     "residui": {
+      "p10": -1.76,
+      "p25": -1.12,
+      "p50": 0.05,
+      "p75": 0.91,
+      "p90": 2.04
+     },
+     "entro1": 48.2,
+     "entro2": 86.1,
+     "da": "1970-01",
+     "a": "2010-01"
+    },
+    {
+     "anni": 17,
+     "n": 469,
+     "pendenza": 0.959,
+     "intercetta": 0.33,
+     "r2": 0.818,
+     "residui": {
+      "p10": -1.76,
+      "p25": -1.17,
+      "p50": -0.08,
+      "p75": 1.07,
+      "p90": 1.86
+     },
+     "entro1": 41.4,
+     "entro2": 86.8,
+     "da": "1970-01",
+     "a": "2009-01"
+    },
+    {
+     "anni": 18,
+     "n": 457,
+     "pendenza": 0.933,
+     "intercetta": 0.448,
+     "r2": 0.791,
+     "residui": {
+      "p10": -1.78,
+      "p25": -1.28,
+      "p50": -0.14,
+      "p75": 1.12,
+      "p90": 2.18
+     },
+     "entro1": 42.5,
+     "entro2": 77.9,
+     "da": "1970-01",
+     "a": "2008-01"
+    },
+    {
+     "anni": 19,
+     "n": 445,
+     "pendenza": 0.908,
+     "intercetta": 0.561,
+     "r2": 0.763,
+     "residui": {
+      "p10": -1.75,
+      "p25": -1.26,
+      "p50": -0.28,
+      "p75": 1.55,
+      "p90": 2.23
+     },
+     "entro1": 40.2,
+     "entro2": 77.3,
+     "da": "1970-01",
+     "a": "2007-01"
+    },
+    {
+     "anni": 20,
+     "n": 433,
+     "pendenza": 0.886,
+     "intercetta": 0.647,
+     "r2": 0.729,
+     "residui": {
+      "p10": -1.67,
+      "p25": -1.28,
+      "p50": -0.42,
+      "p75": 1.6,
+      "p90": 2.49
+     },
+     "entro1": 37.0,
+     "entro2": 72.5,
+     "da": "1970-01",
+     "a": "2006-01"
+    }
+   ]
+  },
+  {
+   "id": "italia-15",
+   "nome": "Titoli di Stato italiani oltre 15 anni",
+   "valuta": "EUR",
+   "descrizione": "BTP lunghi. La gamba piu' fragile dello studio: prima del novembre 1993 descrive uno strumento che in Italia non esisteva.",
+   "etf": [
+    {
+     "ticker": "IBGL",
+     "nome": "iShares € Govt Bond 15-30yr UCITS ETF",
+     "ter": 0.15
+    }
+   ],
+   "fonte": {
+    "nome": "Tasso d'interesse a lungo termine per l'Italia, BCE",
+    "link": "https://data.ecb.europa.eu/data/datasets/IRS"
+   },
+   "serie": "Italia 15+",
+   "duration": 13.7,
+   "scadenza_modellata": 20.0,
+   "storia_da": "1980-01",
+   "campo_x": {
+    "min": 0.58,
+    "max": 21.44
+   },
+   "rendimento": {
+    "valore": 4.36,
+    "data": "2026-09",
+    "scarto_vs_serie_storica": 0.0,
+    "fonte": "Tasso d'interesse a lungo termine per l'Italia, BCE",
+    "link": "https://data.ecb.europa.eu/data/datasets/IRS"
+   },
+   "orizzonte_migliore": 20,
+   "orizzonte_sufficiente": 19,
+   "orizzonti": [
+    {
+     "anni": 5,
+     "n": 500,
+     "pendenza": 1.514,
+     "intercetta": -1.439,
+     "r2": 0.773,
+     "residui": {
+      "p10": -6.12,
+      "p25": -3.75,
+      "p50": -0.04,
+      "p75": 3.07,
+      "p90": 5.99
+     },
+     "entro1": 16.0,
+     "entro2": 31.2,
+     "da": "1980-01",
+     "a": "2021-08"
+    },
+    {
+     "anni": 6,
+     "n": 488,
+     "pendenza": 1.402,
+     "intercetta": -0.767,
+     "r2": 0.792,
+     "residui": {
+      "p10": -5.29,
+      "p25": -3.27,
+      "p50": 0.04,
+      "p75": 2.93,
+      "p90": 4.91
+     },
+     "entro1": 20.3,
+     "entro2": 34.4,
+     "da": "1980-01",
+     "a": "2020-08"
+    },
+    {
+     "anni": 7,
+     "n": 476,
+     "pendenza": 1.29,
+     "intercetta": -0.148,
+     "r2": 0.796,
+     "residui": {
+      "p10": -4.7,
+      "p25": -2.88,
+      "p50": 0.34,
+      "p75": 2.48,
+      "p90": 4.52
+     },
+     "entro1": 25.6,
+     "entro2": 35.9,
+     "da": "1980-01",
+     "a": "2019-08"
+    },
+    {
+     "anni": 8,
+     "n": 464,
+     "pendenza": 1.224,
+     "intercetta": 0.11,
+     "r2": 0.807,
+     "residui": {
+      "p10": -4.57,
+      "p25": -2.64,
+      "p50": 0.19,
+      "p75": 2.31,
+      "p90": 4.12
+     },
+     "entro1": 27.4,
+     "entro2": 37.1,
+     "da": "1980-01",
+     "a": "2018-08"
+    },
+    {
+     "anni": 9,
+     "n": 452,
+     "pendenza": 1.153,
+     "intercetta": 0.477,
+     "r2": 0.819,
+     "residui": {
+      "p10": -4.04,
+      "p25": -2.25,
+      "p50": 0.05,
+      "p75": 2.18,
+      "p90": 3.46
+     },
+     "entro1": 24.8,
+     "entro2": 40.3,
+     "da": "1980-01",
+     "a": "2017-08"
+    },
+    {
+     "anni": 10,
+     "n": 440,
+     "pendenza": 1.099,
+     "intercetta": 0.775,
+     "r2": 0.834,
+     "residui": {
+      "p10": -3.59,
+      "p25": -1.91,
+      "p50": -0.0,
+      "p75": 1.87,
+      "p90": 2.97
+     },
+     "entro1": 23.6,
+     "entro2": 41.4,
+     "da": "1980-01",
+     "a": "2016-08"
+    },
+    {
+     "anni": 11,
+     "n": 428,
+     "pendenza": 1.052,
+     "intercetta": 1.053,
+     "r2": 0.844,
+     "residui": {
+      "p10": -3.14,
+      "p25": -1.57,
+      "p50": -0.26,
+      "p75": 1.74,
+      "p90": 2.57
+     },
+     "entro1": 23.4,
+     "entro2": 50.5,
+     "da": "1980-01",
+     "a": "2015-08"
+    },
+    {
+     "anni": 12,
+     "n": 416,
+     "pendenza": 1.035,
+     "intercetta": 1.071,
+     "r2": 0.857,
+     "residui": {
+      "p10": -2.82,
+      "p25": -1.58,
+      "p50": -0.06,
+      "p75": 1.63,
+      "p90": 2.53
+     },
+     "entro1": 27.2,
+     "entro2": 54.3,
+     "da": "1980-01",
+     "a": "2014-08"
+    },
+    {
+     "anni": 13,
+     "n": 404,
+     "pendenza": 1.031,
+     "intercetta": 0.958,
+     "r2": 0.867,
+     "residui": {
+      "p10": -2.65,
+      "p25": -1.67,
+      "p50": 0.3,
+      "p75": 1.59,
+      "p90": 2.42
+     },
+     "entro1": 23.5,
+     "entro2": 55.0,
+     "da": "1980-01",
+     "a": "2013-08"
+    },
+    {
+     "anni": 14,
+     "n": 392,
+     "pendenza": 1.023,
+     "intercetta": 0.839,
+     "r2": 0.885,
+     "residui": {
+      "p10": -2.45,
+      "p25": -1.63,
+      "p50": 0.11,
+      "p75": 1.72,
+      "p90": 2.33
+     },
+     "entro1": 28.8,
+     "entro2": 61.7,
+     "da": "1980-01",
+     "a": "2012-08"
+    },
+    {
+     "anni": 15,
+     "n": 380,
+     "pendenza": 1.021,
+     "intercetta": 0.662,
+     "r2": 0.91,
+     "residui": {
+      "p10": -2.17,
+      "p25": -1.63,
+      "p50": 0.02,
+      "p75": 1.45,
+      "p90": 2.1
+     },
+     "entro1": 33.2,
+     "entro2": 67.6,
+     "da": "1980-01",
+     "a": "2011-08"
+    },
+    {
+     "anni": 16,
+     "n": 368,
+     "pendenza": 1.004,
+     "intercetta": 0.658,
+     "r2": 0.908,
+     "residui": {
+      "p10": -2.11,
+      "p25": -1.4,
+      "p50": 0.17,
+      "p75": 1.35,
+      "p90": 1.9
+     },
+     "entro1": 32.3,
+     "entro2": 67.4,
+     "da": "1980-01",
+     "a": "2010-08"
+    },
+    {
+     "anni": 17,
+     "n": 356,
+     "pendenza": 0.975,
+     "intercetta": 0.73,
+     "r2": 0.895,
+     "residui": {
+      "p10": -1.9,
+      "p25": -1.48,
+      "p50": 0.02,
+      "p75": 1.4,
+      "p90": 2.26
+     },
+     "entro1": 36.5,
+     "entro2": 71.3,
+     "da": "1980-01",
+     "a": "2009-08"
+    },
+    {
+     "anni": 18,
+     "n": 344,
+     "pendenza": 0.939,
+     "intercetta": 0.828,
+     "r2": 0.886,
+     "residui": {
+      "p10": -1.94,
+      "p25": -1.41,
+      "p50": -0.25,
+      "p75": 1.32,
+      "p90": 2.05
+     },
+     "entro1": 27.6,
+     "entro2": 73.0,
+     "da": "1980-01",
+     "a": "2008-08"
+    },
+    {
+     "anni": 19,
+     "n": 332,
+     "pendenza": 0.904,
+     "intercetta": 0.902,
+     "r2": 0.893,
+     "residui": {
+      "p10": -1.76,
+      "p25": -1.18,
+      "p50": -0.15,
+      "p75": 1.1,
+      "p90": 1.65
+     },
+     "entro1": 34.9,
+     "entro2": 82.2,
+     "da": "1980-01",
+     "a": "2007-08"
+    },
+    {
+     "anni": 20,
+     "n": 320,
+     "pendenza": 0.884,
+     "intercetta": 0.826,
+     "r2": 0.915,
+     "residui": {
+      "p10": -1.62,
+      "p25": -1.01,
+      "p50": -0.01,
+      "p75": 1.02,
+      "p90": 1.67
+     },
+     "entro1": 47.5,
+     "entro2": 83.4,
+     "da": "1980-01",
+     "a": "2006-08"
+    }
+   ]
+  }
+ ]
+}
