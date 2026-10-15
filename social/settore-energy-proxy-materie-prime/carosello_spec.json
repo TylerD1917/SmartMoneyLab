@@ -1,0 +1,82 @@
+{
+  "slug": "settore-energy-proxy-materie-prime",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "Vuoi proteggerti",
+        "dal petrolio?",
+        "Non comprarlo."
+      ],
+      "accent_lines": [
+        2
+      ],
+      "subtitle": "Quarant'anni di dati su cosa succede al portafoglio quando la borsa scende e il greggio sale."
+    },
+    {
+      "type": "compare",
+      "kicker": "Borsa in calo, petrolio in salita:",
+      "left": {
+        "num": "+3,05%",
+        "label": "settore energy"
+      },
+      "right": {
+        "num": "+2,91%",
+        "label": "materie prime"
+      },
+      "punch": [
+        "Stessa protezione.",
+        "Il mercato, quei mesi,",
+        "perdeva il 3,07%."
+      ],
+      "punch_accent": [
+        0
+      ]
+    },
+    {
+      "type": "number",
+      "kicker": "Un dollaro investito nel 2005 in materie prime, vent'anni dopo:",
+      "number": "1,9x",
+      "note": "il settore energy ne ha fatti 5,1, il mercato 10,0",
+      "box": [
+        "La protezione è la stessa.",
+        "Il prezzo per tenerla",
+        "in portafoglio no."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "public/charts/settore-energy-proxy-materie-prime/03_crescita_1_dollaro.png",
+      "title": [
+        "Stessa protezione.",
+        "Prezzi diversi."
+      ],
+      "caption": "Un dollaro investito nel 2005."
+    },
+    {
+      "type": "bullets",
+      "title": "E quando non funziona",
+      "bullets": [
+        "Se la borsa scende per un crollo della domanda, scende anche il petrolio: lì l'energy è azionario a leva.",
+        "Marzo 2020: mercato −20,2%, settore energy −44,6%, materie prime −17,0%.",
+        "Dieci punti di energy restano poche società di un solo settore di un solo paese.",
+        "Nessuna delle due sleeve ha migliorato un 60/40 negli ultimi vent'anni: è un'assicurazione, non un motore."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": [
+        "Lo studio completo",
+        "è sul blog."
+      ],
+      "bullets": [
+        "Quattro quadranti su 487 mesi, i 17 shock del greggio dal 1986, il 2026 mese per mese.",
+        "Dati Ken French e FRED, codice nel repository."
+      ],
+      "button": "Link in bio →"
+    }
+  ]
+}
