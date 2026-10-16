@@ -40,6 +40,34 @@ const pct = (x, d = 1) => {
   return `${segno}${Math.abs(x).toFixed(d).replace(".", ",")}%`;
 };
 
+// Prezzo sporco di un titolo alla pari: e' il titolo che un indice a duration
+// costante compra ogni mese. Serve solo per derivarne la duration.
+function prezzoPar(ytm, cedola, anni, f = 2) {
+  const n = Math.round(anni * f);
+  const c = (cedola / f) * 100;
+  let v = 100 / Math.pow(1 + ytm / f, n);
+  for (let i = 1; i <= n; i++) v += c / Math.pow(1 + ytm / f, i);
+  return v;
+}
+
+// Duration modificata al rendimento indicato. NON e' una costante del prodotto:
+// un titolo a vent'anni comprato al 15% ha duration 6,3, all'1% ne ha 18,1.
+// Per questo l'orizzonte della regola va ricalcolato sul rendimento di oggi.
+function durationModificata(anni, y) {
+  if (!(y > 0)) return null;
+  const h = 1e-5;
+  const p = (yy) => prezzoPar(yy, y, anni);
+  return (p(y - h) - p(y + h)) / (2 * h) / p(y);
+}
+
+// Regola di Leibowitz-Lozada: 2D meno un periodo di ribilanciamento. Gli ETF
+// obbligazionari ruotano il portafoglio ogni mese, quindi il "meno uno" vale
+// un dodicesimo di anno e l'orizzonte e' praticamente il doppio della duration.
+function orizzonte2D(scadenza, rendPct) {
+  const d = durationModificata(scadenza, rendPct / 100);
+  return d === null ? null : { duration: d, anni: 2 * d - 1 / 12 };
+}
+
 // Giudizio sull'affidabilita' all'orizzonte scelto. Le soglie non sono
 // cosmetiche: sotto il 60% di casi entro due punti, il rendimento di partenza
 // semplicemente non racconta cosa otterrai.
@@ -109,6 +137,13 @@ export default function BondYieldSimulator() {
     };
   }, [gamba, o, rend, ter]);
 
+  // Duration e orizzonte della regola, ricalcolati sul rendimento inserito.
+  const regola = useMemo(
+    () => (gamba ? orizzonte2D(gamba.scadenza_modellata, rend) : null),
+    [gamba, rend]
+  );
+  const maxSlider = dati ? dati.orizzonti[dati.orizzonti.length - 1] : 20;
+
   const fuoriCampo =
     gamba && (rend < gamba.campo_x.min || rend > gamba.campo_x.max);
 
@@ -152,7 +187,8 @@ export default function BondYieldSimulator() {
             >
               <div>{x.nome}</div>
               <div className="mt-0.5 text-xs font-normal text-slate-500 dark:text-slate-400">
-                es. {x.etf.map((e) => e.ticker).join(", ")} · duration {num(x.duration)} anni
+                es. {x.etf.map((e) => e.ticker).join(", ")} · duration{" "}
+                {num(durationModificata(x.scadenza_modellata, x.rendimento.valore / 100))} anni
               </div>
             </button>
           ))}
@@ -282,7 +318,11 @@ export default function BondYieldSimulator() {
             />
             <div className="mt-1 flex justify-between text-xs text-slate-500 dark:text-slate-400">
               <span>5 anni</span>
-              <span>duration della gamba: {num(gamba.duration)} anni</span>
+              <span>
+                {regola
+                  ? `2 × duration al ${num(rend, 2)}%: ${num(regola.anni)} anni`
+                  : `duration della gamba: ${num(gamba.duration)} anni`}
+              </span>
               <span>20 anni</span>
             </div>
           </div>
@@ -328,7 +368,8 @@ export default function BondYieldSimulator() {
                   (entro un punto nel {num(o.entro1)}%).{" "}
                   {gamba.orizzonte_sufficiente && anni < gamba.orizzonte_sufficiente ? (
                     <>
-                      Per questa duration ({num(gamba.duration)} anni) servono almeno{" "}
+                      Per questa duration ({num(regola ? regola.duration : gamba.duration)}{" "}
+                      anni) servono almeno{" "}
                       <button
                         onClick={() => setAnni(gamba.orizzonte_sufficiente)}
                         className="underline underline-offset-2"
@@ -343,7 +384,56 @@ export default function BondYieldSimulator() {
                 </p>
               </div>
 
-              <CurvaAffidabilita orizzonti={gamba.orizzonti} scelto={anni} onPick={setAnni} />
+              {regola && (
+                <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-300">
+                  <strong className="block text-base text-slate-900 dark:text-slate-100">
+                    La regola del 2 × duration
+                  </strong>
+                  <p className="mt-1">
+                    A un rendimento del {num(rend, 2)}% la duration di questo portafoglio è{" "}
+                    <strong>{num(regola.duration)} anni</strong>, quindi la teoria chiede di
+                    tenerlo <strong>{num(regola.anni)} anni</strong> perché il rendimento a
+                    scadenza di oggi si realizzi, qualunque cosa facciano i tassi nel frattempo.{" "}
+                    {regola.anni <= maxSlider ? (
+                      <>
+                        Storicamente il punto migliore su questa gamba cade a{" "}
+                        <button
+                          onClick={() => setAnni(Math.round(regola.anni))}
+                          className="underline underline-offset-2"
+                        >
+                          {gamba.orizzonte_migliore} anni
+                        </button>
+                        .
+                      </>
+                    ) : (
+                      <>
+                        È più del massimo di questo strumento: su questa gamba, a questi
+                        rendimenti, il prezzo di acquisto non basta a raccontare un orizzonte di
+                        vent'anni.
+                      </>
+                    )}
+                  </p>
+                  <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                    La duration cresce quando i tassi scendono, quindi anche l'orizzonte richiesto
+                    si allunga: nel 1981 il ventennale americano ne chiedeva 12, nel 2020 ne
+                    chiedeva 43. Il perché, e la verifica su 64 anni di dati, sono nello studio{" "}
+                    <a
+                      href="/posts/regola-2x-duration/"
+                      className="text-blue-700 underline dark:text-blue-400"
+                    >
+                      La regola del 2x duration
+                    </a>
+                    .
+                  </p>
+                </div>
+              )}
+
+              <CurvaAffidabilita
+                orizzonti={gamba.orizzonti}
+                scelto={anni}
+                onPick={setAnni}
+                regola={regola ? regola.anni : null}
+              />
 
               <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
                 Rendimenti in {gamba.valuta}, lordi di imposte. Le finestre si sovrappongono:
@@ -381,7 +471,7 @@ export default function BondYieldSimulator() {
 /** Quota di casi storici finiti entro due punti dal rendimento di partenza,
  *  orizzonte per orizzonte. E' il grafico che spiega lo strumento: la barra
  *  cresce con gli anni, e dove si alza il prezzo di oggi comincia a contare. */
-function CurvaAffidabilita({ orizzonti, scelto, onPick }) {
+function CurvaAffidabilita({ orizzonti, scelto, onPick, regola = null }) {
   // Proporzioni pensate per il telefono: su uno schermo da 390px un grafico
   // 560x150 diventa alto 94px con etichette illeggibili. Piu' stretto e piu'
   // alto scala meglio, e sul desktop non perde nulla.
@@ -432,6 +522,33 @@ function CurvaAffidabilita({ orizzonti, scelto, onPick }) {
             </text>
           </g>
         ))}
+        {regola !== null &&
+          regola >= orizzonti[0].anni &&
+          regola <= orizzonti[orizzonti.length - 1].anni && (
+            <g>
+              <line
+                x1={padL + (regola - orizzonti[0].anni + 0.5) * larg}
+                x2={padL + (regola - orizzonti[0].anni + 0.5) * larg}
+                y1={padT}
+                y2={H - padB}
+                stroke="currentColor"
+                className="text-blue-700 dark:text-blue-400"
+                strokeWidth="1.5"
+                strokeDasharray="5 3"
+              />
+              <text
+                x={padL + (regola - orizzonti[0].anni + 0.5) * larg}
+                y={padT + 10}
+                textAnchor="middle"
+                fontSize="11"
+                fontWeight="700"
+                fill="currentColor"
+                className="text-blue-700 dark:text-blue-400"
+              >
+                2 × duration
+              </text>
+            </g>
+          )}
         {orizzonti.map((o, i) => {
           const attivo = o.anni === scelto;
           return (
