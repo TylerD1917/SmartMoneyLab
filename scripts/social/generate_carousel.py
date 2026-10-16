@@ -62,16 +62,44 @@ CONTENT_W = W - 2 * MARGIN
 
 FONT_REG = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+FONT_IT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf"
+FONT_BOLD_IT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf"
 FONT_FAMILY = "DejaVu Sans"
 
 _font_cache: dict = {}
 
 
-def _font(bold: bool, size: int):
-    key = (bold, size)
+def _font(bold: bool, size: int, italic: bool = False):
+    key = (bold, size, italic)
     if key not in _font_cache:
-        _font_cache[key] = ImageFont.truetype(FONT_BOLD if bold else FONT_REG, size)
+        f = (FONT_BOLD_IT if italic else FONT_BOLD) if bold else (FONT_IT if italic else FONT_REG)
+        _font_cache[key] = ImageFont.truetype(f, size)
     return _font_cache[key]
+
+
+def runs(testo: str) -> list[tuple[str, bool]]:
+    """Spezza "dal *rischio* petrolio" in [("dal ", False), ("rischio", True),
+    (" petrolio", False)]: gli asterischi marcano il corsivo."""
+    pezzi, corsivo = [], False
+    for parte in testo.split("*"):
+        if parte:
+            pezzi.append((parte, corsivo))
+        corsivo = not corsivo
+    return pezzi or [(testo, False)]
+
+
+def larghezza(testo: str, size: int, bold: bool) -> float:
+    return sum(_font(bold, size, it).getlength(t) for t, it in runs(testo))
+
+
+def riga_mista(x, y, testo, size, fill, bold=False):
+    """Scrive una riga che puo' mescolare tondo e corsivo, misurando ogni
+    pezzo per posizionare il successivo: l'SVG non sa incolonnare da solo."""
+    out, cx = [], x
+    for t, it in runs(testo):
+        out.append(T(cx, y, t, size, fill, bold=bold, italic=it, preserve=True))
+        cx += _font(bold, size, it).getlength(t)
+    return "".join(out)
 
 
 def wrap(text: str, size: int, bold: bool, max_w: int = CONTENT_W) -> list[str]:
@@ -102,11 +130,15 @@ def fit_size(text: str, size: int, bold: bool, max_w: int, min_size: int = 120) 
     return size
 
 
-def T(x, y, s, size, fill, bold=False, anchor="start", italic=False):
+def T(x, y, s, size, fill, bold=False, anchor="start", italic=False, preserve=False):
     style = f' font-style="italic"' if italic else ""
     weight = ' font-weight="bold"' if bold else ""
+    # xml:space: senza, l'SVG scarta gli spazi iniziali e finali, e in una riga
+    # spezzata in pezzi (tondo + corsivo) lo spazio fra due pezzi sparisce
+    # mentre la posizione calcolata lo tiene: le parole si attaccano.
+    sp = ' xml:space="preserve"' if preserve else ""
     return (f'<text x="{x}" y="{y}" font-family="{FONT_FAMILY}" font-size="{size}" '
-            f'fill="{fill}"{weight}{style} text-anchor="{anchor}">{escape(s)}</text>')
+            f'fill="{fill}"{weight}{style}{sp} text-anchor="{anchor}">{escape(s)}</text>')
 
 
 def logo(dark_bg=True):
@@ -157,10 +189,17 @@ def render_cover(s):
     title = s["title"] if isinstance(s["title"], list) else wrap(s["title"], 80, True)
     accent = set(s.get("accent_lines", [len(title) - 1]))
     parts = [bg(NAVY), logo(), footer()]
-    y = 560 - (len(title) - 2) * 45
+    # Le righe del titolo date a mano non venivano mandate a capo ne' misurate:
+    # una riga lunga usciva dal margine destro senza avvisare. Ora il corpo
+    # scende finche' la riga piu' larga non ci sta, corsivi compresi.
+    size = 80
+    while size > 52 and max(larghezza(ln, size, True) for ln in title) > CONTENT_W:
+        size -= 4
+    passo = int(size * 1.25)
+    y = 560 - (len(title) - 2) * (passo // 2)
     for i, ln in enumerate(title):
-        parts.append(T(MARGIN, y, ln, 80, AMBER if i in accent else WHITE, bold=True))
-        y += 100
+        parts.append(riga_mista(MARGIN, y, ln, size, AMBER if i in accent else WHITE, bold=True))
+        y += passo
     parts.append(f'<rect x="{MARGIN}" y="{y-42}" width="130" height="9" fill="{AMBER}"/>')
     if s.get("subtitle"):
         sub = wrap(s["subtitle"], 38, False)
