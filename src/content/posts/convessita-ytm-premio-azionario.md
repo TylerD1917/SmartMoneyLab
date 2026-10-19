@@ -20,7 +20,7 @@ faq:
       Non da solo. Nei dati dal 1881 il rendimento del decennale spiega appena il 6% della variabilità del premio decennale delle azioni, e il suo effetto va nella direzione sbagliata rispetto all'intuizione: nei mesi in cui il decennale rendeva oltre l'8%, le azioni hanno comunque vinto nel 99% dei casi. Nel settembre 1981, col decennale al 15,32%, le azioni hanno reso il 12,65% reale annuo nei dieci anni successivi contro il 10,70% delle obbligazioni.
   - q: "Quando le obbligazioni hanno battuto le azioni?"
     a: |-
-      Quando le azioni erano care, non quando le obbligazioni rendevano tanto. Dividendo i 1.593 mesi di acquisto dal 1881 per livello di CAPE, il premio mediano delle azioni resta fra +2,1 e +5,2 punti l'anno in tutti i secchi fino a CAPE 30, e crolla a −4,23 sopra quella soglia, dove le azioni hanno vinto solo nel 9% dei casi. Quei mesi però sono soltanto 57, concentrati in due episodi: il 1929 e il periodo 1997-2002.
+      Quando le azioni erano care, non quando le obbligazioni rendevano tanto. Dividendo i 1.593 mesi di acquisto dal 1881 per livello di CAPE, il premio mediano delle azioni resta fra +2,1 e +5,2 punti l'anno in tutte le fasce fino a CAPE 30, e crolla a −4,23 sopra quella soglia, dove le azioni hanno vinto solo nel 9% dei casi. Quei mesi però sono soltanto 57, concentrati in due episodi: il 1929 e il periodo 1997-2002.
   - q: "Che cos'è il modello della Fed e funziona?"
     a: |-
       È il confronto fra l'earnings yield azionario e il rendimento dei titoli di Stato. Misurato dal 1881, il premio decennale delle azioni cresce di 0,75 punti per ogni punto di quello spread, con R² 0,26, e il pareggio cade a uno spread di −3,64 punti. Direzionalmente funziona, numericamente no: la frontiera stimata sulla prima metà del campione e quella stimata sulla seconda distano tre punti di rendimento obbligazionario.
@@ -99,7 +99,7 @@ Guardando per livello d'ingresso, in termini reali, la monotonia sparisce:
 | **6-8%** | 179 | **−3,16%** | +3,68% | +5,32% | **35,2%** |
 | oltre l'8% | 156 | +4,07% | +6,75% | +9,44% | 1,3% |
 
-Il secchio 6-8%, cioè quello dei rendimenti che un risparmiatore chiamerebbe senz'altro generosi, ha il decimo percentile **peggiore** del secchio 3-4%. Non è un errore di calcolo, è una data: quei 179 mesi di acquisto cominciano nel dicembre 1968, e in più di un terzo dei casi l'inflazione dei dieci anni successivi si è mangiata per intero il rendimento nominale incassato. La mediana dell'inflazione su quelle finestre è del 6,46% all'anno.
+La fascia 6-8%, cioè quella dei rendimenti che un risparmiatore chiamerebbe senz'altro generosi, ha il decimo percentile **peggiore** della fascia 3-4%. Non è un errore di calcolo, è una data: quei 179 mesi di acquisto cominciano nel dicembre 1968, e in più di un terzo dei casi l'inflazione dei dieci anni successivi si è mangiata per intero il rendimento nominale incassato. La mediana dell'inflazione su quelle finestre è del 6,46% all'anno.
 
 ## Settembre 1971 contro settembre 1981
 
@@ -181,7 +181,7 @@ La valutazione azionaria spiega più del doppio. E guardando il premio per livel
 | 6-8% | 179 | +2,97 | 88% |
 | oltre l'8% | 156 | +4,50 | **99%** |
 
-Il secchio dei rendimenti altissimi, oltre l'8%, è quello in cui le azioni hanno vinto **quasi sempre**. Il caso limite merita di essere scritto per esteso. **Settembre 1981: il decennale americano rendeva il 15,32%, il massimo di tutta la serie, dal 1871 a oggi.** Nei dieci anni successivi quelle obbligazioni hanno reso il 10,70% reale annuo, un risultato formidabile. Le azioni, comprate lo stesso giorno a un CAPE di 7,6, ne hanno resi il 12,65%.
+La fascia dei rendimenti altissimi, oltre l'8%, è quella in cui le azioni hanno vinto **quasi sempre**. Il caso limite merita di essere scritto per esteso. **Settembre 1981: il decennale americano rendeva il 15,32%, il massimo di tutta la serie, dal 1871 a oggi.** Nei dieci anni successivi quelle obbligazioni hanno reso il 10,70% reale annuo, un risultato formidabile. Le azioni, comprate lo stesso giorno a un CAPE di 7,6, ne hanno resi il 12,65%.
 
 Il motivo è che i due prezzi si muovono insieme: quando i tassi sono altissimi le azioni costano pochissimo, e il vantaggio relativo resta dalla loro parte. Un rendimento obbligazionario alto, da solo, non è mai stato una ragione sufficiente.
 
@@ -190,7 +190,7 @@ Il motivo è che i due prezzi si muovono insieme: quando i tassi sono altissimi 
 Ordinando per valutazione azionaria, invece, un ordine c'è, e c'è anche un punto di rottura.
 
 <figure>
-  <img src="/charts/convessita-ytm-premio-azionario/05_cape.png" alt="Grafico a barre del premio mediano delle azioni per secchio di CAPE: +4,97 sotto 10, +5,23 fra 10 e 15, +4,60 fra 15 e 20, +2,91 fra 20 e 25, +2,14 fra 25 e 30, e −4,23 sopra 30, unica barra rossa. Sotto ogni barra la quota di casi in cui le azioni hanno vinto, dal 97% al 9%." width="2280" height="1280" decoding="async" />
+  <img src="/charts/convessita-ytm-premio-azionario/05_cape.png" alt="Grafico a barre del premio mediano delle azioni per fascia di CAPE: +4,97 sotto 10, +5,23 fra 10 e 15, +4,60 fra 15 e 20, +2,91 fra 20 e 25, +2,14 fra 25 e 30, e −4,23 sopra 30, unica barra rossa. Sotto ogni barra la quota di casi in cui le azioni hanno vinto, dal 97% al 9%." width="2280" height="1280" decoding="async" />
   <figcaption>Premio mediano delle azioni sulle obbligazioni nei dieci anni successivi all'acquisto, per livello di CAPE di partenza. Il gradino è uno solo.</figcaption>
 </figure>
 
