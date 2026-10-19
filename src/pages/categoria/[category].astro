@@ -16,6 +16,12 @@ if (!meta) {
   throw new Error(`Category '${category}' not found in registry`);
 }
 
+// "Le basi" e' sia categoria sia serie, con gli stessi 13 articoli: due URL
+// per lo stesso elenco. Quella indicizzata e' /serie/le-basi/, quindi questa
+// le cede il passo con un canonical invece di farle concorrenza.
+const canonical =
+  category === "le-basi" ? new URL("/serie/le-basi/", Astro.site).toString() : undefined;
+
 const allPosts = await getCollection("posts", ({ data }) => !data.draft);
 const categoryPosts = allPosts
   .filter((p) => p.data.category === category)
@@ -33,7 +39,7 @@ const verdictMap = {
   "non-vince": { label: "Non vince", color: "rose" },
 } as const;
 ---
-<BaseLayout title={`${meta.title} · SmartMoneyLab`} description={meta.description}>
+<BaseLayout title={`${meta.title} · SmartMoneyLab`} description={meta.description} canonical={canonical}>
   <section class="mb-12">
     <div class="mb-3 inline-flex items-center gap-2 rounded-full bg-blue-900/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
       Categoria
@@ -45,7 +51,7 @@ const verdictMap = {
       {meta.description}
     </p>
     <p class="mt-4 text-sm">
-      <a href="/" class="text-blue-900 hover:underline dark:text-blue-400">← Tutti gli articoli</a>
+      <a href="/posts" class="text-blue-900 hover:underline dark:text-blue-400">← Tutti gli articoli</a>
     </p>
   </section>
 

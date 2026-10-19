@@ -25,6 +25,11 @@ export async function GET(context) {
   add("", undefined);
   add("chi-siamo/", undefined);
   add("strumenti/", undefined);
+  add("posts/", undefined);
+  add("portafogli/", undefined);
+  add("lab/", undefined);
+  add("lab/ai-investing-arena/", undefined);
+  add("lab/reddit-retail-sentiment/", undefined);
 
   // Articoli
   for (const p of posts) add(`posts/${p.slug}/`, iso(p.data.updatedDate ?? p.data.pubDate));

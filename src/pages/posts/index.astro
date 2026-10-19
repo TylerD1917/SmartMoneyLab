@@ -1,0 +1,167 @@
+---
+/**
+ * Hub degli articoli: /posts/
+ *
+ * Perche' esiste. Fino a ottobre 2026 i 48 articoli erano appesi tutti alla
+ * home, allo stesso livello e con lo stesso peso. Google ne aveva indicizzato
+ * UNO, mentre delle sezioni con una pagina indice propria (/strumenti/, /lab/)
+ * aveva indicizzato rispettivamente 5 figli su 12 e 2 su 2. Questa pagina
+ * introduce il livello intermedio che mancava: hub -> quattro raccolte
+ * tematiche -> articoli.
+ *
+ * Non e' un semplice elenco di quattro link: una pagina con quattro link e
+ * nient'altro e' contenuto scarno e rischia di non essere indicizzata a sua
+ * volta. Ha un testo proprio e mostra i quattro pezzi piu' recenti per
+ * categoria, cosi' da offrire qualcosa da leggere subito.
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { CATEGORIES, CATEGORY_ORDER } from "../../data/categories";
+
+const BASI = "le-basi";
+const PER_BLOCCO = 4;
+
+const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+
+// "Le basi" ha gia' una pagina di raccolta indicizzata (/serie/le-basi/):
+// il blocco punta li' invece di creare un doppione su /categoria/le-basi/.
+const destinazione = (slug: string) =>
+  slug === BASI ? "/serie/le-basi/" : `/categoria/${slug}/`;
+
+const blocchi = CATEGORY_ORDER.map((slug) => {
+  const tutti = allPosts.filter((p) => p.data.category === slug);
+  // Le basi e' un percorso, si legge in ordine di episodio; le altre tre sono
+  // flussi di novita' e vanno in ordine cronologico inverso.
+  const ordinati =
+    slug === BASI
+      ? [...tutti].sort((a, b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999))
+      : [...tutti].sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return {
+    meta: CATEGORIES[slug],
+    href: destinazione(slug),
+    totale: ordinati.length,
+    recenti: ordinati.slice(0, PER_BLOCCO),
+    percorso: slug === BASI,
+  };
+}).filter((b) => b.totale > 0);
+
+const totale = allPosts.length;
+
+const fmt = new Intl.DateTimeFormat("it-IT", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+
+const verdictMap = {
+  vince: { label: "Vince", color: "emerald" },
+  parziale: { label: "Parziale", color: "amber" },
+  "non-vince": { label: "Non vince", color: "rose" },
+} as const;
+
+const titolo = "Articoli · SmartMoneyLab";
+const descrizione =
+  "Tutti gli articoli di SmartMoneyLab divisi in quattro tipi: il percorso " +
+  "per chi parte da zero, le strategie messe alla prova con un backtest, gli " +
+  "studi data-driven e le decisioni di finanza personale.";
+---
+
+<BaseLayout title={titolo} description={descrizione}>
+  <section class="mb-12">
+    <h1 class="text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
+      Articoli
+    </h1>
+    <div class="mt-5 max-w-3xl space-y-4 text-base text-slate-600 dark:text-slate-300">
+      <p>
+        Su questo sito pubblichiamo <strong>{totale} articoli</strong>, e non sono tutti
+        la stessa cosa. Alcuni servono a capire come funziona uno strumento, altri a
+        verificare se una strategia regge davvero quando la si prova sui dati, altri
+        ancora nascono da una curiosità e finiscono dove portano i numeri.
+      </p>
+      <p>
+        Per questo sono divisi in quattro tipi, e vale la pena sapere quale state
+        leggendo: cambia cosa potete aspettarvi dalla conclusione. Un backtest finisce
+        con un verdetto, uno studio no. Una guida di finanza personale vi dice cosa fare
+        con i vostri soldi, un episodio de "Le basi" vi dà solo il vocabolario per
+        decidere da soli.
+      </p>
+      <p>
+        Quello che hanno in comune è il metodo: dati pubblici e citati, codice nel
+        repository, ipotesi dichiarate e limiti scritti in fondo a ogni pezzo. Quando un
+        risultato non ci piace lo pubblichiamo lo stesso.
+      </p>
+    </div>
+  </section>
+
+  {blocchi.map((b) => (
+    <section class="mb-14 border-t border-slate-200 pt-8 dark:border-slate-800">
+      <div class="flex flex-wrap items-baseline justify-between gap-3">
+        <h2 class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+          <a href={b.href} class="hover:text-blue-900 dark:hover:text-blue-400">
+            {b.meta.title}
+          </a>
+        </h2>
+        <span class="text-xs text-slate-400 dark:text-slate-500">
+          {b.totale} {b.totale === 1 ? "articolo" : "articoli"}
+        </span>
+      </div>
+
+      <p class="mt-3 max-w-3xl text-sm text-slate-600 dark:text-slate-300">
+        {b.meta.description}
+      </p>
+
+      <ul class="mt-6 divide-y divide-slate-200 dark:divide-slate-800">
+        {b.recenti.map((post) => {
+          const v = post.data.verdict ? verdictMap[post.data.verdict] : null;
+          return (
+            <li class="py-4">
+              <a href={`/posts/${post.slug}`} class="group block">
+                <div class="flex flex-wrap items-baseline gap-3 text-xs text-slate-500 dark:text-slate-400">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {fmt.format(post.data.pubDate)}
+                  </time>
+                  {b.percorso && post.data.seriesOrder && (
+                    <span class="rounded-md bg-blue-900/10 px-1.5 py-0.5 font-medium text-blue-900 dark:bg-blue-400/10 dark:text-blue-400">
+                      Episodio {post.data.seriesOrder}
+                    </span>
+                  )}
+                  {v && (
+                    <span
+                      class:list={[
+                        "rounded-md px-1.5 py-0.5 font-semibold uppercase tracking-wider",
+                        v.color === "emerald" && "bg-emerald-100 text-emerald-900 dark:bg-emerald-400/10 dark:text-emerald-400",
+                        v.color === "amber" && "bg-amber-100 text-amber-900 dark:bg-amber-400/10 dark:text-amber-400",
+                        v.color === "rose" && "bg-rose-100 text-rose-900 dark:bg-rose-400/10 dark:text-rose-400",
+                      ]}
+                    >
+                      {v.label}
+                    </span>
+                  )}
+                </div>
+                <h3 class="mt-1 text-lg font-medium text-slate-900 group-hover:text-blue-900 dark:text-slate-50 dark:group-hover:text-blue-400">
+                  {post.data.title}
+                </h3>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  {post.data.description}
+                </p>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+
+      {b.totale > PER_BLOCCO && (
+        <p class="mt-5">
+          <a
+            href={b.href}
+            class="inline-flex items-center gap-1 text-sm font-medium text-blue-900 hover:underline dark:text-blue-400"
+          >
+            {b.percorso
+              ? `Vedi il percorso completo, ${b.totale} episodi`
+              : `Vedi tutti i ${b.totale} articoli`} →
+          </a>
+        </p>
+      )}
+    </section>
+  ))}
+</BaseLayout>
