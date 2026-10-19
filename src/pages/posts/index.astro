@@ -45,7 +45,10 @@ const blocchi = CATEGORY_ORDER.map((slug) => {
   };
 }).filter((b) => b.totale > 0);
 
-const totale = allPosts.length;
+// Conta solo gli articoli raggiungibili dai quattro blocchi: 'benvenuto' non
+// ha categoria e non compare in nessuno, quindi includerlo faceva dire alla
+// pagina un numero che la pagina stessa smentiva.
+const totale = blocchi.reduce((n, b) => n + b.totale, 0);
 
 const fmt = new Intl.DateTimeFormat("it-IT", {
   day: "numeric",
