@@ -1,7 +1,7 @@
 {
- "as_of": "2026-10-06",
- "updated": "2026-10-13T17:35:19.879290",
- "ultima_sessione": "2026-10-12",
+ "as_of": "2026-10-20",
+ "updated": "2026-10-20T01:12:05.474701",
+ "ultima_sessione": "2026-10-16",
  "rules": {
   "capital": 100000,
   "max_positions": 10,
@@ -19,79 +19,79 @@
  },
  "leaderboard": [
   {
-   "id": "SP500",
-   "type": "benchmark",
-   "nav": 103415.69,
-   "ret_total": 0.0342,
-   "vol_ann": null,
-   "max_dd": -0.0142,
-   "sharpe": null
+   "id": "gpt",
+   "type": "model",
+   "nav": 104503.34,
+   "ret_total": 0.045,
+   "vol_ann": 0.0955,
+   "max_dd": -0.014,
+   "sharpe": 5.838
   },
   {
    "id": "gemini",
    "type": "model",
-   "nav": 102919.65,
-   "ret_total": 0.0292,
-   "vol_ann": null,
+   "nav": 103246.71,
+   "ret_total": 0.0325,
+   "vol_ann": 0.0927,
    "max_dd": -0.0168,
-   "sharpe": null
+   "sharpe": 3.132
   },
   {
-   "id": "gpt",
-   "type": "model",
-   "nav": 102144.36,
-   "ret_total": 0.0214,
-   "vol_ann": null,
-   "max_dd": -0.014,
-   "sharpe": null
-  },
-  {
-   "id": "ACWI",
+   "id": "SP500",
    "type": "benchmark",
-   "nav": 101916.13,
-   "ret_total": 0.0192,
-   "vol_ann": null,
-   "max_dd": -0.0213,
-   "sharpe": null
+   "nav": 101461.03,
+   "ret_total": 0.0146,
+   "vol_ann": 0.1024,
+   "max_dd": -0.0203,
+   "sharpe": 0.445
   },
   {
    "id": "kimi",
    "type": "model",
-   "nav": 101182.72,
-   "ret_total": 0.0118,
-   "vol_ann": null,
+   "nav": 101152.88,
+   "ret_total": 0.0115,
+   "vol_ann": 0.0591,
    "max_dd": -0.0139,
-   "sharpe": null
+   "sharpe": 2.414
   },
   {
    "id": "random",
    "type": "control",
-   "nav": 99447.43,
-   "ret_total": -0.0055,
-   "vol_ann": null,
+   "nav": 100922.03,
+   "ret_total": 0.0092,
+   "vol_ann": 0.0662,
    "max_dd": -0.0125,
-   "sharpe": null
+   "sharpe": 2.194
+  },
+  {
+   "id": "ACWI",
+   "type": "benchmark",
+   "nav": 100082.49,
+   "ret_total": 0.0008,
+   "vol_ann": 0.1149,
+   "max_dd": -0.0275,
+   "sharpe": -1.149
   },
   {
    "id": "claude",
    "type": "model",
-   "nav": 97270.96,
-   "ret_total": -0.0273,
-   "vol_ann": null,
+   "nav": 97719.15,
+   "ret_total": -0.0228,
+   "vol_ann": 0.0699,
    "max_dd": -0.0304,
-   "sharpe": null
+   "sharpe": -3.371
   }
  ],
  "positions": {
   "gpt": {
    "cash": 15060.67,
-   "equity": 99347.46,
+   "equity": 104413.6,
    "positions": [
     {
      "ticker": "USFR",
      "qty": 495.15,
-     "px": 50.41,
-     "weight": 0.2512,
+     "px": 50.48,
+     "weight": 0.2394,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund",
      "thesis": "La duration minima limita il rischio tassi dopo il rialzo Fed, offrendo nel contempo un rendimento del 3,75%. Il peso elevato stabilizza il portafoglio e conserva capacità di acquisto.",
@@ -101,8 +101,8 @@
     {
      "ticker": "BRK-B",
      "qty": 28.86,
-     "px": 504.26,
-     "weight": 0.1465,
+     "px": 532.02,
+     "weight": 0.147,
      "side": "long",
      "name": "Berkshire Hathaway",
      "thesis": "Valutazione contenuta a 13,1 volte gli utili, attività diversificate e ampia liquidità offrono qualità difensiva. Il 15% ne fa il principale pilastro azionario senza concentrazione eccessiva.",
@@ -112,8 +112,8 @@
     {
      "ticker": "IWD",
      "qty": 47.78,
-     "px": 250.36,
-     "weight": 0.1204,
+     "px": 255.77,
+     "weight": 0.117,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF",
      "thesis": "Il value statunitense tratta a multipli inferiori al mercato e ha mostrato migliore tenuta del growth. Il peso fornisce diversificazione ampia in un regime di tassi elevati.",
@@ -123,8 +123,8 @@
     {
      "ticker": "SHEL",
      "qty": 104.49,
-     "px": 96.23,
-     "weight": 0.1012,
+     "px": 106.66,
+     "weight": 0.1067,
      "side": "long",
      "name": "Shell (ADR)",
      "thesis": "Con petrolio sopra 100, Shell beneficia di robusti flussi di cassa ma quota ancora a 10,9 volte gli utili con dividendo del 3,16%. Limito il peso perché il greggio ha già corso molto.",
@@ -134,8 +134,8 @@
     {
      "ticker": "CB",
      "qty": 29.28,
-     "px": 330.49,
-     "weight": 0.0974,
+     "px": 359.79,
+     "weight": 0.1009,
      "side": "long",
      "name": "Chubb",
      "thesis": "Chubb combina multiplo di 12,1, disciplina assicurativa e beneficio dai maggiori rendimenti sul portafoglio obbligazionario. È una componente difensiva poco correlata alla tecnologia.",
@@ -145,8 +145,8 @@
     {
      "ticker": "ACN",
      "qty": 52.73,
-     "px": 195.05,
-     "weight": 0.1035,
+     "px": 229.68,
+     "weight": 0.116,
      "side": "long",
      "name": "Accenture",
      "thesis": "Il PE di 15,1 e il rendimento del 3,44% offrono un ingresso ragionevole dopo la forte debolezza annuale. Il recente recupero segnala stabilizzazione senza una valutazione da euforia AI.",
@@ -156,8 +156,8 @@
     {
      "ticker": "GOOGL",
      "qty": 23.33,
-     "px": 346.47,
-     "weight": 0.0814,
+     "px": 340.59,
+     "weight": 0.0761,
      "side": "long",
      "name": "Alphabet (Google)",
      "thesis": "A 17,2 volte gli utili offre esposizione AI e digitale con valutazione molto inferiore ai leader speculativi. Il peso moderato considera rischi regolatori e di investimento.",
@@ -167,8 +167,8 @@
     {
      "ticker": "TSLA",
      "qty": -13.96,
-     "px": 378.73,
-     "weight": -0.0532,
+     "px": 354.72,
+     "weight": -0.0474,
      "side": "short",
      "name": "Tesla",
      "thesis": "Il multiplo di 334,7 incorpora aspettative eccezionali mentre NHTSA richiede prove sulla legalità del Cybercab. Una posizione piccola copre il rischio di compressione dei multipli growth.",
@@ -178,36 +178,36 @@
    ]
   },
   "gemini": {
-   "cash": 308.43,
-   "equity": 101961.08,
+   "cash": -5.59,
+   "equity": 103190.5,
    "positions": [
     {
      "ticker": "XOM",
-     "qty": 61.23,
-     "px": 164.0,
-     "weight": 0.0985,
+     "qty": 57.65,
+     "px": 178.98,
+     "weight": 0.1,
      "side": "long",
      "name": "ExxonMobil",
-     "thesis": "Benefits from WTI crude >$100 and acts as a strong inflation hedge with attractive cash flows.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Presa di profitto per riportare il peso al target; la view rialzista sull'energia resta valida data l'inflazione persistente.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "JPM",
-     "qty": 30.68,
-     "px": 332.38,
-     "weight": 0.1,
+     "qty": 30.67,
+     "px": 339.72,
+     "weight": 0.101,
      "side": "long",
      "name": "JPMorgan Chase",
      "thesis": "Riportiamo il peso al target del 10% poiché la persistenza dei rendimenti obbligazionari oltre il 5% sostiene fortemente i margini di interesse del settore bancario.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     },
     {
      "ticker": "BRK-B",
-     "qty": 19.24,
-     "px": 504.26,
-     "weight": 0.0951,
+     "qty": 19.23,
+     "px": 532.02,
+     "weight": 0.0992,
      "side": "long",
      "name": "Berkshire Hathaway",
      "thesis": "Diversified cash flows and a massive insurance float that directly capitalizes on 5% treasury yields.",
@@ -216,92 +216,92 @@
     },
     {
      "ticker": "MSFT",
-     "qty": 20.4,
-     "px": 525.18,
-     "weight": 0.1051,
+     "qty": 19.5,
+     "px": 529.05,
+     "weight": 0.1,
      "side": "long",
      "name": "Microsoft",
-     "thesis": "Core AI software leadership with expanding cloud margins and an impenetrable balance sheet.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Leggera limatura per allineamento al target; la visione di lungo termine sui fondamentali e sul posizionamento nell'AI resta positiva.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "NVDA",
-     "qty": 42.68,
-     "px": 238.9,
+     "qty": 48.19,
+     "px": 214.13,
      "weight": 0.1,
      "side": "long",
      "name": "NVIDIA",
-     "thesis": "Prendiamo parziale profitto per riallineare il peso al target strategico del 10%, mantenendo intatte le nostre aspettative di rialzo di lungo periodo sui trend AI.",
-     "dal": "2026-10-06",
+     "thesis": "Sfruttiamo il calo del comparto tech per riaccumulare e bilanciare la componente growth senza modificare la convinzione di lungo periodo.",
+     "dal": "2026-10-20",
      "mossa": "di questo periodo"
     },
     {
      "ticker": "AVGO",
-     "qty": 29.45,
-     "px": 362.51,
-     "weight": 0.1047,
+     "qty": 31.39,
+     "px": 328.75,
+     "weight": 0.1,
      "side": "long",
      "name": "Broadcom",
-     "thesis": "Custom silicon and networking growth tied directly to massive AI data center infrastructure build-outs.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Approfittiamo della correzione settoriale di breve periodo per riportare al 10% il peso sull'infrastruttura tecnologica.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "META",
-     "qty": 13.74,
-     "px": 741.9,
+     "qty": 14.55,
+     "px": 709.33,
      "weight": 0.1,
      "side": "long",
      "name": "Meta Platforms",
-     "thesis": "Leggero ribilanciamento per contenere l'esposizione, pur restando posizionati stabilmente al rialzo sulla scia del solido momentum aziendale.",
-     "dal": "2026-10-06",
+     "thesis": "Acquistiamo sulla flessione per ripristinare l'esposizione target, continuando a puntare sul trend solido della digitalizzazione.",
+     "dal": "2026-10-20",
      "mossa": "di questo periodo"
     },
     {
      "ticker": "LLY",
-     "qty": 8.79,
-     "px": 1143.12,
-     "weight": 0.0985,
+     "qty": 8.21,
+     "px": 1257.03,
+     "weight": 0.1,
      "side": "long",
      "name": "Eli Lilly",
-     "thesis": "Secular growth leadership in GLP-1 therapeutics providing non-cyclical, defensive earnings growth.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Riduciamo marginalmente il peso nel settore healthcare per ripristinare l'equilibrio del portafoglio dopo il forte apprezzamento.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "LMT",
-     "qty": 20.13,
-     "px": 506.63,
+     "qty": 18.69,
+     "px": 552.09,
      "weight": 0.1,
      "side": "long",
      "name": "Lockheed Martin",
-     "thesis": "Incrementiamo la posizione al 10% per rinforzare le difese di portafoglio di fronte all'escalation geopolitica in Medio Oriente, attendendo un conseguente rialzo del titolo.",
-     "dal": "2026-10-06",
+     "thesis": "Ribilanciamento post-rialzo. Manteniamo il titolo per la forte copertura geopolitica, ma incassiamo parte dei guadagni.",
+     "dal": "2026-10-20",
      "mossa": "di questo periodo"
     },
     {
      "ticker": "GLD",
-     "qty": 25.53,
-     "px": 379.55,
-     "weight": 0.095,
+     "qty": 27.01,
+     "px": 382.01,
+     "weight": 0.1,
      "side": "long",
      "name": "SPDR Gold Shares",
-     "thesis": "Safe-haven asset providing non-correlated protection against inflation and rising macroeconomic uncertainties.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Incrementiamo l'esposizione all'oro per completare il ribilanciamento tattico, confermandolo come asset di protezione irrinunciabile.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     }
    ]
   },
   "claude": {
    "cash": 21463.45,
-   "equity": 96576.21,
+   "equity": 97719.56,
    "positions": [
     {
      "ticker": "FENY",
      "qty": 338.7,
-     "px": 35.01,
-     "weight": 0.1228,
+     "px": 37.41,
+     "weight": 0.1297,
      "side": "long",
      "name": "Fidelity MSCI Energy Index ETF",
      "thesis": "Petrolio a 100$ con rischio offerta (Bab al-Mandeb, Russia) e settore ancora a PE 17.5 con dy 2.2: e' l'esposizione piu' diretta all'inflazione energetica con utili reali.",
@@ -311,8 +311,8 @@
     {
      "ticker": "DBC",
      "qty": 241.25,
-     "px": 32.39,
-     "weight": 0.0809,
+     "px": 33.74,
+     "weight": 0.0833,
      "side": "long",
      "name": "Invesco DB Commodity Index Tracking Fund",
      "thesis": "Paniere commodity diversificato (+52% 12m, +8.5% 1m) come hedge strutturale contro l'inflazione che sta costringendo le banche centrali a rialzare.",
@@ -322,19 +322,19 @@
     {
      "ticker": "USFR",
      "qty": 287.47,
-     "px": 50.41,
-     "weight": 0.15,
+     "px": 50.48,
+     "weight": 0.1485,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund",
      "thesis": "Floater sul breve a ~4%: parcheggio liquido che rende bene se la Fed resta restrittiva, nettamente preferibile alla duration in un regime di tassi in salita.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     },
     {
      "ticker": "IWD",
      "qty": 39.82,
-     "px": 250.36,
-     "weight": 0.1032,
+     "px": 255.77,
+     "weight": 0.1042,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF",
      "thesis": "Large value a PE 20.7 batte il growth a PE 29 quando i tassi reali salgono; core azionario con beta contenuto rispetto a QQQ.",
@@ -344,8 +344,8 @@
     {
      "ticker": "BRK-B",
      "qty": 17.31,
-     "px": 504.26,
-     "weight": 0.0904,
+     "px": 532.02,
+     "weight": 0.0943,
      "side": "long",
      "name": "Berkshire Hathaway",
      "thesis": "PE 13 e enorme liquidita' che rende di piu' con tassi al 4-5%: qualita' difensiva che beneficia proprio dello scenario di rialzi.",
@@ -355,8 +355,8 @@
     {
      "ticker": "CB",
      "qty": 20.5,
-     "px": 330.49,
-     "weight": 0.0701,
+     "px": 359.79,
+     "weight": 0.0755,
      "side": "long",
      "name": "Chubb",
      "thesis": "Assicurazione a PE 12.1: float investito a tassi piu' alti e pricing power tariffario, esposizione finanziaria senza il rischio credito delle banche.",
@@ -366,19 +366,19 @@
     {
      "ticker": "BMY",
      "qty": 98.56,
-     "px": 58.81,
-     "weight": 0.06,
+     "px": 59.75,
+     "weight": 0.0603,
      "side": "long",
      "name": "Bristol-Myers Squibb",
      "thesis": "Mantengo il value farmaceutico (PE 13, dy 4.1%) ma riduco il peso: l'healthcare mostra debolezza diffusa e non voglio ampliare il drawdown.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     },
     {
      "ticker": "GLD",
      "qty": 17.87,
-     "px": 379.55,
-     "weight": 0.0702,
+     "px": 382.01,
+     "weight": 0.0699,
      "side": "long",
      "name": "SPDR Gold Shares",
      "thesis": "Copertura contro inflazione persistente e rischio geopolitico; peso contenuto perche' tassi reali in rialzo sono un freno nel breve.",
@@ -388,47 +388,47 @@
     {
      "ticker": "EDV",
      "qty": -89.09,
-     "px": 54.22,
-     "weight": -0.05,
+     "px": 57.6,
+     "weight": -0.0525,
      "side": "short",
      "name": "Vanguard Extended Duration Treasury ETF",
      "thesis": "Inverto da long a short la duration lunghissima: con decennale USA al 5.31% in salita, deficit e allarmi sul debito sovrano, i Treasury 25y+ scendono di prezzo.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     },
     {
      "ticker": "SMH",
      "qty": 12.19,
-     "px": 633.9,
-     "weight": 0.08,
+     "px": 539.79,
+     "weight": 0.0673,
      "side": "long",
      "name": "VanEck Semiconductor ETF",
      "thesis": "Esposizione misurata al motore di utili del mercato (memorie e logica in shortage, capex AI in accelerazione): sostituisce lo short ARM e colma il mio gap di beta sul settore.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     }
    ]
   },
   "kimi": {
-   "cash": 51919.7,
-   "equity": 99450.93,
+   "cash": 56089.29,
+   "equity": 101145.68,
    "positions": [
     {
      "ticker": "FENY",
-     "qty": 338.7,
-     "px": 35.01,
-     "weight": 0.1192,
+     "qty": 405.59,
+     "px": 37.41,
+     "weight": 0.15,
      "side": "long",
      "name": "Fidelity MSCI Energy Index ETF",
-     "thesis": "Petrolio a 100$ e inflazione persistente favoriscono l'energia: momentum +16% 3m, valutazione ragionevole (PE 17.5), yield 2.2%. Settore leader in un regime di prezzi in rialzo.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Guerra USA-Iran in corso, WTI a 98$ (+5% in 1w) e inflazione che si riaccende: energia cheap (PE ~18, yield 2.3%) con momentum forte (+17% 3m). Rinforzo il long inflazionistico principale del portafoglio.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "DBC",
      "qty": 301.57,
-     "px": 32.39,
-     "weight": 0.0982,
+     "px": 33.74,
+     "weight": 0.1006,
      "side": "long",
      "name": "Invesco DB Commodity Index Tracking Fund",
      "thesis": "Commodity diversificate in trend rialzista (+19% 3m, +52% 12m): hedge inflazionistico diretto mentre Fed e BoE stringono su prezzi spinti dall'energia.",
@@ -438,8 +438,8 @@
     {
      "ticker": "IWD",
      "qty": 47.78,
-     "px": 250.36,
-     "weight": 0.1203,
+     "px": 255.77,
+     "weight": 0.1208,
      "side": "long",
      "name": "iShares Russell 1000 Value ETF",
      "thesis": "Value batte growth da un anno (+26% vs +5%): con tassi al 5% la duration equity e' penalizzata e gli utili correnti a sconto (PE 20.7) offrono cuscinetto.",
@@ -449,8 +449,8 @@
     {
      "ticker": "FHLC",
      "qty": 123.0,
-     "px": 81.29,
-     "weight": 0.1005,
+     "px": 84.55,
+     "weight": 0.1028,
      "side": "long",
      "name": "Fidelity MSCI Health Care Index ETF",
      "thesis": "Healthcare difensivo con momentum positivo (+10.6% 3m) e flussi stabili: protezione se il tightening raffredda il ciclo, trascinato da JNJ e MRK.",
@@ -459,42 +459,42 @@
     },
     {
      "ticker": "CIBR",
-     "qty": 79.76,
-     "px": 106.01,
-     "weight": 0.085,
+     "qty": 40.95,
+     "px": 98.82,
+     "weight": 0.04,
      "side": "long",
      "name": "First Trust NASDAQ Cybersecurity ETF",
-     "thesis": "Cybersecurity con forza idiosincratica (CRWD +16% 1w, PANW +12%): domanda strutturale da rischi AI e stretta regolatoria EU; ETF per limitare il rischio singolo titolo.",
-     "dal": "2026-09-17",
-     "mossa": "invariata"
+     "thesis": "Posizione lunga esistente: la tesi security di lungo periodo resta valida, ma e' tech-correlata (-10% in 1w) e l'insider selling in CRWD/PANW pesa sul sentiment di settore. Dimezzo il long per ridurre beta tech e finanziare il rafforzo della tesi principale.",
+     "dal": "2026-10-20",
+     "mossa": "di questo periodo"
     },
     {
      "ticker": "USFR",
      "qty": 394.65,
-     "px": 50.41,
-     "weight": 0.2,
+     "px": 50.48,
+     "weight": 0.197,
      "side": "long",
      "name": "WisdomTree Floating Rate Treasury Fund",
      "thesis": "I T-bill floaters rendono ~3.7% senza rischio duration mentre la Fed stringe: parcheggio qui il cash liberato dalla riduzione degli short per carry positivo e stabilita'.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     },
     {
      "ticker": "SMH",
-     "qty": -7.85,
-     "px": 633.9,
-     "weight": -0.05,
+     "qty": -13.12,
+     "px": 539.79,
+     "weight": -0.07,
      "side": "short",
      "name": "VanEck Semiconductor ETF",
-     "thesis": "Semiconduttori iper-valutati (PE 43) con tassi al 5.3%, ma il momentum AI continua a salire e lo short mi costa gia' -16%: dimezzo per limitare il danno mantenendo esposizione residua alla normalizzazione.",
-     "dal": "2026-10-06",
+     "thesis": "L'unwind AI accelera (SMCI -24%, DELL -23%, MU -15% in 1w) e le valutazioni dei semis restano elevate nonostante il calo: riporto lo short verso il peso originario, coerente con la tesi di bolla AI in sgonfiamento.",
+     "dal": "2026-10-20",
      "mossa": "di questo periodo"
     },
     {
      "ticker": "VGLT",
      "qty": -154.17,
-     "px": 49.68,
-     "weight": -0.077,
+     "px": 51.39,
+     "weight": -0.0783,
      "side": "short",
      "name": "Vanguard Long-Term Treasury ETF",
      "thesis": "La Fed ha appena rialzato e il 10Y e' al 5.01%: la duration lunga e' il trade perdente (VGLT -5% 12m) e il trend di tasso e' intatto.",
@@ -504,8 +504,8 @@
     {
      "ticker": "ITB",
      "qty": -79.44,
-     "px": 85.58,
-     "weight": -0.0684,
+     "px": 86.4,
+     "weight": -0.0679,
      "side": "short",
      "name": "iShares U.S. Home Construction ETF",
      "thesis": "Homebuilder -19% a 12m con mutui ai massimi dal 2023 e tassi piu' alti piu' a lungo: domanda immobiliare compressa, trend ribassista consolidato.",
@@ -515,165 +515,146 @@
     {
      "ticker": "EWQ",
      "qty": -119.01,
-     "px": 41.79,
-     "weight": -0.05,
+     "px": 42.12,
+     "weight": -0.0496,
      "side": "short",
      "name": "iShares MSCI France ETF",
      "thesis": "Debito francese sotto pressione, euro ai minimi da 17 mesi, CAC in calo e proteste sociali: momentum gia' negativo (3m -8%) dentro il mio quadro di stress da debito sovrano globale.",
      "dal": "2026-10-06",
-     "mossa": "di questo periodo"
+     "mossa": "invariata"
     }
    ]
   }
  },
  "decisions": {
   "gpt": {
-   "rationale": "Mantengo l’impostazione di lungo periodo: qualità e valore, elevata liquidità remunerata e copertura selettiva. Il Treasury decennale al 5,31%, il dollaro forte e i timori sul debito confermano USFR e sconsigliano duration lunga; BRK-B, IWD, CB e ACN restano diversificatori a valutazioni ragionevoli. SHEL conserva supporto geopolitico nonostante il calo recente del greggio; GOOGL combina crescita e multiplo contenuto. La tesi short su TSLA non cambia: valutazione estrema (P/E 350,7) e performance annuale negativa, pur con rimbalzo settimanale. Nessun dato giustifica turnover e relativi costi; mantengo circa il 15% di cassa e l’esposizione lorda entro il limite.",
+   "rationale": "Confermo senza cambi la strategia di lungo periodo: qualità e valore, liquidità remunerata e copertura selettiva. Il Treasury decennale al 5,14%, petrolio vicino a 100, VIX in rialzo e debolezza tecnologica sostengono USFR, SHEL e la prudenza complessiva. BRK-B, IWD, CB, ACN e GOOGL mantengono fondamentali e valutazioni relativamente interessanti; non inseguo né vendo il recente rialzo di ACN. La valutazione estrema di TSLA continua a giustificare lo short contenuto. I pesi restano vicini agli obiettivi, l’esposizione lorda è disciplinata e nessuna nuova informazione invalida le tesi: evito quindi costi e trading inutile.",
    "orders": []
   },
   "gemini": {
-   "rationale": "Manteniamo ferma la nostra tesi barbell che bilancia asset difensivi e value con il growth tecnologico. Effettuiamo un rebalancing tattico: riduciamo marginalmente le posizioni tech che hanno sforato il target (NVDA, META) per finanziare l'incremento di LMT, spinto dalle nuove tensioni militari in Medio Oriente, e JPM, avvantaggiata da un decennale USA stabilmente oltre il 5%. La limitata movimentazione minimizza i costi operativi, confermando la view strategica di lungo periodo.",
+   "rationale": "Manteniamo ferma l'impostazione barbell (value/difesa vs growth). A fronte della recente rotazione settoriale, il portafoglio ha ben performato grazie ai titoli energetici (XOM), difensivi (LMT) e healthcare (LLY), compensando la flessione dell'AI. Ribilanciamo disciplinatamente: trimmiamo le azioni che hanno sforato il 10% di peso per incassare i profitti, e reinvestiamo nei tecnologici (NVDA, AVGO, META) e oro (GLD) per ripristinare i pesi target. La coerenza con l'allocazione ci protegge dall'inflazione persistente.",
    "orders": [
     {
-     "ticker": "NVDA",
+     "ticker": "XOM",
      "action": "trim",
      "side": "long",
      "attesa": "rialzo",
      "target_weight": 0.1,
-     "thesis": "Prendiamo parziale profitto per riallineare il peso al target strategico del 10%, mantenendo intatte le nostre aspettative di rialzo di lungo periodo sui trend AI.",
-     "name": "NVIDIA"
-    },
-    {
-     "ticker": "META",
-     "action": "trim",
-     "side": "long",
-     "attesa": "rialzo",
-     "target_weight": 0.1,
-     "thesis": "Leggero ribilanciamento per contenere l'esposizione, pur restando posizionati stabilmente al rialzo sulla scia del solido momentum aziendale.",
-     "name": "Meta Platforms"
+     "thesis": "Presa di profitto per riportare il peso al target; la view rialzista sull'energia resta valida data l'inflazione persistente.",
+     "name": "ExxonMobil"
     },
     {
      "ticker": "LMT",
-     "action": "increase",
+     "action": "trim",
      "side": "long",
      "attesa": "rialzo",
      "target_weight": 0.1,
-     "thesis": "Incrementiamo la posizione al 10% per rinforzare le difese di portafoglio di fronte all'escalation geopolitica in Medio Oriente, attendendo un conseguente rialzo del titolo.",
+     "thesis": "Ribilanciamento post-rialzo. Manteniamo il titolo per la forte copertura geopolitica, ma incassiamo parte dei guadagni.",
      "name": "Lockheed Martin"
     },
     {
-     "ticker": "JPM",
+     "ticker": "LLY",
+     "action": "trim",
+     "side": "long",
+     "attesa": "rialzo",
+     "target_weight": 0.1,
+     "thesis": "Riduciamo marginalmente il peso nel settore healthcare per ripristinare l'equilibrio del portafoglio dopo il forte apprezzamento.",
+     "name": "Eli Lilly"
+    },
+    {
+     "ticker": "MSFT",
+     "action": "trim",
+     "side": "long",
+     "attesa": "rialzo",
+     "target_weight": 0.1,
+     "thesis": "Leggera limatura per allineamento al target; la visione di lungo termine sui fondamentali e sul posizionamento nell'AI resta positiva.",
+     "name": "Microsoft"
+    },
+    {
+     "ticker": "NVDA",
      "action": "increase",
      "side": "long",
      "attesa": "rialzo",
      "target_weight": 0.1,
-     "thesis": "Riportiamo il peso al target del 10% poiché la persistenza dei rendimenti obbligazionari oltre il 5% sostiene fortemente i margini di interesse del settore bancario.",
-     "name": "JPMorgan Chase"
+     "thesis": "Sfruttiamo il calo del comparto tech per riaccumulare e bilanciare la componente growth senza modificare la convinzione di lungo periodo.",
+     "name": "NVIDIA"
+    },
+    {
+     "ticker": "AVGO",
+     "action": "increase",
+     "side": "long",
+     "attesa": "rialzo",
+     "target_weight": 0.1,
+     "thesis": "Approfittiamo della correzione settoriale di breve periodo per riportare al 10% il peso sull'infrastruttura tecnologica.",
+     "name": "Broadcom"
+    },
+    {
+     "ticker": "META",
+     "action": "increase",
+     "side": "long",
+     "attesa": "rialzo",
+     "target_weight": 0.1,
+     "thesis": "Acquistiamo sulla flessione per ripristinare l'esposizione target, continuando a puntare sul trend solido della digitalizzazione.",
+     "name": "Meta Platforms"
+    },
+    {
+     "ticker": "GLD",
+     "action": "increase",
+     "side": "long",
+     "attesa": "rialzo",
+     "target_weight": 0.1,
+     "thesis": "Incrementiamo l'esposizione all'oro per completare il ribilanciamento tattico, confermandolo come asset di protezione irrinunciabile.",
+     "name": "SPDR Gold Shares"
     }
    ]
   },
   "claude": {
-   "rationale": "Resto fedele alla tesi macro: tassi reali in salita, inflazione da materie prime, stress fiscale (UST10Y 5.31, warning BIS, mutui UK al 6%, euro ai minimi). Due correzioni esplicite. Prima: la duration lunghissima va venduta, non comprata; quindi inverto la posizione su EDV portandola a SHORT 5% — side, attesa (ribasso) e tesi ora coincidono. Seconda: lo short ARM mi è costato ~24% contro il melt-up dei semiconduttori; lo chiudo e, cambiando idea dichiaratamente, assumo una posizione LONG su SMH all'8% perché il capex AI genera utili reali e non voglio restare strutturalmente contro il trend dominante. Confermo energia (FENY, DBC), oro, value/quality (IWD, BRK-B, CB); USFR a 15% come cash remunerato; BMY ridotto al 6%.",
+   "rationale": "(parse error)",
+   "orders": []
+  },
+  "kimi": {
+   "rationale": "Chiarisco: CIBR e' una posizione LONG (0.078 dell'equity), non short; il trim la riduce a 0.04 liberando cassa, nessuna contraddizione direzionale. Quadro strategico invariato e confermato: inflazione che si riaccende, guerra USA-Iran, WTI a 98$, 10Y al 5.14%: resto lungo energia/commodity/value e short duration/housing/Francia. L'unwind della bolla AI accelera (SMCI -24%, DELL -23% in 1w) e l'insider selling colpisce il cyber: rafforzo FENY e riporto lo short SMH verso il peso iniziale, finanziati riducendo il long CIBR (tech-correlato, momentum rotto). Mantengo IWD, FHLC, DBC, USFR. Esposizione lorda ~98%.",
    "orders": [
     {
-     "ticker": "ARM",
-     "action": "close",
-     "side": "short",
-     "attesa": "rialzo",
-     "target_weight": 0,
-     "thesis": "Chiudo lo short: la tesi di sopravvalutazione (PE 312) non ha retto contro il momentum dei semiconduttori e il prezzo continua a salire; taglio la perdita invece di raddoppiare contro il trend.",
-     "name": "Arm Holdings"
-    },
-    {
-     "ticker": "EDV",
-     "action": "open",
-     "side": "short",
-     "attesa": "ribasso",
-     "target_weight": 0.05,
-     "thesis": "Inverto da long a short la duration lunghissima: con decennale USA al 5.31% in salita, deficit e allarmi sul debito sovrano, i Treasury 25y+ scendono di prezzo.",
-     "name": "Vanguard Extended Duration Treasury ETF"
-    },
-    {
-     "ticker": "SMH",
-     "action": "open",
+     "ticker": "CIBR",
+     "action": "trim",
      "side": "long",
      "attesa": "rialzo",
-     "target_weight": 0.08,
-     "thesis": "Esposizione misurata al motore di utili del mercato (memorie e logica in shortage, capex AI in accelerazione): sostituisce lo short ARM e colma il mio gap di beta sul settore.",
-     "name": "VanEck Semiconductor ETF"
+     "target_weight": 0.04,
+     "thesis": "Posizione lunga esistente: la tesi security di lungo periodo resta valida, ma e' tech-correlata (-10% in 1w) e l'insider selling in CRWD/PANW pesa sul sentiment di settore. Dimezzo il long per ridurre beta tech e finanziare il rafforzo della tesi principale.",
+     "name": "First Trust NASDAQ Cybersecurity ETF"
     },
     {
-     "ticker": "USFR",
+     "ticker": "FENY",
      "action": "increase",
      "side": "long",
      "attesa": "rialzo",
      "target_weight": 0.15,
-     "thesis": "Floater sul breve a ~4%: parcheggio liquido che rende bene se la Fed resta restrittiva, nettamente preferibile alla duration in un regime di tassi in salita.",
-     "name": "WisdomTree Floating Rate Treasury Fund"
+     "thesis": "Guerra USA-Iran in corso, WTI a 98$ (+5% in 1w) e inflazione che si riaccende: energia cheap (PE ~18, yield 2.3%) con momentum forte (+17% 3m). Rinforzo il long inflazionistico principale del portafoglio.",
+     "name": "Fidelity MSCI Energy Index ETF"
     },
     {
-     "ticker": "BMY",
-     "action": "trim",
-     "side": "long",
-     "attesa": "rialzo",
-     "target_weight": 0.06,
-     "thesis": "Mantengo il value farmaceutico (PE 13, dy 4.1%) ma riduco il peso: l'healthcare mostra debolezza diffusa e non voglio ampliare il drawdown.",
-     "name": "Bristol-Myers Squibb"
+     "ticker": "SMH",
+     "action": "increase",
+     "side": "short",
+     "attesa": "ribasso",
+     "target_weight": 0.07,
+     "thesis": "L'unwind AI accelera (SMCI -24%, DELL -23%, MU -15% in 1w) e le valutazioni dei semis restano elevate nonostante il calo: riporto lo short verso il peso originario, coerente con la tesi di bolla AI in sgonfiamento.",
+     "name": "VanEck Semiconductor ETF"
     }
    ],
    "coherence": {
-    "severity": "hard",
+    "severity": "soft",
     "ri_domanda": true,
     "flags": [
      {
-      "ticker": "ARM",
-      "check": "attesa_vs_side",
-      "severity": "hard",
-      "detail": "attesa \"rialzo\" implica side long, l'ordine dice short"
+      "ticker": null,
+      "check": "esposizione_gross",
+      "severity": "soft",
+      "detail": "gross dichiarato 98.0%, calcolato dagli ordini 26.0%"
      }
     ]
    }
-  },
-  "kimi": {
-   "rationale": "Coerente col quadro di tightening globale, anzi rafforzato: 10Y al 5.31%, mutui UK al 6%, warning BIS sul debito, euro ai minimi da 17 mesi per timori sul debito francese. Gli short su duration (VGLT) e housing (ITB) funzionano e restano. Tre cambi espliciti: (1) dimezzo lo short SMH: tesi valutativa invariata, ma il momentum AI (MU +457% 12m) mi ha dato torto finora, riduco per controllo del rischio; (2) chiudo lo short IWM, small cap troppo resilienti, tesi non confermata; (3) apro short EWQ, lo stress Francia/euro si inserisce nel tema debito. Aumento USFR per carry a rischio zero. Mantengo lunghi su energia, commodity, value, healthcare e cyber.",
-   "orders": [
-    {
-     "ticker": "SMH",
-     "action": "trim",
-     "side": "short",
-     "attesa": "ribasso",
-     "target_weight": 0.05,
-     "thesis": "Semiconduttori iper-valutati (PE 43) con tassi al 5.3%, ma il momentum AI continua a salire e lo short mi costa gia' -16%: dimezzo per limitare il danno mantenendo esposizione residua alla normalizzazione.",
-     "name": "VanEck Semiconductor ETF"
-    },
-    {
-     "ticker": "IWM",
-     "action": "close",
-     "side": "short",
-     "attesa": "ribasso",
-     "target_weight": 0,
-     "thesis": "Chiudo: le small cap restano resilienti nonostante il tightening (RUT +1% settimanale), la tesi di sofferenza non si e' materializzata in tre settimane; libero rischio per short piu' convinti.",
-     "name": "iShares Russell 2000 ETF"
-    },
-    {
-     "ticker": "EWQ",
-     "action": "open",
-     "side": "short",
-     "attesa": "ribasso",
-     "target_weight": 0.05,
-     "thesis": "Debito francese sotto pressione, euro ai minimi da 17 mesi, CAC in calo e proteste sociali: momentum gia' negativo (3m -8%) dentro il mio quadro di stress da debito sovrano globale.",
-     "name": "iShares MSCI France ETF"
-    },
-    {
-     "ticker": "USFR",
-     "action": "increase",
-     "side": "long",
-     "attesa": "rialzo",
-     "target_weight": 0.2,
-     "thesis": "I T-bill floaters rendono ~3.7% senza rischio duration mentre la Fed stringe: parcheggio qui il cash liberato dalla riduzione degli short per carry positivo e stabilita'.",
-     "name": "WisdomTree Floating Rate Treasury Fund"
-    }
-   ]
   }
  },
  "nav": {
@@ -749,6 +730,22 @@
    [
     "2026-10-12",
     102144.36
+   ],
+   [
+    "2026-10-13",
+    102488.29
+   ],
+   [
+    "2026-10-14",
+    102870.32
+   ],
+   [
+    "2026-10-15",
+    103649.77
+   ],
+   [
+    "2026-10-16",
+    104503.34
    ]
   ],
   "gemini": [
@@ -823,6 +820,22 @@
    [
     "2026-10-12",
     102919.65
+   ],
+   [
+    "2026-10-13",
+    103180.62
+   ],
+   [
+    "2026-10-14",
+    103005.57
+   ],
+   [
+    "2026-10-15",
+    103491.25
+   ],
+   [
+    "2026-10-16",
+    103246.71
    ]
   ],
   "claude": [
@@ -897,6 +910,22 @@
    [
     "2026-10-12",
     97270.96
+   ],
+   [
+    "2026-10-13",
+    97433.25
+   ],
+   [
+    "2026-10-14",
+    97405.85
+   ],
+   [
+    "2026-10-15",
+    97396.99
+   ],
+   [
+    "2026-10-16",
+    97719.15
    ]
   ],
   "kimi": [
@@ -971,6 +1000,22 @@
    [
     "2026-10-12",
     101182.72
+   ],
+   [
+    "2026-10-13",
+    101174.81
+   ],
+   [
+    "2026-10-14",
+    101331.58
+   ],
+   [
+    "2026-10-15",
+    100984.77
+   ],
+   [
+    "2026-10-16",
+    101152.88
    ]
   ],
   "random": [
@@ -1045,6 +1090,22 @@
    [
     "2026-10-12",
     99447.43
+   ],
+   [
+    "2026-10-13",
+    99252.91
+   ],
+   [
+    "2026-10-14",
+    100217.69
+   ],
+   [
+    "2026-10-15",
+    99958.09
+   ],
+   [
+    "2026-10-16",
+    100922.03
    ]
   ],
   "ACWI": [
@@ -1119,6 +1180,22 @@
    [
     "2026-10-12",
     101916.13
+   ],
+   [
+    "2026-10-13",
+    101954.19
+   ],
+   [
+    "2026-10-14",
+    100723.3
+   ],
+   [
+    "2026-10-15",
+    101027.85
+   ],
+   [
+    "2026-10-16",
+    100082.49
    ]
   ],
   "SP500": [
@@ -1193,6 +1270,22 @@
    [
     "2026-10-12",
     103415.69
+   ],
+   [
+    "2026-10-13",
+    103428.92
+   ],
+   [
+    "2026-10-14",
+    102310.66
+   ],
+   [
+    "2026-10-15",
+    102584.59
+   ],
+   [
+    "2026-10-16",
+    101461.03
    ]
   ]
  },

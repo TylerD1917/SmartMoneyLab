@@ -1,0 +1,23 @@
+{
+ "rationale": "Confermo senza cambi la strategia di lungo periodo: qualità e valore, liquidità remunerata e copertura selettiva. Il Treasury decennale al 5,14%, petrolio vicino a 100, VIX in rialzo e debolezza tecnologica sostengono USFR, SHEL e la prudenza complessiva. BRK-B, IWD, CB, ACN e GOOGL mantengono fondamentali e valutazioni relativamente interessanti; non inseguo né vendo il recente rialzo di ACN. La valutazione estrema di TSLA continua a giustificare lo short contenuto. I pesi restano vicini agli obiettivi, l’esposizione lorda è disciplinata e nessuna nuova informazione invalida le tesi: evito quindi costi e trading inutile.",
+ "orders": [],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  },
+  "ri_domanda": false,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  }
+ },
+ "as_of": "2026-10-20",
+ "model": "gpt"
+}

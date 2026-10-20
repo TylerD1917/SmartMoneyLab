@@ -1,0 +1,74 @@
+{
+ "rationale": "Chiarisco: CIBR e' una posizione LONG (0.078 dell'equity), non short; il trim la riduce a 0.04 liberando cassa, nessuna contraddizione direzionale. Quadro strategico invariato e confermato: inflazione che si riaccende, guerra USA-Iran, WTI a 98$, 10Y al 5.14%: resto lungo energia/commodity/value e short duration/housing/Francia. L'unwind della bolla AI accelera (SMCI -24%, DELL -23% in 1w) e l'insider selling colpisce il cyber: rafforzo FENY e riporto lo short SMH verso il peso iniziale, finanziati riducendo il long CIBR (tech-correlato, momentum rotto). Mantengo IWD, FHLC, DBC, USFR. Esposizione lorda ~98%.",
+ "orders": [
+  {
+   "ticker": "CIBR",
+   "action": "trim",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.04,
+   "thesis": "Posizione lunga esistente: la tesi security di lungo periodo resta valida, ma e' tech-correlata (-10% in 1w) e l'insider selling in CRWD/PANW pesa sul sentiment di settore. Dimezzo il long per ridurre beta tech e finanziare il rafforzo della tesi principale."
+  },
+  {
+   "ticker": "FENY",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.15,
+   "thesis": "Guerra USA-Iran in corso, WTI a 98$ (+5% in 1w) e inflazione che si riaccende: energia cheap (PE ~18, yield 2.3%) con momentum forte (+17% 3m). Rinforzo il long inflazionistico principale del portafoglio."
+  },
+  {
+   "ticker": "SMH",
+   "action": "increase",
+   "side": "short",
+   "attesa": "ribasso",
+   "target_weight": 0.07,
+   "thesis": "L'unwind AI accelera (SMCI -24%, DELL -23%, MU -15% in 1w) e le valutazioni dei semis restano elevate nonostante il calo: riporto lo short verso il peso originario, coerente con la tesi di bolla AI in sgonfiamento."
+  }
+ ],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "hard",
+   "n_flags": 2,
+   "flags": [
+    {
+     "order_index": null,
+     "ticker": null,
+     "side": null,
+     "check": "esposizione_gross",
+     "severity": "soft",
+     "detail": "gross dichiarato 98.0%, calcolato dagli ordini 26.0%"
+    },
+    {
+     "order_index": 0,
+     "ticker": "CIBR",
+     "side": "long",
+     "check": "rationale_vs_side",
+     "severity": "hard",
+     "detail": "il rationale descrive CIBR come short: \"riporto lo short SMH verso il peso iniziale, finanziati dimezzando CIBR (tech-correlato, momentum rotto)\""
+    }
+   ]
+  },
+  "ri_domanda": true,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "soft",
+   "n_flags": 1,
+   "flags": [
+    {
+     "order_index": null,
+     "ticker": null,
+     "side": null,
+     "check": "esposizione_gross",
+     "severity": "soft",
+     "detail": "gross dichiarato 98.0%, calcolato dagli ordini 26.0%"
+    }
+   ]
+  }
+ },
+ "as_of": "2026-10-20",
+ "model": "kimi"
+}

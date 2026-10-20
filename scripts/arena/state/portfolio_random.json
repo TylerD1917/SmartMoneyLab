@@ -68,6 +68,17 @@
    "log": [
     "RIFIUTATA: 20 posizioni > max 10 (portafoglio invariato)"
    ]
+  },
+  {
+   "date": "2026-10-20",
+   "action": "settle",
+   "ok": false,
+   "n_orders": 10,
+   "borrow_fee": 0.0,
+   "nav": 100926.92,
+   "log": [
+    "RIFIUTATA: 20 posizioni > max 10 (portafoglio invariato)"
+   ]
   }
  ],
  "created": "2026-09-17"
