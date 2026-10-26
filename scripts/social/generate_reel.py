@@ -199,6 +199,8 @@ def generate_reel(
     labels: list[str],
     title: str,
     subtitle: str = "",
+    title_color: str | None = None,
+    colors: list[str] | None = None,
     duration_seconds: int = 15,
     log_scale: bool = True,
     initial_capital: float | None = None,
@@ -222,6 +224,11 @@ def generate_reel(
       columns:          lista colonne del CSV da animare
       labels:           label da mostrare in legenda (stessa lunghezza di columns)
       title:            titolo principale del reel (1 riga)
+      colors:           palette curve, una voce per colonna. Serve quando
+                        due colonne vicine nella palette di default sono
+                        troppo simili (es. ambra e giallo limone).
+      title_color:      colore del titolo (default: bianco). Usa "#fbbf24"
+                        (ambra/oro) per i titoli di serie ricorrenti.
       subtitle:         sottotitolo opzionale (1 riga, sotto titolo)
       duration_seconds: durata target del reel (default 15s)
       log_scale:        scala log su asse Y (default True, raccomandato per equity)
@@ -319,12 +326,14 @@ def generate_reel(
              family="DejaVu Sans")
 
     # Titolo + sottotitolo (testi statici)
+    palette = list(colors) if colors else COLORS
+
     fig.text(0.5, 0.85, title, ha="center", va="top",
-             color=FG_COLOR, fontsize=30, fontweight="bold",
+             color=title_color or FG_COLOR, fontsize=30, fontweight="bold",
              wrap=True)
     if subtitle:
         fig.text(0.5, 0.79, subtitle, ha="center", va="top",
-                 color=WATERMARK_COLOR, fontsize=18, fontstyle="italic")
+                 color=FG_COLOR, fontsize=22, fontweight="bold")
 
     # Watermark in basso, stile italic come la slide IG
     fig.text(0.5, 0.03, "SmartMoneyLab  →  smartmoneylab.it",
@@ -386,24 +395,24 @@ def generate_reel(
     lines = []
     end_labels = []
     for i, col in enumerate(columns):
-        line, = ax.plot([], [], color=COLORS[i], lw=3.0,
+        line, = ax.plot([], [], color=palette[i % len(palette)], lw=3.0,
                         solid_capstyle="round", solid_joinstyle="round")
         lines.append(line)
         # Etichetta animata alla fine della curva (mostra NAV corrente)
-        txt = ax.text(0, 0, "", color=COLORS[i], fontsize=15, fontweight="bold",
+        txt = ax.text(0, 0, "", color=palette[i % len(palette)], fontsize=15, fontweight="bold",
                       ha="left", va="center")
         end_labels.append(txt)
 
     # Dot mobile sulla punta di ogni curva (look 'chart-race')
     dots = []
     for i in range(len(columns)):
-        dot, = ax.plot([], [], marker="o", markersize=11, color=COLORS[i],
+        dot, = ax.plot([], [], marker="o", markersize=11, color=palette[i % len(palette)],
                        markeredgecolor=BG_COLOR, markeredgewidth=2.0,
                        linestyle="None", zorder=6)
         dots.append(dot)
 
     # Legenda statica in basso al grafico
-    handles = [plt.Line2D([], [], color=COLORS[i], lw=5, label=labels[i])
+    handles = [plt.Line2D([], [], color=palette[i % len(palette)], lw=5, label=labels[i])
                for i in range(len(columns))]
     legend = ax.legend(handles=handles, loc="upper left",
                         facecolor=BG_COLOR, edgecolor=WATERMARK_COLOR,
@@ -570,6 +579,10 @@ def main():
                         help="Slug articolo, usato per il path output")
     parser.add_argument("--title", required=True, help="Titolo principale")
     parser.add_argument("--subtitle", default="", help="Sottotitolo opzionale")
+    parser.add_argument("--colors", default="",
+                        help="Palette curve separata da virgole (una per colonna)")
+    parser.add_argument("--title-color", default="",
+                        help="Colore del titolo (es. #fbbf24 per oro/ambra)")
     parser.add_argument("--columns", required=True,
                         help="Colonne del CSV, separate da virgola")
     parser.add_argument("--labels", required=True,
@@ -635,6 +648,8 @@ def main():
         labels=args.labels.split(","),
         title=args.title,
         subtitle=args.subtitle,
+        title_color=args.title_color or None,
+        colors=args.colors.split(",") if args.colors else None,
         duration_seconds=args.duration,
         log_scale=not args.no_log,
         from_returns=args.from_returns,

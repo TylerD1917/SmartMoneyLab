@@ -1,0 +1,145 @@
+{
+  "slug": "ai-investing-arena-ott2026",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "AI INVESTING ARENA",
+        "Risultati al 20/10/2026"
+      ],
+      "accent_lines": [
+        0
+      ],
+      "subtitle": "100.000 dollari a testa a quattro intelligenze artificiali. Un mese dopo: due battono l'S&P 500, una perde contro un portafoglio scelto a caso."
+    },
+    {
+      "type": "number",
+      "kicker": "Il portafoglio gestito da ChatGPT, in un mese:",
+      "number": "+4,50%",
+      "note": "nello stesso periodo l'S&P 500 ha fatto +1,46%",
+      "box": [
+        "Ed era ultimo",
+        "fra le quattro IA",
+        "fino al 30 settembre."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "ranking",
+      "title": "La classifica delle quattro IA",
+      "kicker": "Variazione dal capitale iniziale, al 16 ottobre.",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "ChatGPT",
+          "value": "+4,50%",
+          "accent": true
+        },
+        {
+          "pos": "2",
+          "name": "Gemini",
+          "value": "+3,25%"
+        },
+        {
+          "pos": "3",
+          "name": "Kimi",
+          "value": "+1,15%"
+        },
+        {
+          "pos": "4",
+          "name": "Claude",
+          "value": "−2,28%"
+        }
+      ],
+      "note": "Stesso capitale, stesso universo di titoli, stesse informazioni, una decisione ogni due settimane."
+    },
+    {
+      "type": "ranking",
+      "title": "E i tre termini di paragone?",
+      "kicker": "Posizione nella classifica generale, su sette concorrenti.",
+      "rows": [
+        {
+          "pos": "3",
+          "name": "S&P 500",
+          "value": "+1,46%",
+          "tag": "benchmark"
+        },
+        {
+          "pos": "5",
+          "name": "Portafoglio a caso",
+          "value": "+0,92%",
+          "tag": "controllo",
+          "accent": true
+        },
+        {
+          "pos": "6",
+          "name": "MSCI ACWI",
+          "value": "+0,08%",
+          "tag": "benchmark"
+        },
+        {
+          "pos": "7",
+          "name": "Claude",
+          "value": "−2,28%",
+          "dim": true,
+          "tag": "ultimo assoluto"
+        }
+      ],
+      "note": "Il portafoglio di controllo, costruito tirando a caso, sta davanti all'indice mondiale e a una delle quattro IA."
+    },
+    {
+      "type": "compare",
+      "kicker": "Stessa domanda, stessi dati, stesso giorno:",
+      "left": {
+        "num": "+4,50%",
+        "label": "ChatGPT"
+      },
+      "right": {
+        "num": "−2,28%",
+        "label": "Claude"
+      },
+      "punch": [
+        "Quasi sette punti",
+        "fra due modelli che",
+        "leggono le stesse notizie."
+      ],
+      "punch_accent": [
+        0
+      ]
+    },
+    {
+      "type": "chart",
+      "chart": "social/ai-investing-arena-ott2026/grafico_arena.png",
+      "title": [
+        "Il sorpasso è arrivato",
+        "negli ultimi tre giorni."
+      ],
+      "caption": "Variazione dal capitale iniziale, dati giornalieri."
+    },
+    {
+      "type": "bullets",
+      "title": "Prima di esaltarsi",
+      "bullets": [
+        "Un mese non dice niente: su ventidue sedute conta più la fortuna del metodo.",
+        "Il portafoglio scelto a caso (+0,92%) sta battendo Claude e l'indice MSCI ACWI.",
+        "ChatGPT ha guadagnato mentre il mercato scendeva: dal 13 ottobre l'S&P 500 ha perso quasi due punti.",
+        "Nessuno dei quattro ha ancora visto un vero crollo. È lì che si capirà qualcosa."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": [
+        "Vuoi sapere cosa hanno",
+        "comprato, e perché?"
+      ],
+      "bullets": [
+        "Sul sito c'è il portafoglio aperto di ogni modello: titolo per titolo, quanto pesa, e se è una posizione long o short.",
+        "Accanto a ogni posizione c'è la tesi che l'IA ha scritto per giustificarla, con la data in cui l'ha aperta.",
+        "Tutto si aggiorna da solo a ogni sessione, insieme al valore giornaliero."
+      ],
+      "button": "smartmoneylab.it/lab →"
+    }
+  ]
+}

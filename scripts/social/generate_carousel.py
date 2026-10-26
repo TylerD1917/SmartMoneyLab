@@ -22,6 +22,7 @@ Tipi di slide supportati (campo "type"):
   chart        - grafico PNG incorniciato in card bianca + didascalia
   compare      - due numeri a contrasto + frase punchline
   bullets      - titolo + elenco puntato breve
+  ranking      - classifica: righe posizione / nome / valore
   cta          - chiusura: titolo + 3 righe + pulsante "Link in bio"
 
 USO:
@@ -310,7 +311,7 @@ def render_bullets(s):
 def render_cta(s):
     parts = [bg(NAVY), logo(), footer()]
     title = s["title"] if isinstance(s["title"], list) else wrap(s["title"], 60, True)
-    blk, y = _lines_block(title, MARGIN, 440 - (len(title) - 2) * 40, 60, WHITE, bold=True)
+    blk, y = _lines_block(title, MARGIN, 360 - (len(title) - 2) * 40, 60, WHITE, bold=True)
     parts.append(blk)
     y += 70
     for b in s.get("bullets", []):
@@ -322,13 +323,63 @@ def render_cta(s):
             parts.append(T(MARGIN + 50, y, ln, 40, MUTE))
             y += 55
         y += 10
-    y += 60
+    # Il pulsante non deve mai finire sopra il footer (y=1300): con tre
+    # bullet che vanno a capo il blocco arrivava a coprirlo.
+    y = min(y + 60, 1150)
     btn = s.get("button", "Link in bio →")
     bw = _font(True, 38).getlength(btn) + 80
     parts.append(f'<rect x="{MARGIN}" y="{y}" width="{bw}" height="90" rx="45" fill="{AMBER}"/>')
     parts.append(T(MARGIN + bw / 2, y + 58, btn, 38, NAVY, bold=True, anchor="middle"))
     if s.get("handle"):
         parts.append(T(MARGIN, y + 180, s["handle"], 30, MUTE, italic=True))
+    return "".join(parts)
+
+
+def render_ranking(s):
+    """Classifica: titolo + righe (posizione, nome, valore) + nota.
+
+    Ogni riga dello spec: {"pos": "1", "name": "ChatGPT", "value": "+4,50%",
+    "accent": true, "tag": "IA"}. `accent` colora nome e valore in oro,
+    `dim` li smorza in azzurrino, `tag` aggiunge un'etichetta piccola sotto
+    il nome. `pos` puo' mancare (riga senza numero di classifica).
+    """
+    parts = [bg(NAVY), logo(), footer()]
+    title = s["title"] if isinstance(s["title"], list) else wrap(s["title"], 52, True)
+    blk, y = _lines_block(title, MARGIN, 240, 52, WHITE, bold=True)
+    parts.append(blk)
+    if s.get("kicker"):
+        kl = wrap(s["kicker"], 36, False)
+        blkk, y = _lines_block(kl, MARGIN, y + 56, 36, MUTE)
+        parts.append(blkk)
+    righe = s["rows"]
+    nota = s.get("note")
+    alto = y + 60
+    basso = 1100 if nota else 1180
+    disponibile = basso - alto
+    n = max(len(righe), 1)
+    passo = min(150, max(78, disponibile // n))
+    # blocco centrato nello spazio libero: con poche righe, altrimenti
+    # si ammassano in alto e lasciano mezza slide vuota.
+    y = alto + max(0, (disponibile - n * passo)) // 2 + 50
+    for i, r in enumerate(righe):
+        col = AMBER if r.get("accent") else (MUTE if r.get("dim") else WHITE)
+        if i:
+            ly = y - passo // 2 - 18
+            parts.append(f'<line x1="{MARGIN}" y1="{ly}" x2="{W-MARGIN}" y2="{ly}" '
+                         f'stroke="#3b4d80" stroke-width="2"/>')
+        x = MARGIN
+        if r.get("pos"):
+            parts.append(T(x, y, str(r["pos"]), 44, AMBER if r.get("accent") else MUTE, bold=True))
+            x += 64
+        parts.append(T(x, y, r["name"], 48, col, bold=True))
+        if r.get("tag"):
+            parts.append(T(x, y + 36, r["tag"], 28, MUTE, italic=True))
+        parts.append(T(W - MARGIN, y, r["value"], 48, col, bold=True, anchor="end"))
+        y += passo
+    if nota:
+        nl = wrap(nota, 34, False)
+        blkn, _ = _lines_block(nl, MARGIN, 1250 - len(nl) * 44, 34, MUTE)
+        parts.append(blkn)
     return "".join(parts)
 
 
@@ -339,6 +390,7 @@ RENDERERS = {
     "chart": render_chart,
     "compare": render_compare,
     "bullets": render_bullets,
+    "ranking": render_ranking,
     "cta": render_cta,
 }
 
