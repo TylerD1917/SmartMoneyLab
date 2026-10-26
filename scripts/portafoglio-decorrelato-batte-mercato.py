@@ -164,6 +164,12 @@ def rolling_6plus1(rp,rbS,rbW,years):
     return out
 summary["rolling6plus1"]={f"{yr}y":rolling_6plus1(EW,spx,wld,yr) for yr in [5,10]}
 json.dump(summary,open(os.path.join(OUT,"summary.json"),"w"),indent=2,ensure_ascii=False)
+# CSV per il reel social (full sample, base 100)
+eqc=pd.DataFrame({"portafoglio":EW,"sp500":SPX,"world":WLD}).dropna()
+eqc=(1+eqc).cumprod()*100.0
+seed=pd.DataFrame({c:[100.0] for c in eqc.columns},index=[eqc.index[0]-pd.DateOffset(months=1)])
+eqc=pd.concat([seed,eqc]).sort_index(); eqc.index.name="date"
+eqc.to_csv(os.path.join(OUT,"equity_curves_full.csv"))
 
 # ===== GRAFICI =====
 def savefig(fig,name): fig.tight_layout(); fig.savefig(os.path.join(OUT,name)); plt.close(fig)

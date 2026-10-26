@@ -1,0 +1,61 @@
+{
+  "slug": "portafoglio-decorrelato-batte-mercato",
+  "slides": [
+    {
+      "type": "cover",
+      "title": ["Il portafoglio più", "diversificato batte", "il mercato?"],
+      "accent_lines": [2],
+      "subtitle": "5 investimenti che si muovono in modo diverso. 27 anni di dati, 1999–2026."
+    },
+    {
+      "type": "number",
+      "kicker": "Ho preso i 5 investimenti che negli ultimi decenni si sono mossi meno insieme:",
+      "number": "5",
+      "note": "oro · Treasury USA · Nasdaq · banche · energia",
+      "box": ["In parti uguali, 20% ciascuno.", "Ribilanciati una volta l'anno."],
+      "box_accent": [0]
+    },
+    {
+      "type": "chart",
+      "title": ["Quanto fa male nei crolli?"],
+      "chart": "public/charts/portafoglio-decorrelato-batte-mercato/04_drawdown.png",
+      "caption": "2000 e 2008: borsa −50%, portafoglio −32%"
+    },
+    {
+      "type": "compare",
+      "kicker": "La perdita peggiore in 27 anni:",
+      "left": {"num": "−32%", "label": "portafoglio diversificato"},
+      "right": {"num": "−51%", "label": "la borsa da sola"},
+      "punch": ["Stesso rendimento.", "Metà delle batoste."],
+      "punch_accent": [1]
+    },
+    {
+      "type": "number_light",
+      "kicker": "Su ogni periodo di 10 anni, contro l'S&P 500 vince in:",
+      "number": "5 su 6",
+      "note": "le metriche di rischio e di rendimento aggiustato",
+      "box": ["Pareggia solo sul rendimento puro.", "Ma con molto meno rischio."],
+      "box_accent": [1]
+    },
+    {
+      "type": "bullets",
+      "title": ["Cosa insegna, in pratica"],
+      "bullets": [
+        "Un mix di investimenti scorrelati non ti fa guadagnare più della borsa: ti dà lo stesso rendimento.",
+        "Il regalo è il rischio: metà delle oscillazioni e crolli molto più piccoli.",
+        "Batte nettamente l'indice mondiale, non l'S&P 500."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": ["L'analisi completa", "è sul blog."],
+      "bullets": [
+        "I 5 asset e perché stanno bene insieme",
+        "Backtest 27 anni + Monte Carlo",
+        "La variante risk parity, più difensiva"
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab_it"
+    }
+  ]
+}
