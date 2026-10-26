@@ -74,6 +74,9 @@ SLUG = "ha-senso-oro-portafoglio"
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
 CACHE_DIR = REPO_ROOT / "data" / "cache"
+SP500_DIR = REPO_ROOT / "data" / "Sp500"
+SP500TR_CSV = SP500_DIR / "Sp500_TotalReturn1988_USD.csv"
+GSPC_CSV = SP500_DIR / "Sp500_daily_1927_GSPC.csv"
 OUT_DIR = REPO_ROOT / "public" / "charts" / SLUG
 
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -81,7 +84,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Periodo dell'analisi
 START_DATE = "1976-01-01"
-END_DATE = "2025-12-31"
+END_DATE = "2026-06-30"
 
 # Parametri rolling
 WINDOWS_MONTHS = {"5y": 60, "10y": 120, "20y": 240}
@@ -172,25 +175,73 @@ def _download(urls, cache_name: str, retries: int = 3, backoff: float = 2.0) -> 
     )
 
 
-def load_shiller_sp500_total_return() -> pd.Series:
+def load_sp500_total_return() -> pd.Series:
     """
-    Costruisce la serie mensile del total return S&P 500 dal mirror CSV
-    GitHub `datasets/s-and-p-500` (porting fedele del dataset Shiller).
+    Total return mensile dell'S&P 500, misurato a FINE MESE.
 
-    P = price index, D = dividendo annualizzato corrente.
-    r_t = (P_t + D_{t-1}/12) / P_{t-1} - 1
+    Due fonti incatenate:
+      - da febbraio 1988: indice S&P 500 Total Return (^SP500TR), chiusura
+        dell'ultima seduta del mese. E' total return per costruzione.
+      - prima del 1988: prezzo S&P 500 di fine mese (^GSPC) piu' il
+        dividendo annualizzato di Shiller diviso dodici,
+        r_t = (P_t + D_{t-1}/12) / P_{t-1} - 1.
+
+    Perche' non il prezzo mensile di Shiller: quel dato e' la MEDIA delle
+    chiusure giornaliere del mese, non il valore di fine mese. E' una
+    convenzione legittima, ma smorza la volatilita' e i drawdown, e non
+    sarebbe confrontabile con le serie MSCI (di fine mese) usate per le
+    gambe in euro. In piu' il mirror smette di riportare i dividendi dopo
+    giugno 2023, quindi da li' in avanti darebbe un price return travestito
+    da total return.
+
+    L'incollatura fra le due fonti e' verificata sull'overlap: i CAGR
+    devono coincidere entro un quarto di punto.
     """
+    div = _dividendo_shiller()
+    recente = _mensile_fine_mese(SP500TR_CSV, "Close")
+    rec_ret = recente.pct_change().dropna()
+
+    prezzo = _mensile_fine_mese(GSPC_CSV, "Close")
+    vecchio_ret = ((prezzo + div.reindex(prezzo.index).shift(1) / 12)
+                   / prezzo.shift(1) - 1).dropna()
+
+    taglio = rec_ret.index.min()
+    comune = vecchio_ret.index.intersection(rec_ret.index)
+    comune = comune[comune >= pd.Timestamp("1990-01-01")]
+    if len(comune) > 120:
+        a = (1 + vecchio_ret.loc[comune]).prod() ** (12 / len(comune)) - 1
+        b = (1 + rec_ret.loc[comune]).prod() ** (12 / len(comune)) - 1
+        if abs(a - b) > 0.0025:
+            raise RuntimeError(
+                f"le due fonti S&P non si incollano: CAGR {a:.4%} vs {b:.4%}")
+        print(f"[check] incollatura S&P verificata su {len(comune)} mesi: "
+              f"{a*100:.2f}% vs {b*100:.2f}%")
+
+    tr = pd.concat([vecchio_ret[vecchio_ret.index < taglio], rec_ret])
+    tr.name = "sp500_tr_monthly"
+    return tr.sort_index()
+
+
+def _dividendo_shiller() -> pd.Series:
+    """Dividendo annualizzato dell'S&P 500, dal mirror Shiller. Serve solo
+    per la parte precedente al 1988, dove il dato c'e' ed e' completo."""
     raw = _download(SHILLER_CSV_MIRROR, "shiller_mirror.csv").decode("utf-8")
     m = pd.read_csv(io.StringIO(raw))
     m.columns = [c.strip() for c in m.columns]
     m["date"] = pd.to_datetime(m["Date"]).dt.to_period("M").dt.to_timestamp()
-    m = m.set_index("date").sort_index()
-    p = pd.to_numeric(m["SP500"], errors="coerce")
-    d = pd.to_numeric(m["Dividend"], errors="coerce")
-    monthly_div = d.shift(1) / 12
-    total_return = (p + monthly_div) / p.shift(1) - 1
-    total_return.name = "sp500_tr_monthly"
-    return total_return.dropna()
+    d = pd.to_numeric(m.set_index("date").sort_index()["Dividend"], errors="coerce")
+    return d[d > 0]
+
+
+def _mensile_fine_mese(path: Path, colonna: str) -> pd.Series:
+    """Serie giornaliera locale -> valore dell'ultima seduta di ogni mese,
+    indicizzato al primo giorno del mese come il resto della pipeline."""
+    d = pd.read_csv(path)
+    d["dt"] = pd.to_datetime(d["Date"])
+    s = pd.to_numeric(d.set_index("dt").sort_index()[colonna], errors="coerce").dropna()
+    s = s.resample("ME").last()
+    s.index = s.index.to_period("M").to_timestamp()
+    return s
 
 
 def load_gold_monthly_price() -> pd.Series:
@@ -483,7 +534,7 @@ def main():
     print("=" * 64)
 
     # 1. Carica fonti
-    sp500 = load_shiller_sp500_total_return()
+    sp500 = load_sp500_total_return()
     gold_price = load_gold_monthly_price()
     gold = gold_monthly_returns(gold_price)
 

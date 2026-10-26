@@ -1,8 +1,9 @@
 ---
 category: "approfondimenti"
 title: "Ha senso inserire oro in portafoglio?"
-description: "Quattro portafogli buy & hold a confronto (100% azionario, 90/10, 75/25, 50/50 oro) su 50 anni di dati S&P 500 e LBMA Gold. Cosa dicono i numeri sull'asset più chiacchierato della finanza retail."
+description: "Quattro portafogli a confronto (100% azionario, 90/10, 75/25, 50/50 oro) su mezzo secolo di dati, in dollari sull'S&P 500 e in euro su MSCI World e ACWI. Cosa dicono i numeri."
 pubDate: 2026-04-29
+updatedDate: 2026-10-26
 tags: ["oro", "asset-allocation", "diversificazione", "rolling-windows", "backtest"]
 author: "SmartMoneyLab"
 simulationSlug: "ha-senso-oro-portafoglio"
@@ -11,19 +12,21 @@ draft: false
 
 ## In breve
 
-Su 50 anni di dati (gennaio 1976 – dicembre 2025), confronto quattro portafogli **buy & hold** — 100% azionario, 90/10, 75/25, 50/50 (azioni / oro) — su tutte le finestre rolling a 5, 10 e 20 anni con step di 3 mesi. Tre risultati centrali emergono dai numeri:
+Su mezzo secolo di dati (gennaio 1976, giugno 2026) confronto quattro portafogli comprati e mai più toccati, 100% azionario, 90/10, 75/25 e 50/50 fra azioni e oro, su tutte le finestre mobili a 5, 10 e 20 anni con step trimestrale. Dai numeri escono tre risultati centrali:
 
-1. **L'oro è empiricamente decorrelato dall'azionario** sul periodo: la correlazione mensile tra S&P 500 Total Return e LBMA Gold è **0.0085**. Praticamente zero. Non è un argomento teorico — sono 600 mesi di osservazione in cui i due asset si sono mossi in modo sostanzialmente indipendente.
-2. **Il costo in rendimento è bassissimo**: il 50/50 ha un CAGR full-sample di 10.60% contro 11.90% del pure-equity. Solo 130 punti base in meno. Il 90/10 perde appena 20 punti base (11.70%). Una geometria completamente diversa rispetto alle obbligazioni, dove il 60/40 perdeva quasi 250 punti base nel periodo equivalente.
-3. **La protezione nei peggiori scenari decennali è netta e robusta**: nel 5% delle finestre 10 anni andate peggio, il 100% azionario chiude col 1.18% annualizzato; il 50/50 col 6.43%. *Ogni* allocazione con oro batte il pure-equity nei worst case 10Y.
+1. **L'oro è empiricamente decorrelato dall'azionario.** La correlazione mensile fra S&P 500 total return e oro LBMA sul periodo è **−0,039**: praticamente zero. Non è un argomento teorico, sono 606 mesi di osservazione in cui i due asset si sono mossi in modo sostanzialmente indipendente.
+2. **Il costo in rendimento è basso.** Il 50/50 rende il 10,75% annuo composto sull'intero periodo contro il 12,08% del 100% azionario: 133 punti base in meno. Il 90/10 ne perde appena 21. Una geometria completamente diversa rispetto alle obbligazioni, dove il 60/40 perdeva quasi 240 punti base nel periodo equivalente.
+3. **La protezione negli scenari decennali peggiori è netta.** Nel 5% delle finestre decennali andate peggio il 100% azionario chiude all'1,54% annualizzato, il 50/50 al 6,37%. *Ogni* allocazione con oro batte il portafoglio tutto azionario nei casi peggiori a dieci anni.
 
-C'è anche un dato che disinnesca un mito che molti investitori si raccontano: **a 20 anni nessun portafoglio buy & hold ha evitato i drawdown profondi**. Nel 100% azionario *tutte* le 121 finestre 20Y hanno visto almeno un drawdown del −20%, e il 78.5% ha visto un drawdown del −30% o peggio. Anche il 50/50 oro: il 99% delle finestre ha drawdown ≥ −20%. Sul lungo periodo non si scappa dalla volatilità — si scappa solo dalle perdite definitive a parità di tempo.
+C'è poi un dato che smonta un mito diffuso: **a vent'anni nessun portafoglio ha evitato i drawdown profondi.** Nel 100% azionario *tutte* le 123 finestre ventennali hanno visto almeno un calo del 20% dal massimo, e l'81,3% ha visto un calo del 30% o peggio. Anche il 50/50 ha superato il 20% in tutte le finestre. Sul lungo periodo non si scappa dalla volatilità con solo oro, si scappa solo dalle perdite definitive a parità di tempo.
+
+Infine, la parte che riguarda più da vicino chi investe dall'Italia: rifatto lo stesso test **in euro su MSCI World e MSCI ACWI IMI**, il quadro migliora sensibilmente. Sull'ACWI, l'oro costa 18 punti base in trentadue anni e in cambio azzera le finestre decennali in perdita. 
 
 ## La domanda
 
 L'oro è probabilmente l'asset più chiacchierato della finanza retail italiana. Lo sento citare in due modi inconciliabili:
 
-- *Bene rifugio*, lo strumento contro l'inflazione, l'unico vero "store of value".
+- *Bene rifugio*, lo strumento contro l'inflazione, l'unica vera riserva di valore.
 - *Asset speculativo* per definizione, qualcosa che non produce niente, che vale solo quello che il prossimo è disposto a pagare.
 
 Entrambe le posizioni hanno argomenti validi. Quello che manca, quasi sempre, è una verifica seria sui dati. Voglio rispondere a tre domande in sequenza:
@@ -32,244 +35,296 @@ Entrambe le posizioni hanno argomenti validi. Quello che manca, quasi sempre, è
 2. **Quando** ha senso?
 3. **Quanto**?
 
-L'angolo che voglio testare è il seguente: *probabilmente l'oro ha senso in portafoglio, nonostante sia per eccellenza un asset speculativo che non produce valore come le azioni.* Se è così, lo deve dimostrare l'evidenza empirica — non il marketing dei broker che vendono ETC sull'oro né l'aneddotica del cugino.
+## Il metodo: finestre mobili e nessun ribilanciamento
 
-## Il metodo: rolling windows e buy & hold puro
+Confermo l'impianto metodologico stabilito col primo articolo del blog, il modello che useremo in tutti i confronti fra allocazioni:
 
-Confermo l'impianto metodologico stabilito col primo articolo del blog — è il pattern che useremo in tutti i confronti tra asset allocation:
-
-- Costruisco le serie mensili di rendimenti totali per i quattro portafogli su tutto il periodo **gennaio 1976 – dicembre 2025** (600 mesi, ovvero 50 anni pieni).
-- Per ogni portafoglio, calcolo le metriche su **tutte le finestre 5Y** (60 mesi), **10Y** (120 mesi) e **20Y** (240 mesi), con uno **step di 3 mesi**. In totale ottengo 181 finestre 5Y, 161 finestre 10Y e 121 finestre 20Y per ciascun portafoglio.
-- I rendimenti sono **lordi** (no costi degli ETF, no tasse). Lo scopo è isolare la tesi sull'allocazione dal rumore dei costi.
-- **Total Return**: i rendimenti dell'azionario includono i dividendi reinvestiti — formula standard `r_t = (P_t + D_{t-1}/12) / P_{t-1} - 1` ricostruita dal dataset Shiller. L'oro non genera flussi (no cedole, no dividendi), quindi il suo "total return" coincide col price return.
-- **Buy & hold puro**: nessun rebalancing in nessuno dei quattro portafogli. Compri all'inizio coi pesi target, lasci stare. Per le finestre rolling ogni finestra parte fresh dai pesi iniziali, è il framing del lettore retail (*"se compro oggi un 90/10 e lo tengo 10 anni senza toccarlo, cosa mi aspetto?"*).
+- Costruisco le serie mensili di rendimenti totali per i quattro portafogli su tutto il periodo **gennaio 1976, giugno 2026** (606 mesi, poco più di mezzo secolo).
+- Per ogni portafoglio calcolo le metriche su **tutte le finestre a 5 anni** (60 mesi), **10 anni** (120 mesi) e **20 anni** (240 mesi), con **passo di 3 mesi**. In totale 183 finestre quinquennali, 163 decennali e 123 ventennali per ciascun portafoglio.
+- I rendimenti sono **lordi**, senza costi degli ETF e senza tasse. Lo scopo è isolare la tesi sull'allocazione dal rumore dei costi.
+- **Total return**: i rendimenti dell'azionario includono i dividendi reinvestiti. L'oro non genera flussi (niente cedole, niente dividendi), quindi il suo total return coincide con la variazione di prezzo.
+- In questo caso, **nessun ribilanciamento**, in nessuno dei quattro portafogli. Compri all'inizio con i pesi scelti e lasci stare. Per le finestre mobili ogni finestra riparte dai pesi iniziali, perché è il modo in cui ragiona chi investe davvero: *"se compro oggi un 90/10 e lo tengo dieci anni senza toccarlo, cosa mi aspetto?"*
 
 ### Le scelte tecniche
 
-- **Azionario**: S&P 500 Total Return, serie mensile ricostruita dal dataset Shiller.
-- **Oro**: prezzo LBMA Gold mensile in USD/oz, serie 1950+ disponibile sul mirror GitHub `datasets/gold-prices` (la stessa serie LBMA che FRED ha smesso di distribuire da gennaio 2022, in seguito alla revoca della licenza da parte di ICE Benchmark Administration).
+- **Azionario USA**: indice S&P 500 Total Return (chiusura dell'ultima seduta di ogni mese) da febbraio 1988; prima, prezzo S&P 500 di fine mese più il dividendo annualizzato del dataset Shiller, con la formula standard `r_t = (P_t + D_{t-1}/12) / P_{t-1} - 1`. 
+- **Azionario globale** (ultima sezione): MSCI World total return in euro da gennaio 1976 e MSCI ACWI IMI total return in euro da giugno 1994, che è la sua prima data disponibile.
+- **Oro**: prezzo LBMA mensile in dollari per oncia, dalla serie storica pubblica che riporta fedelmente i dati LBMA (la stessa che FRED ha smesso di distribuire da gennaio 2022, dopo la revoca della licenza da parte di ICE Benchmark Administration). Per le gambe in euro il prezzo è convertito al cambio di fine mese.
+- **Cambio EUR/USD**: quotazione BCE di fine mese dal gennaio 1999; prima, marco tedesco per dollaro convertito al tasso irrevocabile di 1,95583 marchi per euro, che è la prassi standard per ricostruire serie in euro anteriori all'unione monetaria.
 
-Lo script Python che produce tutte le serie e i grafici è in [`scripts/ha-senso-oro-portafoglio.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/ha-senso-oro-portafoglio.py) — riga per riga, riproducibile.
-
-> **Limite onesto**: questa è un'analisi USA-centric, in dollari, sulla serie LBMA Gold (London PM Fix). Non è esattamente l'esperienza di un investitore italiano che compra ETC fisici sull'oro su Borsa Italiana (come Xetra-Gold o iShares Physical Gold), perché manca la dinamica del cambio EUR/USD. Sul lungo termine, però, l'oro tende a rivalutarsi rispetto a tutte le valute fiat in misura comparabile, quindi i risultati qualitativi dovrebbero reggere — la replica EUR-centric sarà un articolo successivo.
+Gli script Python che producono tutte le serie e i grafici sono [`scripts/ha-senso-oro-portafoglio.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/ha-senso-oro-portafoglio.py) e [`scripts/oro-portafoglio-indici-eur.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/oro-portafoglio-indici-eur.py), riga per riga, riproducibili.
 
 ## L'oro come asset speculativo: vale davvero il suo prezzo?
 
-Prima di guardare i dati conviene affrontare l'argomento che *non* si può ignorare. Warren Buffett, Charlie Munger, e una lunga tradizione di investitori value lo ripetono da decenni: **l'oro non produce nulla**. Non genera utili come un'azione, non paga cedole come un'obbligazione, non sforna affitti come un immobile. Buffett, in una lettera famosa agli azionisti del 2011, fa il calcolo: tutto l'oro estratto nella storia formerebbe un cubo di circa 21 metri di lato. A prezzi correnti, il valore di quel cubo è confrontabile con quello dell'intero S&P 500. Differenza: il cubo continuerà a essere un cubo, mentre l'S&P 500 produce ogni anno utili e dividendi reinvestibili.
+Prima di guardare i dati conviene affrontare l'argomento che *non* si può ignorare. Warren Buffett, Charlie Munger e una lunga tradizione di investitori value lo ripetono da decenni: **l'oro non produce nulla**. Non genera utili come un'azione, non paga cedole come un'obbligazione, non sforna affitti come un immobile. Buffett, in una lettera famosa agli azionisti del 2011, fa il calcolo: tutto l'oro estratto nella storia formerebbe un cubo di circa 21 metri di lato, e il valore di quel cubo è confrontabile con quello dell'intero S&P 500. La differenza è che il cubo continuerà a essere un cubo, mentre l'S&P 500 produce ogni anno utili e dividendi reinvestibili.
 
-L'argomento è solido e non si può smontare con la retorica. **L'oro non ha valore intrinseco calcolabile** nel senso classico: non puoi attualizzare flussi futuri perché non ci sono. Vale quello che il prossimo compratore è disposto a pagare. È, in senso tecnico, un asset speculativo.
+L'argomento è solido e non si smonta con la retorica. **L'oro non ha un valore intrinseco calcolabile** nel senso classico: non puoi attualizzare flussi futuri perché non ce ne sono. Vale quello che il prossimo compratore è disposto a pagare. È, in senso tecnico, un asset speculativo.
 
 I controargomenti a favore dell'oro non sono di tipo finanziario tradizionale, sono di tipo strutturale:
 
-- **Store of value su orizzonti lunghissimi**. Nei millenni, l'oro ha mantenuto un potere d'acquisto comparabile (storia romana e contemporanea). Le valute fiat si svalutano per costruzione (Banca Centrale → debasement); l'oro non si svaluta perché la sua quantità globale cresce a tassi annui dello 1-2% per estrazione, contro tassi di crescita della massa monetaria fiat anche superiori al 5-10% in periodi inflazionistici.
-- **Decorrelazione strutturale dalle valute e dai mercati finanziari**. Quando le banche centrali stampano per finanziare deficit, l'oro tende a salire perché è il "denaro di scarto" del sistema fiat. Quando la fiducia istituzionale cala (rischio di guerra, sanzioni, congelamento di asset), l'oro è uno dei pochi asset al di fuori del perimetro del sistema bancario.
-- **Hedge contro tail risk**. È il motivo per cui le banche centrali ne tengono migliaia di tonnellate nelle riserve.
+- **Riserva di valore su orizzonti lunghissimi.** Nei millenni l'oro ha mantenuto un potere d'acquisto comparabile. Le valute a corso legale si svalutano per costruzione; l'oro no, perché la quantità globale cresce dell'1 o 2% l'anno per estrazione, contro una massa monetaria che nei periodi inflazionistici cresce anche del 5 o 10%.
+- **Decorrelazione strutturale dalle valute e dai mercati.** Quando le banche centrali stampano per finanziare deficit l'oro tende a salire, perché è la moneta residuale del sistema. Quando la fiducia istituzionale cala (guerra, sanzioni, congelamento di asset) l'oro è uno dei pochi beni fuori dal perimetro del sistema bancario.
+- **Copertura contro i rischi di coda:** il motivo per cui le banche centrali ne tengono migliaia di tonnellate nelle riserve.
 
-Tutti argomenti plausibili a livello narrativo. Ma quel che ci interessa, su questo blog, è la verifica empirica. Allora la domanda diventa: **nei dati 1976-2025, l'oro si è effettivamente comportato come un diversificatore vero?**
+Tutti argomenti plausibili sul piano narrativo. Ma quello che interessa su questo blog è la verifica empirica. La domanda diventa quindi: **nei dati dal 1976 a oggi, l'oro si è davvero comportato da diversificatore?**
 
-La risposta è **sì, in modo più netto di quanto mi aspettassi**. La correlazione mensile tra S&P 500 Total Return e LBMA Gold sull'intero periodo è **0.0085** — sostanzialmente zero. Significa che, su 600 mesi di osservazione, il movimento di un asset non ha praticamente alcuna capacità di prevedere il movimento dell'altro. Per metterla in prospettiva: la correlazione tipica tra azioni USA e obbligazioni governative USA si è mossa storicamente tra +0.3 (anni '80) e −0.4 (post-GFC). I bond *correlano* con l'azionario, anche se in modo variabile. **L'oro proprio no.**
+La risposta è **sì, in modo più netto di quanto mi aspettassi.** La correlazione mensile fra S&P 500 total return e oro LBMA sull'intero periodo è **−0,039**, sostanzialmente zero. Significa che su 606 mesi di osservazione il movimento di un asset non ha praticamente alcuna capacità di prevedere il movimento dell'altro. Per dare una scala: la correlazione fra azioni e titoli di Stato americani si è mossa storicamente fra +0,3 (anni Ottanta) e −0,4 (dopo la crisi del 2008). Le obbligazioni *correlano* con l'azionario, anche se in modo variabile. **L'oro proprio no.**
 
-Questo è già un primo punto: **a livello statistico l'oro è un diversificatore vero**, non un diversificatore "marketing". Indipendentemente dalla critica filosofica sull'assenza di valore intrinseco, *empiricamente* aggiungere oro a un portafoglio azionario riduce il rischio specifico senza contropartite di rendimento equivalenti — almeno fino a un certo punto, come vedremo. La domanda residua è quanto questa decorrelazione si traduca in vantaggio di portafoglio reale, e a quale costo. È quello che misureremo adesso.
+Questo è già un primo punto: **sul piano statistico l'oro è un diversificatore vero**, non un diversificatore di facciata. Indipendentemente dalla critica filosofica sull'assenza di valore intrinseco, *empiricamente* aggiungere oro a un portafoglio azionario riduce il rischio senza una contropartita equivalente in rendimento, almeno fino a un certo punto, come vedremo. Resta da capire quanto questa decorrelazione si traduca in vantaggio reale, e a quale prezzo.
 
-## Risultati su finestre 10 anni
+## Risultati su finestre di 10 anni
 
-Iniziamo dall'orizzonte intermedio, dove il "premio del rischio" azionario inizia a manifestarsi ma non è ancora del tutto saturato:
+Partiamo dall'orizzonte intermedio, dove il premio al rischio azionario comincia a manifestarsi ma non è ancora saturo:
 
 <figure>
-  <img src="/charts/ha-senso-oro-portafoglio/01_boxplot_cagr_10y.png" alt="Boxplot del CAGR su finestre rolling 10 anni — 100% azionario, 90/10, 75/25, 50/50 oro. Distribuzioni dei rendimenti annualizzati composti, S&P 500 Total Return + LBMA Gold, dati 1976-2025." />
-  <figcaption>Distribuzione del CAGR su finestre 10 anni, step 3 mesi. 161 finestre per portafoglio. Box centrale = 25°-75° percentile. Linea nera = mediana. Baffi = 5°-95° percentile.</figcaption>
+  <img src="/charts/ha-senso-oro-portafoglio/01_boxplot_cagr_10y.png" alt="Distribuzione del rendimento annuo composto su finestre mobili di 10 anni per i portafogli 100% azionario, 90/10, 75/25 e 50/50 oro, S&P 500 total return e oro LBMA, 1976-2026." />
+  <figcaption>Distribuzione del rendimento annuo composto su finestre di 10 anni, passo 3 mesi. 163 finestre per portafoglio. Box centrale: dal 25° al 75° percentile. Linea: mediana. Baffi: dal 5° al 95° percentile.</figcaption>
 </figure>
 
 Numeri esatti:
 
-| Portafoglio | p5    | p25   | **Mediana** | p75    | p95    |
-|-------------|-------|-------|-------------|--------|--------|
-| 100% E      | 1.18% | 7.91% | **13.18%**  | 14.99% | 18.14% |
-| 90/10       | 4.31% | 8.17% | **12.60%**  | 14.37% | 17.18% |
-| 75/25       | 6.19% | 8.49% | **11.38%**  | 13.40% | 15.42% |
-| 50/50       | 6.43% | 7.96% | **9.58%**   | 11.42% | 13.60% |
+| Portafoglio | 5° perc. | 25° perc. | **Mediana** | 75° perc. | 95° perc. |
+|---|---|---|---|---|---|
+| 100% azionario | 1,54% | 8,16% | **13,24%** | 15,24% | 18,20% |
+| 90/10 | 4,14% | 8,26% | **12,50%** | 14,53% | 17,41% |
+| 75/25 | 5,87% | 8,62% | **11,50%** | 13,52% | 15,79% |
+| 50/50 | 6,37% | 7,98% | **9,63%** | 11,49% | 13,98% |
 
-Lettura del dato:
+Come si legge:
 
-- **Sui valori mediani** l'azionario domina, ma il margine è molto più ridotto rispetto al confronto azioni/obbligazioni: 13.18% del 100E contro 12.60% del 90/10 (spread di soli 60 punti base) e 9.58% del 50/50 (spread di 360 punti base, contro i ~240 punti base che il 60/40 perdeva nello scorso articolo).
-- **Sui peggiori scenari (p5) l'oro vince in modo netto**. Il 100% azionario ha p5 a 1.18% — una decina assolutamente "perduta" in termini reali, considerata l'inflazione media. Il 50/50 ha p5 a 6.43%, oltre 5 punti percentuali in più. Ma anche il 90/10, che aggiunge solo un 10% di oro, alza il p5 a 4.31% — protezione moderata ma non simbolica.
-- **Sulla frequenza di chiusure 10y in negativo**: il 100E chiude in perdita nel 5% delle finestre (8 su 161). Il 75/25 e il 50/50 mai. Il 90/10 una sola finestra negativa su 161 — sostanzialmente eliminato.
+- **Sui valori mediani l'azionario domina**, ma il margine è molto più ridotto rispetto al confronto fra azioni e obbligazioni: 13,24% del tutto azionario contro 12,50% del 90/10 (appena 74 punti base) e 9,63% del 50/50 (3,6 punti percentuali, contro i circa 2,4 che il 60/40 perdeva nell'articolo sulle obbligazioni).
+- **Negli scenari peggiori l'oro vince nettamente.** Il 100% azionario ha un 5° percentile all'1,54%, un decennio di fatto perduto in termini reali una volta tolta l'inflazione. Il 50/50 sta al 6,37%, quasi cinque punti sopra. Ma anche il 90/10, che aggiunge solo un decimo di oro, porta il 5° percentile al 4,14%: protezione moderata, non simbolica.
+- **Sulla frequenza di decenni chiusi in perdita**: il tutto azionario perde nel 4,9% delle finestre (8 su 163). Il 75/25 e il 50/50 mai. Il 90/10 una sola volta su 163.
 
-Il quadro qualitativo è simile a quello dei bond — l'azionario domina in mediana, gli asset di diversificazione proteggono nelle code. Ma quantitativamente il trade-off è molto più favorevole all'oro: paga molto meno in rendimento mediano e protegge molto di più nei peggiori scenari.
+Il quadro qualitativo somiglia a quello delle obbligazioni, l'azionario domina in mediana e l'asset di diversificazione protegge nelle code, ma il bilancio è molto più favorevole all'oro: paga molto meno in rendimento mediano e protegge molto di più nei casi peggiori.
 
-## Risultati su finestre 5 anni
+## Risultati su finestre di 5 anni
 
-A 5 anni le code della distribuzione si allargano e l'azionario inizia a sbattere contro periodi in cui non c'è stato tempo di recuperare:
+A cinque anni le code si allargano e l'azionario comincia a sbattere contro periodi in cui non c'è stato tempo di recuperare:
 
 <figure>
-  <img src="/charts/ha-senso-oro-portafoglio/02_boxplot_cagr_5y.png" alt="Boxplot del CAGR su finestre rolling 5 anni — 100% azionario, 90/10, 75/25, 50/50 oro. Distribuzioni dei rendimenti annualizzati, S&P 500 Total Return + LBMA Gold, dati 1976-2025." />
-  <figcaption>Distribuzione del CAGR su finestre 5 anni, step 3 mesi. 181 finestre per portafoglio.</figcaption>
+  <img src="/charts/ha-senso-oro-portafoglio/02_boxplot_cagr_5y.png" alt="Distribuzione del rendimento annuo composto su finestre mobili di 5 anni per i quattro portafogli, S&P 500 total return e oro LBMA, 1976-2026." />
+  <figcaption>Distribuzione del rendimento annuo composto su finestre di 5 anni, passo 3 mesi. 183 finestre per portafoglio.</figcaption>
 </figure>
 
 Numeri esatti:
 
-| Portafoglio | p5      | p25   | **Mediana** | p75    | p95    | % finestre con CAGR < 0 |
-|-------------|---------|-------|-------------|--------|--------|--------------------------|
-| 100% E      | −1.64%  | 8.63% | **13.80%**  | 16.25% | 23.21% | **9.4%**                 |
-| 90/10       | −0.21%  | 8.54% | **12.85%**  | 15.17% | 21.36% | 6.1%                     |
-| 75/25       | 1.34%   | 8.31% | **11.20%**  | 14.48% | 19.08% | 1.1%                     |
-| 50/50       | 3.45%   | 6.70% | **9.87%**   | 12.87% | 17.65% | 1.1%                     |
+| Portafoglio | 5° perc. | 25° perc. | **Mediana** | 75° perc. | 95° perc. | finestre in perdita |
+|---|---|---|---|---|---|---|
+| 100% azionario | −1,60% | 8,19% | **13,78%** | 16,37% | 23,73% | **9,8%** |
+| 90/10 | −0,20% | 8,54% | **12,96%** | 15,57% | 21,83% | 6,0% |
+| 75/25 | 1,51% | 8,39% | **11,30%** | 14,71% | 19,04% | 1,6% |
+| 50/50 | 3,41% | 6,91% | **9,87%** | 13,05% | 17,70% | 1,1% |
 
 Cosa salta all'occhio:
 
-- **A 5 anni il 100% azionario chiude in perdita nel 9.4% delle finestre**: 17 finestre su 181. Sono i quinquenni che includono il pieno del dot-com burst, o il pieno della Crisi Finanziaria 2008-2009.
-- **Il 50/50 e il 75/25 chiudono in perdita nel 1.1% delle finestre**: 2 finestre su 181. Sostanzialmente eliminato il rischio di chiusura 5Y in negativo.
-- **Il p5 del 50/50 (3.45%) è oltre 5 punti percentuali sopra il p5 del 100E (−1.64%)**.
+- **A cinque anni il 100% azionario chiude in perdita nel 9,8% delle finestre**, 18 su 183. Sono i quinquenni che contengono il pieno dello scoppio della bolla internet o il pieno della crisi del 2008.
+- **Il 50/50 chiude in perdita nell'1,1% delle finestre**, 2 su 183, e il 75/25 nell'1,6%. Il rischio di chiudere un quinquennio in rosso è sostanzialmente eliminato.
+- **Il 5° percentile del 50/50 (3,41%) sta cinque punti sopra quello del tutto azionario (−1,60%).**
 
-A 5 anni l'oro "compra" tranquillità in modo molto efficiente: paga ~4 punti percentuali sulla mediana, ma elimina il rischio di chiusura negativa.
+A cinque anni l'oro compra tranquillità in modo efficiente: paga circa quattro punti sulla mediana, ma elimina il rischio di chiusura negativa.
 
-## Risultati su finestre 20 anni: la convergenza
+## Risultati su finestre di 20 anni: la convergenza
 
-Con 50 anni di dati a disposizione, possiamo guardare anche le finestre 20Y — orizzonte tipico di un piano pensionistico in fase di accumulo:
+Con mezzo secolo di dati possiamo guardare anche le finestre ventennali, l'orizzonte consigliabile per un piano di accumulo:
 
 <figure>
-  <img src="/charts/ha-senso-oro-portafoglio/05_boxplot_cagr_20y.png" alt="Boxplot del CAGR su finestre rolling 20 anni — 100% azionario, 90/10, 75/25, 50/50 oro. Distribuzioni dei rendimenti annualizzati, S&P 500 Total Return + LBMA Gold, dati 1976-2025." />
-  <figcaption>Distribuzione del CAGR su finestre 20 anni, step 3 mesi. 121 finestre per portafoglio.</figcaption>
+  <img src="/charts/ha-senso-oro-portafoglio/05_boxplot_cagr_20y.png" alt="Distribuzione del rendimento annuo composto su finestre mobili di 20 anni per i quattro portafogli, S&P 500 total return e oro LBMA, 1976-2026." />
+  <figcaption>Distribuzione del rendimento annuo composto su finestre di 20 anni, passo 3 mesi. 123 finestre per portafoglio.</figcaption>
 </figure>
 
 Numeri esatti:
 
-| Portafoglio | p5    | p25   | **Mediana** | p75    | p95    |
-|-------------|-------|-------|-------------|--------|--------|
-| 100% E      | 6.13% | 8.20% | **9.95%**   | 13.18% | 17.27% |
-| 90/10       | 6.51% | 8.13% | **9.78%**   | 12.64% | 16.66% |
-| 75/25       | 6.88% | 8.11% | **9.55%**   | 11.73% | 15.63% |
-| 50/50       | 6.89% | 7.79% | **8.88%**   | 10.08% | 13.42% |
+| Portafoglio | 5° perc. | 25° perc. | **Mediana** | 75° perc. | 95° perc. |
+|---|---|---|---|---|---|
+| 100% azionario | 6,34% | 8,38% | **10,15%** | 13,07% | 17,35% |
+| 90/10 | 6,60% | 8,27% | **10,02%** | 12,52% | 16,77% |
+| 75/25 | 6,82% | 8,23% | **9,57%** | 11,59% | 15,79% |
+| 50/50 | 6,91% | 7,83% | **8,94%** | 10,82% | 13,68% |
 
-Su 20 anni i quattro portafogli **convergono drammaticamente**:
+Su vent'anni i quattro portafogli **convergono in modo impressionante**:
 
-- Le mediane vanno da 9.95% (100E) a 8.88% (50/50). Spread di soli ~107 punti base.
-- I p5 sono praticamente identici: tra 6.13% (100E) e 6.89% (50/50). Spread di 76 punti base.
-- **Nessuna finestra 20Y in negativo per nessun portafoglio**.
+- Le mediane vanno dal 10,15% del tutto azionario all'8,94% del 50/50: 121 punti base di distanza.
+- I 5° percentili sono quasi identici, fra 6,34% e 6,91%: 57 punti base.
+- **Nessuna finestra ventennale in perdita, per nessun portafoglio.**
 
-Il dato è interessante perché ribalta il framing tipico: a 5 e 10 anni l'oro "vince" più chiaramente nei peggiori scenari, ma a 20 anni la differenza si appiattisce moltissimo. Il tempo lavora a favore dell'azionario: dato abbastanza tempo, anche le peggiori 10Y vengono assorbite dalle 10Y successive di recovery.
+Il dato è interessante perché ribalta l'impostazione abituale: a cinque e dieci anni l'oro vince chiaramente negli scenari peggiori, a venti la differenza si appiattisce. Il tempo lavora per l'azionario, perché dato abbastanza tempo anche il peggior decennio viene assorbito dal decennio successivo di recupero.
 
-> Detto in altro modo: **se hai veramente 20 anni davanti, la decisione tra 100E e 90/10 è quasi indifferente in termini di rendimento finale atteso, ma l'oro ti ha protetto nei sub-periodi**. Quindi è una scelta di tolleranza psicologica al drawdown lungo il viaggio, non di rendimento finale.
+> Detto diversamente: **se hai davvero vent'anni davanti, la scelta fra 100% azionario e 90/10 è quasi indifferente sul rendimento finale, ma l'oro ti ha protetto lungo la strada.** È una decisione di tolleranza psicologica al calo, non di rendimento atteso.
 
 ## I drawdown: cosa succede lungo il percorso
 
-Il rendimento finale è solo metà della storia. Il **max drawdown** (MDD) — il peggior calo subito dal portafoglio dal massimo al minimo successivo — racconta cosa hai dovuto sopportare per arrivarci.
+Il rendimento finale è solo metà della storia. Il **drawdown massimo**, cioè il peggior calo subito dal portafoglio fra un picco e il minimo successivo, racconta cosa hai dovuto sopportare per arrivarci.
 
 <figure>
-  <img src="/charts/ha-senso-oro-portafoglio/03_drawdown_distribution_5y.png" alt="Distribuzione del max drawdown su finestre rolling 5 anni per i quattro portafogli. Curva cumulata empirica del peggior drawdown osservato dentro ciascuna finestra." />
-  <figcaption>Distribuzione cumulata del max drawdown osservato all'interno di ogni finestra 5Y. Più la curva è "spostata a destra" (verso drawdown meno profondi), meglio.</figcaption>
+  <img src="/charts/ha-senso-oro-portafoglio/03_drawdown_distribution_5y.png" alt="Distribuzione cumulata del drawdown massimo osservato dentro ogni finestra di 5 anni, per i quattro portafogli." />
+  <figcaption>Distribuzione cumulata del drawdown massimo osservato dentro ogni finestra di 5 anni. Più la curva è spostata a destra, verso cali meno profondi, meglio è.</figcaption>
 </figure>
 
-Tabella riassuntiva delle frequenze di drawdown profondi:
+Frequenza dei cali profondi:
 
-| Portafoglio | % finestre 5Y con MDD ≤ −20% | % finestre 5Y con MDD ≤ −30% | % finestre 10Y con MDD ≤ −20% | % finestre 10Y con MDD ≤ −30% | % finestre 20Y con MDD ≤ −20% | % finestre 20Y con MDD ≤ −30% |
-|-------------|-------------------------------|-------------------------------|--------------------------------|--------------------------------|--------------------------------|--------------------------------|
-| 100% E      | 34.3%                         | 19.3%                         | 67.1%                          | 40.4%                          | **100%**                       | **78.5%**                      |
-| 90/10       | 34.8%                         | 17.7%                         | 70.8%                          | 39.8%                          | **100%**                       | 77.7%                          |
-| 75/25       | 34.3%                         | 7.2%                          | 65.2%                          | 23.0%                          | **100%**                       | 57.9%                          |
-| 50/50       | 23.8%                         | 7.2%                          | 54.0%                          | 17.4%                          | **99.2%**                      | 56.2%                          |
+| Portafoglio | 5a ≤ −20% | 5a ≤ −30% | 10a ≤ −20% | 10a ≤ −30% | 20a ≤ −20% | 20a ≤ −30% |
+|---|---|---|---|---|---|---|
+| 100% azionario | 44,3% | 21,3% | 77,3% | 41,7% | **100%** | **81,3%** |
+| 90/10 | 49,2% | 18,6% | 81,6% | 39,9% | **100%** | 81,3% |
+| 75/25 | 48,6% | 13,7% | 81,6% | 33,1% | **100%** | 72,4% |
+| 50/50 | 27,3% | 9,3% | 62,6% | 22,7% | **100%** | 63,4% |
 
 Tre cose vanno notate:
 
-- **Il 90/10 protegge poco dai drawdown.** Aggiungere un 10% di oro abbassa di pochissimo la frequenza di drawdown profondi (in alcune righe è addirittura leggermente peggiore del 100E nelle 10Y, perché il 10% non è abbastanza per fare massa). La protezione vera nei drawdown arriva dal 25% in su.
-- **Il 50/50 dimezza il rischio nelle 5Y**, da 19.3% a 7.2% di finestre con MDD ≤ −30%. Significativo.
-- **A 20 anni nessun portafoglio sfugge ai drawdown profondi**: nel 100% delle finestre il pure-equity ha visto un MDD ≥ −20% in qualche momento. Anche il 50/50 al 99.2%. La probabilità di avere drawdown ≥ −30% in una finestra 20Y va dal 78.5% (100E) al 56.2% (50/50). Tradotto: se investi per 20 anni e la tua testa non regge un −40% lungo il tragitto, devi diminuire la quota azionaria *molto* — non basta diversificare con un 10-25% di oro. O, in alternativa, devi accettare che vivrai un brutto drawdown lungo il tragitto e fare pace con la cosa adesso.
+- **Il 90/10 protegge poco dai cali.** Aggiungere un decimo di oro abbassa pochissimo la frequenza dei drawdown profondi, e sulla soglia del 20% è perfino leggermente peggio del tutto azionario, perché il 10% non basta a fare massa. La protezione vera arriva dal 25% in su.
+- **Il 50/50 più che dimezza i cali gravi a cinque anni**, dal 21,3% al 9,3% delle finestre sotto il 30%.
+- **A vent'anni nessuno sfugge a drowdown anche profondi.** Nel 100% delle finestre, per tutti e quattro i portafogli, c'è stato almeno un momento con un calo del 20% dal massimo. La probabilità di vedere un calo del 30% va dall'81,3% del tutto azionario al 63,4% del 50/50. Tradotto: se investi per vent'anni e la tua testa non regge un −40% lungo il tragitto, devi abbassare la quota azionaria *molto*, non basta diversificare con un 10 o 25% di oro. Altrimenti, devi accettare che quel brutto momento arriverà e che terrai duro.
 
-## L'equity curve: come si vede il trade-off su un caso reale
+## La curva del capitale
 
-Per visualizzare il trade-off in modo cumulativo, il grafico più informativo è la curva del valore di 1 dollaro investito a inizio 1976, fino a fine 2025:
+Per vedere il compromesso in forma cumulata, il grafico più parlante è il valore di un dollaro investito a inizio 1976:
 
 <figure>
-  <img src="/charts/ha-senso-oro-portafoglio/04_equity_curve.png" alt="Equity curve dei quattro portafogli (100% azionario, 90/10, 75/25, 50/50 oro) dal 1976 al 2025, scala logaritmica. Crescita di 1 USD investito a inizio 1976 — buy & hold puro." />
-  <figcaption>Crescita cumulata di 1 USD investito a gennaio 1976 con i pesi target iniziali, buy & hold puro. Scala logaritmica.</figcaption>
+  <img src="/charts/ha-senso-oro-portafoglio/04_equity_curve.png" alt="Curva del capitale dei quattro portafogli dal 1976 al 2026, scala logaritmica: crescita di 1 dollaro investito a gennaio 1976 senza mai ribilanciare." />
+  <figcaption>Crescita di 1 dollaro investito a gennaio 1976 con i pesi iniziali scelti, senza mai ribilanciare. Scala logaritmica.</figcaption>
 </figure>
 
-> **Come si legge questo grafico — importante.** Come nell'articolo precedente, **questa è una sola simulazione, non una statistica**. Letteralmente: prendo 1 USD a gennaio 1976, lo divido secondo i pesi target (es. 50% azioni e 50% oro nel 50/50), e poi non tocco più nulla fino a dicembre 2025. È quindi *un* possibile percorso, *uno* specifico investitore che ha avuto la sorte (o sfortuna) di iniziare proprio in quel mese. Le statistiche robuste sull'allocazione sono nelle finestre rolling sopra (181 + 161 + 121 finestre, ognuna con il proprio punto di partenza). L'equity curve serve per **vedere visivamente cosa accade su un percorso reale** — è didattica, non predittiva.
+> **Come si legge questo grafico, è importante.** Come nell'articolo precedente, **questa è una sola simulazione, non una statistica.** Letteralmente: prendo 1 dollaro a gennaio 1976, lo divido secondo i pesi scelti, e non tocco più niente fino a giugno 2026. È *un* percorso possibile, *uno* specifico investitore che ha avuto la sorte (o la sfortuna) di cominciare proprio in quel mese. Le statistiche robuste stanno nelle finestre mobili qui sopra, 183 più 163 più 123, ognuna con il proprio punto di partenza. La curva del capitale serve a vedere cosa succede lungo un percorso reale: è didattica, non predittiva.
 
-Numeri di riepilogo full-sample (1976–2025, buy & hold puro):
+Riepilogo sull'intero periodo (gennaio 1976, giugno 2026):
 
-| Portafoglio | CAGR full-sample | Volatilità annualizzata | Max drawdown |
-|-------------|------------------|--------------------------|--------------|
-| 100% E      | 11.90%           | 12.28%                   | −49.04%      |
-| 90/10       | 11.70%           | 12.09%                   | −48.11%      |
-| 75/25       | 11.34%           | 12.13%                   | −46.32%      |
-| 50/50       | 10.60%           | 12.51%                   | −41.45%      |
+| Portafoglio | Rendimento annuo composto | Volatilità annua | Drawdown massimo |
+|---|---|---|---|
+| 100% azionario | 12,08% | 15,01% | −50,95% |
+| 90/10 | 11,87% | 14,57% | −49,96% |
+| 75/25 | 11,51% | 14,24% | −48,07% |
+| 50/50 | 10,75% | 14,04% | −42,92% |
 
-1 USD investito nel gennaio 1976 diventa, dopo 50 anni:
-- ~$282 col 100% azionario
-- ~$256 col 90/10
-- ~$216 col 75/25
-- ~$152 col 50/50
+Un dollaro investito nel gennaio 1976 diventa, dopo mezzo secolo:
 
-Sembra una grande differenza, ma è il risultato della capitalizzazione su 50 anni. La differenza percentuale finale tra 100E e 50/50 è 46% — meno dell'aspettativa che si avrebbe guardando solo il CAGR. È coerente con la decorrelazione: quando azioni e oro si muovono indipendentemente, la combinazione tende a "compensare" parte della perdita di rendimento atteso con guadagno di stabilità.
+- circa 317 dollari col 100% azionario
+- circa 289 dollari col 90/10
+- circa 246 dollari col 75/25
+- circa 174 dollari col 50/50
 
-> **Curiosità sulla volatilità.** Da notare un dettaglio: il 50/50 ha **volatilità annualizzata del 12.51%, leggermente più alta del 100E (12.28%)**. È un risultato controintuitivo: ti aspetteresti che diversificare riduca sempre la volatilità. Quello che succede è che l'oro porta la sua propria volatilità (~16%/anno storica), e a un peso del 50% questa volatilità contribuisce in modo non trascurabile, anche con correlazione zero. Il 90/10, invece, ha la volatilità più bassa di tutti (12.09%) — è il "punto dolce" della diversificazione su questi due asset.
+Sembra una differenza enorme, ed è il risultato della capitalizzazione su cinquant'anni. Il montante finale del 50/50 è inferiore del 45% a quello del tutto azionario, meno di quanto suggerirebbe l'occhio guardando il solo rendimento annuo. Ciò è coerente con la decorrelazione: quando azioni e oro si muovono in modo indipendente, la combinazione compensa parte del rendimento perduto con la stabilità guadagnata.
+
+> **Un dettaglio sulla volatilità.** La volatilità scende all'aumentare della quota di oro, ma pochissimo: dal 15,01% del tutto azionario al 14,04% del 50/50, meno di un punto per metà portafoglio spostato. Con correlazione praticamente nulla ci si aspetterebbe un calo molto più marcato. Il motivo è che l'oro porta con sé una volatilità propria del **16,18% annuo**, più alta di quella dell'azionario, e con un peso del 50% quel contributo pesa quanto il beneficio della decorrelazione. Chi aggiunge oro per "ridurre la volatilità" sta comprando la cosa sbagliata: quello che si compra è la protezione nelle code, non una curva più liscia.
+
+## Lo stesso test visto da un portafoglio in euro
+
+Tutto quello che precede è misurato in dollari su un indice americano, ed è il modo in cui questa domanda viene studiata quasi sempre, perché le serie storiche lunghe sono americane. Ma non è il portafoglio di chi investe dall'Italia, per due motivi che si sommano: l'azionario di riferimento è globale, non solo americano, e soprattutto la valuta di misura è l'euro.
+
+Entrambi i punti contano, e vanno trattati insieme: il metallo è quotato in dollari, quindi **per chi misura in euro l'oro è anche una posizione in dollari**, e misurare un azionario globale in euro contro un oro in dollari sarebbe semplicemente sbagliato.
+
+Ho quindi rifatto lo stesso test, con la stessa metodologia, su due azionari globali espressi in euro, con l'oro convertito in euro al cambio di fine mese: **MSCI World** da gennaio 1976, cioè lo stesso periodo di prima, e **MSCI ACWI IMI** da giugno 1994, che è la sua prima data disponibile.
+
+<figure>
+  <img src="/charts/ha-senso-oro-portafoglio/06_eur_ventagli_10y.png" alt="Distribuzione del rendimento annuo composto su finestre mobili di 10 anni, in euro, per MSCI World dal 1976 e MSCI ACWI IMI dal 1994, nei quattro portafogli con oro." />
+  <figcaption>Rendimento annuo composto su tutte le finestre di 10 anni, misurato in euro. A sinistra MSCI World dal 1976, a destra MSCI ACWI IMI dal 1994.</figcaption>
+</figure>
+
+**MSCI World più oro, in euro, 1976-2026**
+
+| Portafoglio | Rendimento annuo | Volatilità | 10a 5° perc. | 10a mediana | decenni in perdita |
+|---|---|---|---|---|---|
+| 100% azionario | 9,84% | 14,61% | −1,40% | 10,15% | 8,0% |
+| 90/10 | 9,66% | 14,19% | 1,10% | 9,87% | 4,9% |
+| 75/25 | 9,34% | 13,85% | 3,12% | 8,83% | 0% |
+| 50/50 | 8,69% | 13,60% | 3,93% | 7,86% | 0% |
+
+**MSCI ACWI IMI più oro, in euro, 1994-2026**
+
+| Portafoglio | Rendimento annuo | Volatilità | Drawdown massimo | 10a 5° perc. | decenni in perdita |
+|---|---|---|---|---|---|
+| 100% azionario | 8,27% | 14,47% | −53,10% | −1,86% | 11,2% |
+| 90/10 | 8,24% | 13,34% | −51,16% | 0,14% | 5,6% |
+| 75/25 | 8,18% | 11,90% | −47,67% | 2,86% | 0% |
+| 50/50 | 8,09% | 10,41% | −39,52% | 4,94% | 0% |
+
+Il secondo quadro è il risultato più forte di tutto l'articolo.
+
+**Sull'ACWI in euro l'oro è quasi gratis.** Portare metà del portafoglio in oro costa **18 punti base l'anno** su trentadue anni, contro i 133 della stessa operazione sull'S&P 500 in dollari. In cambio il peggior 5% dei decenni passa da −1,86% a +4,94%, le finestre decennali chiuse in perdita passano dall'11,2% a zero, il drawdown massimo si riduce di quattordici punti e la volatilità scende di quattro punti pieni, dal 14,47% al 10,41%.
+
+Da dove viene la differenza rispetto al caso americano? Non da un oro più generoso, come verrebbe da pensare. Negli stessi trentadue anni l'oro ha reso il **7,90% annuo in euro contro il 7,79% in dollari**: undici punti base di differenza, trascurabili. Il contributo del cambio al rendimento dell'oro, su questo periodo, è stato quasi nullo.
+
+La differenza viene dall'altro lato del confronto, cioè da cosa stai rinunciando a tenere. L'azionario globale misurato in euro ha reso l'**8,27%** annuo, mentre l'S&P 500 misurato in dollari, negli stessi identici mesi, ha reso l'**11,16%**. Il costo di mettere oro in portafoglio dipende da quanto rende l'azionario che lasci fuori. 
+
+Detto in modo meno tecnico: **non è che l'oro renda di più a chi vive in euro, è che il portafoglio azionario realistico di chi vive in euro ha reso molto meno dell'indice americano in dollari** che si usa di solito in questi studi. Su quel metro di paragone l'oro regge il confronto. Resta comunque vero che l'oro aggiunge esposizione al dollaro a chi misura in euro. In questi trentadue anni quell'esposizione non ha spostato il rendimento, ma chi tiene già molto azionario americano non coperto se la ritrova sommata a quella che ha già. Non è un argomento per non tenerne, è un argomento per sapere cosa si sta comprando.
+
+### Quanto conta da dove si comincia
+
+Questo è il controllo più importante dell'intero articolo, e serve a non prendere per legge di natura quello che è il prodotto di un periodo particolare. Gli anni Settanta contengono la fine di Bretton Woods e la riprezzatura dell'oro che ne è seguita, un evento irripetibile che non ha niente a che vedere con le proprietà di diversificazione del metallo.
+
+<figure>
+  <img src="/charts/ha-senso-oro-portafoglio/08_eur_sensibilita.png" alt="Rendimento annuo composto fino a giugno 2026 dei quattro portafogli MSCI World più oro in euro, al variare della data di partenza fra il 1971 e il 2000." />
+  <figcaption>MSCI World più oro in euro: rendimento annuo composto fino a giugno 2026 al variare del mese di partenza.</figcaption>
+</figure>
+
+| Partenza | 100% azionario | 90/10 | 75/25 | 50/50 |
+|---|---|---|---|---|
+| 1971 | 8,59% | 8,49% | 8,35% | 8,08% |
+| 1976 | 9,84% | 9,66% | 9,34% | 8,69% |
+| 1980 | 10,69% | 10,46% | 10,07% | 9,23% |
+| 1990 | 7,97% | 7,86% | 7,68% | 7,35% |
+| 2000 | 6,09% | 6,74% | 7,56% | 8,64% |
+
+La lettura è netta. Partendo dal 1980, in piena disinflazione e con l'azionario a buon mercato, l'oro è costato 146 punti base. Partendo dal 2000, con l'azionario carissimo dopo la bolla internet, l'oro ne ha fatti guadagnare 255 e il 50/50 ha battuto il tutto azionario di due punti e mezzo l'anno per ventisei anni.
+
+Non è un difetto dell'analisi, è la risposta alla seconda domanda che ci eravamo posti, quella sul *quando*: **l'oro paga nei periodi che cominciano con l'azionario caro e con la fiducia nelle valute in discussione, e costa negli altri.** Chi compra oro oggi sta implicitamente facendo una scommessa su quale dei due regimi somiglierà di più ai prossimi vent'anni.
+
+<figure>
+  <img src="/charts/ha-senso-oro-portafoglio/07_eur_costo_protezione.png" alt="Confronto fra MSCI World e MSCI ACWI IMI in euro: rendimento annuo composto sull'intero periodo e rendimento del peggior 5% delle finestre decennali, per i quattro portafogli." />
+  <figcaption>A sinistra quanto rende ogni allocazione sull'intero periodo, a destra quanto rende nel peggior 5% dei decenni. La distanza fra i due pannelli è il prezzo della protezione.</figcaption>
+</figure>
 
 ## Quindi: ha senso? Quando? Quanto?
 
 Riassumo i fatti che emergono dai dati:
 
-1. **L'oro è empiricamente decorrelato dall'azionario** sui 50 anni analizzati (correlazione mensile 0.0085). Non è un argomento teorico: è un dato di osservazione robusto.
-2. **Il costo in CAGR pagato per inserire oro è basso**, soprattutto per allocazioni piccole. Il 90/10 perde appena 20 bps annuali sul full-sample. Il 50/50 perde 130 bps.
-3. **Sui peggiori scenari decennali, l'oro protegge in modo significativo**: il p5 a 10Y passa da 1.18% (100E) a 6.43% (50/50). Ogni allocazione con oro batte il pure-equity nei worst case.
-4. **A 20 anni le distribuzioni convergono fortemente**. Le mediane stanno tutte tra 8.88% e 9.95%. I p5 tra 6.13% e 6.89%. Su orizzonti molto lunghi la decisione ha impatto ridotto.
-5. **A nessun orizzonte gli investitori scappano dai drawdown profondi**: a 20 anni il 100% delle finestre del pure-equity vede un MDD ≥ −20%, il 78.5% un MDD ≥ −30%. Anche il 50/50 al 99% e al 56%.
+1. **L'oro è empiricamente decorrelato dall'azionario** su mezzo secolo (correlazione mensile −0,039 in dollari, +0,018 col World in euro, −0,028 con l'ACWI in euro). Non è un argomento teorico, è un'osservazione robusta che si ripete su indici e valute diverse.
+2. **Il costo in rendimento è basso**, soprattutto per quote piccole. In dollari il 90/10 perde 21 punti base l'anno e il 50/50 ne perde 133. In euro sull'ACWI il 50/50 ne perde 18.
+3. **Negli scenari decennali peggiori l'oro protegge molto.** Il 5° percentile a dieci anni passa dall'1,54% al 6,37% in dollari e da −1,86% a +4,94% sull'ACWI in euro. Ogni allocazione con oro batte il tutto azionario nei casi peggiori.
+4. **A vent'anni le distribuzioni convergono.** Le mediane stanno fra 8,94% e 10,15%, i 5° percentili fra 6,34% e 6,91%. Su orizzonti molto lunghi la scelta incide poco sul risultato finale.
+5. **A nessun orizzonte si scappa da drowdown profondi.** A vent'anni il 100% delle finestre, per tutti i portafogli, ha visto almeno un calo del 20%, e dal 63% all'81% un calo del 30%.
+6. **Il risultato dipende molto dal regime di partenza.** Dal 1980 l'oro costa, dal 2000 guadagna due punti e mezzo l'anno. Chi presenta un solo numero come "la" risposta sta nascondendo questa tabella.
 
 **Quindi: ha senso?**
 
-Sì, **probabilmente sì**, e in modo più netto rispetto all'allocazione obbligazionaria. Le ragioni:
+Sì, **probabilmente sì**, e in modo più netto rispetto alla quota obbligazionaria. Le ragioni:
 
-- La decorrelazione storica è robusta e stabile (a differenza di quella tra azioni e bond, che cambia con i regimi di tassi).
-- Il costo in CAGR è basso, soprattutto per quote piccole-medie (≤ 25%).
-- La protezione nei p5 è rilevante.
-- L'oro si comporta diversamente dai bond in regimi di alta inflazione: nel 1976-1980 e nel 2022-2024, periodi in cui i bond hanno perso, l'oro ha tenuto o salito. È una copertura "ortogonale" a quella obbligazionaria.
+- La decorrelazione storica è robusta e stabile, a differenza di quella fra azioni e obbligazioni, che cambia con i regimi di tasso.
+- Il costo in rendimento è basso per quote piccole e medie (fino al 25%), e per chi misura in euro è quasi nullo anche a quote alte.
+- La protezione nelle code è rilevante e si vede su tutti e tre gli universi testati.
+- L'oro si comporta diversamente dalle obbligazioni nei regimi di inflazione alta: fra il 1976 e il 1980, e di nuovo fra il 2022 e il 2024, le obbligazioni hanno perso e l'oro ha tenuto o guadagnato. È una copertura ortogonale a quella obbligazionaria, non un suo sostituto.
 
 **Quanto?**
 
-I dati suggeriscono che il "punto dolce" è da qualche parte tra il 10% e il 25%:
+I dati indicano che il punto di equilibrio sta fra il 10% e il 25%:
 
-- **10% (90/10)**: costo praticamente nullo (20 bps di CAGR full-sample), protezione moderata nei p5 a 10Y (alza p5 da 1.18% a 4.31%). È la soluzione "default" per chi vuole una pizzica di diversificazione senza pagare un costo di rendimento atteso visibile.
-- **25% (75/25)**: costo modesto (~56 bps), protezione netta nei p5 a 10Y (porta il p5 a 6.19%, vicino al massimo strutturale). Il 75/25 è l'allocazione che storicamente ha massimizzato il rapporto protezione/costo opportunità su questo dataset.
-- **50% (50/50)**: costo più alto (130 bps), protezione massima ma a un prezzo significativo. Ha senso solo se l'investitore è particolarmente avverso ai drawdown grossi e accetta di rinunciare a una quota di rendimento atteso.
+- **10%**: costo quasi nullo (21 punti base in dollari), protezione moderata ma reale nelle code (il 5° percentile a dieci anni sale dall'1,54% al 4,14%). È la scelta predefinita per chi vuole un pizzico di diversificazione senza pagare un costo visibile. Ma attenzione: sui drawdown non protegge quasi per niente.
+- **25%**: costo contenuto (57 punti base in dollari), protezione netta nelle code (5° percentile al 5,87%, vicino al massimo ottenibile) e qui comincia anche la protezione vera sui cali. Questa allocazione, su questi dati, massimizza il rapporto fra protezione e costo opportunità.
+- **50%**: protezione massima, costo alto in dollari (133 punti base) ma sorprendentemente basso in euro sull'azionario globale (18 punti base sull'ACWI). Ha senso per chi è particolarmente avverso a drowdown profondi.
 
 **Per chi?**
 
-A differenza dei bond — che hanno senso strutturale solo nelle fasi finali del piano (decumulo, sequence-of-returns risk) — **l'oro ha senso più trasversalmente, anche in fase di accumulo**. Una piccola allocazione (10-25%) può essere mantenuta per tutta la vita del portafoglio senza penalizzare significativamente il rendimento atteso, e protegge in modo efficace dai regimi macro che azioni e bond non gestiscono bene insieme (inflazione + crisi di fiducia istituzionale, come nel 1973-1980 e a tratti dal 2022).
+**L'oro ha senso in modo più trasversale, anche in accumulo.** Una quota piccola, fra il 10 e il 25%, può restare in portafoglio per tutta la sua vita senza penalizzare in modo sensibile il rendimento atteso, e protegge dai regimi macroeconomici che azioni e obbligazioni insieme gestiscono male, cioè inflazione alta e crisi di fiducia istituzionale.
 
-## Confronto con il primo articolo: oro vs obbligazioni
+## In sintesi
 
-Vale la pena un confronto rapido con la logica del [primo articolo del blog](/posts/ha-senso-obbligazioni-portafoglio), dove avevamo guardato lo stesso schema con bond invece di oro:
-
-| Aspetto                                | Bond (60/40 vs 100E)        | Oro (50/50 vs 100E)          |
-|----------------------------------------|------------------------------|------------------------------|
-| Costo in CAGR mediano 10Y              | −2.4 punti percentuali       | −3.6 punti percentuali       |
-| Costo in CAGR full-sample              | n.d. (periodo diverso)       | −1.3 punti percentuali       |
-| Protezione p5 a 10Y                    | da 3.10% a 4.05% (+0.95)    | da 1.18% a 6.43% (+5.25)    |
-| Correlazione con azioni                | +0.3 / −0.4 (regime-dipendente) | 0.0085 (stabile)         |
-| Senso strutturale                      | Solo per decumulo            | Diversificazione trasversale |
-
-L'oro è un diversificatore *più efficiente* dei bond in questo dataset: protegge di più nei p5 a 10Y, costa meno in CAGR full-sample, e la decorrelazione è più stabile rispetto ai regimi macro.
-
-> **Caveat metodologico**: il confronto numerico tra i due articoli non è 1:1 perché i periodi sono diversi (l'articolo bond era 2001-2025, questo è 1976-2025). Quando si analizzerà la stessa finestra temporale con i tre asset insieme (azioni / bond / oro), in un articolo successivo, vedremo se la conclusione regge anche a parità di periodo.
-
-## Takeaway
-
-1. **L'oro è empiricamente un diversificatore vero**, non un diversificatore "marketing". La correlazione mensile con l'S&P 500 sui 50 anni è 0.0085 — un dato che vale più di qualunque argomento teorico.
-2. **Una quota piccola-media di oro (10-25%) protegge i p5 a 10 anni** con costi di rendimento atteso ridotti. Il 90/10 alza il p5 di oltre 3 punti percentuali pagando solo 20 bps di CAGR.
-3. **A 20 anni le distribuzioni convergono**: i quattro portafogli finiscono con CAGR mediani tra 8.88% e 9.95%, p5 tra 6.13% e 6.89%. Su orizzonti veramente lunghi la decisione ha impatto ridotto sul risultato finale, ma cambia molto il viaggio.
-4. **A nessun orizzonte si scappa dai drawdown profondi**: a 20 anni praticamente tutti i portafogli (anche il 50/50) hanno visto un drawdown ≥ −20%. Il "non c'è rischio sul lungo" è un mito; il rischio cambia natura — diventa rischio di drawdown nel viaggio, non di chiusura in perdita.
-5. **L'oro è un asset speculativo nel senso tecnico** (no flussi, no valore intrinseco calcolabile), ma questa critica filosofica non cancella il fatto empirico che la sua decorrelazione è reale e robusta.
-6. **Differenza strutturale rispetto ai bond**: l'oro ha senso più trasversalmente, anche in accumulo. I bond hanno senso quasi solo nella fase di decumulo. Sono due strumenti di copertura diversi, contro rischi diversi (oro: inflazione + sfiducia; bond: deflazione + recessione).
-7. Una piccola allocazione strutturale all'oro (10%) non è una scelta esotica o speculativa — i numeri suggeriscono che è una decisione metodologicamente sensata per quasi qualunque profilo retail.
+1. **L'oro è un diversificatore vero**, non di facciata. La correlazione mensile con l'azionario è praticamente nulla su tutti e tre gli universi testati, e questo vale più di qualunque argomento teorico.
+2. **Una quota fra il 10 e il 25% protegge le code a dieci anni a un costo ridotto.** Il 90/10 alza il 5° percentile di due punti e mezzo pagandone 21 centesimi.
+3. **Chi ragiona in euro paga molto meno.** Sull'ACWI in euro metà portafoglio in oro costa 18 punti base l'anno e azzera i decenni in perdita. Non perché l'oro renda di più in euro (7,90% contro 7,79% in dollari), ma perché l'azionario globale in euro ha reso l'8,27% contro l'11,16% dell'S&P 500 in dollari: con un azionario che rende meno, l'oro costa meno.
+4. **A vent'anni le distribuzioni convergono**: mediane fra 8,94% e 10,15%, 5° percentili fra 6,34% e 6,91%. Su orizzonti davvero lunghi la scelta cambia poco il risultato e molto il viaggio.
+5. **A nessun orizzonte si scappa dai cali profondi.** "Sul lungo non c'è rischio" è un mito: il rischio cambia natura, diventa rischio di sopportare un calo lungo la strada invece che rischio di chiudere in perdita.
+6. **Il risultato dipende dal regime di partenza**, e di parecchio: dal 1980 l'oro costa 146 punti base, dal 2000 ne fa guadagnare 255.
+7. **L'oro resta un asset speculativo in senso tecnico**, senza flussi e senza valore intrinseco calcolabile, ma questa critica non cancella il fatto empirico che la sua decorrelazione è reale e persistente.
+8. Una piccola quota strutturale di oro non è una scelta esotica: sui dati è una decisione metodologicamente difendibile per quasi qualunque profilo.
 
 ---
 
 ### Fonti e riproducibilità
 
-- Dati S&P 500 mensili (price + dividendo): [Shiller dataset](http://www.econ.yale.edu/~shiller/data.htm) — file `ie_data.xls`, mirror CSV su [datasets/s-and-p-500](https://github.com/datasets/s-and-p-500).
-- Dati LBMA Gold mensili (USD/oz): mirror CSV su [datasets/gold-prices](https://github.com/datasets/gold-prices). Nota: FRED ha dismesso le serie LBMA da gennaio 2022 in seguito alla revoca della licenza da parte di ICE Benchmark Administration.
-- Codice della simulazione: [`scripts/ha-senso-oro-portafoglio.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/ha-senso-oro-portafoglio.py) nel repository del blog.
-- Dati grezzi (rendimenti mensili dei quattro portafogli): [`/charts/ha-senso-oro-portafoglio/data.csv`](/charts/ha-senso-oro-portafoglio/data.csv).
-- Summary numerico completo: [`/charts/ha-senso-oro-portafoglio/summary.json`](/charts/ha-senso-oro-portafoglio/summary.json).
-
-> Nota: questa analisi è limitata al periodo 1976-2025 e all'universo USA in dollari. Una replica EUR-centric (con cambio EUR/USD modellato esplicitamente) e un confronto a tre vie (azioni / bond / oro sulla stessa finestra) saranno oggetto di articoli futuri.
+- Dati S&P 500: indice S&P 500 Total Return per la parte dal 1988; prima, prezzo S&P 500 e dividendo mensile dal [dataset Shiller](http://www.econ.yale.edu/~shiller/data.htm) (file `ie_data.xls`, copia CSV su [datasets/s-and-p-500](https://github.com/datasets/s-and-p-500)).
+- Dati oro LBMA mensili in dollari per oncia: copia CSV su [datasets/gold-prices](https://github.com/datasets/gold-prices). FRED ha dismesso le serie LBMA da gennaio 2022, dopo la revoca della licenza da parte di ICE Benchmark Administration.
+- Indici azionari globali in euro: MSCI World total return dal 1969 e MSCI ACWI IMI total return dal 1994.
+- Cambio EUR/USD: BCE via FRED (serie `DEXUSEU`) dal 1999; marco tedesco per dollaro (serie `EXGEUS`) convertito a 1,95583 per il periodo precedente.
+- Codice: [`scripts/ha-senso-oro-portafoglio.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/ha-senso-oro-portafoglio.py) e [`scripts/oro-portafoglio-indici-eur.py`](https://github.com/TylerD1917/SmartMoneyLab/blob/main/scripts/oro-portafoglio-indici-eur.py).
+- Dati grezzi dei quattro portafogli: [`/charts/ha-senso-oro-portafoglio/data.csv`](/charts/ha-senso-oro-portafoglio/data.csv).
+- Riepilogo numerico completo: [`/charts/ha-senso-oro-portafoglio/summary.json`](/charts/ha-senso-oro-portafoglio/summary.json) e [`/charts/ha-senso-oro-portafoglio/summary_eur.json`](/charts/ha-senso-oro-portafoglio/summary_eur.json).
