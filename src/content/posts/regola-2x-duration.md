@@ -115,7 +115,7 @@ Quindi anche la regola, se la si prende sul serio, chiede un orizzonte che si mu
 
 Nel 1981, con i tassi americani oltre il 13%, la regola chiedeva **dodici anni** di detenzione sui Treasury lunghi. Nel 2020, con i tassi a zero, ne chiedeva **quarantatré**. Oggi, con i rendimenti risaliti, siamo tornati a ventisette.
 
-Questo spiega anche una cosa che si sente dire spesso e che è vera solo a metà: "i tassi bassi rendono le obbligazioni lunghe più pericolose". Questa affermazione diventa ancor più vera e non è solo che rendono poco. Il prolema maggiore è che il tempo necessario perché quel poco si realizzi si allunga più che proporzionalmente, e a un certo punto esce dall'orizzonte di vita di chi compra.
+Questo spiega anche una cosa che si sente dire spesso e che è vera solo a metà: "i tassi bassi rendono le obbligazioni lunghe più pericolose". Questa affermazione diventa ancor più vera e non è solo che rendono poco. Il problema maggiore è che il tempo necessario perché quel poco si realizzi si allunga più che proporzionalmente, e a un certo punto esce dall'orizzonte di vita di chi compra.
 
 ## Cinque regole a confronto
 
