@@ -1,0 +1,5270 @@
+{
+ "as_of": "2026-11-03",
+ "generated": "2026-11-03T03:30:36.487757",
+ "macro": {
+  "SPX": {
+   "last": 7541.4,
+   "ret_1w": -0.0176
+  },
+  "NDX": {
+   "last": 27989.82,
+   "ret_1w": -0.0438
+  },
+  "RUT": {
+   "last": 2805.88,
+   "ret_1w": 0.007
+  },
+  "STOXX50": {
+   "last": 6176.06,
+   "ret_1w": 0.0098
+  },
+  "UST10Y": {
+   "last": 4.89,
+   "ret_1w": -0.0185
+  },
+  "UST13W": {
+   "last": 3.98,
+   "ret_1w": -0.0107
+  },
+  "VIX": {
+   "last": 21.15,
+   "ret_1w": 0.1501
+  },
+  "DXY": {
+   "last": 101.83,
+   "ret_1w": -0.0012
+  },
+  "GOLD": {
+   "last": 3949.8,
+   "ret_1w": -0.0219
+  },
+  "WTI": {
+   "last": 96.62,
+   "ret_1w": -0.0505
+  },
+  "BTC": {
+   "last": 76675.62,
+   "ret_1w": -0.0565
+  }
+ },
+ "instruments": [
+  {
+   "ticker": "AAPL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Apple",
+   "price": 338.32,
+   "ret_1w": -0.0163,
+   "ret_1m": 0.0139,
+   "ret_3m": 0.0945,
+   "ret_12m": 0.2621,
+   "range_52w": [
+    246.03,
+    348.91
+   ],
+   "avg_vol": 41526485,
+   "pe": 38.8,
+   "div_yield": 0.31
+  },
+  {
+   "ticker": "AAXJ",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI All Country Asia ex Japan ETF",
+   "price": 105.99,
+   "ret_1w": -0.0106,
+   "ret_1m": -0.1033,
+   "ret_3m": -0.0718,
+   "ret_12m": 0.1263,
+   "range_52w": [
+    89.04,
+    124.21
+   ],
+   "avg_vol": 502366,
+   "pe": 13.7,
+   "div_yield": 1.33
+  },
+  {
+   "ticker": "ABBV",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "AbbVie",
+   "price": 288.84,
+   "ret_1w": 0.0073,
+   "ret_1m": 0.1058,
+   "ret_3m": 0.192,
+   "ret_12m": 0.4035,
+   "range_52w": [
+    194.79,
+    294.89
+   ],
+   "avg_vol": 5448828,
+   "pe": 49.6,
+   "div_yield": 2.35
+  },
+  {
+   "ticker": "ABNB",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Airbnb",
+   "price": 171.11,
+   "ret_1w": 0.0004,
+   "ret_1m": 0.0534,
+   "ret_3m": 0.1413,
+   "ret_12m": 0.3494,
+   "range_52w": [
+    111.54,
+    190.5
+   ],
+   "avg_vol": 3367352,
+   "pe": 39.0,
+   "div_yield": null
+  },
+  {
+   "ticker": "ABT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Abbott Laboratories",
+   "price": 110.16,
+   "ret_1w": 0.0503,
+   "ret_1m": 0.1368,
+   "ret_3m": 0.051,
+   "ret_12m": -0.0884,
+   "range_52w": [
+    81.47,
+    127.42
+   ],
+   "avg_vol": 9915652,
+   "pe": 39.5,
+   "div_yield": 2.37
+  },
+  {
+   "ticker": "ACN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Accenture",
+   "price": 260.94,
+   "ret_1w": 0.0555,
+   "ret_1m": 0.3224,
+   "ret_3m": 0.5434,
+   "ret_12m": 0.0806,
+   "range_52w": [
+    121.98,
+    280.46
+   ],
+   "avg_vol": 6783304,
+   "pe": 19.2,
+   "div_yield": 2.65
+  },
+  {
+   "ticker": "ACWI",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares MSCI ACWI ETF",
+   "price": 155.84,
+   "ret_1w": -0.011,
+   "ret_1m": -0.0265,
+   "ret_3m": -0.0298,
+   "ret_12m": 0.1165,
+   "range_52w": [
+    133.32,
+    162.48
+   ],
+   "avg_vol": 2512623,
+   "pe": 20.3,
+   "div_yield": 1.41
+  },
+  {
+   "ticker": "ADBE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Adobe",
+   "price": 251.47,
+   "ret_1w": -0.0276,
+   "ret_1m": 0.058,
+   "ret_3m": -0.0234,
+   "ret_12m": -0.2548,
+   "range_52w": [
+    193.41,
+    357.53
+   ],
+   "avg_vol": 4259347,
+   "pe": 14.0,
+   "div_yield": null
+  },
+  {
+   "ticker": "ADP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "ADP",
+   "price": 298.78,
+   "ret_1w": -0.0078,
+   "ret_1m": 0.1595,
+   "ret_3m": 0.1111,
+   "ret_12m": 0.1955,
+   "range_52w": [
+    186.18,
+    307.94
+   ],
+   "avg_vol": 2094476,
+   "pe": 26.5,
+   "div_yield": 2.31
+  },
+  {
+   "ticker": "AMD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "AMD",
+   "price": 466.84,
+   "ret_1w": -0.1213,
+   "ret_1m": -0.2636,
+   "ret_3m": -0.0998,
+   "ret_12m": 0.798,
+   "range_52w": [
+    190.95,
+    649.42
+   ],
+   "avg_vol": 21055509,
+   "pe": 119.1,
+   "div_yield": null
+  },
+  {
+   "ticker": "AMGN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Amgen",
+   "price": 465.45,
+   "ret_1w": 0.0468,
+   "ret_1m": 0.1548,
+   "ret_3m": 0.2004,
+   "ret_12m": 0.6145,
+   "range_52w": [
+    288.3,
+    466.01
+   ],
+   "avg_vol": 2641138,
+   "pe": 28.9,
+   "div_yield": 2.16
+  },
+  {
+   "ticker": "AMZN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Amazon",
+   "price": 245.63,
+   "ret_1w": -0.0139,
+   "ret_1m": -0.0234,
+   "ret_3m": -0.1146,
+   "ret_12m": -0.033,
+   "range_52w": [
+    198.79,
+    284.02
+   ],
+   "avg_vol": 42467566,
+   "pe": 19.9,
+   "div_yield": null
+  },
+  {
+   "ticker": "ARM",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Arm Holdings",
+   "price": 196.79,
+   "ret_1w": -0.1189,
+   "ret_1m": -0.36,
+   "ret_3m": -0.2986,
+   "ret_12m": 0.1666,
+   "range_52w": [
+    104.55,
+    439.46
+   ],
+   "avg_vol": 4918747,
+   "pe": 202.9,
+   "div_yield": null
+  },
+  {
+   "ticker": "ASML",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "ASML (ADR)",
+   "price": 1526.14,
+   "ret_1w": -0.0394,
+   "ret_1m": -0.1816,
+   "ret_3m": -0.1073,
+   "ret_12m": 0.4393,
+   "range_52w": [
+    960.68,
+    1984.25
+   ],
+   "avg_vol": 1571480,
+   "pe": 37.6,
+   "div_yield": 0.59
+  },
+  {
+   "ticker": "AVGO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Broadcom",
+   "price": 322.23,
+   "ret_1w": -0.0211,
+   "ret_1m": -0.0927,
+   "ret_3m": -0.228,
+   "ret_12m": -0.1046,
+   "range_52w": [
+    292.41,
+    479.94
+   ],
+   "avg_vol": 22128704,
+   "pe": 41.2,
+   "div_yield": 0.8
+  },
+  {
+   "ticker": "AXP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "American Express",
+   "price": 327.98,
+   "ret_1w": 0.041,
+   "ret_1m": 0.0866,
+   "ret_3m": -0.0511,
+   "ret_12m": -0.0828,
+   "range_52w": [
+    289.66,
+    380.6
+   ],
+   "avg_vol": 3058038,
+   "pe": 18.5,
+   "div_yield": 1.19
+  },
+  {
+   "ticker": "AZN",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "AstraZeneca (ADR)",
+   "price": 186.58,
+   "ret_1w": 0.0844,
+   "ret_1m": 0.1892,
+   "ret_3m": 0.1989,
+   "ret_12m": 0.1535,
+   "range_52w": [
+    155.62,
+    208.62
+   ],
+   "avg_vol": 3076585,
+   "pe": 26.4,
+   "div_yield": 1.72
+  },
+  {
+   "ticker": "BA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Boeing",
+   "price": 175.4,
+   "ret_1w": -0.0686,
+   "ret_1m": -0.0938,
+   "ret_3m": -0.2604,
+   "ret_12m": -0.1425,
+   "range_52w": [
+    167.14,
+    252.15
+   ],
+   "avg_vol": 9863404,
+   "pe": 17.7,
+   "div_yield": null
+  },
+  {
+   "ticker": "BABA",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Alibaba (ADR)",
+   "price": 101.5,
+   "ret_1w": 0.0125,
+   "ret_1m": -0.0411,
+   "ret_3m": -0.2131,
+   "ret_12m": -0.3892,
+   "range_52w": [
+    94.81,
+    175.57
+   ],
+   "avg_vol": 8645871,
+   "pe": 24.6,
+   "div_yield": 1.07
+  },
+  {
+   "ticker": "BAC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Bank of America",
+   "price": 49.57,
+   "ret_1w": -0.0188,
+   "ret_1m": -0.0778,
+   "ret_3m": -0.2079,
+   "ret_12m": -0.0548,
+   "range_52w": [
+    46.24,
+    64.48
+   ],
+   "avg_vol": 41441700,
+   "pe": 11.8,
+   "div_yield": 2.56
+  },
+  {
+   "ticker": "BDX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Becton Dickinson",
+   "price": 198.6,
+   "ret_1w": 0.0113,
+   "ret_1m": 0.1233,
+   "ret_3m": 0.1743,
+   "ret_12m": 0.4604,
+   "range_52w": [
+    135.29,
+    200.42
+   ],
+   "avg_vol": 1601533,
+   "pe": 46.2,
+   "div_yield": 2.12
+  },
+  {
+   "ticker": "BHP",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "BHP (ADR)",
+   "price": 80.07,
+   "ret_1w": 0.0119,
+   "ret_1m": -0.0697,
+   "ret_3m": -0.0645,
+   "ret_12m": 0.4858,
+   "range_52w": [
+    50.46,
+    96.58
+   ],
+   "avg_vol": 2923747,
+   "pe": 20.7,
+   "div_yield": 5.0
+  },
+  {
+   "ticker": "BKNG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Booking Holdings",
+   "price": 153.75,
+   "ret_1w": 0.004,
+   "ret_1m": -0.0331,
+   "ret_3m": -0.2067,
+   "ret_12m": -0.2289,
+   "range_52w": [
+    147.94,
+    218.11
+   ],
+   "avg_vol": 6892619,
+   "pe": 16.4,
+   "div_yield": 1.13
+  },
+  {
+   "ticker": "BLK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "BlackRock",
+   "price": 1167.15,
+   "ret_1w": 0.035,
+   "ret_1m": 0.1015,
+   "ret_3m": 0.0371,
+   "ret_12m": 0.1153,
+   "range_52w": [
+    913.04,
+    1176.8
+   ],
+   "avg_vol": 687404,
+   "pe": 26.1,
+   "div_yield": 2.0
+  },
+  {
+   "ticker": "BMY",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Bristol-Myers Squibb",
+   "price": 63.02,
+   "ret_1w": 0.0229,
+   "ret_1m": 0.0306,
+   "ret_3m": -0.0337,
+   "ret_12m": 0.4303,
+   "range_52w": [
+    43.65,
+    67.39
+   ],
+   "avg_vol": 12491214,
+   "pe": 14.0,
+   "div_yield": 4.03
+  },
+  {
+   "ticker": "BND",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total Bond Market ETF",
+   "price": 71.33,
+   "ret_1w": 0.0008,
+   "ret_1m": 0.0199,
+   "ret_3m": -0.0083,
+   "ret_12m": -0.0033,
+   "range_52w": [
+    69.88,
+    73.17
+   ],
+   "avg_vol": 11562323,
+   "pe": null,
+   "div_yield": 4.17
+  },
+  {
+   "ticker": "BNDW",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total World Bond ETF",
+   "price": 66.78,
+   "ret_1w": 0.0018,
+   "ret_1m": 0.0157,
+   "ret_3m": -0.008,
+   "ret_12m": -0.004,
+   "range_52w": [
+    65.65,
+    68.32
+   ],
+   "avg_vol": 128619,
+   "pe": null,
+   "div_yield": 4.41
+  },
+  {
+   "ticker": "BNDX",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total International Bond ETF",
+   "price": 47.35,
+   "ret_1w": 0.0023,
+   "ret_1m": 0.0105,
+   "ret_3m": -0.008,
+   "ret_12m": -0.0053,
+   "range_52w": [
+    46.73,
+    48.28
+   ],
+   "avg_vol": 4928638,
+   "pe": null,
+   "div_yield": 4.68
+  },
+  {
+   "ticker": "BNO",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Brent Oil Fund LP",
+   "price": 65.95,
+   "ret_1w": -0.0588,
+   "ret_1m": 0.0452,
+   "ret_3m": 0.4552,
+   "ret_12m": 1.2228,
+   "range_52w": [
+    27.2,
+    71.39
+   ],
+   "avg_vol": 1650290,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "BRK-B",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Berkshire Hathaway",
+   "price": 556.11,
+   "ret_1w": 0.0138,
+   "ret_1m": 0.1064,
+   "ret_3m": 0.0752,
+   "ret_12m": 0.1691,
+   "range_52w": [
+    465.4,
+    556.11
+   ],
+   "avg_vol": 4366428,
+   "pe": 13.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "C",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Citigroup",
+   "price": 123.1,
+   "ret_1w": 0.0226,
+   "ret_1m": -0.0368,
+   "ret_3m": -0.0957,
+   "ret_12m": 0.2365,
+   "range_52w": [
+    95.65,
+    144.14
+   ],
+   "avg_vol": 9336052,
+   "pe": 12.0,
+   "div_yield": 2.19
+  },
+  {
+   "ticker": "CANE",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Sugar Fund",
+   "price": 11.46,
+   "ret_1w": -0.0009,
+   "ret_1m": -0.0305,
+   "ret_3m": 0.1564,
+   "ret_12m": 0.2166,
+   "range_52w": [
+    9.02,
+    12.47
+   ],
+   "avg_vol": 477652,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "CAT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Caterpillar",
+   "price": 613.62,
+   "ret_1w": -0.1134,
+   "ret_1m": -0.2725,
+   "ret_3m": -0.2983,
+   "ret_12m": 0.0846,
+   "range_52w": [
+    541.53,
+    1060.41
+   ],
+   "avg_vol": 3238233,
+   "pe": 24.1,
+   "div_yield": 1.05
+  },
+  {
+   "ticker": "CB",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Chubb",
+   "price": 368.98,
+   "ret_1w": 0.0343,
+   "ret_1m": 0.1151,
+   "ret_3m": 0.0626,
+   "ret_12m": 0.3382,
+   "range_52w": [
+    275.74,
+    368.98
+   ],
+   "avg_vol": 1573400,
+   "pe": 12.9,
+   "div_yield": 1.12
+  },
+  {
+   "ticker": "CI",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "The Cigna Group",
+   "price": 295.19,
+   "ret_1w": -0.0346,
+   "ret_1m": 0.0912,
+   "ret_3m": 0.0831,
+   "ret_12m": 0.1673,
+   "range_52w": [
+    250.7,
+    315.88
+   ],
+   "avg_vol": 1445738,
+   "pe": 12.3,
+   "div_yield": 2.09
+  },
+  {
+   "ticker": "CIBR",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust NASDAQ Cybersecurity ETF",
+   "price": 96.75,
+   "ret_1w": -0.1077,
+   "ret_1m": -0.0759,
+   "ret_3m": -0.0121,
+   "ret_12m": 0.2584,
+   "range_52w": [
+    60.69,
+    110.0
+   ],
+   "avg_vol": 2453504,
+   "pe": 29.8,
+   "div_yield": 0.38
+  },
+  {
+   "ticker": "CL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Colgate-Palmolive",
+   "price": 97.43,
+   "ret_1w": 0.0465,
+   "ret_1m": 0.1629,
+   "ret_3m": 0.059,
+   "ret_12m": 0.3306,
+   "range_52w": [
+    73.22,
+    97.43
+   ],
+   "avg_vol": 4863223,
+   "pe": 37.0,
+   "div_yield": 2.22
+  },
+  {
+   "ticker": "COIN",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Coinbase",
+   "price": 137.83,
+   "ret_1w": -0.1364,
+   "ret_1m": -0.2468,
+   "ret_3m": -0.0856,
+   "ret_12m": -0.5829,
+   "range_52w": [
+    137.83,
+    330.42
+   ],
+   "avg_vol": 8318066,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "COP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "ConocoPhillips",
+   "price": 146.84,
+   "ret_1w": -0.0299,
+   "ret_1m": 0.1585,
+   "ret_3m": 0.2533,
+   "ret_12m": 0.7102,
+   "range_52w": [
+    83.04,
+    154.03
+   ],
+   "avg_vol": 5977119,
+   "pe": 20.4,
+   "div_yield": 2.18
+  },
+  {
+   "ticker": "CORN",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Corn Fund",
+   "price": 17.36,
+   "ret_1w": -0.0153,
+   "ret_1m": -0.079,
+   "ret_3m": -0.022,
+   "ret_12m": -0.0339,
+   "range_52w": [
+    16.47,
+    20.29
+   ],
+   "avg_vol": 192680,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "COST",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Costco",
+   "price": 1040.55,
+   "ret_1w": 0.0367,
+   "ret_1m": 0.1319,
+   "ret_3m": 0.0994,
+   "ret_12m": 0.1278,
+   "range_52w": [
+    845.02,
+    1090.97
+   ],
+   "avg_vol": 2193271,
+   "pe": 50.1,
+   "div_yield": 0.58
+  },
+  {
+   "ticker": "CPER",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Copper Index Fund",
+   "price": 39.37,
+   "ret_1w": -0.0005,
+   "ret_1m": -0.0038,
+   "ret_3m": -0.0192,
+   "ret_12m": 0.2586,
+   "range_52w": [
+    30.53,
+    41.43
+   ],
+   "avg_vol": 440685,
+   "pe": 4.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "CRM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Salesforce",
+   "price": 226.18,
+   "ret_1w": -0.0865,
+   "ret_1m": -0.0363,
+   "ret_3m": 0.1863,
+   "ret_12m": -0.1272,
+   "range_52w": [
+    149.86,
+    264.42
+   ],
+   "avg_vol": 7102104,
+   "pe": 20.7,
+   "div_yield": 0.77
+  },
+  {
+   "ticker": "CRWD",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "CrowdStrike",
+   "price": 241.81,
+   "ret_1w": -0.0765,
+   "ret_1m": -0.1045,
+   "ret_3m": 0.1448,
+   "ret_12m": 0.7525,
+   "range_52w": [
+    87.56,
+    278.86
+   ],
+   "avg_vol": 9008628,
+   "pe": 4836.2,
+   "div_yield": null
+  },
+  {
+   "ticker": "CSCO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Cisco",
+   "price": 101.61,
+   "ret_1w": -0.0783,
+   "ret_1m": -0.0944,
+   "ret_3m": -0.1621,
+   "ret_12m": 0.3901,
+   "range_52w": [
+    69.75,
+    129.02
+   ],
+   "avg_vol": 16236590,
+   "pe": 30.5,
+   "div_yield": 1.61
+  },
+  {
+   "ticker": "CVS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "CVS Health",
+   "price": 88.51,
+   "ret_1w": -0.0434,
+   "ret_1m": 0.031,
+   "ret_3m": -0.1463,
+   "ret_12m": 0.163,
+   "range_52w": [
+    68.55,
+    109.14
+   ],
+   "avg_vol": 8426200,
+   "pe": 23.3,
+   "div_yield": 2.95
+  },
+  {
+   "ticker": "CVX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Chevron",
+   "price": 227.77,
+   "ret_1w": -0.0183,
+   "ret_1m": 0.102,
+   "ret_3m": 0.2067,
+   "ret_12m": 0.5369,
+   "range_52w": [
+    142.76,
+    235.52
+   ],
+   "avg_vol": 7553995,
+   "pe": 16.7,
+   "div_yield": 3.02
+  },
+  {
+   "ticker": "DB",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Deutsche Bank",
+   "price": 34.09,
+   "ret_1w": 0.0676,
+   "ret_1m": -0.0252,
+   "ret_3m": -0.0902,
+   "ret_12m": -0.0231,
+   "range_52w": [
+    27.37,
+    41.56
+   ],
+   "avg_vol": 2498080,
+   "pe": 8.8,
+   "div_yield": 3.46
+  },
+  {
+   "ticker": "DBA",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Agriculture Fund",
+   "price": 26.8,
+   "ret_1w": -0.029,
+   "ret_1m": -0.05,
+   "ret_3m": -0.0311,
+   "ret_12m": 0.0314,
+   "range_52w": [
+    24.79,
+    29.49
+   ],
+   "avg_vol": 955938,
+   "pe": 11.3,
+   "div_yield": 3.24
+  },
+  {
+   "ticker": "DBB",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Base Metals Fund",
+   "price": 25.07,
+   "ret_1w": 0.0056,
+   "ret_1m": 0.0072,
+   "ret_3m": -0.0087,
+   "ret_12m": 0.1748,
+   "range_52w": [
+    20.66,
+    26.63
+   ],
+   "avg_vol": 146076,
+   "pe": 4.4,
+   "div_yield": 2.37
+  },
+  {
+   "ticker": "DBC",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco DB Commodity Index Tracking Fund",
+   "price": 32.46,
+   "ret_1w": -0.0391,
+   "ret_1m": -0.0025,
+   "ret_3m": 0.1466,
+   "ret_12m": 0.4556,
+   "range_52w": [
+    21.79,
+    34.1
+   ],
+   "avg_vol": 653642,
+   "pe": 7.9,
+   "div_yield": 2.3
+  },
+  {
+   "ticker": "DE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Deere & Co.",
+   "price": 667.6,
+   "ret_1w": 0.0411,
+   "ret_1m": -0.0282,
+   "ret_3m": 0.0839,
+   "ret_12m": 0.4617,
+   "range_52w": [
+    456.73,
+    707.79
+   ],
+   "avg_vol": 1087509,
+   "pe": 37.1,
+   "div_yield": 0.96
+  },
+  {
+   "ticker": "DELL",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Dell Technologies",
+   "price": 392.78,
+   "ret_1w": -0.1591,
+   "ret_1m": -0.3008,
+   "ret_3m": -0.1583,
+   "ret_12m": 1.4791,
+   "range_52w": [
+    110.39,
+    587.59
+   ],
+   "avg_vol": 6540780,
+   "pe": 22.8,
+   "div_yield": 0.59
+  },
+  {
+   "ticker": "DHR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Danaher",
+   "price": 227.97,
+   "ret_1w": -0.0215,
+   "ret_1m": 0.065,
+   "ret_3m": 0.1725,
+   "ret_12m": 0.0728,
+   "range_52w": [
+    161.29,
+    240.61
+   ],
+   "avg_vol": 4434309,
+   "pe": 38.4,
+   "div_yield": 0.69
+  },
+  {
+   "ticker": "DIS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Walt Disney",
+   "price": 113.11,
+   "ret_1w": 0.0245,
+   "ret_1m": 0.1069,
+   "ret_3m": 0.1521,
+   "ret_12m": 0.0234,
+   "range_52w": [
+    91.72,
+    115.0
+   ],
+   "avg_vol": 7730338,
+   "pe": 23.3,
+   "div_yield": 1.35
+  },
+  {
+   "ticker": "DUK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Duke Energy",
+   "price": 128.38,
+   "ret_1w": 0.0317,
+   "ret_1m": 0.1249,
+   "ret_3m": 0.0422,
+   "ret_12m": 0.0745,
+   "range_52w": [
+    111.09,
+    131.16
+   ],
+   "avg_vol": 3781109,
+   "pe": 19.3,
+   "div_yield": 3.41
+  },
+  {
+   "ticker": "EDV",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Extended Duration Treasury ETF",
+   "price": 59.59,
+   "ret_1w": 0.0024,
+   "ret_1m": 0.0906,
+   "ret_3m": -0.0005,
+   "ret_12m": -0.0878,
+   "range_52w": [
+    54.17,
+    66.5
+   ],
+   "avg_vol": 1999352,
+   "pe": null,
+   "div_yield": 5.86
+  },
+  {
+   "ticker": "EFA",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI EAFE ETF",
+   "price": 103.7,
+   "ret_1w": 0.0077,
+   "ret_1m": -0.0025,
+   "ret_3m": -0.0337,
+   "ret_12m": 0.1346,
+   "range_52w": [
+    88.22,
+    108.81
+   ],
+   "avg_vol": 13640333,
+   "pe": 17.2,
+   "div_yield": 3.24
+  },
+  {
+   "ticker": "ELV",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Elevance Health",
+   "price": 413.6,
+   "ret_1w": -0.0411,
+   "ret_1m": 0.0703,
+   "ret_3m": 0.0989,
+   "ret_12m": 0.3469,
+   "range_52w": [
+    276.68,
+    445.28
+   ],
+   "avg_vol": 1407919,
+   "pe": 17.6,
+   "div_yield": 1.64
+  },
+  {
+   "ticker": "EMR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Emerson Electric",
+   "price": 165.96,
+   "ret_1w": 0.0263,
+   "ret_1m": 0.0269,
+   "ret_3m": 0.0484,
+   "ret_12m": 0.2038,
+   "range_52w": [
+    122.34,
+    170.74
+   ],
+   "avg_vol": 2838947,
+   "pe": 36.3,
+   "div_yield": 1.35
+  },
+  {
+   "ticker": "EPP",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Pacific ex-Japan ETF",
+   "price": 55.54,
+   "ret_1w": 0.0047,
+   "ret_1m": 0.0152,
+   "ret_3m": -0.0361,
+   "ret_12m": 0.1145,
+   "range_52w": [
+    47.24,
+    58.55
+   ],
+   "avg_vol": 208061,
+   "pe": 18.6,
+   "div_yield": 3.39
+  },
+  {
+   "ticker": "ETHA",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "iShares Ethereum Trust ETF",
+   "price": 50.74,
+   "ret_1w": -0.0306,
+   "ret_1m": -0.159,
+   "ret_3m": 0.1953,
+   "ret_12m": -0.3757,
+   "range_52w": [
+    35.22,
+    81.27
+   ],
+   "avg_vol": 9863247,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "EWA",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Australia ETF",
+   "price": 29.43,
+   "ret_1w": 0.0089,
+   "ret_1m": 0.0392,
+   "ret_3m": -0.0229,
+   "ret_12m": 0.1309,
+   "range_52w": [
+    24.19,
+    30.43
+   ],
+   "avg_vol": 2372914,
+   "pe": 21.0,
+   "div_yield": 2.98
+  },
+  {
+   "ticker": "EWC",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Canada ETF",
+   "price": 60.83,
+   "ret_1w": -0.0005,
+   "ret_1m": 0.0359,
+   "ret_3m": 0.0138,
+   "ret_12m": 0.2169,
+   "range_52w": [
+    49.05,
+    62.64
+   ],
+   "avg_vol": 1693276,
+   "pe": 19.8,
+   "div_yield": 1.29
+  },
+  {
+   "ticker": "EWG",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Germany ETF",
+   "price": 42.16,
+   "ret_1w": 0.0223,
+   "ret_1m": 0.0208,
+   "ret_3m": -0.0383,
+   "ret_12m": 0.0512,
+   "range_52w": [
+    37.33,
+    44.59
+   ],
+   "avg_vol": 898390,
+   "pe": 18.0,
+   "div_yield": 2.01
+  },
+  {
+   "ticker": "EWH",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Hong Kong ETF",
+   "price": 22.55,
+   "ret_1w": 0.0273,
+   "ret_1m": 0.0454,
+   "ret_3m": -0.0161,
+   "ret_12m": 0.075,
+   "range_52w": [
+    20.63,
+    24.16
+   ],
+   "avg_vol": 3149447,
+   "pe": 13.2,
+   "div_yield": 4.68
+  },
+  {
+   "ticker": "EWI",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Italy ETF",
+   "price": 56.38,
+   "ret_1w": 0.0175,
+   "ret_1m": -0.0178,
+   "ret_3m": -0.1081,
+   "ret_12m": 0.1246,
+   "range_52w": [
+    49.18,
+    63.35
+   ],
+   "avg_vol": 478642,
+   "pe": 13.9,
+   "div_yield": 3.2
+  },
+  {
+   "ticker": "EWJ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Japan ETF",
+   "price": 92.84,
+   "ret_1w": -0.0153,
+   "ret_1m": -0.0615,
+   "ret_3m": -0.0187,
+   "ret_12m": 0.1578,
+   "range_52w": [
+    76.21,
+    99.32
+   ],
+   "avg_vol": 3716323,
+   "pe": 14.5,
+   "div_yield": 3.66
+  },
+  {
+   "ticker": "EWL",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Switzerland ETF",
+   "price": 65.02,
+   "ret_1w": 0.0334,
+   "ret_1m": 0.0978,
+   "ret_3m": 0.0199,
+   "ret_12m": 0.2005,
+   "range_52w": [
+    54.1,
+    65.02
+   ],
+   "avg_vol": 508404,
+   "pe": 26.5,
+   "div_yield": 1.85
+  },
+  {
+   "ticker": "EWP",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI Spain ETF",
+   "price": 57.14,
+   "ret_1w": -0.0017,
+   "ret_1m": -0.0201,
+   "ret_3m": -0.0784,
+   "ret_12m": 0.1742,
+   "range_52w": [
+    47.93,
+    63.23
+   ],
+   "avg_vol": 701919,
+   "pe": 15.4,
+   "div_yield": 2.82
+  },
+  {
+   "ticker": "EWQ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI France ETF",
+   "price": 42.74,
+   "ret_1w": 0.0296,
+   "ret_1m": 0.0121,
+   "ret_3m": -0.1008,
+   "ret_12m": -0.002,
+   "range_52w": [
+    40.71,
+    47.9
+   ],
+   "avg_vol": 473342,
+   "pe": 17.1,
+   "div_yield": 3.09
+  },
+  {
+   "ticker": "EWT",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Taiwan ETF",
+   "price": 100.66,
+   "ret_1w": -0.0469,
+   "ret_1m": -0.1347,
+   "ret_3m": -0.0152,
+   "ret_12m": 0.5738,
+   "range_52w": [
+    58.97,
+    118.0
+   ],
+   "avg_vol": 5040338,
+   "pe": 25.1,
+   "div_yield": 0.88
+  },
+  {
+   "ticker": "EWU",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares MSCI United Kingdom ETF",
+   "price": 48.03,
+   "ret_1w": 0.0088,
+   "ret_1m": 0.0401,
+   "ret_3m": -0.0064,
+   "ret_12m": 0.1676,
+   "range_52w": [
+    39.98,
+    49.39
+   ],
+   "avg_vol": 831966,
+   "pe": 17.1,
+   "div_yield": 3.22
+  },
+  {
+   "ticker": "EWW",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Mexico ETF",
+   "price": 75.88,
+   "ret_1w": 0.0077,
+   "ret_1m": 0.0674,
+   "ret_3m": -0.0153,
+   "ret_12m": 0.1849,
+   "range_52w": [
+    63.48,
+    80.05
+   ],
+   "avg_vol": 1133285,
+   "pe": 13.0,
+   "div_yield": 3.47
+  },
+  {
+   "ticker": "EWY",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI South Korea ETF",
+   "price": 151.62,
+   "ret_1w": -0.0072,
+   "ret_1m": -0.2098,
+   "ret_3m": -0.1141,
+   "ret_12m": 0.5383,
+   "range_52w": [
+    86.59,
+    219.2
+   ],
+   "avg_vol": 16134495,
+   "pe": 8.6,
+   "div_yield": 1.11
+  },
+  {
+   "ticker": "EWZ",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI Brazil ETF",
+   "price": 32.16,
+   "ret_1w": -0.0583,
+   "ret_1m": -0.1579,
+   "ret_3m": -0.1089,
+   "ret_12m": 0.0661,
+   "range_52w": [
+    29.84,
+    43.54
+   ],
+   "avg_vol": 73759200,
+   "pe": 9.3,
+   "div_yield": 3.94
+  },
+  {
+   "ticker": "EZA",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI South Africa ETF",
+   "price": 62.93,
+   "ret_1w": -0.0088,
+   "ret_1m": -0.0041,
+   "ret_3m": -0.0459,
+   "ret_12m": 0.0638,
+   "range_52w": [
+    57.0,
+    79.85
+   ],
+   "avg_vol": 167219,
+   "pe": 10.3,
+   "div_yield": 7.88
+  },
+  {
+   "ticker": "FCOM",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Communication Services Index ETF",
+   "price": 64.72,
+   "ret_1w": -0.0389,
+   "ret_1m": -0.0985,
+   "ret_3m": -0.0947,
+   "ret_12m": -0.0671,
+   "range_52w": [
+    64.68,
+    75.25
+   ],
+   "avg_vol": 390685,
+   "pe": 15.7,
+   "div_yield": 0.94
+  },
+  {
+   "ticker": "FDIS",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Consumer Discretionary Index ETF",
+   "price": 102.48,
+   "ret_1w": 0.034,
+   "ret_1m": 0.0684,
+   "ret_3m": -0.0135,
+   "ret_12m": -0.0035,
+   "range_52w": [
+    89.93,
+    106.43
+   ],
+   "avg_vol": 159952,
+   "pe": 23.6,
+   "div_yield": 0.82
+  },
+  {
+   "ticker": "FDN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust Dow Jones Internet Index Fund",
+   "price": 263.13,
+   "ret_1w": -0.0647,
+   "ret_1m": -0.0981,
+   "ret_3m": -0.0866,
+   "ret_12m": -0.0735,
+   "range_52w": [
+    226.1,
+    301.32
+   ],
+   "avg_vol": 139795,
+   "pe": 22.2,
+   "div_yield": null
+  },
+  {
+   "ticker": "FDX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "FedEx",
+   "price": 318.25,
+   "ret_1w": 0.0588,
+   "ret_1m": 0.0961,
+   "ret_3m": 0.0197,
+   "ret_12m": 0.5876,
+   "range_52w": [
+    199.58,
+    338.02
+   ],
+   "avg_vol": 1314638,
+   "pe": 16.9,
+   "div_yield": 1.56
+  },
+  {
+   "ticker": "FENY",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Energy Index ETF",
+   "price": 36.89,
+   "ret_1w": -0.0353,
+   "ret_1m": 0.065,
+   "ret_3m": 0.1416,
+   "ret_12m": 0.546,
+   "range_52w": [
+    23.58,
+    38.48
+   ],
+   "avg_vol": 1266128,
+   "pe": 18.4,
+   "div_yield": 2.32
+  },
+  {
+   "ticker": "FEZ",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "State Street SPDR EURO STOXX 50 ETF",
+   "price": 65.39,
+   "ret_1w": 0.0097,
+   "ret_1m": -0.024,
+   "ret_3m": -0.082,
+   "ret_12m": 0.0743,
+   "range_52w": [
+    58.76,
+    71.98
+   ],
+   "avg_vol": 1029595,
+   "pe": 17.9,
+   "div_yield": 2.7
+  },
+  {
+   "ticker": "FHLC",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Health Care Index ETF",
+   "price": 88.24,
+   "ret_1w": 0.026,
+   "ret_1m": 0.0948,
+   "ret_3m": 0.1224,
+   "ret_12m": 0.2849,
+   "range_52w": [
+    68.07,
+    88.56
+   ],
+   "avg_vol": 218319,
+   "pe": 31.8,
+   "div_yield": 1.25
+  },
+  {
+   "ticker": "FIDU",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Industrial Index ETF",
+   "price": 89.99,
+   "ret_1w": 0.0198,
+   "ret_1m": -0.0032,
+   "ret_3m": -0.0887,
+   "ret_12m": 0.0983,
+   "range_52w": [
+    77.55,
+    99.38
+   ],
+   "avg_vol": 253333,
+   "pe": 27.7,
+   "div_yield": 0.94
+  },
+  {
+   "ticker": "FMAT",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Materials Index ETF",
+   "price": 59.48,
+   "ret_1w": 0.0361,
+   "ret_1m": 0.0589,
+   "ret_3m": 0.01,
+   "ret_12m": 0.218,
+   "range_52w": [
+    48.07,
+    61.86
+   ],
+   "avg_vol": 59271,
+   "pe": 23.7,
+   "div_yield": 1.47
+  },
+  {
+   "ticker": "FNCL",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Financials Index ETF",
+   "price": 81.34,
+   "ret_1w": 0.0268,
+   "ret_1m": 0.0711,
+   "ret_3m": -0.0103,
+   "ret_12m": 0.1196,
+   "range_52w": [
+    67.39,
+    83.0
+   ],
+   "avg_vol": 131985,
+   "pe": 15.8,
+   "div_yield": 1.71
+  },
+  {
+   "ticker": "FREL",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Real Estate Index ETF",
+   "price": 28.86,
+   "ret_1w": 0.0209,
+   "ret_1m": 0.0634,
+   "ret_3m": -0.0323,
+   "ret_12m": 0.105,
+   "range_52w": [
+    25.86,
+    30.41
+   ],
+   "avg_vol": 265619,
+   "pe": 29.8,
+   "div_yield": 3.58
+  },
+  {
+   "ticker": "FSTA",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Consumer Staples Index ETF",
+   "price": 57.54,
+   "ret_1w": 0.0332,
+   "ret_1m": 0.1305,
+   "ret_3m": 0.0735,
+   "ret_12m": 0.2163,
+   "range_52w": [
+    47.12,
+    57.54
+   ],
+   "avg_vol": 244738,
+   "pe": 27.6,
+   "div_yield": 2.32
+  },
+  {
+   "ticker": "FTEC",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Information Technology Index ETF",
+   "price": 271.58,
+   "ret_1w": -0.059,
+   "ret_1m": -0.1134,
+   "ret_3m": -0.0519,
+   "ret_12m": 0.1496,
+   "range_52w": [
+    199.01,
+    309.95
+   ],
+   "avg_vol": 317714,
+   "pe": 28.4,
+   "div_yield": 0.37
+  },
+  {
+   "ticker": "FUTY",
+   "class": "equity_etf",
+   "group": "sector_us",
+   "name": "Fidelity MSCI Utilities Index ETF",
+   "price": 56.29,
+   "ret_1w": 0.0253,
+   "ret_1m": 0.0926,
+   "ret_3m": -0.0031,
+   "ret_12m": 0.0044,
+   "range_52w": [
+    50.82,
+    60.18
+   ],
+   "avg_vol": 461885,
+   "pe": 19.7,
+   "div_yield": 3.0
+  },
+  {
+   "ticker": "GARP",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Quality GARP ETF",
+   "price": 76.7,
+   "ret_1w": -0.0368,
+   "ret_1m": -0.1147,
+   "ret_3m": -0.0777,
+   "ret_12m": 0.112,
+   "range_52w": [
+    61.51,
+    87.58
+   ],
+   "avg_vol": 504628,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "GDX",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Gold Miners ETF",
+   "price": 79.15,
+   "ret_1w": -0.0231,
+   "ret_1m": -0.0983,
+   "ret_3m": 0.0158,
+   "ret_12m": 0.1182,
+   "range_52w": [
+    67.79,
+    115.84
+   ],
+   "avg_vol": 19308709,
+   "pe": 12.6,
+   "div_yield": 0.72
+  },
+  {
+   "ticker": "GE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "GE Aerospace",
+   "price": 315.78,
+   "ret_1w": 0.0948,
+   "ret_1m": 0.0216,
+   "ret_3m": -0.1617,
+   "ret_12m": 0.0287,
+   "range_52w": [
+    272.5,
+    380.64
+   ],
+   "avg_vol": 5242295,
+   "pe": 36.1,
+   "div_yield": 0.62
+  },
+  {
+   "ticker": "GILD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Gilead Sciences",
+   "price": 170.33,
+   "ret_1w": 0.0734,
+   "ret_1m": 0.1768,
+   "ret_3m": 0.2665,
+   "ret_12m": 0.4301,
+   "range_52w": [
+    115.3,
+    170.68
+   ],
+   "avg_vol": 6392733,
+   "pe": null,
+   "div_yield": 1.92
+  },
+  {
+   "ticker": "GLD",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "SPDR Gold Shares",
+   "price": 361.65,
+   "ret_1w": -0.0168,
+   "ret_1m": -0.0486,
+   "ret_3m": -0.0334,
+   "ret_12m": -0.0193,
+   "range_52w": [
+    355.78,
+    495.9
+   ],
+   "avg_vol": 8364442,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "GLTR",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Precious Metals Basket Shares ETF",
+   "price": 168.36,
+   "ret_1w": -0.0352,
+   "ret_1m": -0.0956,
+   "ret_3m": -0.0874,
+   "ret_12m": -0.0215,
+   "range_52w": [
+    165.78,
+    285.22
+   ],
+   "avg_vol": 53700,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "GM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "General Motors",
+   "price": 89.94,
+   "ret_1w": 0.1786,
+   "ret_1m": 0.1491,
+   "ret_3m": 0.0206,
+   "ret_12m": 0.3298,
+   "range_52w": [
+    66.3,
+    90.11
+   ],
+   "avg_vol": 8296880,
+   "pe": 19.7,
+   "div_yield": 0.82
+  },
+  {
+   "ticker": "GOOGL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Alphabet (Google)",
+   "price": 278.99,
+   "ret_1w": -0.1193,
+   "ret_1m": -0.1878,
+   "ret_3m": -0.2608,
+   "ret_12m": -0.0141,
+   "range_52w": [
+    273.16,
+    402.12
+   ],
+   "avg_vol": 33735576,
+   "pe": 14.6,
+   "div_yield": 0.31
+  },
+  {
+   "ticker": "GS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Goldman Sachs",
+   "price": 898.72,
+   "ret_1w": 0.0061,
+   "ret_1m": -0.0043,
+   "ret_3m": -0.1423,
+   "ret_12m": 0.1666,
+   "range_52w": [
+    758.78,
+    1146.46
+   ],
+   "avg_vol": 2262823,
+   "pe": 12.9,
+   "div_yield": 2.24
+  },
+  {
+   "ticker": "GSG",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "iShares S&P GSCI Commodity Indexed Trust",
+   "price": 35.56,
+   "ret_1w": -0.0469,
+   "ret_1m": -0.0048,
+   "ret_3m": 0.1678,
+   "ret_12m": 0.519,
+   "range_52w": [
+    22.48,
+    37.7
+   ],
+   "avg_vol": 1930947,
+   "pe": 7.9,
+   "div_yield": null
+  },
+  {
+   "ticker": "HD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Home Depot",
+   "price": 341.15,
+   "ret_1w": 0.0682,
+   "ret_1m": 0.2061,
+   "ret_3m": -0.0131,
+   "ret_12m": -0.0728,
+   "range_52w": [
+    281.15,
+    382.74
+   ],
+   "avg_vol": 4711504,
+   "pe": 23.9,
+   "div_yield": 2.83
+  },
+  {
+   "ticker": "HON",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Honeywell",
+   "price": 223.77,
+   "ret_1w": 0.0205,
+   "ret_1m": 0.0457,
+   "ret_3m": -0.0979,
+   "ret_12m": 0.1,
+   "range_52w": [
+    194.68,
+    257.94
+   ],
+   "avg_vol": 2626190,
+   "pe": 11.1,
+   "div_yield": 1.28
+  },
+  {
+   "ticker": "HOOD",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Robinhood",
+   "price": 83.84,
+   "ret_1w": -0.0969,
+   "ret_1m": -0.2563,
+   "ret_3m": -0.1034,
+   "ret_12m": -0.43,
+   "range_52w": [
+    65.16,
+    147.08
+   ],
+   "avg_vol": 19490709,
+   "pe": 39.2,
+   "div_yield": null
+  },
+  {
+   "ticker": "HSBC",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "HSBC (ADR)",
+   "price": 85.91,
+   "ret_1w": -0.0581,
+   "ret_1m": -0.1064,
+   "ret_3m": -0.1859,
+   "ret_12m": 0.2755,
+   "range_52w": [
+    65.03,
+    107.34
+   ],
+   "avg_vol": 2015442,
+   "pe": 11.2,
+   "div_yield": 4.39
+  },
+  {
+   "ticker": "HYLB",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Xtrackers USD High Yield Corporate Bond ETF",
+   "price": 35.02,
+   "ret_1w": -0.0045,
+   "ret_1m": 0.0,
+   "ret_3m": -0.0242,
+   "ret_12m": 0.0153,
+   "range_52w": [
+    34.47,
+    36.05
+   ],
+   "avg_vol": 1416961,
+   "pe": null,
+   "div_yield": 6.69
+  },
+  {
+   "ticker": "IBB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Biotechnology ETF",
+   "price": 213.79,
+   "ret_1w": 0.0244,
+   "ret_1m": 0.0414,
+   "ret_3m": 0.1244,
+   "ret_12m": 0.3605,
+   "range_52w": [
+    155.77,
+    217.86
+   ],
+   "avg_vol": 1837009,
+   "pe": 26.7,
+   "div_yield": 0.16
+  },
+  {
+   "ticker": "IBIT",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "iShares Bitcoin Trust ETF",
+   "price": 43.35,
+   "ret_1w": -0.0414,
+   "ret_1m": -0.0918,
+   "ret_3m": 0.1913,
+   "ret_12m": -0.2838,
+   "range_52w": [
+    33.29,
+    60.53
+   ],
+   "avg_vol": 39218523,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "IBM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "IBM",
+   "price": 252.51,
+   "ret_1w": -0.0037,
+   "ret_1m": 0.1342,
+   "ret_3m": 0.0815,
+   "ret_12m": -0.1498,
+   "range_52w": [
+    204.3,
+    326.89
+   ],
+   "avg_vol": 5496900,
+   "pe": 21.5,
+   "div_yield": 2.62
+  },
+  {
+   "ticker": "IBOT",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Vaneck Robotics ETF",
+   "price": 62.17,
+   "ret_1w": 0.0024,
+   "ret_1m": -0.0659,
+   "ret_3m": -0.083,
+   "ret_12m": 0.1802,
+   "range_52w": [
+    47.85,
+    69.07
+   ],
+   "avg_vol": 13052,
+   "pe": 27.8,
+   "div_yield": 0.31
+  },
+  {
+   "ticker": "ICLN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Global Clean Energy ETF",
+   "price": 15.73,
+   "ret_1w": 0.0116,
+   "ret_1m": -0.0849,
+   "ret_3m": -0.147,
+   "ret_12m": -0.0969,
+   "range_52w": [
+    15.31,
+    23.69
+   ],
+   "avg_vol": 5691414,
+   "pe": 19.1,
+   "div_yield": 1.08
+  },
+  {
+   "ticker": "ICOP",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Copper and Metals Mining ETF",
+   "price": 47.58,
+   "ret_1w": -0.0116,
+   "ret_1m": -0.1207,
+   "ret_3m": -0.0992,
+   "ret_12m": 0.2804,
+   "range_52w": [
+    35.72,
+    60.89
+   ],
+   "avg_vol": 63138,
+   "pe": 15.4,
+   "div_yield": 1.68
+  },
+  {
+   "ticker": "IEMG",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares Core MSCI Emerging Markets ETF",
+   "price": 74.38,
+   "ret_1w": -0.0117,
+   "ret_1m": -0.0969,
+   "ret_3m": -0.073,
+   "ret_12m": 0.1098,
+   "range_52w": [
+    63.95,
+    86.0
+   ],
+   "avg_vol": 11761661,
+   "pe": 13.2,
+   "div_yield": 2.21
+  },
+  {
+   "ticker": "IEUR",
+   "class": "equity_etf",
+   "group": "geo_developed",
+   "name": "iShares Core MSCI Europe ETF",
+   "price": 74.79,
+   "ret_1w": 0.0177,
+   "ret_1m": 0.0189,
+   "ret_3m": -0.0386,
+   "ret_12m": 0.1295,
+   "range_52w": [
+    64.38,
+    78.77
+   ],
+   "avg_vol": 1311533,
+   "pe": 17.8,
+   "div_yield": 3.25
+  },
+  {
+   "ticker": "IFRA",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Infrastructure ETF",
+   "price": 58.64,
+   "ret_1w": 0.0311,
+   "ret_1m": 0.0436,
+   "ret_3m": -0.0444,
+   "ret_12m": 0.1366,
+   "range_52w": [
+    49.87,
+    63.78
+   ],
+   "avg_vol": 286761,
+   "pe": 23.0,
+   "div_yield": 1.85
+  },
+  {
+   "ticker": "IGF",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Global Infrastructure ETF",
+   "price": 65.83,
+   "ret_1w": 0.0175,
+   "ret_1m": 0.0659,
+   "ret_3m": -0.0111,
+   "ret_12m": 0.1073,
+   "range_52w": [
+    59.16,
+    68.41
+   ],
+   "avg_vol": 852823,
+   "pe": 20.7,
+   "div_yield": 3.14
+  },
+  {
+   "ticker": "IGV",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares Expanded Tech-Software Sector ETF",
+   "price": 101.9,
+   "ret_1w": -0.0852,
+   "ret_1m": -0.0602,
+   "ret_3m": -0.001,
+   "ret_12m": -0.1191,
+   "range_52w": [
+    74.66,
+    115.68
+   ],
+   "avg_vol": 7903680,
+   "pe": 30.5,
+   "div_yield": 0.02
+  },
+  {
+   "ticker": "IHF",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Healthcare Providers ETF",
+   "price": 59.0,
+   "ret_1w": -0.014,
+   "ret_1m": 0.071,
+   "ret_3m": 0.0474,
+   "ret_12m": 0.2261,
+   "range_52w": [
+    40.85,
+    60.9
+   ],
+   "avg_vol": 939752,
+   "pe": 21.9,
+   "div_yield": 0.99
+  },
+  {
+   "ticker": "IHI",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Medical Devices ETF",
+   "price": 56.51,
+   "ret_1w": 0.0267,
+   "ret_1m": 0.1201,
+   "ret_3m": 0.046,
+   "ret_12m": -0.0651,
+   "range_52w": [
+    47.4,
+    64.16
+   ],
+   "avg_vol": 3308838,
+   "pe": 31.2,
+   "div_yield": 0.51
+  },
+  {
+   "ticker": "IJH",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Mid-Cap ETF",
+   "price": 73.92,
+   "ret_1w": 0.0139,
+   "ret_1m": 0.0072,
+   "ret_3m": -0.043,
+   "ret_12m": 0.1537,
+   "range_52w": [
+    61.47,
+    78.43
+   ],
+   "avg_vol": 6992295,
+   "pe": 19.9,
+   "div_yield": 1.25
+  },
+  {
+   "ticker": "IJR",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Small Cap ETF",
+   "price": 141.48,
+   "ret_1w": 0.0184,
+   "ret_1m": 0.0214,
+   "ret_3m": -0.056,
+   "ret_12m": 0.2141,
+   "range_52w": [
+    110.62,
+    149.9
+   ],
+   "avg_vol": 3520280,
+   "pe": 17.9,
+   "div_yield": 1.26
+  },
+  {
+   "ticker": "ILF",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares Latin America 40 ETF",
+   "price": 32.25,
+   "ret_1w": -0.0367,
+   "ret_1m": -0.078,
+   "ret_3m": -0.0807,
+   "ret_12m": 0.132,
+   "range_52w": [
+    28.14,
+    38.21
+   ],
+   "avg_vol": 2979333,
+   "pe": 10.6,
+   "div_yield": 3.42
+  },
+  {
+   "ticker": "INDA",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI India ETF",
+   "price": 48.45,
+   "ret_1w": 0.0399,
+   "ret_1m": 0.0415,
+   "ret_3m": -0.0412,
+   "ret_12m": -0.1067,
+   "range_52w": [
+    45.42,
+    54.83
+   ],
+   "avg_vol": 6295000,
+   "pe": 22.1,
+   "div_yield": null
+  },
+  {
+   "ticker": "ING",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "ING Groep (ADR)",
+   "price": 31.38,
+   "ret_1w": -0.0294,
+   "ret_1m": -0.0978,
+   "ret_3m": -0.1005,
+   "ret_12m": 0.297,
+   "range_52w": [
+    23.33,
+    37.27
+   ],
+   "avg_vol": 2612676,
+   "pe": 11.6,
+   "div_yield": 4.2
+  },
+  {
+   "ticker": "INTC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Intel",
+   "price": 59.97,
+   "ret_1w": -0.3371,
+   "ret_1m": -0.4974,
+   "ret_3m": -0.4054,
+   "ret_12m": 0.5182,
+   "range_52w": [
+    33.62,
+    140.94
+   ],
+   "avg_vol": 121765485,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "INTU",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Intuit",
+   "price": 352.1,
+   "ret_1w": 0.0359,
+   "ret_1m": 0.2585,
+   "ret_3m": 0.0931,
+   "ret_12m": -0.4719,
+   "range_52w": [
+    252.77,
+    667.14
+   ],
+   "avg_vol": 3242309,
+   "pe": 21.4,
+   "div_yield": 1.62
+  },
+  {
+   "ticker": "ISRG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Intuitive Surgical",
+   "price": 436.87,
+   "ret_1w": -0.0327,
+   "ret_1m": 0.1146,
+   "ret_3m": 0.1863,
+   "ret_12m": -0.1972,
+   "range_52w": [
+    332.02,
+    592.85
+   ],
+   "avg_vol": 2465452,
+   "pe": 52.8,
+   "div_yield": null
+  },
+  {
+   "ticker": "ITA",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Aerospace & Defense ETF",
+   "price": 214.68,
+   "ret_1w": 0.0363,
+   "ret_1m": 0.0332,
+   "ret_3m": -0.1425,
+   "ret_12m": 0.0011,
+   "range_52w": [
+    197.73,
+    252.93
+   ],
+   "avg_vol": 914457,
+   "pe": 33.0,
+   "div_yield": 0.27
+  },
+  {
+   "ticker": "ITB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares U.S. Home Construction ETF",
+   "price": 96.97,
+   "ret_1w": 0.079,
+   "ret_1m": 0.1192,
+   "ret_3m": -0.0171,
+   "ret_12m": -0.0041,
+   "range_52w": [
+    83.39,
+    112.22
+   ],
+   "avg_vol": 3206476,
+   "pe": 17.0,
+   "div_yield": 1.45
+  },
+  {
+   "ticker": "ITOT",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P Total U.S. Stock Market ETF",
+   "price": 164.15,
+   "ret_1w": -0.0155,
+   "ret_1m": -0.0226,
+   "ret_3m": -0.0266,
+   "ret_12m": 0.1128,
+   "range_52w": [
+    137.58,
+    170.24
+   ],
+   "avg_vol": 1235104,
+   "pe": 23.3,
+   "div_yield": 1.01
+  },
+  {
+   "ticker": "IVE",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares S&P 500 Value ETF",
+   "price": 239.8,
+   "ret_1w": 0.004,
+   "ret_1m": 0.0443,
+   "ret_3m": 0.0216,
+   "ret_12m": 0.169,
+   "range_52w": [
+    199.98,
+    241.36
+   ],
+   "avg_vol": 707990,
+   "pe": 22.8,
+   "div_yield": 1.58
+  },
+  {
+   "ticker": "IVV",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Core S&P 500 ETF",
+   "price": 755.36,
+   "ret_1w": -0.0173,
+   "ret_1m": -0.0229,
+   "ret_3m": -0.0223,
+   "ret_12m": 0.113,
+   "range_52w": [
+    631.4,
+    782.54
+   ],
+   "avg_vol": 4718390,
+   "pe": 23.9,
+   "div_yield": 1.1
+  },
+  {
+   "ticker": "IVW",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares S&P 500 Growth ETF",
+   "price": 133.05,
+   "ret_1w": -0.0355,
+   "ret_1m": -0.0755,
+   "ret_3m": -0.059,
+   "ret_12m": 0.0652,
+   "range_52w": [
+    108.51,
+    146.12
+   ],
+   "avg_vol": 2000028,
+   "pe": 24.8,
+   "div_yield": 0.34
+  },
+  {
+   "ticker": "IWB",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Russell 1000 ETF",
+   "price": 411.45,
+   "ret_1w": -0.0158,
+   "ret_1m": -0.0208,
+   "ret_3m": -0.023,
+   "ret_12m": 0.1108,
+   "range_52w": [
+    345.11,
+    425.66
+   ],
+   "avg_vol": 488280,
+   "pe": 23.6,
+   "div_yield": 0.92
+  },
+  {
+   "ticker": "IWD",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 1000 Value ETF",
+   "price": 259.36,
+   "ret_1w": 0.0039,
+   "ret_1m": 0.04,
+   "ret_3m": 0.0143,
+   "ret_12m": 0.2907,
+   "range_52w": [
+    196.88,
+    260.76
+   ],
+   "avg_vol": 2175561,
+   "pe": 21.3,
+   "div_yield": 1.42
+  },
+  {
+   "ticker": "IWF",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 1000 Growth ETF",
+   "price": 116.22,
+   "ret_1w": -0.0386,
+   "ret_1m": -0.0854,
+   "ret_3m": -0.0642,
+   "ret_12m": -0.0438,
+   "range_52w": [
+    102.54,
+    129.19
+   ],
+   "avg_vol": 5592976,
+   "pe": 26.8,
+   "div_yield": 0.34
+  },
+  {
+   "ticker": "IWM",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "iShares Russell 2000 ETF",
+   "price": 279.14,
+   "ret_1w": 0.0078,
+   "ret_1m": -0.0085,
+   "ret_3m": -0.0724,
+   "ret_12m": 0.1489,
+   "range_52w": [
+    226.81,
+    304.3
+   ],
+   "avg_vol": 23984628,
+   "pe": 16.4,
+   "div_yield": 0.98
+  },
+  {
+   "ticker": "IWN",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 2000 Value ETF",
+   "price": 215.91,
+   "ret_1w": 0.0112,
+   "ret_1m": 0.0168,
+   "ret_3m": -0.0449,
+   "ret_12m": 0.2383,
+   "range_52w": [
+    166.15,
+    226.51
+   ],
+   "avg_vol": 892833,
+   "pe": 13.8,
+   "div_yield": 1.55
+  },
+  {
+   "ticker": "IWO",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell 2000 Growth ETF",
+   "price": 348.8,
+   "ret_1w": 0.0029,
+   "ret_1m": -0.0334,
+   "ret_3m": -0.1008,
+   "ret_12m": 0.0669,
+   "range_52w": [
+    299.24,
+    395.21
+   ],
+   "avg_vol": 478547,
+   "pe": 21.5,
+   "div_yield": 0.47
+  },
+  {
+   "ticker": "IWP",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Mid-Cap Growth ETF",
+   "price": 130.1,
+   "ret_1w": -0.0325,
+   "ret_1m": -0.0787,
+   "ret_3m": -0.0898,
+   "ret_12m": -0.0787,
+   "range_52w": [
+    123.34,
+    147.53
+   ],
+   "avg_vol": 665766,
+   "pe": 26.8,
+   "div_yield": 0.38
+  },
+  {
+   "ticker": "IWS",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Mid-Cap Value ETF",
+   "price": 171.22,
+   "ret_1w": 0.0143,
+   "ret_1m": 0.0533,
+   "ret_3m": 0.0036,
+   "ret_12m": 0.2577,
+   "range_52w": [
+    131.94,
+    172.82
+   ],
+   "avg_vol": 694652,
+   "pe": 19.1,
+   "div_yield": 1.37
+  },
+  {
+   "ticker": "IWX",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Top 200 Value ETF",
+   "price": 113.77,
+   "ret_1w": 0.0004,
+   "ret_1m": 0.035,
+   "ret_3m": 0.0186,
+   "ret_12m": 0.3029,
+   "range_52w": [
+    85.96,
+    114.68
+   ],
+   "avg_vol": 639542,
+   "pe": 22.3,
+   "div_yield": 1.41
+  },
+  {
+   "ticker": "IWY",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "iShares Russell Top 200 Growth ETF",
+   "price": 273.7,
+   "ret_1w": -0.0369,
+   "ret_1m": -0.0837,
+   "ret_3m": -0.0571,
+   "ret_12m": -0.0384,
+   "range_52w": [
+    239.48,
+    303.8
+   ],
+   "avg_vol": 419747,
+   "pe": 27.1,
+   "div_yield": 0.33
+  },
+  {
+   "ticker": "IXC",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Energy ETF",
+   "price": 61.78,
+   "ret_1w": -0.0306,
+   "ret_1m": 0.0672,
+   "ret_3m": 0.134,
+   "ret_12m": 0.5342,
+   "range_52w": [
+    39.92,
+    64.19
+   ],
+   "avg_vol": 667985,
+   "pe": 16.4,
+   "div_yield": 2.76
+  },
+  {
+   "ticker": "IXG",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Financials ETF",
+   "price": 131.01,
+   "ret_1w": 0.0173,
+   "ret_1m": 0.0362,
+   "ret_3m": -0.0258,
+   "ret_12m": 0.1753,
+   "range_52w": [
+    108.48,
+    137.0
+   ],
+   "avg_vol": 35519,
+   "pe": 14.0,
+   "div_yield": 2.23
+  },
+  {
+   "ticker": "IXJ",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Healthcare ETF",
+   "price": 112.57,
+   "ret_1w": 0.0294,
+   "ret_1m": 0.1161,
+   "ret_3m": 0.1272,
+   "ret_12m": 0.2528,
+   "range_52w": [
+    89.86,
+    112.66
+   ],
+   "avg_vol": 294428,
+   "pe": 29.8,
+   "div_yield": 1.41
+  },
+  {
+   "ticker": "IXN",
+   "class": "equity_etf",
+   "group": "sector_global",
+   "name": "iShares Global Tech ETF",
+   "price": 131.48,
+   "ret_1w": -0.0546,
+   "ret_1m": -0.1347,
+   "ret_3m": -0.0638,
+   "ret_12m": 0.1933,
+   "range_52w": [
+    95.65,
+    152.94
+   ],
+   "avg_vol": 433057,
+   "pe": 24.0,
+   "div_yield": 0.23
+  },
+  {
+   "ticker": "IXUS",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares Core MSCI Total International Stock ETF",
+   "price": 92.56,
+   "ret_1w": 0.0008,
+   "ret_1m": -0.0316,
+   "ret_3m": -0.0413,
+   "ret_12m": 0.1353,
+   "range_52w": [
+    78.59,
+    98.71
+   ],
+   "avg_vol": 2150971,
+   "pe": 15.7,
+   "div_yield": 2.95
+  },
+  {
+   "ticker": "IYT",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "iShares US Transportation ETF",
+   "price": 83.08,
+   "ret_1w": 0.0295,
+   "ret_1m": 0.0359,
+   "ret_3m": -0.0522,
+   "ret_12m": 0.1576,
+   "range_52w": [
+    67.49,
+    89.81
+   ],
+   "avg_vol": 869585,
+   "pe": 20.0,
+   "div_yield": 0.96
+  },
+  {
+   "ticker": "JNJ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Johnson & Johnson",
+   "price": 270.56,
+   "ret_1w": 0.016,
+   "ret_1m": 0.0568,
+   "ret_3m": 0.0665,
+   "ret_12m": 0.4853,
+   "range_52w": [
+    181.9,
+    278.43
+   ],
+   "avg_vol": 7652504,
+   "pe": 41.4,
+   "div_yield": 1.96
+  },
+  {
+   "ticker": "JPM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "JPMorgan Chase",
+   "price": 340.58,
+   "ret_1w": 0.0196,
+   "ret_1m": 0.0298,
+   "ret_3m": -0.0426,
+   "ret_12m": 0.1222,
+   "range_52w": [
+    278.75,
+    363.37
+   ],
+   "avg_vol": 6867928,
+   "pe": 14.1,
+   "div_yield": 1.96
+  },
+  {
+   "ticker": "KBWB",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco KBW Bank ETF",
+   "price": 89.6,
+   "ret_1w": 0.0159,
+   "ret_1m": 0.0231,
+   "ret_3m": -0.0842,
+   "ret_12m": 0.1901,
+   "range_52w": [
+    73.35,
+    99.19
+   ],
+   "avg_vol": 2988909,
+   "pe": 13.2,
+   "div_yield": 2.14
+  },
+  {
+   "ticker": "KO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Coca-Cola",
+   "price": 95.83,
+   "ret_1w": 0.0338,
+   "ret_1m": 0.1189,
+   "ret_3m": 0.1137,
+   "ret_12m": 0.4474,
+   "range_52w": [
+    66.21,
+    95.83
+   ],
+   "avg_vol": 16950514,
+   "pe": 28.3,
+   "div_yield": 2.25
+  },
+  {
+   "ticker": "KRBN",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "KraneShares Global Carbon Strategy ETF",
+   "price": 35.3,
+   "ret_1w": 0.018,
+   "ret_1m": 0.0563,
+   "ret_3m": 0.0417,
+   "ret_12m": 0.0568,
+   "range_52w": [
+    27.33,
+    36.43
+   ],
+   "avg_vol": 18847,
+   "pe": null,
+   "div_yield": 1.98
+  },
+  {
+   "ticker": "LIN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Linde",
+   "price": 519.72,
+   "ret_1w": 0.024,
+   "ret_1m": 0.0839,
+   "ret_3m": 0.0759,
+   "ret_12m": 0.278,
+   "range_52w": [
+    385.58,
+    544.85
+   ],
+   "avg_vol": 2108857,
+   "pe": 34.5,
+   "div_yield": 1.24
+  },
+  {
+   "ticker": "LLY",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Eli Lilly",
+   "price": 1410.99,
+   "ret_1w": 0.1031,
+   "ret_1m": 0.2346,
+   "ret_3m": 0.2665,
+   "ret_12m": 0.5838,
+   "range_52w": [
+    848.53,
+    1417.54
+   ],
+   "avg_vol": 2590790,
+   "pe": 46.0,
+   "div_yield": 0.49
+  },
+  {
+   "ticker": "LMT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Lockheed Martin",
+   "price": 643.15,
+   "ret_1w": 0.0125,
+   "ret_1m": 0.2725,
+   "ret_3m": 0.0981,
+   "ret_12m": 0.3522,
+   "range_52w": [
+    431.38,
+    668.17
+   ],
+   "avg_vol": 1533623,
+   "pe": 22.6,
+   "div_yield": 2.26
+  },
+  {
+   "ticker": "LOW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Lowe's",
+   "price": 218.15,
+   "ret_1w": 0.1005,
+   "ret_1m": 0.2142,
+   "ret_3m": 0.0067,
+   "ret_12m": -0.0539,
+   "range_52w": [
+    178.37,
+    282.47
+   ],
+   "avg_vol": 3195228,
+   "pe": 18.4,
+   "div_yield": 2.39
+  },
+  {
+   "ticker": "MA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Mastercard",
+   "price": 658.1,
+   "ret_1w": 0.0727,
+   "ret_1m": 0.1935,
+   "ret_3m": 0.1541,
+   "ret_12m": 0.2174,
+   "range_52w": [
+    470.05,
+    658.1
+   ],
+   "avg_vol": 3239033,
+   "pe": 34.4,
+   "div_yield": 0.55
+  },
+  {
+   "ticker": "MCD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "McDonald's",
+   "price": 265.64,
+   "ret_1w": 0.059,
+   "ret_1m": 0.1455,
+   "ret_3m": -0.003,
+   "ret_12m": -0.0806,
+   "range_52w": [
+    230.88,
+    334.5
+   ],
+   "avg_vol": 5496771,
+   "pe": 21.0,
+   "div_yield": 2.99
+  },
+  {
+   "ticker": "MCHI",
+   "class": "equity_etf",
+   "group": "geo_em",
+   "name": "iShares MSCI China ETF",
+   "price": 49.59,
+   "ret_1w": 0.0096,
+   "ret_1m": -0.0322,
+   "ret_3m": -0.1159,
+   "ret_12m": -0.2049,
+   "range_52w": [
+    48.96,
+    63.84
+   ],
+   "avg_vol": 1954909,
+   "pe": 10.8,
+   "div_yield": 2.09
+  },
+  {
+   "ticker": "MDLZ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Mondelez",
+   "price": 66.38,
+   "ret_1w": 0.0542,
+   "ret_1m": 0.1407,
+   "ret_3m": 0.0787,
+   "ret_12m": 0.2134,
+   "range_52w": [
+    50.2,
+    66.38
+   ],
+   "avg_vol": 7761333,
+   "pe": 20.9,
+   "div_yield": 3.2
+  },
+  {
+   "ticker": "MDT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Medtronic",
+   "price": 99.29,
+   "ret_1w": 0.0475,
+   "ret_1m": 0.1495,
+   "ret_3m": 0.1613,
+   "ret_12m": 0.1373,
+   "range_52w": [
+    72.5,
+    101.97
+   ],
+   "avg_vol": 28698390,
+   "pe": 24.4,
+   "div_yield": 2.98
+  },
+  {
+   "ticker": "MELI",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "MercadoLibre",
+   "price": 1676.79,
+   "ret_1w": 0.0048,
+   "ret_1m": -0.0117,
+   "ret_3m": -0.1121,
+   "ret_12m": -0.2761,
+   "range_52w": [
+    1546.81,
+    2316.4
+   ],
+   "avg_vol": 575809,
+   "pe": 45.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "META",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Meta Platforms",
+   "price": 606.73,
+   "ret_1w": -0.0378,
+   "ret_1m": -0.1667,
+   "ret_3m": 0.0328,
+   "ret_12m": -0.0454,
+   "range_52w": [
+    524.82,
+    777.59
+   ],
+   "avg_vol": 22968928,
+   "pe": 20.7,
+   "div_yield": 0.34
+  },
+  {
+   "ticker": "MO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Altria",
+   "price": 77.17,
+   "ret_1w": 0.0482,
+   "ret_1m": 0.1458,
+   "ret_3m": 0.1518,
+   "ret_12m": 0.4538,
+   "range_52w": [
+    52.19,
+    78.03
+   ],
+   "avg_vol": 8686895,
+   "pe": 16.1,
+   "div_yield": 5.69
+  },
+  {
+   "ticker": "MOAT",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "VanEck Morningstar Wide Moat ETF",
+   "price": 114.08,
+   "ret_1w": 0.0188,
+   "ret_1m": 0.074,
+   "ret_3m": 0.0259,
+   "ret_12m": 0.1421,
+   "range_52w": [
+    94.29,
+    115.14
+   ],
+   "avg_vol": 395200,
+   "pe": 22.7,
+   "div_yield": 1.33
+  },
+  {
+   "ticker": "MOO",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Agribusiness ETF",
+   "price": 82.31,
+   "ret_1w": 0.0132,
+   "ret_1m": 0.0119,
+   "ret_3m": 0.0076,
+   "ret_12m": 0.1814,
+   "range_52w": [
+    67.64,
+    88.85
+   ],
+   "avg_vol": 156809,
+   "pe": 16.0,
+   "div_yield": 2.2
+  },
+  {
+   "ticker": "MRK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Merck",
+   "price": 148.36,
+   "ret_1w": 0.0551,
+   "ret_1m": 0.0281,
+   "ret_3m": 0.1659,
+   "ret_12m": 0.8513,
+   "range_52w": [
+    80.14,
+    155.53
+   ],
+   "avg_vol": 10235223,
+   "pe": 149.9,
+   "div_yield": 2.27
+  },
+  {
+   "ticker": "MRVL",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Marvell",
+   "price": 171.41,
+   "ret_1w": -0.2668,
+   "ret_1m": -0.3703,
+   "ret_3m": -0.2157,
+   "ret_12m": 0.9,
+   "range_52w": [
+    73.66,
+    316.28
+   ],
+   "avg_vol": 24823171,
+   "pe": 56.4,
+   "div_yield": 0.12
+  },
+  {
+   "ticker": "MS",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Morgan Stanley",
+   "price": 185.73,
+   "ret_1w": 0.0184,
+   "ret_1m": -0.0181,
+   "ret_3m": -0.139,
+   "ret_12m": 0.1607,
+   "range_52w": [
+    151.78,
+    225.92
+   ],
+   "avg_vol": 6278938,
+   "pe": 14.7,
+   "div_yield": 2.5
+  },
+  {
+   "ticker": "MSFT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Microsoft",
+   "price": 507.12,
+   "ret_1w": -0.0478,
+   "ret_1m": -0.0201,
+   "ret_3m": 0.031,
+   "ret_12m": -0.0111,
+   "range_52w": [
+    352.17,
+    543.45
+   ],
+   "avg_vol": 22615514,
+   "pe": 26.5,
+   "div_yield": 0.75
+  },
+  {
+   "ticker": "MSTR",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Strategy (MicroStrategy)",
+   "price": 130.76,
+   "ret_1w": -0.0648,
+   "ret_1m": -0.1828,
+   "ret_3m": 0.3391,
+   "ret_12m": -0.506,
+   "range_52w": [
+    82.31,
+    264.67
+   ],
+   "avg_vol": 18539909,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "MTUM",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Momentum Factor ETF",
+   "price": 275.14,
+   "ret_1w": -0.0659,
+   "ret_1m": -0.1479,
+   "ret_3m": -0.1202,
+   "ret_12m": 0.0926,
+   "range_52w": [
+    230.05,
+    344.53
+   ],
+   "avg_vol": 952276,
+   "pe": 23.5,
+   "div_yield": 0.58
+  },
+  {
+   "ticker": "MU",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Micron",
+   "price": 833.59,
+   "ret_1w": -0.0776,
+   "ret_1m": -0.2244,
+   "ret_3m": -0.066,
+   "ret_12m": 2.5558,
+   "range_52w": [
+    201.14,
+    1213.18
+   ],
+   "avg_vol": 26266685,
+   "pe": 11.9,
+   "div_yield": 0.07
+  },
+  {
+   "ticker": "MUFG",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Mitsubishi UFJ (ADR)",
+   "price": 21.45,
+   "ret_1w": 0.0171,
+   "ret_1m": -0.06,
+   "ret_3m": -0.0174,
+   "ret_12m": 0.414,
+   "range_52w": [
+    14.88,
+    24.13
+   ],
+   "avg_vol": 2657804,
+   "pe": 14.0,
+   "div_yield": 2.5
+  },
+  {
+   "ticker": "NEE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "NextEra Energy",
+   "price": 85.03,
+   "ret_1w": 0.0364,
+   "ret_1m": 0.1067,
+   "ret_3m": -0.0176,
+   "ret_12m": 0.0696,
+   "range_52w": [
+    75.49,
+    96.44
+   ],
+   "avg_vol": 11869114,
+   "pe": 15.3,
+   "div_yield": 2.98
+  },
+  {
+   "ticker": "NET",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Cloudflare",
+   "price": 265.17,
+   "ret_1w": -0.201,
+   "ret_1m": -0.2404,
+   "ret_3m": -0.12,
+   "ret_12m": 0.0688,
+   "range_52w": [
+    160.19,
+    360.93
+   ],
+   "avg_vol": 3201795,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "NFLX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Netflix",
+   "price": 62.34,
+   "ret_1w": -0.0244,
+   "ret_1m": -0.0704,
+   "ret_3m": -0.1526,
+   "ret_12m": -0.4333,
+   "range_52w": [
+    61.99,
+    115.75
+   ],
+   "avg_vol": 44602938,
+   "pe": 17.9,
+   "div_yield": null
+  },
+  {
+   "ticker": "NLR",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Uranium and Nuclear ETF",
+   "price": 89.65,
+   "ret_1w": -0.0155,
+   "ret_1m": -0.1274,
+   "ret_3m": -0.2128,
+   "ret_12m": -0.3831,
+   "range_52w": [
+    89.65,
+    164.37
+   ],
+   "avg_vol": 497976,
+   "pe": 18.1,
+   "div_yield": 3.06
+  },
+  {
+   "ticker": "NOW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "ServiceNow",
+   "price": 106.01,
+   "ret_1w": -0.3298,
+   "ret_1m": -0.2111,
+   "ret_3m": -0.1027,
+   "ret_12m": -0.42,
+   "range_52w": [
+    83.0,
+    182.77
+   ],
+   "avg_vol": 17517571,
+   "pe": 76.3,
+   "div_yield": null
+  },
+  {
+   "ticker": "NVDA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "NVIDIA",
+   "price": 202.06,
+   "ret_1w": -0.0645,
+   "ret_1m": -0.1363,
+   "ret_3m": -0.0456,
+   "ret_12m": -0.021,
+   "range_52w": [
+    164.79,
+    239.24
+   ],
+   "avg_vol": 101907823,
+   "pe": 25.9,
+   "div_yield": 0.49
+  },
+  {
+   "ticker": "NVO",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Novo Nordisk (ADR)",
+   "price": 40.45,
+   "ret_1w": 0.0337,
+   "ret_1m": 0.0839,
+   "ret_3m": -0.0748,
+   "ret_12m": -0.1352,
+   "range_52w": [
+    34.33,
+    60.94
+   ],
+   "avg_vol": 10708442,
+   "pe": 9.9,
+   "div_yield": 4.49
+  },
+  {
+   "ticker": "NVS",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Novartis (ADR)",
+   "price": 161.52,
+   "ret_1w": 0.0501,
+   "ret_1m": 0.1455,
+   "ret_3m": 0.0538,
+   "ret_12m": 0.3437,
+   "range_52w": [
+    120.2,
+    163.64
+   ],
+   "avg_vol": 2036280,
+   "pe": 30.8,
+   "div_yield": 2.95
+  },
+  {
+   "ticker": "OIH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Oil Services ETF",
+   "price": 389.03,
+   "ret_1w": -0.0332,
+   "ret_1m": 0.0165,
+   "ret_3m": -0.008,
+   "ret_12m": 0.3648,
+   "range_52w": [
+    269.73,
+    453.92
+   ],
+   "avg_vol": 297633,
+   "pe": 20.0,
+   "div_yield": 1.29
+  },
+  {
+   "ticker": "ORCL",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Oracle",
+   "price": 119.22,
+   "ret_1w": -0.0543,
+   "ret_1m": -0.1591,
+   "ret_3m": -0.1789,
+   "ret_12m": -0.5315,
+   "range_52w": [
+    114.57,
+    254.45
+   ],
+   "avg_vol": 32962071,
+   "pe": 20.5,
+   "div_yield": 1.53
+  },
+  {
+   "ticker": "PALL",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Palladium Shares ETF",
+   "price": 17.46,
+   "ret_1w": -0.0781,
+   "ret_1m": -0.1784,
+   "ret_3m": -0.2873,
+   "ret_12m": -0.3335,
+   "range_52w": [
+    17.46,
+    37.18
+   ],
+   "avg_vol": 924247,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "PANW",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Palo Alto Networks",
+   "price": 351.72,
+   "ret_1w": -0.0992,
+   "ret_1m": -0.1278,
+   "ret_3m": -0.0399,
+   "ret_12m": 0.6043,
+   "range_52w": [
+    141.67,
+    419.91
+   ],
+   "avg_vol": 5515576,
+   "pe": 925.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "PDBC",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF",
+   "price": 19.36,
+   "ret_1w": -0.0392,
+   "ret_1m": -0.0041,
+   "ret_3m": 0.1456,
+   "ret_12m": 0.4659,
+   "range_52w": [
+    12.91,
+    20.34
+   ],
+   "avg_vol": 5070623,
+   "pe": null,
+   "div_yield": 2.64
+  },
+  {
+   "ticker": "PEP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "PepsiCo",
+   "price": 140.42,
+   "ret_1w": 0.0366,
+   "ret_1m": 0.1154,
+   "ret_3m": 0.0203,
+   "ret_12m": 0.0175,
+   "range_52w": [
+    123.73,
+    165.45
+   ],
+   "avg_vol": 10452095,
+   "pe": 17.3,
+   "div_yield": 4.31
+  },
+  {
+   "ticker": "PFE",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Pfizer",
+   "price": 30.67,
+   "ret_1w": 0.0295,
+   "ret_1m": 0.1032,
+   "ret_3m": 0.207,
+   "ret_12m": 0.3309,
+   "range_52w": [
+    22.71,
+    30.67
+   ],
+   "avg_vol": 30801823,
+   "pe": 40.4,
+   "div_yield": 5.64
+  },
+  {
+   "ticker": "PG",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Procter & Gamble",
+   "price": 163.56,
+   "ret_1w": 0.0228,
+   "ret_1m": 0.1362,
+   "ret_3m": 0.1124,
+   "ret_12m": 0.1371,
+   "range_52w": [
+    134.15,
+    164.5
+   ],
+   "avg_vol": 10171223,
+   "pe": 24.6,
+   "div_yield": 2.69
+  },
+  {
+   "ticker": "PGR",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Progressive",
+   "price": 233.92,
+   "ret_1w": 0.0204,
+   "ret_1m": 0.1123,
+   "ret_3m": 0.1105,
+   "ret_12m": 0.2231,
+   "range_52w": [
+    190.22,
+    234.37
+   ],
+   "avg_vol": 2545666,
+   "pe": 11.8,
+   "div_yield": 0.17
+  },
+  {
+   "ticker": "PHO",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco Water Resources ETF",
+   "price": 76.26,
+   "ret_1w": 0.0549,
+   "ret_1m": 0.1203,
+   "ret_3m": 0.0473,
+   "ret_12m": 0.0785,
+   "range_52w": [
+    63.98,
+    76.26
+   ],
+   "avg_vol": 65676,
+   "pe": 26.8,
+   "div_yield": 0.55
+  },
+  {
+   "ticker": "PLD",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Prologis",
+   "price": 129.65,
+   "ret_1w": 0.0264,
+   "ret_1m": 0.0057,
+   "ret_3m": -0.0602,
+   "ret_12m": 0.0765,
+   "range_52w": [
+    118.67,
+    148.88
+   ],
+   "avg_vol": 4020304,
+   "pe": 28.2,
+   "div_yield": 3.34
+  },
+  {
+   "ticker": "PLTR",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Palantir",
+   "price": 178.34,
+   "ret_1w": -0.1031,
+   "ret_1m": -0.0552,
+   "ret_3m": 0.0964,
+   "ret_12m": -0.1392,
+   "range_52w": [
+    107.27,
+    209.05
+   ],
+   "avg_vol": 23695814,
+   "pe": 153.7,
+   "div_yield": null
+  },
+  {
+   "ticker": "PM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Philip Morris International",
+   "price": 208.29,
+   "ret_1w": 0.0318,
+   "ret_1m": 0.1111,
+   "ret_3m": 0.1239,
+   "ret_12m": 0.4914,
+   "range_52w": [
+    139.66,
+    208.79
+   ],
+   "avg_vol": 4671495,
+   "pe": 30.4,
+   "div_yield": 3.07
+  },
+  {
+   "ticker": "PPLT",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "abrdn Physical Platinum Shares ETF",
+   "price": 13.07,
+   "ret_1w": -0.055,
+   "ret_1m": -0.1529,
+   "ret_3m": -0.1696,
+   "ret_12m": -0.0811,
+   "range_52w": [
+    13.01,
+    25.23
+   ],
+   "avg_vol": 2000690,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "QCOM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Qualcomm",
+   "price": 162.08,
+   "ret_1w": -0.0976,
+   "ret_1m": -0.1233,
+   "ret_3m": 0.0018,
+   "ret_12m": -0.0845,
+   "range_52w": [
+    122.94,
+    248.74
+   ],
+   "avg_vol": 10563466,
+   "pe": 18.8,
+   "div_yield": 2.23
+  },
+  {
+   "ticker": "QQQ",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Invesco QQQ Trust Series I",
+   "price": 681.09,
+   "ret_1w": -0.0437,
+   "ret_1m": -0.0914,
+   "ret_3m": -0.0581,
+   "ret_12m": 0.0826,
+   "range_52w": [
+    557.09,
+    759.66
+   ],
+   "avg_vol": 39951200,
+   "pe": 26.1,
+   "div_yield": 0.42
+  },
+  {
+   "ticker": "QUAL",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Quality Factor ETF",
+   "price": 222.01,
+   "ret_1w": -0.0069,
+   "ret_1m": -0.011,
+   "ret_3m": -0.0104,
+   "ret_12m": 0.143,
+   "range_52w": [
+    185.76,
+    227.72
+   ],
+   "avg_vol": 1070295,
+   "pe": 26.7,
+   "div_yield": 0.85
+  },
+  {
+   "ticker": "RBLX",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Roblox",
+   "price": 42.88,
+   "ret_1w": -0.2113,
+   "ret_1m": -0.0281,
+   "ret_3m": 0.1589,
+   "ret_12m": -0.6017,
+   "range_52w": [
+    35.54,
+    107.66
+   ],
+   "avg_vol": 10985409,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "REET",
+   "class": "equity_etf",
+   "group": "real_estate",
+   "name": "iShares Global REIT ETF",
+   "price": 26.69,
+   "ret_1w": 0.016,
+   "ret_1m": 0.041,
+   "ret_3m": -0.0491,
+   "ret_12m": 0.0963,
+   "range_52w": [
+    23.96,
+    28.64
+   ],
+   "avg_vol": 3570757,
+   "pe": 22.9,
+   "div_yield": 3.61
+  },
+  {
+   "ticker": "RIO",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Rio Tinto (ADR)",
+   "price": 82.73,
+   "ret_1w": -0.0118,
+   "ret_1m": -0.1219,
+   "ret_3m": -0.1461,
+   "ret_12m": 0.2351,
+   "range_52w": [
+    64.62,
+    109.63
+   ],
+   "avg_vol": 2858609,
+   "pe": 11.2,
+   "div_yield": 5.68
+  },
+  {
+   "ticker": "RSP",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Invesco S&P 500 Equal Weight ETF",
+   "price": 219.98,
+   "ret_1w": 0.0124,
+   "ret_1m": 0.0489,
+   "ret_3m": 0.0026,
+   "ret_12m": 0.1922,
+   "range_52w": [
+    179.31,
+    221.94
+   ],
+   "avg_vol": 8899009,
+   "pe": 21.4,
+   "div_yield": 1.53
+  },
+  {
+   "ticker": "RTH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Retail ETF",
+   "price": 274.47,
+   "ret_1w": 0.025,
+   "ret_1m": 0.0911,
+   "ret_3m": 0.0089,
+   "ret_12m": 0.0984,
+   "range_52w": [
+    241.28,
+    274.47
+   ],
+   "avg_vol": 3571,
+   "pe": 25.7,
+   "div_yield": 0.97
+  },
+  {
+   "ticker": "RTX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "RTX (Raytheon)",
+   "price": 202.79,
+   "ret_1w": 0.0269,
+   "ret_1m": 0.0981,
+   "ret_3m": -0.0664,
+   "ret_12m": 0.1624,
+   "range_52w": [
+    166.22,
+    225.49
+   ],
+   "avg_vol": 5561352,
+   "pe": 33.0,
+   "div_yield": 1.46
+  },
+  {
+   "ticker": "SAN",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Banco Santander (ADR)",
+   "price": 11.46,
+   "ret_1w": -0.0621,
+   "ret_1m": -0.1316,
+   "ret_3m": -0.1982,
+   "ret_12m": 0.1538,
+   "range_52w": [
+    9.77,
+    14.87
+   ],
+   "avg_vol": 9435300,
+   "pe": 10.8,
+   "div_yield": 2.59
+  },
+  {
+   "ticker": "SAP",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "SAP (ADR)",
+   "price": 233.62,
+   "ret_1w": -0.0207,
+   "ret_1m": 0.1201,
+   "ret_3m": 0.195,
+   "ret_12m": -0.0996,
+   "range_52w": [
+    146.38,
+    259.45
+   ],
+   "avg_vol": 2442438,
+   "pe": 29.1,
+   "div_yield": 1.25
+  },
+  {
+   "ticker": "SBUX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Starbucks",
+   "price": 104.4,
+   "ret_1w": 0.0167,
+   "ret_1m": 0.1023,
+   "ret_3m": 0.0003,
+   "ret_12m": 0.3224,
+   "range_52w": [
+    77.62,
+    108.49
+   ],
+   "avg_vol": 10064742,
+   "pe": 47.2,
+   "div_yield": 2.43
+  },
+  {
+   "ticker": "SCHB",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Schwab U.S. Broad Market ETF",
+   "price": 28.95,
+   "ret_1w": -0.0156,
+   "ret_1m": -0.0223,
+   "ret_3m": -0.0259,
+   "ret_12m": 0.1132,
+   "range_52w": [
+    24.26,
+    30.01
+   ],
+   "avg_vol": 15012133,
+   "pe": 23.3,
+   "div_yield": 1.05
+  },
+  {
+   "ticker": "SCHG",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "Schwab U.S. Large-Cap Growth ETF",
+   "price": 33.98,
+   "ret_1w": -0.0319,
+   "ret_1m": -0.0649,
+   "ret_3m": -0.0424,
+   "ret_12m": 0.018,
+   "range_52w": [
+    28.04,
+    36.93
+   ],
+   "avg_vol": 8577704,
+   "pe": 27.2,
+   "div_yield": 0.39
+  },
+  {
+   "ticker": "SCHV",
+   "class": "equity_etf",
+   "group": "style_size",
+   "name": "Schwab U.S. Large-Cap Value ETF",
+   "price": 34.7,
+   "ret_1w": 0.0043,
+   "ret_1m": 0.0346,
+   "ret_3m": -0.001,
+   "ret_12m": 0.2291,
+   "range_52w": [
+    27.75,
+    35.2
+   ],
+   "avg_vol": 3207076,
+   "pe": 20.5,
+   "div_yield": 1.88
+  },
+  {
+   "ticker": "SCHW",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Charles Schwab",
+   "price": 88.71,
+   "ret_1w": -0.0114,
+   "ret_1m": -0.0826,
+   "ret_3m": -0.1634,
+   "ret_12m": -0.0355,
+   "range_52w": [
+    85.1,
+    113.65
+   ],
+   "avg_vol": 8602714,
+   "pe": 15.2,
+   "div_yield": 1.45
+  },
+  {
+   "ticker": "SCHX",
+   "class": "equity_etf",
+   "group": "broad_us",
+   "name": "Schwab U.S. Large-Cap ETF",
+   "price": 29.59,
+   "ret_1w": -0.0173,
+   "ret_1m": -0.0241,
+   "ret_3m": -0.0247,
+   "ret_12m": 0.1078,
+   "range_52w": [
+    24.79,
+    30.7
+   ],
+   "avg_vol": 12364190,
+   "pe": 23.8,
+   "div_yield": 1.04
+  },
+  {
+   "ticker": "SHEL",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Shell (ADR)",
+   "price": 104.94,
+   "ret_1w": -0.0184,
+   "ret_1m": 0.0905,
+   "ret_3m": 0.1783,
+   "ret_12m": 0.4632,
+   "range_52w": [
+    68.43,
+    108.69
+   ],
+   "avg_vol": 5954182,
+   "pe": 11.6,
+   "div_yield": 2.88
+  },
+  {
+   "ticker": "SHOP",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Shopify",
+   "price": 156.22,
+   "ret_1w": -0.0711,
+   "ret_1m": 0.0319,
+   "ret_3m": 0.267,
+   "ret_12m": -0.0967,
+   "range_52w": [
+    95.4,
+    179.22
+   ],
+   "avg_vol": 8259757,
+   "pe": 106.3,
+   "div_yield": null
+  },
+  {
+   "ticker": "SKYY",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "First Trust Cloud Computing ETF",
+   "price": 154.55,
+   "ret_1w": -0.0901,
+   "ret_1m": -0.0808,
+   "ret_3m": 0.0073,
+   "ret_12m": 0.0773,
+   "range_52w": [
+    104.16,
+    174.89
+   ],
+   "avg_vol": 250261,
+   "pe": 27.1,
+   "div_yield": null
+  },
+  {
+   "ticker": "SLV",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "iShares Silver Trust",
+   "price": 45.57,
+   "ret_1w": -0.0635,
+   "ret_1m": -0.1675,
+   "ret_3m": -0.1536,
+   "ret_12m": 0.0414,
+   "range_52w": [
+    42.74,
+    105.6
+   ],
+   "avg_vol": 18134000,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "SMCI",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Super Micro Computer",
+   "price": 30.44,
+   "ret_1w": -0.0688,
+   "ret_1m": -0.3033,
+   "ret_3m": -0.0394,
+   "ret_12m": -0.4002,
+   "range_52w": [
+    20.53,
+    50.75
+   ],
+   "avg_vol": 35280457,
+   "pe": 9.3,
+   "div_yield": null
+  },
+  {
+   "ticker": "SMH",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "VanEck Semiconductor ETF",
+   "price": 508.31,
+   "ret_1w": -0.0615,
+   "ret_1m": -0.1939,
+   "ret_3m": -0.1171,
+   "ret_12m": 0.3928,
+   "range_52w": [
+    324.09,
+    668.91
+   ],
+   "avg_vol": 9306804,
+   "pe": 27.2,
+   "div_yield": 0.18
+  },
+  {
+   "ticker": "SNOW",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Snowflake",
+   "price": 290.68,
+   "ret_1w": -0.1322,
+   "ret_1m": -0.1477,
+   "ret_3m": -0.0824,
+   "ret_12m": 0.0489,
+   "range_52w": [
+    121.11,
+    368.89
+   ],
+   "avg_vol": 4430400,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "SO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Southern Company",
+   "price": 94.61,
+   "ret_1w": 0.022,
+   "ret_1m": 0.1301,
+   "ret_3m": 0.023,
+   "ret_12m": 0.0492,
+   "range_52w": [
+    82.06,
+    97.49
+   ],
+   "avg_vol": 5705238,
+   "pe": 22.8,
+   "div_yield": 3.24
+  },
+  {
+   "ticker": "SOFI",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "SoFi Technologies",
+   "price": 16.6,
+   "ret_1w": 0.148,
+   "ret_1m": 0.0526,
+   "ret_3m": -0.1123,
+   "ret_12m": -0.458,
+   "range_52w": [
+    14.22,
+    32.21
+   ],
+   "avg_vol": 54999961,
+   "pe": 30.2,
+   "div_yield": null
+  },
+  {
+   "ticker": "SONY",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Sony (ADR)",
+   "price": 25.51,
+   "ret_1w": -0.02,
+   "ret_1m": 0.0709,
+   "ret_3m": 0.1414,
+   "ret_12m": -0.0873,
+   "range_52w": [
+    19.32,
+    30.26
+   ],
+   "avg_vol": 4147352,
+   "pe": 20.9,
+   "div_yield": 0.63
+  },
+  {
+   "ticker": "SOYB",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Soybean Fund",
+   "price": 25.81,
+   "ret_1w": -0.0246,
+   "ret_1m": -0.0518,
+   "ret_3m": 0.0303,
+   "ret_12m": 0.0997,
+   "range_52w": [
+    21.71,
+    28.14
+   ],
+   "avg_vol": 42490,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "SPGI",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "S&P Global",
+   "price": 475.17,
+   "ret_1w": 0.0544,
+   "ret_1m": 0.2301,
+   "ret_3m": 0.1544,
+   "ret_12m": 0.0195,
+   "range_52w": [
+    367.15,
+    513.34
+   ],
+   "avg_vol": 1837014,
+   "pe": 28.4,
+   "div_yield": 0.83
+  },
+  {
+   "ticker": "SPHQ",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Quality ETF",
+   "price": 83.14,
+   "ret_1w": -0.0054,
+   "ret_1m": -0.0203,
+   "ret_3m": -0.0439,
+   "ret_12m": 0.1391,
+   "range_52w": [
+    70.86,
+    89.93
+   ],
+   "avg_vol": 1176704,
+   "pe": 25.1,
+   "div_yield": 1.03
+  },
+  {
+   "ticker": "SPLV",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Low Volatility ETF",
+   "price": 77.45,
+   "ret_1w": 0.0256,
+   "ret_1m": 0.0947,
+   "ret_3m": 0.0198,
+   "ret_12m": 0.1268,
+   "range_52w": [
+    68.74,
+    77.52
+   ],
+   "avg_vol": 2203904,
+   "pe": 20.8,
+   "div_yield": 2.33
+  },
+  {
+   "ticker": "SPMO",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "Invesco S&P 500 Momentum ETF",
+   "price": 132.45,
+   "ret_1w": -0.0576,
+   "ret_1m": -0.1356,
+   "ret_3m": -0.1224,
+   "ret_12m": 0.098,
+   "range_52w": [
+    107.5,
+    161.4
+   ],
+   "avg_vol": 2025490,
+   "pe": 21.5,
+   "div_yield": 0.73
+  },
+  {
+   "ticker": "SYK",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Stryker",
+   "price": 306.81,
+   "ret_1w": 0.0022,
+   "ret_1m": 0.1139,
+   "ret_3m": -0.0839,
+   "ret_12m": -0.1339,
+   "range_52w": [
+    268.9,
+    384.17
+   ],
+   "avg_vol": 2778304,
+   "pe": 32.7,
+   "div_yield": 1.21
+  },
+  {
+   "ticker": "T",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "AT&T",
+   "price": 21.44,
+   "ret_1w": 0.0283,
+   "ret_1m": -0.1077,
+   "ret_3m": -0.0726,
+   "ret_12m": -0.0843,
+   "range_52w": [
+    19.98,
+    28.1
+   ],
+   "avg_vol": 56355166,
+   "pe": 11.5,
+   "div_yield": 5.18
+  },
+  {
+   "ticker": "TAN",
+   "class": "equity_etf",
+   "group": "industry_thematic",
+   "name": "Invesco Solar ETF",
+   "price": 42.07,
+   "ret_1w": 0.0321,
+   "ret_1m": -0.0449,
+   "ret_3m": -0.2117,
+   "ret_12m": -0.1439,
+   "range_52w": [
+    40.2,
+    73.93
+   ],
+   "avg_vol": 1215742,
+   "pe": 18.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "TGT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Target",
+   "price": 158.38,
+   "ret_1w": 0.0663,
+   "ret_1m": 0.0153,
+   "ret_3m": 0.0775,
+   "ret_12m": 0.802,
+   "range_52w": [
+    81.44,
+    169.89
+   ],
+   "avg_vol": 3934842,
+   "pe": 16.4,
+   "div_yield": 3.01
+  },
+  {
+   "ticker": "TJX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "TJX Companies",
+   "price": 141.0,
+   "ret_1w": -0.0188,
+   "ret_1m": 0.0627,
+   "ret_3m": -0.1022,
+   "ret_12m": 0.0165,
+   "range_52w": [
+    122.84,
+    167.88
+   ],
+   "avg_vol": 6352138,
+   "pe": 26.1,
+   "div_yield": 1.37
+  },
+  {
+   "ticker": "TM",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Toyota (ADR)",
+   "price": 195.83,
+   "ret_1w": -0.0092,
+   "ret_1m": 0.079,
+   "ret_3m": 0.0352,
+   "ret_12m": -0.0481,
+   "range_52w": [
+    166.5,
+    248.29
+   ],
+   "avg_vol": 299304,
+   "pe": 8.6,
+   "div_yield": 3.2
+  },
+  {
+   "ticker": "TMO",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Thermo Fisher Scientific",
+   "price": 682.65,
+   "ret_1w": -0.0033,
+   "ret_1m": 0.0425,
+   "ret_3m": 0.2097,
+   "ret_12m": 0.2127,
+   "range_52w": [
+    437.57,
+    709.18
+   ],
+   "avg_vol": 2360209,
+   "pe": 36.0,
+   "div_yield": 0.27
+  },
+  {
+   "ticker": "TSLA",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Tesla",
+   "price": 403.82,
+   "ret_1w": 0.0312,
+   "ret_1m": 0.0897,
+   "ret_3m": 0.2336,
+   "ret_12m": -0.1378,
+   "range_52w": [
+    298.32,
+    489.88
+   ],
+   "avg_vol": 36627671,
+   "pe": 443.8,
+   "div_yield": null
+  },
+  {
+   "ticker": "TSM",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Taiwan Semiconductor (ADR)",
+   "price": 398.63,
+   "ret_1w": -0.0607,
+   "ret_1m": -0.1568,
+   "ret_3m": -0.0419,
+   "ret_12m": 0.3214,
+   "range_52w": [
+    272.18,
+    485.8
+   ],
+   "avg_vol": 12039223,
+   "pe": 26.3,
+   "div_yield": 0.93
+  },
+  {
+   "ticker": "TTE",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "TotalEnergies (ADR)",
+   "price": 92.78,
+   "ret_1w": -0.0105,
+   "ret_1m": 0.0993,
+   "ret_3m": 0.1019,
+   "ret_12m": 0.5647,
+   "range_52w": [
+    58.74,
+    95.33
+   ],
+   "avg_vol": 2304733,
+   "pe": 9.3,
+   "div_yield": 4.22
+  },
+  {
+   "ticker": "TXN",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Texas Instruments",
+   "price": 302.02,
+   "ret_1w": 0.018,
+   "ret_1m": 0.033,
+   "ret_3m": 0.07,
+   "ret_12m": 0.9113,
+   "range_52w": [
+    150.06,
+    328.98
+   ],
+   "avg_vol": 7367152,
+   "pe": 39.0,
+   "div_yield": 2.02
+  },
+  {
+   "ticker": "UBER",
+   "class": "stock",
+   "group": "stock_high_dispersion",
+   "name": "Uber",
+   "price": 66.71,
+   "ret_1w": 0.0088,
+   "ret_1m": -0.0206,
+   "ret_3m": -0.0733,
+   "ret_12m": -0.331,
+   "range_52w": [
+    65.25,
+    99.72
+   ],
+   "avg_vol": 16296257,
+   "pe": 14.6,
+   "div_yield": null
+  },
+  {
+   "ticker": "UBS",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "UBS Group",
+   "price": 48.48,
+   "ret_1w": 0.0435,
+   "ret_1m": 0.0161,
+   "ret_3m": -0.0932,
+   "ret_12m": 0.3097,
+   "range_52w": [
+    35.49,
+    55.72
+   ],
+   "avg_vol": 1824200,
+   "pe": 16.0,
+   "div_yield": 2.31
+  },
+  {
+   "ticker": "UL",
+   "class": "stock",
+   "group": "stock_non_us_adr",
+   "name": "Unilever (ADR)",
+   "price": 66.44,
+   "ret_1w": 0.0127,
+   "ret_1m": 0.1129,
+   "ret_3m": 0.0456,
+   "ret_12m": 0.0063,
+   "range_52w": [
+    54.46,
+    72.71
+   ],
+   "avg_vol": 3996233,
+   "pe": 13.4,
+   "div_yield": 3.2
+  },
+  {
+   "ticker": "UNG",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Natural Gas Fund LP",
+   "price": 9.0,
+   "ret_1w": -0.0586,
+   "ret_1m": -0.1404,
+   "ret_3m": -0.0788,
+   "ret_12m": -0.3459,
+   "range_52w": [
+    9.0,
+    16.9
+   ],
+   "avg_vol": 26490833,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "UNH",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "UnitedHealth Group",
+   "price": 400.44,
+   "ret_1w": -0.025,
+   "ret_1m": 0.0767,
+   "ret_3m": -0.0114,
+   "ret_12m": 0.2316,
+   "range_52w": [
+    255.97,
+    433.68
+   ],
+   "avg_vol": 6055066,
+   "pe": 23.2,
+   "div_yield": 2.28
+  },
+  {
+   "ticker": "UNP",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Union Pacific",
+   "price": 307.0,
+   "ret_1w": 0.0338,
+   "ret_1m": 0.1032,
+   "ret_3m": 0.0407,
+   "ret_12m": 0.4325,
+   "range_52w": [
+    212.89,
+    309.19
+   ],
+   "avg_vol": 2430100,
+   "pe": 23.9,
+   "div_yield": 1.87
+  },
+  {
+   "ticker": "URTH",
+   "class": "equity_etf",
+   "group": "global",
+   "name": "iShares MSCI World ETF",
+   "price": 204.15,
+   "ret_1w": -0.01,
+   "ret_1m": -0.0163,
+   "ret_3m": -0.0243,
+   "ret_12m": 0.1177,
+   "range_52w": [
+    173.78,
+    211.51
+   ],
+   "avg_vol": 850014,
+   "pe": 21.7,
+   "div_yield": 1.38
+  },
+  {
+   "ticker": "USB",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "U.S. Bancorp",
+   "price": 60.49,
+   "ret_1w": 0.0132,
+   "ret_1m": 0.0518,
+   "ret_3m": -0.0494,
+   "ret_12m": 0.3474,
+   "range_52w": [
+    43.79,
+    64.81
+   ],
+   "avg_vol": 7552280,
+   "pe": 11.6,
+   "div_yield": 3.63
+  },
+  {
+   "ticker": "USFR",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "WisdomTree Floating Rate Treasury Fund",
+   "price": 50.42,
+   "ret_1w": 0.0012,
+   "ret_1m": 0.0038,
+   "ret_3m": 0.0103,
+   "ret_12m": 0.0407,
+   "range_52w": [
+    48.45,
+    50.42
+   ],
+   "avg_vol": 6080209,
+   "pe": null,
+   "div_yield": 3.73
+  },
+  {
+   "ticker": "USMV",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Min Vol Factor ETF",
+   "price": 103.06,
+   "ret_1w": -0.0035,
+   "ret_1m": 0.0494,
+   "ret_3m": 0.0371,
+   "ret_12m": 0.1276,
+   "range_52w": [
+    90.54,
+    103.51
+   ],
+   "avg_vol": 1854466,
+   "pe": 23.9,
+   "div_yield": 1.45
+  },
+  {
+   "ticker": "USO",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "United States Oil Fund LP",
+   "price": 156.87,
+   "ret_1w": -0.0563,
+   "ret_1m": 0.0645,
+   "ret_3m": 0.3549,
+   "ret_12m": 1.1566,
+   "range_52w": [
+    66.17,
+    169.53
+   ],
+   "avg_vol": 4730404,
+   "pe": 47.5,
+   "div_yield": null
+  },
+  {
+   "ticker": "USRT",
+   "class": "equity_etf",
+   "group": "real_estate",
+   "name": "iShares Core U.S. REIT ETF",
+   "price": 64.48,
+   "ret_1w": 0.0172,
+   "ret_1m": 0.0481,
+   "ret_3m": -0.0389,
+   "ret_12m": 0.15,
+   "range_52w": [
+    55.42,
+    69.31
+   ],
+   "avg_vol": 1134614,
+   "pe": 29.4,
+   "div_yield": 2.85
+  },
+  {
+   "ticker": "UX",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Roundhill Uranium ETF",
+   "price": 27.89,
+   "ret_1w": -0.002,
+   "ret_1m": -0.0199,
+   "ret_3m": 0.0022,
+   "ret_12m": -0.0472,
+   "range_52w": [
+    26.56,
+    36.75
+   ],
+   "avg_vol": 3842,
+   "pe": null,
+   "div_yield": 1.57
+  },
+  {
+   "ticker": "V",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Visa",
+   "price": 425.51,
+   "ret_1w": 0.0528,
+   "ret_1m": 0.1798,
+   "ret_3m": 0.1534,
+   "ret_12m": 0.2731,
+   "range_52w": [
+    294.36,
+    425.51
+   ],
+   "avg_vol": 6344176,
+   "pe": 34.5,
+   "div_yield": 0.65
+  },
+  {
+   "ticker": "VBIL",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard 0-3 Month Treasury Bill ETF",
+   "price": 75.54,
+   "ret_1w": -0.0021,
+   "ret_1m": 0.0,
+   "ret_3m": 0.0061,
+   "ret_12m": 0.0341,
+   "range_52w": [
+    73.05,
+    75.77
+   ],
+   "avg_vol": 3632495,
+   "pe": null,
+   "div_yield": 3.53
+  },
+  {
+   "ticker": "VCIT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Intermediate-Term Corporate Bond ETF",
+   "price": 79.24,
+   "ret_1w": -0.001,
+   "ret_1m": 0.0162,
+   "ret_3m": -0.0196,
+   "ret_12m": -0.009,
+   "range_52w": [
+    77.97,
+    82.0
+   ],
+   "avg_vol": 11001404,
+   "pe": null,
+   "div_yield": 5.08
+  },
+  {
+   "ticker": "VCLT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Long-Term Corporate Bond ETF",
+   "price": 70.14,
+   "ret_1w": -0.0067,
+   "ret_1m": 0.0283,
+   "ret_3m": -0.0239,
+   "ret_12m": -0.0373,
+   "range_52w": [
+    68.13,
+    74.58
+   ],
+   "avg_vol": 5444928,
+   "pe": null,
+   "div_yield": 5.99
+  },
+  {
+   "ticker": "VGIT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Intermediate-Term Treasury ETF",
+   "price": 57.57,
+   "ret_1w": 0.0031,
+   "ret_1m": 0.0184,
+   "ret_3m": -0.0079,
+   "ret_12m": -0.0053,
+   "range_52w": [
+    56.47,
+    59.17
+   ],
+   "avg_vol": 5852680,
+   "pe": null,
+   "div_yield": 4.03
+  },
+  {
+   "ticker": "VGLT",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Long-Term Treasury ETF",
+   "price": 52.41,
+   "ret_1w": 0.0011,
+   "ret_1m": 0.0499,
+   "ret_3m": -0.006,
+   "ret_12m": -0.0416,
+   "range_52w": [
+    49.68,
+    56.07
+   ],
+   "avg_vol": 3836623,
+   "pe": null,
+   "div_yield": 5.04
+  },
+  {
+   "ticker": "VGSH",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Short-Term Treasury ETF",
+   "price": 57.73,
+   "ret_1w": -0.0005,
+   "ret_1m": 0.0047,
+   "ret_3m": 0.0009,
+   "ret_12m": 0.0183,
+   "range_52w": [
+    56.67,
+    57.93
+   ],
+   "avg_vol": 5041428,
+   "pe": null,
+   "div_yield": 3.8
+  },
+  {
+   "ticker": "VLUE",
+   "class": "equity_etf",
+   "group": "factor",
+   "name": "iShares MSCI USA Value Factor ETF",
+   "price": 192.43,
+   "ret_1w": -0.0115,
+   "ret_1m": -0.0388,
+   "ret_3m": -0.0235,
+   "ret_12m": 0.5014,
+   "range_52w": [
+    122.38,
+    204.54
+   ],
+   "avg_vol": 634238,
+   "pe": 15.0,
+   "div_yield": 1.56
+  },
+  {
+   "ticker": "VRTX",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Vertex Pharmaceuticals",
+   "price": 553.15,
+   "ret_1w": 0.0689,
+   "ret_1m": 0.0959,
+   "ret_3m": 0.1555,
+   "ret_12m": 0.2985,
+   "range_52w": [
+    409.47,
+    558.88
+   ],
+   "avg_vol": 1480357,
+   "pe": 32.2,
+   "div_yield": null
+  },
+  {
+   "ticker": "VSOL",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "VanEck Solana ETF",
+   "price": 11.88,
+   "ret_1w": -0.09,
+   "ret_1m": -0.2239,
+   "ret_3m": 0.2421,
+   "ret_12m": -0.2678,
+   "range_52w": [
+    8.12,
+    18.52
+   ],
+   "avg_vol": 20685,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "VTP",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Total Inflation-Protected Securities ETF",
+   "price": 73.94,
+   "ret_1w": 0.003,
+   "ret_1m": 0.0235,
+   "ret_3m": -0.004,
+   "ret_12m": 0.0011,
+   "range_52w": [
+    72.1,
+    75.07
+   ],
+   "avg_vol": 111952,
+   "pe": null,
+   "div_yield": 3.07
+  },
+  {
+   "ticker": "VWOB",
+   "class": "fixed_income",
+   "group": "fixed_income",
+   "name": "Vanguard Emerging Markets Government Bond ETF",
+   "price": 63.68,
+   "ret_1w": 0.0017,
+   "ret_1m": 0.0155,
+   "ret_3m": -0.0273,
+   "ret_12m": -0.004,
+   "range_52w": [
+    62.7,
+    66.14
+   ],
+   "avg_vol": 615290,
+   "pe": null,
+   "div_yield": 6.11
+  },
+  {
+   "ticker": "VZ",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Verizon",
+   "price": 45.05,
+   "ret_1w": 0.0452,
+   "ret_1m": -0.0037,
+   "ret_3m": -0.0241,
+   "ret_12m": 0.2173,
+   "range_52w": [
+    36.87,
+    50.66
+   ],
+   "avg_vol": 30516885,
+   "pe": 11.5,
+   "div_yield": 6.33
+  },
+  {
+   "ticker": "WEAT",
+   "class": "commodity",
+   "group": "commodity",
+   "name": "Teucrium Wheat Fund",
+   "price": 22.28,
+   "ret_1w": -0.0115,
+   "ret_1m": -0.0998,
+   "ret_3m": -0.0662,
+   "ret_12m": 0.0291,
+   "range_52w": [
+    19.88,
+    28.0
+   ],
+   "avg_vol": 401871,
+   "pe": null,
+   "div_yield": null
+  },
+  {
+   "ticker": "WFC",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Wells Fargo",
+   "price": 85.89,
+   "ret_1w": 0.0392,
+   "ret_1m": 0.0676,
+   "ret_3m": -0.0227,
+   "ret_12m": 0.0053,
+   "range_52w": [
+    73.0,
+    94.83
+   ],
+   "avg_vol": 15801919,
+   "pe": 12.1,
+   "div_yield": 2.4
+  },
+  {
+   "ticker": "WMT",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "Walmart",
+   "price": 127.69,
+   "ret_1w": 0.0615,
+   "ret_1m": 0.2247,
+   "ret_3m": 0.1474,
+   "ret_12m": 0.2675,
+   "range_52w": [
+    99.77,
+    133.88
+   ],
+   "avg_vol": 20283490,
+   "pe": 46.3,
+   "div_yield": 0.8
+  },
+  {
+   "ticker": "XOM",
+   "class": "stock",
+   "group": "large_cap_us",
+   "name": "ExxonMobil",
+   "price": 179.67,
+   "ret_1w": -0.0264,
+   "ret_1m": 0.0955,
+   "ret_3m": 0.1745,
+   "ret_12m": 0.6252,
+   "range_52w": [
+    110.48,
+    187.25
+   ],
+   "avg_vol": 12232971,
+   "pe": 18.5,
+   "div_yield": 2.2
+  },
+  {
+   "ticker": "XRPR",
+   "class": "crypto",
+   "group": "crypto",
+   "name": "REX-Osprey XRP ETF",
+   "price": 10.16,
+   "ret_1w": -0.0351,
+   "ret_1m": -0.1503,
+   "ret_3m": 0.1508,
+   "ret_12m": -0.4586,
+   "range_52w": [
+    8.16,
+    21.18
+   ],
+   "avg_vol": 32357,
+   "pe": null,
+   "div_yield": null
+  }
+ ],
+ "news": [
+  {
+   "date": "2026-11-03",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Russian bombing kills 26 people at Ukraine aid centre, Kyiv says",
+   "summary": "Officials say at least nine 3,000kg aerial bombs hit a southern Ukrainian village in what the president called an \"utterly horrific\" attack.",
+   "url": "https://www.bbc.co.uk/news/articles/cjy56dndlyz0o?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Thousands of European troops to rehearse Ukraine deployment in event of peace",
+   "summary": "Western officials stress that any force sent to Ukraine would not take part in any offensive operations.",
+   "url": "https://www.bbc.co.uk/news/articles/cm3wv085ne6po?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Plane may have broken apart ahead of deadly Florida jet crash, say investigators",
+   "summary": "The National Transportation Safety Board also believes weather could have been a factor in the crash, but warns it is too early to determine the cause.",
+   "url": "https://www.bbc.co.uk/news/articles/cm369yy7lw73o?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "BBC Business",
+   "cat": "economia",
+   "title": "UK and EU agree draft deal to scrap Brexit red tape over food exports",
+   "summary": "The food deal, ahead of a UK-EU summit later this month, is the most significant part of the so-called Brexit reset agreed so far.",
+   "url": "https://www.bbc.co.uk/news/articles/cmp3grwre9xdo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "BBC Business",
+   "cat": "economia",
+   "title": "North Korea denies being behind record $6.3bn Binance hack",
+   "summary": "US government agencies and cyber analysts have blamed Pyongyang for the record-breaking heist.",
+   "url": "https://www.bbc.co.uk/news/articles/c6rey4v53exgo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "BBC Business",
+   "cat": "economia",
+   "title": "Apple unsure when more foldable iPhones will be available after selling out",
+   "summary": "Apple’s foldable iPhone Duo was a hit with people willing to spend $2,000 on a new mobile.",
+   "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "US urges Venezuela to follow phased plan for democratic transition",
+   "summary": "This comes as leading opposition leader returns to Venezuela and hints at criticism of Trump administration.",
+   "url": "https://www.aljazeera.com/news/2026/11/3/us-urges-venezuela-to-follow-phased-plan-for-democratic-transition?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "Explosions hit Iran’s Qeshm Island as US media report US strikes in Hormuz",
+   "summary": "Several explosions heard in Qeshm Island and Bandar Lengeh, as US media say the US military carried out the strikes.",
+   "url": "https://www.aljazeera.com/news/2026/11/3/explosions-hit-irans-qeshm-island-as-us-media-report-us-strikes-in-hormuz?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "Thousands displaced as homes are bulldozed in India’s Assam state",
+   "summary": "Hundreds of homes have been bulldozed in the Dhubri district of Assam state in northeastern India.",
+   "url": "https://www.aljazeera.com/video/newsfeed/2026/11/3/thousands-displaced-as-homes-are-bulldozed-in-indias-assam-state?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "US lawmakers ask Trump administration to stop deportation of Afghans",
+   "summary": "At least 150 Afghans are facing deportation to Pakistan and on to Afghanistan.",
+   "url": "https://www.aljazeera.com/news/2026/11/3/us-lawmakers-ask-trump-administration-to-stop-deportation-of-afghans?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "Multiple Russian strikes kill at least 26 at Ukraine aid centre",
+   "summary": "At least 26 people were killed in Russian strikes on a school being used as a humanitarian aid centre.",
+   "url": "https://www.aljazeera.com/video/newsfeed/2026/11/3/multiple-russian-strikes-kill-at-least-26-at-ukraine-aid-centre?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Al Jazeera",
+   "cat": "geopolitica",
+   "title": "Trump makes final midterms pitch at Lincoln Memorial Reflecting Pool",
+   "summary": "US President Donald Trump urged supporters to turn out ahead of Election Day",
+   "url": "https://www.aljazeera.com/video/newsfeed/2026/11/3/trump-makes-final-midterms-pitch-at-lincoln-memorial-reflecting-pool?traffic_source=rss"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "CNBC Markets",
+   "cat": "mercati",
+   "title": "Apple's quarter is not perfect. But with enough to like, we raised our price target",
+   "summary": "We remain \"own it, don't trade it\" on Apple stock.",
+   "url": "https://www.cnbc.com/investingclub/2026/11/02/apples-quarter-is-not-perfect-but-with-enough-to-like-we-raised-our-price-target.html"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Disney moves toward thousands of job cuts, Bloomberg reports",
+   "summary": "",
+   "url": "https://www.investing.com/news/stock-market-news/disney-moves-toward-thousands-of-job-cuts-bloomberg-reports-4993421"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Doubleview Gold plans C$3.2 million private placement",
+   "summary": "",
+   "url": "https://www.investing.com/news/company-news/doubleview-gold-plans-c32-million-private-placement-93CH-4993420"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Binance to reopen withdrawals for more assets on several networks",
+   "summary": "",
+   "url": "https://www.investing.com/news/economy-news/binance-to-reopen-withdrawals-for-more-assets-on-several-networks-4993418"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Fox’s $22 billion Roku deal poised to clear U.S. antitrust review - Semafor",
+   "summary": "",
+   "url": "https://www.investing.com/news/stock-market-news/foxs-22-billion-roku-deal-poised-to-clear-us-antitrust-review--semafor-4993410"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Earnings beat, guidance raised: our AI-picked pharma stock is up 23.96%",
+   "summary": "",
+   "url": "https://www.investing.com/news/stock-market-news/earnings-beat-guidance-raised-our-aipicked-pharma-stock-is-up-2396-4993408"
+  },
+  {
+   "date": "2026-11-03",
+   "source": "Investing.com",
+   "cat": "mercati",
+   "title": "Asian stocks retreat ahead of US midterms, oil steadies",
+   "summary": "",
+   "url": "https://www.investing.com/news/economy-news/asian-stocks-retreat-ahead-of-us-midterms-oil-steadies-4993399"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Shop freezers in seven European countries hit by cyber-attack",
+   "summary": "The temperature of freezers in several shops across Europe reportedly rose to as high as 50C.",
+   "url": "https://www.bbc.co.uk/news/articles/cq1kd1nee80eo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Fighting returns to Kherson region after longest Ukraine war ceasefire",
+   "summary": "Though unprecedented, the six-day truce has done little to alter the wider trajectory of a war that continues to grinds on.",
+   "url": "https://www.bbc.co.uk/news/articles/ckg5jlyp66jzo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "BBC World",
+   "cat": "geopolitica",
+   "title": "Legal challenge to Australia's social media ban to start in High Court",
+   "summary": "A rights group will argue the world-leading policy robs under-16s of their right to free communication.",
+   "url": "https://www.bbc.co.uk/news/articles/ck79py02p1jlo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "BBC Business",
+   "cat": "economia",
+   "title": "Ryanair says it may freeze workers' pay and raise airfares",
+   "summary": "The airline says fuel prices may rise by €2bn in 2028 unless there is an end to the US-Israel war with Iran.",
+   "url": "https://www.bbc.co.uk/news/articles/cr0qkve1x224o?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "BBC Business",
+   "cat": "economia",
+   "title": "Poundland's former owner offers to invest as minister prepares to meet board",
+   "summary": "Wolverhampton's Steve Smith said he wants to put some money back into the firm he started.",
+   "url": "https://www.bbc.co.uk/news/articles/ck1wv1j0xgywo?at_medium=RSS&at_campaign=rss"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "Guardian World",
+   "cat": "geopolitica",
+   "title": "Fossilised red blood cells found in 115m-year-old dinosaur’s bone, say scientists",
+   "summary": "Chemical tests on Aratasaurus bone identify presence of heme, the organic compound that allows haemoglobin in blood to carry oxygen around body It could be the opening of a Jurassic Park rip-off: scientists examining anc",
+   "url": "https://www.theguardian.com/science/2026/nov/02/fossilised-red-blood-cells-aratasaurus-dinosaurs-bone"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "‘Sharper, longer slowdown’ predicted for Australian economy as fifth interest rate hike looms",
+   "summary": "Australia’s central bank expected to hit mortgage holders again on Tuesday, as war in Middle East combines with collapsing house prices Get our breaking news email , free app or daily news podcast Australia’s economy is ",
+   "url": "https://www.theguardian.com/australia-news/2026/nov/02/australia-economy-fifth-interest-rate-hike-looms"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "The RBA may be about to hike interest rates. Use our loan calculator to check how it may affect you",
+   "summary": "Reserve Bank of Australia expected to announce fifth hike this year, adding to the cost of monthly mortgage repayments Get our breaking news email , free app or daily news podcast RBA interest rates live updates: Reserve",
+   "url": "https://www.theguardian.com/australia-news/2026/may/04/interest-rates-rba-rate-hike-mortgage-calculator"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "CNBC Economy",
+   "cat": "economia",
+   "title": "South Korea targets 'world's highest performance' sovereign AI model in record new budget",
+   "summary": "The 2027 budget will rise 12.8% to 820.9 trillion won, and will include a 21.3 trillion won investment into semiconductors, physical AI and AI data centers.",
+   "url": "https://www.cnbc.com/2026/11/02/south-korea-ai-spending-budget.html"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "CNBC Markets",
+   "cat": "mercati",
+   "title": "Palantir reports booming U.S. commercial revenue growth, topping government for first time",
+   "summary": "Palantir's commercial revenue jumped 148% to $984 million, surpassing government revenue of $953 million.",
+   "url": "https://www.cnbc.com/2026/11/02/palantir-pltr-earnings-q3-2026.html"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "CNBC Markets",
+   "cat": "mercati",
+   "title": "Ryanair CEO warns fares could rise by up to 20% next year",
+   "summary": "Ryanair's CEO Michael O'Leary told CNBC that European airlines may have \"significantly higher airfares\" of up to 20% next year as fuel costs rise.",
+   "url": "https://www.cnbc.com/2026/11/02/ryanair-h1-earnings-iran-war-fuel-costs.html"
+  },
+  {
+   "date": "2026-11-02",
+   "source": "ECB press",
+   "cat": "banche centrali",
+   "title": "Boris Vujčić: Integrated, open and resilient: Europe’s strengths in a fragmenting world",
+   "summary": "",
+   "url": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp.261102~70003226e9.en.html"
+  },
+  {
+   "date": "2026-11-01",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "Is the government really on an ‘out-of-control’ spending splurge? It’s complicated",
+   "summary": "Defence, the NDIS and health responsible for much of increased government outlays and treasurer Jim Chalmers has few levers to pull Get our daily political email , free app or daily news podcast “Will the prime minister ",
+   "url": "https://www.theguardian.com/business/2026/nov/01/is-the-government-really-on-an-out-of-control-spending-splurge-its-complicated"
+  },
+  {
+   "date": "2026-11-01",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "How Rachel Reeves has mapped out the economic agenda for Andy Burnham’s government",
+   "summary": "On Brexit, devolution and investment, the former chancellor is eerily in tune with the man who sacked her Reeves says UK’s future is in the EU Which senior politician has argued that “Brexit did deep damage” and that the",
+   "url": "https://www.theguardian.com/politics/2026/nov/01/how-reeves-has-mapped-out-the-agenda-for-burnhams-government"
+  },
+  {
+   "date": "2026-11-01",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "The measure slipped into UK budget that could protect spending on children, youth and rough sleeping | Heather Stewart",
+   "summary": "PDEL, which will ringfence money for preventive policies, marks a welcome and potentially consequential addition John Healey’s debut budget was far from a blockbuster, but it may come to be remembered for the birth of a ",
+   "url": "https://www.theguardian.com/business/2026/nov/01/pdel-preventative-departmental-expenditure-limit-"
+  },
+  {
+   "date": "2026-11-01",
+   "source": "Guardian Economy",
+   "cat": "economia",
+   "title": "The US-China trade war seems to have subsided – but the sense of calm is misleading",
+   "summary": "A truce has cooled the trade conflict, but neither country has done anything to limit the outbreak of new hostilities Donald Trump ’s trade wars have largely fallen off the headlines. Fears of new tariffs flare up from t",
+   "url": "https://www.theguardian.com/world/2026/nov/01/us-china-trade-war-trump-xi"
+  },
+  {
+   "date": "2026-10-31",
+   "source": "CNBC Markets",
+   "cat": "mercati",
+   "title": "Stocks started the week with promise but ended in despair. Our take on the big reversal",
+   "summary": "Big Tech earnings reignited AI spending fears, sending investors into defensive stocks.",
+   "url": "https://www.cnbc.com/investingclub/2026/10/31/stocks-started-the-week-with-promise-but-ended-in-despair.html"
+  },
+  {
+   "date": "2026-10-31",
+   "source": "CNBC Markets",
+   "cat": "mercati",
+   "title": "Anthropic's path to the Nasdaq just got a lot bumpier",
+   "summary": "Concerning projections from hyperscalers this week punished tech stocks and pushed the Nasdaq to its first three-week losing streak since March.",
+   "url": "https://www.cnbc.com/2026/10/31/anthropic-ipo-ai-spending.html"
+  },
+  {
+   "date": "2026-10-30",
+   "source": "Guardian World",
+   "cat": "geopolitica",
+   "title": "Sinkholes, scarred land and scapegoats: the scourge of illegal gold mining in Johannesburg",
+   "summary": "There is no end in sight for the drivers of illegal mining, while police action appears ineffective Cora Bailey has been encountering illegal miners ever since she first started treating injured animals in the townships ",
+   "url": "https://www.theguardian.com/business/2026/oct/30/sinkholes-scarred-land-scapegoats-illegal-gold-mining-johannesburg"
+  },
+  {
+   "date": "2026-10-30",
+   "source": "Guardian World",
+   "cat": "geopolitica",
+   "title": "Sudanese diaspora and human rights groups denounce UAE nominee for UN top job",
+   "summary": "Critics cite Lana Nusseibeh’s denial of accusations the UAE is fuelling Sudan war by supporting paramilitary RSF Members of the Sudanese diaspora and international human rights monitors have denounced the candidature of ",
+   "url": "https://www.theguardian.com/world/2026/oct/30/sudanese-diaspora-human-rights-groups-denounce-uae-nominee-un-top-job"
+  },
+  {
+   "date": "2026-10-30",
+   "source": "CNBC Economy",
+   "cat": "economia",
+   "title": "Euro zone economy slows to 0.4% growth in Q3 as crisis-hit France contracts",
+   "summary": "The euro zone showed surprising resilience, but weak productivity, industrial competitiveness challenges and demographic pressures remain, analysts said.",
+   "url": "https://www.cnbc.com/2026/10/30/euro-zone-gdp-france.html"
+  }
+ ]
+}
