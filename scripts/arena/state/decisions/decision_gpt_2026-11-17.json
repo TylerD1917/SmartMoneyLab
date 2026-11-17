@@ -1,0 +1,23 @@
+{
+ "rationale": "Confermo senza cambi la strategia di lungo periodo: qualità e valore, ampia liquidità remunerata e copertura selettiva. Treasury decennale al 5,12%, VIX a 22,9 e nuove restrizioni sui chip consigliano prudenza, evitando duration e tecnologia speculativa. USFR resta un’ancora stabile; BRK-B, IWD, CB e ACN mantengono esposizione a qualità e valore. SHEL offre protezione dalle tensioni nello Stretto di Hormuz, mentre GOOGL resta conveniente a 15,4 volte gli utili nonostante la debolezza recente. Lo short TSLA continua a coprire il rischio azionario data la valutazione estrema. Gli scostamenti dai pesi obiettivo sono modesti e non giustificano costi di riequilibrio.",
+ "orders": [],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  },
+  "ri_domanda": false,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  }
+ },
+ "as_of": "2026-11-17",
+ "model": "gpt"
+}

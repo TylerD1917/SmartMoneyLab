@@ -1,0 +1,88 @@
+{
+ "rationale": "Manteniamo la strategia barbell ma apportiamo una modifica cruciale: chiudiamo NVDA in via definitiva. L'estromissione del CEO Jensen Huang e i nuovi blocchi all'export USA per i chip AI alterano strutturalmente il quadro fondamentale, motivando il cambio di rotta rispetto al passato. Riallochiamo il capitale per potenziare LLY, la cui forza relativa nell'healthcare è superiore, AVGO come proxy tech più solida, e LMT per presidiare i crescenti rischi geopolitici. Effettuiamo ritocchi marginali sugli altri pilastri (XOM, MSFT, META, JPM) per bilanciare i pesi attorno ai nuovi target. BRK-B e GLD restano in portafoglio senza modifiche.",
+ "orders": [
+  {
+   "ticker": "NVDA",
+   "action": "close",
+   "side": "short",
+   "attesa": "ribasso",
+   "target_weight": 0,
+   "thesis": "Il caos manageriale per l'uscita del CEO e le restrizioni all'export compromettono il vantaggio competitivo. Chiudiamo la posizione prevedendo un forte ribasso."
+  },
+  {
+   "ticker": "LLY",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.13,
+   "thesis": "Il mercato premia i farmaci GLP-1 rispetto alle incertezze dell'AI. Incrementiamo il peso per cavalcare questo solido trend di rialzo."
+  },
+  {
+   "ticker": "LMT",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.12,
+   "thesis": "Le crescenti tensioni e i conflitti in Medio Oriente rafforzano la necessità di spesa militare. Atteso rialzo per il settore difesa."
+  },
+  {
+   "ticker": "AVGO",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.12,
+   "thesis": "Offre un'esposizione ai semiconduttori più diversificata e meno volatile. Ottima alternativa tech con solide prospettive di rialzo."
+  },
+  {
+   "ticker": "MSFT",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.11,
+   "thesis": "Conferma la sua leadership strutturale nel cloud e nell'integrazione AI commerciale. Aumentiamo marginalmente puntando a un rialzo continuo."
+  },
+  {
+   "ticker": "META",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.11,
+   "thesis": "I fondamentali pubblicitari e i margini elevati sostengono le proiezioni di crescita. Manteniamo una forte view di rialzo."
+  },
+  {
+   "ticker": "XOM",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "Riportiamo il peso al target strategico per fungere da scudo contro possibili shock energetici. Prospettiva di rialzo intatta."
+  },
+  {
+   "ticker": "JPM",
+   "action": "trim",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.1,
+   "thesis": "I fondamentali restano eccellenti nonostante i recenti outage tecnici. Riduciamo di poco per puro ribilanciamento, mantenendo attese di rialzo."
+  }
+ ],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  },
+  "ri_domanda": false,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  }
+ },
+ "as_of": "2026-11-17",
+ "model": "gemini"
+}

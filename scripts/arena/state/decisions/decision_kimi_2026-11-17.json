@@ -1,0 +1,56 @@
+{
+ "rationale": "Coerente col regime di tightening: 10Y al 5,12% in salita, VIX +15%, dollaro forte. La crisi Nvidia/Huang e i nuovi curb export sui chip AI confermano la tesi del de-rating tech, ma con earnings NVDA imminenti e la campagna 'Bring Jensen Back' il rischio evento e' alto: realizzo parte dello short SMH (+13%). Cambio esplicito: chiudo lo short EWQ, la crisi del debito francese non si e' materializzata e l'Europa tiene meglio degli USA; taglio la gamba perdente. Ripristino parzialmente lo short duration: rendimenti in salita, Fed higher-for-longer. Aumento FHLC: la rotazione sanita'/GLP-1 batte l'AI. Mantengo FENY/DBC (rischio Hormuz come tail rialzista sull'energia) e USFR; resto difensivo con VIX in crescita.",
+ "orders": [
+  {
+   "ticker": "SMH",
+   "action": "trim",
+   "side": "short",
+   "attesa": "ribasso",
+   "target_weight": 0.06,
+   "thesis": "Crisi di governance Nvidia, nuovi curb export sui chip AI e crollo di INTC/MRVL confermano il de-rating dei semiconduttori; ma con earnings NVDA e possibile ritorno di Huang come catalizzatori binari, realizzo parte del profitto (+13% dal carico) mantenendo uno short core."
+  },
+  {
+   "ticker": "EWQ",
+   "action": "close",
+   "side": "short",
+   "attesa": "ribasso",
+   "target_weight": 0.0,
+   "thesis": "Chiudo la gamba perdente: la crisi del debito francese attesa a ottobre non si e' materializzata e l'Europa (STOXX50 +0,9% settimanale) resiste meglio di Wall Street. Disciplina: il catalyst non e' arrivato, il momentum e' avverso."
+  },
+  {
+   "ticker": "VGLT",
+   "action": "increase",
+   "side": "short",
+   "attesa": "ribasso",
+   "target_weight": 0.07,
+   "thesis": "Il 10Y risale al 5,12% (+5bp) e la Fed di Warsh non accenna a tagli: higher-for-longer intatto. Ripristino parte dello short duration ridotto il 3/11, restando sotto il peso iniziale per il rischio flight-to-quality in un tape risk-off."
+  },
+  {
+   "ticker": "FHLC",
+   "action": "increase",
+   "side": "long",
+   "attesa": "rialzo",
+   "target_weight": 0.15,
+   "thesis": "La rotazione da AI a sanita' e' il tema dominante ('Lilly sta battendo Nvidia'): GLP-1 e managed care offrono crescita difensiva con momentum (+8,8% 3m). Rafforzo la posizione in profitto, in linea con l'aumento di inizio novembre."
+  }
+ ],
+ "coherence": {
+  "prima": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  },
+  "ri_domanda": false,
+  "dopo": {
+   "as_of": null,
+   "model": null,
+   "severity": "clean",
+   "n_flags": 0,
+   "flags": []
+  }
+ },
+ "as_of": "2026-11-17",
+ "model": "kimi"
+}

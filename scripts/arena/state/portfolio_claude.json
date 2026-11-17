@@ -84,6 +84,15 @@
    "borrow_fee": 0.0,
    "nav": 97330.31,
    "log": []
+  },
+  {
+   "date": "2026-11-17",
+   "action": "settle",
+   "ok": true,
+   "n_orders": 0,
+   "borrow_fee": 0.0,
+   "nav": 97226.66,
+   "log": []
   }
  ],
  "created": "2026-09-17"
