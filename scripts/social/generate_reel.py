@@ -168,6 +168,17 @@ def _pchip_upsample(y, n_out):
     Hermite MONOTONA (Fritsch-Carlson): curve morbide 'chart-race' senza picchi
     artificiali fra i punti (niente overshoot su dati finanziari)."""
     y = np.asarray(y, dtype=float)
+    validi = np.flatnonzero(~np.isnan(y))
+    if len(validi) == 0:
+        return np.full(max(n_out, len(y)), np.nan)
+    # Coda di NaN (serie che finisce prima): interpolo solo il tratto valido
+    # e lascio NaN dopo, cosi' la curva si ferma dove finiscono i dati.
+    ultimo = int(validi[-1])
+    if ultimo < len(y) - 1:
+        quota = ultimo / (len(y) - 1)
+        n_val = max(int(round(n_out * quota)) + 1, 2)
+        testa = _pchip_upsample(y[: ultimo + 1], n_val)
+        return np.concatenate([testa, np.full(n_out - len(testa), np.nan)])[:n_out]
     n = len(y)
     if n < 3 or n_out <= n:
         return np.interp(np.linspace(0, n - 1, max(n_out, n)), np.arange(n), y)
@@ -270,7 +281,10 @@ def generate_reel(
 
     # ---- Carico il CSV ---- #
     df = pd.read_csv(csv_path, parse_dates=[0], index_col=0)
-    df = df[columns].dropna()
+    # dropna(how="all") e non how="any": una serie puo' finire prima delle
+    # altre (una coorte che esaurisce il capitale, un concorrente che esce).
+    # In quel caso la curva si interrompe invece di troncare tutto il reel.
+    df = df[columns].dropna(how="all")
     if len(df) == 0:
         raise ValueError("CSV vuoto dopo dropna sulle colonne richieste")
 
@@ -346,7 +360,10 @@ def generate_reel(
     ax.set_xlim(df.index[0], df.index[-1])
     # Margini Y piu' ampi (era 0.7/1.4, ora 0.55/1.8) per dare aria
     # alle etichette finali in alto e al pavimento in basso.
-    if percentage:
+    # Non solo in modalita' percentuale: anche una serie in euro su scala
+    # lineare puo' andare sotto zero (una differenza fra due strategie), e
+    # il ramo moltiplicativo la taglierebbe via azzerando il minimo.
+    if not log_scale:
         # Range simmetrico attorno a 0; gestisce valori negativi.
         _lo = float(df[columns].min().min())
         _hi = float(df[columns].max().max())
@@ -438,6 +455,10 @@ def generate_reel(
     # posizione della punta della curva fra due punti consecutivi.
     x_num = mdates.date2num(df.index.to_pydatetime())
     y_cols = {col: df[col].values.astype(float) for col in columns}
+    # Ultimo punto valido di ogni serie: dopo quello la curva si ferma
+    # invece di inseguire la testa su valori inesistenti.
+    ultimi_validi = {c: int(np.flatnonzero(~np.isnan(v))[-1])
+                     for c, v in y_cols.items() if np.any(~np.isnan(v))}
     t0 = pd.Timestamp(df.index[0])
 
     def _ease(p: float) -> float:
@@ -474,14 +495,23 @@ def generate_reel(
                 x_head = x_num[i0] + (x_num[i0 + 1] - x_num[i0]) * frac
             for i, col in enumerate(columns):
                 yv = y_cols[col]
-                xs = np.append(x_num[: i0 + 1], x_head)
-                y_head = yv[i0]
-                if frac > 0 and i0 < n_points - 1:
-                    y_head = yv[i0] + (yv[i0 + 1] - yv[i0]) * frac
-                ys = np.append(yv[: i0 + 1], y_head)
+                fine = ultimi_validi[col]
+                if i0 >= fine:
+                    # La serie e' gia' finita: congelo testa, pallino ed
+                    # etichetta sull'ultimo valore disponibile.
+                    xs = x_num[: fine + 1]
+                    ys = yv[: fine + 1]
+                    x_t, y_head = x_num[fine], yv[fine]
+                else:
+                    xs = np.append(x_num[: i0 + 1], x_head)
+                    y_head = yv[i0]
+                    if frac > 0 and i0 < n_points - 1:
+                        y_head = yv[i0] + (yv[i0 + 1] - yv[i0]) * frac
+                    ys = np.append(yv[: i0 + 1], y_head)
+                    x_t = x_head
                 lines[i].set_data(xs, ys)
-                teste.append((x_head, y_head))
-                dots[i].set_data([x_head], [y_head])
+                teste.append((x_t, y_head))
+                dots[i].set_data([x_t], [y_head])
             head_ts = pd.Timestamp(mdates.num2date(x_head)).tz_localize(None)
         else:
             k = max(1, min(n_points, int(p * n_points))) if p < 1 else n_points
@@ -489,6 +519,9 @@ def generate_reel(
             for i, col in enumerate(columns):
                 y = df[col].values[:k]
                 lines[i].set_data(x, y)
+                buoni = np.flatnonzero(~np.isnan(y))
+                if len(buoni):
+                    j = int(buoni[-1]); x, y = x[: j + 1], y[: j + 1]
                 # Etichetta al punto finale
                 if len(y) > 0:
                     teste.append((mdates.date2num(x[-1]), float(y[-1])))
@@ -571,6 +604,17 @@ def generate_reel(
 # -------------------------------------------------------------------- #
 # CLI                                                                  #
 # -------------------------------------------------------------------- #
+def _split_lista(raw: str) -> list[str]:
+    """Separa una lista da riga di comando.
+
+    Default: la virgola. Se la stringa contiene una barra verticale si usa
+    quella, cosi' le etichette italiane con la virgola decimale ("leva 1,40")
+    non vengono spezzate a meta'.
+    """
+    sep = "|" if "|" in raw else ","
+    return [x.strip() for x in raw.split(sep)]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -644,12 +688,12 @@ def main():
     generate_reel(
         csv_path=args.csv,
         out_path=out_path,
-        columns=args.columns.split(","),
-        labels=args.labels.split(","),
+        columns=_split_lista(args.columns),
+        labels=_split_lista(args.labels),
         title=args.title,
         subtitle=args.subtitle,
         title_color=args.title_color or None,
-        colors=args.colors.split(",") if args.colors else None,
+        colors=_split_lista(args.colors) if args.colors else None,
         duration_seconds=args.duration,
         log_scale=not args.no_log,
         from_returns=args.from_returns,

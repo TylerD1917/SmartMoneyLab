@@ -1,0 +1,116 @@
+{
+  "slug": "qual-e-il-livello-di-leva-piu-efficiente",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "Quanta leva",
+        "conviene davvero?"
+      ],
+      "accent_lines": [
+        1
+      ],
+      "subtitle": "Nove gradazioni fra l'ETF normale e il 2x, su 51 anni e tre indici. La risposta dipende da una cosa sola, e non e' il livello."
+    },
+    {
+      "type": "bullets",
+      "title": "Il problema",
+      "bullets": [
+        "Gli ETF a leva esistono solo a 2x e 3x. Una leva 1,40 non la vendono.",
+        "Ma puoi costruirtela: 40% in un 2x e 60% in uno normale fa 1,40 il primo giorno.",
+        "Domanda: esiste un livello che conviene, o si paga sempre?"
+      ]
+    },
+    {
+      "type": "number",
+      "kicker": "Un mix comprato a leva 1,50 e mai piu' toccato, dopo 51 anni:",
+      "number": "1,82",
+      "note": "la leva sale da sola, perche' il 2x cresce di piu'",
+      "box": [
+        "La leva che compri",
+        "non e' quella che tieni."
+      ],
+      "box_accent": [
+        1
+      ]
+    },
+    {
+      "type": "compare",
+      "kicker": "Stesso mix lasciato stare, leva effettiva:",
+      "left": {
+        "num": "1,77",
+        "label": "23 marzo 2000"
+      },
+      "right": {
+        "num": "1,43",
+        "label": "9 marzo 2009"
+      },
+      "punch": [
+        "Massima esposizione",
+        "sul massimo di mercato.",
+        "Minima sul minimo."
+      ],
+      "punch_accent": [
+        1
+      ]
+    },
+    {
+      "type": "chart",
+      "title": "A dieci anni la leva non aiuta mai",
+      "chart": "public/charts/qual-e-il-livello-di-leva-piu-efficiente/13_p5_per_orizzonte.png",
+      "caption": "Rendimento annuo del 5% di ingressi piu' sfortunati. A dieci anni il massimo e' sempre senza leva."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Rendimento annuo del 5% di ingressi piu' sfortunati, S&P 500 a dieci anni:",
+      "number": "-4,4%",
+      "note": "a leva 2,00, contro +1,8% senza leva",
+      "box": [
+        "Sotto i dieci anni",
+        "la leva compra",
+        "solo la coda cattiva."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "ranking",
+      "kicker": "A vent'anni si ribalta. Leva che massimizza il 5% peggiore:",
+      "title": "Quanta leva regge ogni indice",
+      "rows": [
+        {
+          "pos": "1",
+          "name": "S&P 500",
+          "tag": "volatilita' 17,3%",
+          "value": "1,40",
+          "accent": true
+        },
+        {
+          "pos": "2",
+          "name": "Nasdaq",
+          "tag": "volatilita' 20,6%",
+          "value": "1,25"
+        },
+        {
+          "pos": "3",
+          "name": "MSCI World",
+          "tag": "rende meno, margine sottile",
+          "value": "1,10"
+        }
+      ],
+      "note": "Piu' l'indice balla rispetto a quanto rende, meno leva tollera."
+    },
+    {
+      "type": "cta",
+      "title": "Quanta leva, per quanti anni",
+      "bullets": [
+        "Sotto i dieci anni nessun livello migliora lo scenario sfortunato.",
+        "Oltre i venti la zona utile e' 1,10-1,40, mai il 2x.",
+        "Analisi completa, dati e script Python sul blog."
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab"
+    }
+  ]
+}
