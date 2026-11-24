@@ -113,8 +113,13 @@ def call_model(provider, model, key, system, user):
     if provider == "anthropic":
         d = _post("https://api.anthropic.com/v1/messages",
                   {"x-api-key": key, "anthropic-version": "2023-06-01", "Content-Type": "application/json"},
-                  {"model": model, "max_tokens": 3000, "system": system,
+                  {"model": model, "max_tokens": 16000, "system": system,
                    "messages": [{"role": "user", "content": user}]})
+        # 2026-11-17: con max_tokens 3000 la ri-domanda di coerenza di Claude e' stata troncata a
+        # meta' JSON (il ragionamento consuma budget) -> parse error -> periodo perso. Ora il tetto
+        # e' alto e un troncamento viene segnalato nel log invece di passare in silenzio.
+        if d.get("stop_reason") == "max_tokens":
+            print(f"[agent] ATTENZIONE: risposta {model} troncata (stop_reason=max_tokens)")
         return "".join(b.get("text", "") for b in d.get("content", []) if isinstance(b, dict))
     if provider == "google":
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
@@ -142,7 +147,7 @@ def parse_decision(text):
             return d
         except Exception:
             pass
-    return {"rationale": "(parse error)", "orders": [], "_raw": text[:2000]}
+    return {"rationale": "(parse error)", "orders": [], "_raw": text[:2000], "_parse_error": True}
 
 # ---------------- main ----------------
 def run(cfg):
@@ -165,6 +170,13 @@ def run(cfg):
             try:
                 raw = call_model(m["provider"], m["model"], key, SYSTEM, user)
                 decision = parse_decision(raw)
+                if decision.get("_parse_error"):
+                    # risposta illeggibile (tipicamente troncata): stesso prompt, una sola volta
+                    print(f"[agent] {mid}: risposta non leggibile, ripeto la richiesta una volta")
+                    raw_b = call_model(m["provider"], m["model"], key, SYSTEM, user)
+                    d_b = parse_decision(raw_b)
+                    if not d_b.get("_parse_error"):
+                        decision, raw = d_b, raw_b
             except Exception as e:
                 decision = {"rationale": f"(errore API: {e})", "orders": []}; raw = str(e)
 
@@ -182,9 +194,14 @@ def run(cfg):
                                       user + "\n\nLA TUA RISPOSTA PRECEDENTE:\n" + str(raw) +
                                       "\n\n" + sfida)
                     d2 = parse_decision(raw2)
-                    if d2.get("orders") or str(d2.get("rationale", "")).strip():
+                    # una ri-domanda illeggibile non deve cancellare una prima decisione valida
+                    # (e' quello che e' successo a Claude il 2026-11-17)
+                    if d2.get("_parse_error"):
+                        rilancio = {"chiesto": sfida, "raw": raw2, "prima_raw": raw,
+                                    "nota": "risposta illeggibile, tengo la prima"}
+                    elif d2.get("orders") or str(d2.get("rationale", "")).strip():
+                        rilancio = {"chiesto": sfida, "raw": raw2, "prima_raw": raw}
                         decision, raw = d2, raw2
-                        rilancio = {"chiesto": sfida, "raw": raw2}
                     else:
                         rilancio = {"chiesto": sfida, "raw": raw2, "nota": "risposta vuota, tengo la prima"}
                 except Exception as e:
