@@ -165,11 +165,18 @@ export default function AiArena() {
                 <span className="text-xs text-slate-400">{m.prov}</span>
               </div>
 
-              {bad ? (
-                <p className="mt-3 rounded-lg bg-slate-50 p-3 text-sm text-slate-500">In attesa di una decisione valida per questo periodo.</p>
-              ) : (
-                <>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold text-slate-500">Tesi del periodo — </span>{dec.rationale}</p>
+              {/* Una decisione non valida (errore tecnico, risposta troncata) non svuota il
+                  portafoglio: le posizioni restano quelle della decisione precedente e si
+                  continuano a mostrare, con una nota al posto della tesi. */}
+              <>
+                  {bad ? (
+                    <p className="mt-3 rounded-lg bg-slate-50 p-3 text-sm text-slate-500">
+                      In questo periodo il modello non ha prodotto una decisione valida per un errore tecnico:
+                      il portafoglio è rimasto invariato rispetto alla decisione precedente.
+                    </p>
+                  ) : (
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold text-slate-500">Tesi del periodo — </span>{dec.rationale}</p>
+                  )}
 
                   {pos && pos.positions?.length > 0 && (
                     <div className="mt-3 overflow-x-auto">
@@ -227,8 +234,7 @@ export default function AiArena() {
                       )}
                     </details>
                   )}
-                </>
-              )}
+              </>
             </div>
           );
         })}
