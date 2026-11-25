@@ -38,8 +38,8 @@ Il 60/40 è stato per decenni il portafoglio "di default" di consulenti e manual
 In un [articolo di aprile](/posts/ha-senso-obbligazioni-portafoglio) avevo già affrontato il tema con 25 anni di dati americani. Questo pezzo lo supera su quattro fronti: **55 anni invece di 25**, **tutto in euro** come lo vive un investitore italiano, **finestre di 20 anni** oltre a quelle di 5 e 10, e **metriche corrette per il rischio** (Sharpe e Sortino) invece del solo rendimento. Le domande sono tre:
 
 1. Quanto rende, in media e negli scenari sfortunati, un portafoglio misto azioni e obbligazioni?
-2. Su base corretta per il rischio, il 60/40 e l'80/20 sono ancora validi rispetto al 100% azionario?
-3. Che obbligazioni dovrebbe usare un italiano?
+2. Corretti per il rischio, il 60/40 e l'80/20 sono ancora validi rispetto al 100% azionario?
+3. Che ETF obbligazionari dovrebbe usare un italiano?
 
 ## Il metodo
 
@@ -52,7 +52,7 @@ In un [articolo di aprile](/posts/ha-senso-obbligazioni-portafoglio) avevo già 
 | USA in dollari | S&P 500 | Treasury USA 7-10 anni, senza copertura del cambio | 1971 |
 | USA coperta | S&P 500 | Treasury USA 7-10 anni, coperti dal cambio | 1971 |
 
-Le coppie euro e Italia si confrontano con il 100% MSCI World, quelle americane con il 100% S&P 500 (e, per completezza, anche con il World).
+Le coppie Euro e Italia si confrontano con il 100% MSCI World, quelle americane con il 100% S&P 500 (e, per completezza, anche con il World).
 
 **Le obbligazioni.** Gli ETF obbligazionari esistono da una ventina d'anni, troppo pochi per un test su mezzo secolo. Uso quindi gli indici a duration costante che avevo ricostruito nell'[articolo sul rendimento degli ETF obbligazionari](/posts/quanto-rendono-etf-obbligazionari): simulano un ETF che tiene ferma la scadenza media a 8,5 anni, ricomprando ogni mese titoli nuovi con i rendimenti di mercato. Sono l'equivalente sintetico di prodotti che oggi si comprano davvero, come l'iShares Euro Government Bond 7-10yr o l'Amundi Italy BTP Government Bond 10Y, ma senza i loro costi.
 
@@ -60,9 +60,9 @@ Le coppie euro e Italia si confrontano con il 100% MSCI World, quelle americane 
 
 **Il Treasury coperto.** Un ETF "EUR hedged" rinnova ogni mese un contratto a termine sul cambio: elimina le oscillazioni euro-dollaro ma incassa o paga la differenza fra i tassi a breve dei due paesi. L'ho modellato esattamente così: rendimento in dollari più la differenza fra tasso interbancario a 3 mesi tedesco e americano.
 
-**Ribilanciamento.** Ogni misto esiste in due versioni: **buy & hold** (compro 60/40 e non tocco più nulla, i pesi derivano con i mercati) e **ribilanciato ogni 12 mesi**, riportando i pesi a quelli di partenza. Senza ribilanciamento, dopo vent'anni di buon mercato azionario un 60/40 diventa di fatto un 80/20.
+**Ribilanciamento.** Ogni portafoglio mix stoks / bonds esiste in due versioni: **buy & hold** (compro 60/40 e non tocco più nulla, i pesi derivano con i mercati) e **ribilanciato ogni 12 mesi**, riportando i pesi a quelli di partenza. Senza ribilanciamento, dopo vent'anni di buon mercato azionario un 60/40 diventa di fatto un 80/20.
 
-**Finestre mobili.** Per ogni portafoglio calcolo tutte le finestre di 5, 10 e 20 anni con partenze ogni tre mesi: 201 finestre a 5 anni, 181 a 10, 141 a 20 (meno per i BTP, che partono nel 1980). Per ognuna misuro rendimento annuo composto, volatilità, perdita massima dal picco, indice di Sharpe e di Sortino. Sharpe e Sortino sono calcolati sul rendimento in eccesso rispetto al tasso a 3 mesi tedesco, che dal 1999 coincide di fatto con l'Euribor: in 55 anni ha reso il 4,07% annuo, e un portafoglio rischioso deve essere giudicato su quanto fa meglio di quel minimo.
+**Finestre mobili.** Per ogni portafoglio calcolo tutte le finestre di 5, 10 e 20 anni con partenze ogni tre mesi: 201 finestre a 5 anni, 181 a 10, 141 a 20 (meno per i BTP, che partono nel 1980). Per ognuna misuro rendimento annuo composto, volatilità, max drowdown, indice di Sharpe e di Sortino. Sharpe e Sortino sono calcolati sul rendimento in eccesso rispetto al tasso a 3 mesi tedesco, che dal 1999 coincide di fatto con l'Euribor: in 55 anni ha reso il 4,07% annuo, e un portafoglio rischioso deve essere giudicato su quanto fa meglio di quel minimo.
 
 Prima di arrivare ai portafogli, il punto di partenza: le singole gambe, dal 1971 al 2025.
 
@@ -91,7 +91,7 @@ Sull'intero periodo, un euro investito nel gennaio 1971 è diventato 88 euro nel
 | 60/40 S&P + Treasury in dollari | 8,72% | 12,1% | −39,3% | 0,42 | 0,62 |
 | 60/40 S&P + Treasury coperto | 8,99% | 10,3% | −32,0% | 0,50 | 0,75 |
 
-Il 60/40 euro cede un decimo di punto di rendimento annuo e in cambio taglia la volatilità di oltre un terzo e la perdita massima di 23 punti. Lo Sharpe, che misura quanto rendimento in più si ottiene per ogni unità di rischio, sale di un terzo. Il Sortino, che penalizza solo le oscillazioni verso il basso, sale ancora di più: da 0,50 a 0,71. In due delle crisi peggiori del periodo il 60/40 ha perso meno della metà dell'azionario: −20,9% contro −44,6% fra il 2000 e il 2002, −19,1% contro −37,3% nel 2008, l'anno in cui i titoli di Stato dell'area euro hanno guadagnato l'8,1%.
+Il 60/40 Euro cede un decimo di punto di rendimento annuo e in cambio taglia la volatilità di oltre un terzo e la perdita massima di 23 punti. Lo Sharpe, che misura quanto rendimento in più si ottiene per ogni unità di rischio, sale di un terzo. Il Sortino, che penalizza solo le oscillazioni verso il basso, sale ancora di più: da 0,50 a 0,71. In due delle crisi peggiori del periodo il 60/40 ha perso meno della metà dell'azionario: −20,9% contro −44,6% fra il 2000 e il 2002, −19,1% contro −37,3% nel 2008, l'anno in cui i titoli di Stato dell'area euro hanno guadagnato l'8,1%.
 
 L'80/20 sta in mezzo e sull'intero periodo ha reso addirittura un soffio più del World (8,52% contro 8,49%), con una perdita massima ridotta a −42,5%.
 
@@ -111,7 +111,7 @@ Un singolo periodo di 55 anni dice poco a chi investe per 10 o 20. Le finestre m
 | 60/40 S&P + Treasury in dollari | 10,51% | 0,62% | −1,28% | 3,9% |
 | 60/40 S&P + Treasury coperto | 10,27% | 2,33% | 0,14% | 0,0% |
 
-Il quadro è coerente: il 60/40 perde poco più di mezzo punto di rendimento mediano, ma **sposta verso l'alto tutta la parte sfortunata della distribuzione**. Il 5% peggiore dei decenni del 100% World chiude sotto −1,33% annuo, quello del 60/40 euro sopra +1,97%. Il peggior decennio possibile del 60/40 è stato un pareggio, quello del World una perdita del 4,31% all'anno, cioè circa un terzo del capitale in dieci anni.
+Il quadro è coerente: il 60/40 perde poco più di mezzo punto di rendimento mediano, ma **sposta verso l'alto tutta la coda sfortunata della distribuzione**. Il 5% peggiore dei decenni del 100% World chiude sotto −1,33% annuo, quello del 60/40 euro sopra +1,97%. Il peggior decennio possibile del 60/40 è stato un pareggio, quello del World una perdita del 4,31% all'anno, cioè circa un terzo del capitale in dieci anni.
 
 A cinque anni l'azionario puro chiude in perdita una volta su cinque (20,9% delle finestre del World), il 60/40 euro una volta su venti (5,5%). A vent'anni nessun portafoglio ha mai perso soldi, e la mediana del 60/40 ribilanciato (8,06%) supera quella del 100% World (7,95%).
 
@@ -131,7 +131,7 @@ Questa è la domanda centrale dell'articolo, e la risposta cambia molto secondo 
 
 Sul rendimento puro, il 60/40 euro batte il World poco più di una volta su due a dieci anni. Sul rendimento corretto per il rischio lo batte nove volte su dieci, e a vent'anni sempre. Il Sortino dà risultati praticamente identici (91% a dieci anni, 100% a venti).
 
-Il dato a vent'anni sul rendimento puro sorprende: in sette finestre su dieci il 60/40 ha reso *più* del 100% azionario. Non è una magia delle obbligazioni, è la combinazione di due cose. La prima sono i lunghi periodi in cui l'azionario globale è andato male, a partire dal decennio perso dopo il 2000. La seconda è il ribilanciamento, che vende le azioni quando sono salite e le ricompra quando sono scese.
+Il dato a vent'anni sul rendimento puro sorprende: in sette finestre su dieci il 60/40 ha reso *più* del 100% azionario. Non è una magia delle obbligazioni, è la combinazione di due cose. La prima sono i lunghi periodi in cui l'azionario globale è andato male, a partire dal decennio perso dopo il 2000. La seconda è il ribilanciamento, che per forza di cosa finisce per vendere le azioni quando sono salite e le ricompra quando sono scese.
 
 ## Il 60/40 o l'80/20?
 
@@ -145,11 +145,11 @@ Sul rendimento corretto per il rischio, a dieci anni l'80/20 batte il World nel 
 
 ## Ribilanciare o no?
 
-Il grafico precedente mostra anche l'effetto del ribilanciamento, ed è il risultato più netto di tutto il test. Nel 60/40 euro la quota di decenni con un crollo oltre il 30% scende dal 22% al 5% solo ribilanciando una volta l'anno. Con i BTP dal 16% a zero, con i Treasury coperti dal 14% al 5%.
+Il grafico precedente mostra anche l'effetto del ribilanciamento, ed è il risultato più netto di tutto il test, ha stupito anche me che da grande fan del Prof. Coletti sono poco incline al ribilanciamento. Nel 60/40 euro la quota di decenni con un crollo oltre il 30% scende dal 22% al 5% solo ribilanciando una volta l'anno. Con i BTP dal 16% a zero, con i Treasury coperti dal 14% al 5%.
 
 La ragione è meccanica. Senza ribilanciamento, dopo un lungo rialzo un 60/40 è diventato un 75/25 o un 80/20 proprio nel momento in cui arriva il crollo: si presenta alla discesa con più azioni di quante ne volesse. Ribilanciare tiene il rischio dove lo si era deciso.
 
-Sul rendimento l'effetto è piccolo e di segno variabile: sull'intero periodo il 60/40 euro ribilanciato fa l'8,39% contro l'8,04% in buy & hold, mentre nella coppia americana in dollari il buy & hold rende di più (9,24% contro 8,72%) perché lascia correre l'S&P. Ricordo che il ribilanciamento qui è gratuito: nella realtà vendere le azioni salite genera plusvalenze tassate al 26%, quindi il vantaggio va ridimensionato, soprattutto in un conto amministrato. Ribilanciare con i nuovi versamenti invece che vendendo riduce di molto questo costo.
+Sul rendimento l'effetto è piccolo e di segno variabile: sull'intero periodo il 60/40 euro ribilanciato fa l'8,39% contro l'8,04% in buy & hold, mentre nella coppia americana in dollari il buy & hold rende di più (9,24% contro 8,72%) perché lascia correre l'S&P. Ricordo che il ribilanciamento qui è gratuito: nella realtà vendere le azioni salite genera plusvalenze tassate al 26%, quindi il vantaggio va ridimensionato, soprattutto in un conto amministrato. Ribilanciare con i nuovi versamenti invece che vendendo riduce di molto questo costo. Vero è che ultimamente stanno uscendo ETF 60/40 in cui ribilanciamento lo fanno loro e tu non paghi nulla.
 
 ## Che obbligazioni usare: il caso dei Treasury in dollari
 
@@ -177,11 +177,11 @@ Tutto quanto sopra non spiega l'impressione comune, che è reale. Dipende da dov
 | 2000 | 5,71% | 5,30% | 5,60% | 0,35 | 0,45 |
 | 2010 | 12,11% | 8,34% | 10,25% | 0,93 | 0,95 |
 
-Chi ha iniziato a investire dopo il 2010 ha visto il 100% azionario rendere quasi quattro punti l'anno più del 60/40. È una differenza enorme, e nessun'altra partenza del campione la produce. Ma lo Sharpe di quei quindici anni è praticamente identico: il 60/40 non ha funzionato peggio, ha preso meno rischio in un periodo in cui il rischio è stato pagato molto bene. Nei quindici anni migliori della storia recente dell'azionario, chi teneva obbligazioni ha "perso" rendimento esattamente come previsto dalla teoria.
+Chi ha iniziato a investire dopo il 2010 ha visto il 100% azionario rendere quasi quattro punti l'anno più del 60/40. Si tratta chiaramente di differenza enorme, soprattutto composta, nessun'altra partenza del campione la produce. Tuttavia, lo Sharpe di quei quindici anni è praticamente identico: il 60/40 non ha funzionato peggio, ha preso meno rischio in un periodo in cui il rischio è stato pagato molto bene. Nei quindici anni migliori della storia recente dell'azionario, chi teneva obbligazioni ha "perso" rendimento esattamente come previsto dalla teoria.
 
 Il 2022 è l'altra metà dell'impressione. Quell'anno il 60/40 euro ha perso il 15,0%, più del 100% World (−13,1%), perché i titoli di Stato dell'area euro hanno perso il 17,9% nel pieno del rialzo dei tassi. La protezione non è garantita: la correlazione fra azioni e obbligazioni non è una costante e il grafico precedente lo mostra bene. Negli anni '70, '80 e '90, con l'inflazione alta, è stata quasi sempre positiva (0,24, 0,18 e 0,34 per decennio nella coppia euro). Nei due decenni successivi è stata negativa o nulla. Oggi, sugli ultimi tre anni, è risalita a 0,28.
 
-È il punto da tenere a mente guardando avanti. Il 60/40 ha funzionato su 55 anni che contengono **sia** i periodi di correlazione positiva **sia** quelli di correlazione negativa: il risultato dell'intero campione non dipende dal regime favorevole degli anni 2000. Ma nei regimi di inflazione alta le obbligazioni proteggono meno, e il vantaggio del 60/40 si riduce alla sola minore volatilità.
+Questo il punto vero del 60/40, da tenere a mente guardando avanti. Il 60/40 ha funzionato su 55 anni che contengono **sia** i periodi di correlazione positiva **sia** quelli di correlazione negativa: il risultato dell'intero campione non dipende dal regime favorevole degli anni 2000. Ma nei regimi di inflazione alta le obbligazioni proteggono meno, e il vantaggio del 60/40 si riduce alla sola minore volatilità.
 
 ## I limiti di questo studio
 
