@@ -9,6 +9,8 @@ simulationSlug: "ha-senso-obbligazioni-portafoglio"
 draft: false
 ---
 
+> **Aggiornamento, novembre 2026.** Ho rifatto questo studio con 55 anni di dati in euro, finestre fino a 20 anni, Sharpe e Sortino e il confronto fra obbligazioni europee, BTP e Treasury: lo trovi in [Il portafoglio 60/40 non è morto](/posts/portafoglio-60-40-funziona-ancora).
+
 ## In breve
 
 Su 25 anni di dati S&P 500 e Treasury 10Y (febbraio 2001 – dicembre 2025), costruisco tre portafogli **buy & hold** (100% azionario, 60% azioni / 40% obbligazioni, 40% azioni / 60% obbligazioni) e li confronto su tutte le finestre temporali a 5 e a 10 anni che si possono ritagliare nel periodo, non su un singolo arco scelto a posteriori. Tre risultati centrali emergono dai numeri:

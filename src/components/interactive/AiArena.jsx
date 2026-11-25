@@ -171,8 +171,7 @@ export default function AiArena() {
               <>
                   {bad ? (
                     <p className="mt-3 rounded-lg bg-slate-50 p-3 text-sm text-slate-500">
-                      In questo periodo il modello non ha prodotto una decisione valida per un errore tecnico:
-                      il portafoglio è rimasto invariato rispetto alla decisione precedente.
+                      Portafoglio invariato in questo periodo: restano le posizioni della decisione precedente.
                     </p>
                   ) : (
                     <p className="mt-2 text-sm leading-relaxed text-slate-700"><span className="font-semibold text-slate-500">Tesi del periodo — </span>{dec.rationale}</p>
