@@ -1,0 +1,98 @@
+{
+  "slug": "portafoglio-60-40-funziona-ancora",
+  "slides": [
+    {
+      "type": "cover",
+      "title": [
+        "Il 60/40 è morto?",
+        "I dati dicono di no"
+      ],
+      "accent_lines": [
+        1
+      ],
+      "subtitle": "55 anni di dati in euro, 1971-2025: azioni e obbligazioni contro il 100% azionario, finestra per finestra."
+    },
+    {
+      "type": "bullets",
+      "title": "Perché tutti lo danno per morto",
+      "bullets": [
+        "Dal 2010 l'azionario ha corso: ogni euro in obbligazioni è sembrato sprecato.",
+        "Nel 2022 azioni e obbligazioni sono scese insieme.",
+        "Ho rifatto i conti in euro, dal 1971, su tutti i periodi di 10 e 20 anni."
+      ]
+    },
+    {
+      "type": "compare",
+      "kicker": "1971-2025, rendimento annuo:",
+      "left": {
+        "num": "8,49%",
+        "label": "100% azioni (MSCI World)"
+      },
+      "right": {
+        "num": "8,39%",
+        "label": "60/40 con titoli di Stato euro"
+      },
+      "punch": [
+        "Quasi lo stesso rendimento.",
+        "Ma la batosta peggiore",
+        "è −33% invece di −56%."
+      ],
+      "punch_accent": [
+        2
+      ]
+    },
+    {
+      "type": "number",
+      "kicker": "Periodi di 10 anni chiusi in perdita, su 181:",
+      "number": "0",
+      "note": "per il 60/40, contro il 7% del 100% azionario",
+      "box": [
+        "Il suo decennio peggiore",
+        "è stato un pareggio."
+      ],
+      "box_accent": [
+        1
+      ]
+    },
+    {
+      "type": "chart",
+      "title": "Quante volte batte il 100% azionario",
+      "chart": "public/charts/portafoglio-60-40-ancora-valido/03_quante_volte_batte.png",
+      "caption": "Contando il rischio preso, il 60/40 vince 9 decenni su 10. Sui vent'anni, sempre."
+    },
+    {
+      "type": "number_light",
+      "kicker": "Decenni con un crollo oltre il 30%, nel 60/40 ribilanciato ogni anno:",
+      "number": "5%",
+      "note": "contro il 66% del 100% azionario",
+      "box": [
+        "Ribilanciare una volta",
+        "l'anno taglia",
+        "gli scenari peggiori."
+      ],
+      "box_accent": [
+        2
+      ]
+    },
+    {
+      "type": "bullets",
+      "title": "L'errore da non fare",
+      "bullets": [
+        "Treasury americani in dollari insieme all'S&P 500: per un europeo proteggono poco.",
+        "Azioni e obbligazioni americane portano lo stesso rischio: il dollaro.",
+        "Meglio obbligazioni in euro, oppure estere coperte dal cambio."
+      ]
+    },
+    {
+      "type": "cta",
+      "title": "Il 60/40 è vivo",
+      "bullets": [
+        "Non serve a battere le azioni: serve a non perdere un decennio.",
+        "Dal 2010 ha reso meno perché ha rischiato meno, non perché non funziona.",
+        "Analisi completa, dati e script Python sul blog."
+      ],
+      "button": "Link in bio →",
+      "handle": "@smartmoneylab"
+    }
+  ]
+}
